@@ -1,3 +1,4 @@
+# YOU THOUGHT COSPLAY IS ONLY FOR HUMAN??? HAHAHAHAHAHA
 # windows-11-cosplay-vue
 
 ## Build Setup
