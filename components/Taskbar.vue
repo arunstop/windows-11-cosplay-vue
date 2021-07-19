@@ -10,6 +10,7 @@
               class="mx-0"
               icon
               tile
+              @click.stop="$store.dispatch('toggleWindow', {id:app.id})"
             >
               <v-icon size="24px">
                 {{ app.icon }}
@@ -29,15 +30,6 @@
               </v-icon>
             </v-btn>
 
-            <v-btn
-              color="primary"
-              dark
-              @click.stop="$store.commit('toggleDialog')"
-            >
-              Open Dialog
-            </v-btn>
-            <Window/>
-
             <v-btn class="transparent" depressed tile>
               <span class="d-flex flex-column">
                 <span>{{ date.getHours() + ':' + date.getMinutes() }}</span>
@@ -54,6 +46,8 @@
         </v-row>
       </v-card>
     </v-footer>
+            <WindowList/>
+
   </v-card>
 </template>
 <script>

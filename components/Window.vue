@@ -1,21 +1,21 @@
 <template>
   <v-dialog
-    v-model="$store.state.dialog.show"
+    v-model="show"
     width="720px"
     hide-overlay
     scrollable
-    :fullscreen="$store.state.dialog.fullscreen"
+    :fullscreen="app.window.fullscreen"
   >
     <v-card class="rounded-lg">
       <v-card-title class="ma-0 pa-0">
         <v-row no-gutters align="center">
           <div class="me-auto px-2">
-            <span>Title</span>
+            <span>{{ app.title }}</span>
           </div>
           <div class="ms-auto">
             <v-btn
-              v-for="(wa, index) in windowActions"
-              :key="index"
+              v-for="(wa, waId) in windowActions"
+              :key="waId"
               class="mx-0"
               icon
               tile
@@ -154,38 +154,63 @@
 
 <script>
 export default {
-  
+  props: {
+    value: Boolean,
+    app: {
+      type: Object,
+      default: () => {
+        return {
+          window: {
+            show: true,
+            fullscreen: false,
+          },
+        }
+      },
+    },
+    // fullscreen: Boolean,
+  },
   data: () => ({
-      
+    //   window: this.$store.state.dialog
   }),
   computed: {
+    show: {
+      get() {
+        return this.value
+      },
+      set(value) {
+        this.$store.dispatch('toggleWindow', { id: this.app.id })
+      },
+    },
     windowActions() {
       return [
         {
           icon: 'mdi-window-minimize',
           label: 'Minimize',
           action: () => {
-            this.$store.commit('toggleDialog')
+            this.$store.dispatch('toggleWindow', { id: this.app.id })
           },
         },
         {
-          icon: this.$store.state.dialog.fullscreen
+          icon: this.app.window.fullscreen
             ? 'mdi-window-restore'
             : 'mdi-window-maximize',
-          label: this.$store.state.dialog.fullscreen ? 'Restore' : 'Maximize',
+          label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
           action: () => {
-            this.$store.commit('toggleFullScreen')
+            this.$store.dispatch('toggleFullscreen', { id: this.app.id })
           },
         },
         {
           icon: 'mdi-close-thick',
           label: 'Close',
           action: () => {
-            this.$store.commit('toggleDialog')
+            this.$store.dispatch('toggleWindow', { id: this.app.id })
           },
         },
       ]
     },
+  },
+  created() {
+    // console.log(this.app)
   },
 }
 </script>
