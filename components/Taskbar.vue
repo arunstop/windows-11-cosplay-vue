@@ -5,7 +5,7 @@
         <v-row no-gutters align="center" justify="center">
           <div class="mx-auto" style="position: absolute">
             <v-btn
-              v-for="(app, index) in apps"
+              v-for="(app, index) in $store.state.apps"
               :key="index"
               class="mx-0"
               icon
@@ -18,7 +18,7 @@
           </div>
           <div class="ms-auto">
             <v-btn
-              v-for="(tray, index) in trays"
+              v-for="(tray, index) in $store.state.trays"
               :key="index"
               class="mx-0"
               icon
@@ -28,7 +28,17 @@
                 {{ tray.icon }}
               </v-icon>
             </v-btn>
-            <v-btn class="transparent" depressed>
+
+            <v-btn
+              color="primary"
+              dark
+              @click.stop="$store.commit('toggleDialog')"
+            >
+              Open Dialog
+            </v-btn>
+            <Window/>
+
+            <v-btn class="transparent" depressed tile>
               <span class="d-flex flex-column">
                 <span>{{ date.getHours() + ':' + date.getMinutes() }}</span>
                 <span>{{
@@ -49,24 +59,16 @@
 <script>
 export default {
   data: () => ({
-    apps: [
-      { icon: 'mdi-microsoft-windows', label: '' },
-      { icon: 'mdi-magnify', label: '' },
-      { icon: 'mdi-folder', label: '' },
-      { icon: 'mdi-cart', label: '' },
-    ],
-    trays: [
-      { icon: 'mdi-chevron-up', label: '' },
-      { icon: 'mdi-wifi', label: '' },
-      { icon: 'mdi-volume-high', label: '' },
-      { icon: 'mdi-battery-high', label: '' },
-    ],
     items: ['default', 'absolute', 'fixed'],
     padless: false,
     variant: 'default',
     date: new Date(),
   }),
   computed: {
+    // title() {
+    //   return this.$store.state.title
+    // },
+
     localAttrs() {
       const attrs = {}
 
