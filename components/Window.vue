@@ -5,26 +5,32 @@
     hide-overlay
     scrollable
     :fullscreen="app.window.fullscreen"
+    persistent
   >
-    <v-card class="rounded-lg">
+    <v-card :class="app.window.fullscreen ? 'rounded-0' : 'rounded-lg'">
       <v-card-title class="ma-0 pa-0">
         <v-row no-gutters align="center">
-          <div class="me-auto px-2">
-            <span>{{ app.title }}</span>
+          <div class="d-flex me-auto px-2">
+            <v-icon class="me-1" size="18px">
+              {{ app.icon }}
+            </v-icon>
+            <h6>{{ app.title }}</h6>
           </div>
           <div class="ms-auto">
-            <v-btn
-              v-for="(wa, waId) in windowActions"
-              :key="waId"
-              class="mx-0"
-              icon
-              tile
-              @click="wa.action"
-            >
-              <v-icon size="18px">
-                {{ wa.icon }}
-              </v-icon>
-            </v-btn>
+            <v-hover v-for="(wa, waId) in windowActions"
+                :key="waId" v-slot="{ hover }">
+              <v-btn
+                class="mx-0 rounded-tr-lg"
+                :class="((wa.type && hover) ? 'red' : '')"
+                icon
+                tile
+                @click="wa.action"
+              >
+                <v-icon size="18px">
+                  {{ wa.icon }}
+                </v-icon>
+              </v-btn>
+            </v-hover>
           </div>
         </v-row>
       </v-card-title>
@@ -202,8 +208,9 @@ export default {
         {
           icon: 'mdi-close-thick',
           label: 'Close',
+          type: 'close',
           action: () => {
-            this.$store.dispatch('toggleWindow', { id: this.app.id })
+            this.$store.dispatch('closeApp', { id: this.app.id })
           },
         },
       ]
@@ -214,3 +221,4 @@ export default {
   },
 }
 </script>
+

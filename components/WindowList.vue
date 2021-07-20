@@ -1,7 +1,7 @@
 <template>
   <v-row no-gutters>
     <Window
-      v-for="app in $store.state.apps"
+      v-for="app in $store.state.windowList"
       :key="app.id"
       v-model="app.window.show"
       :app="app"

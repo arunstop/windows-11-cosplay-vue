@@ -1,8 +1,9 @@
 <template>
-  <v-card>
-    <v-footer v-bind="localAttrs" padless>
-      <v-card flat tile width="100%" class="ma-0 pa-0 text-center red">
-        <v-row no-gutters align="center" justify="center">
+
+    <v-footer class="transparent " padless>
+      <v-card flat tile width="100%" class="ma-0 pa-0 text-center white" height="36px" style="position:absolute; opacity:0.8;"></v-card>
+      <v-card flat tile width="100%" class="ma-0 pa-0 text-center transparent">
+        <v-row class="pa-0" no-gutters align="center" justify="center" style="height:36px !important;">
           <div class="mx-auto" style="position: absolute">
             <v-btn
               v-for="(app, index) in $store.state.apps"
@@ -10,7 +11,7 @@
               class="mx-0"
               icon
               tile
-              @click.stop="$store.dispatch('toggleWindow', {id:app.id})"
+              @click.stop="$store.dispatch('openApp', app)"
             >
               <v-icon size="24px">
                 {{ app.icon }}
@@ -45,10 +46,9 @@
           </div>
         </v-row>
       </v-card>
-    </v-footer>
-            <WindowList/>
+    <WindowList />
 
-  </v-card>
+    </v-footer>
 </template>
 <script>
 export default {
