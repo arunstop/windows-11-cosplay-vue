@@ -29,7 +29,7 @@
               @click.stop="$store.dispatch('openApp', app)"
             >
               <v-icon size="24px" :color="isVisible(app.id) ? 'blue' : ''">
-                {{app.icon}}
+                {{ app.icon }}
               </v-icon>
             </v-btn>
             <div
@@ -58,18 +58,23 @@
             </v-icon>
           </v-btn>
 
-          <v-btn class="transparent" depressed tile>
-            <span class="d-flex flex-column">
-              <span>{{ date.getHours() + ':' + date.getMinutes() }}</span>
-              <span>{{
-                date.getDate() +
-                '/' +
-                (date.getMonth() + 1) +
-                '/' +
-                date.getFullYear()
-              }}</span>
-            </span>
-          </v-btn>
+          <v-menu top offset-y :close-on-content-click="false">
+            <template #activator="{ on, attrs }">
+              <v-btn
+                class="transparent"
+                depressed
+                tile
+                v-bind="attrs"
+                v-on="on"
+              >
+                <span class="d-flex flex-column">
+                  <span>{{ getDateNow().hours }}</span>
+                  <span>{{ getDateNow().fullDate }}</span>
+                </span>
+              </v-btn>
+            </template>
+            <v-date-picker v-model="datePicker" readonly></v-date-picker>
+          </v-menu>
         </div>
       </v-row>
     </v-card>
@@ -79,10 +84,18 @@
 <script>
 export default {
   data: () => ({
-    items: ['default', 'absolute', 'fixed'],
     padless: false,
     variant: 'default',
-    date: new Date(),
+    showCalendar: false,
+    items: [
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me' },
+      { title: 'Click Me 2' },
+    ],
+    datePicker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .substr(0, 10),
   }),
   computed: {
     // title() {
@@ -111,8 +124,27 @@ export default {
       const result = this.$store.state.windowList.find((app) => {
         return app.id === id
       })
-      if(!result) return false
+      if (!result) return false
       return result.window.show
+    },
+    addZero(x) {
+      if (x < 10) {
+        x = '0' + x
+      }
+      return x
+    },
+    getDateNow() {
+      const now = new Date()
+      return {
+        hours:
+          this.addZero(now.getHours()) + ':' + this.addZero(now.getMinutes()),
+        fullDate:
+          this.addZero(now.getDate()) +
+          '/' +
+          this.addZero(now.getMonth() + 1) +
+          '/' +
+          now.getFullYear(),
+      }
     },
   },
 }
