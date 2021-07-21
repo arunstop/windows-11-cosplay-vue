@@ -9,19 +9,18 @@
   >
     <v-card :class="app.window.fullscreen ? 'rounded-0' : 'rounded-lg'">
       <v-card-title class="ma-0 pa-0">
-        <v-row no-gutters align="center">
-          <div class="d-flex me-auto px-2">
-            <v-icon class="me-1" size="18px">
+        <v-row no-gutters align="center" class="ps-2">
+          <div class="d-flex">
+            <v-icon class="me-1 " size="18px">
               {{ app.icon }}
             </v-icon>
-            <h6>{{ app.title }}</h6>
+            <h6 class="black--text font-weight-medium">{{ app.title }}</h6>
           </div>
           <div class="ms-auto">
             <v-hover v-for="(wa, waId) in windowActions"
                 :key="waId" v-slot="{ hover }">
               <v-btn
-                class="mx-0 rounded-tr-lg"
-                :class="((wa.type && hover) ? 'red' : '')"
+                :class="((wa.type && hover) ? 'red' : '')+' '+(!app.window.fullscreen ? 'rounded-tr-lg':'')"
                 icon
                 tile
                 @click="wa.action"
