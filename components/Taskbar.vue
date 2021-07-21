@@ -28,12 +28,12 @@
               tile
               @click.stop="$store.dispatch('openApp', app)"
             >
-              <v-icon size="24px" :color="app.window.show ? 'blue' : ''">
-                {{ app.icon }}
+              <v-icon size="24px" :color="isVisible(app.id) ? 'blue' : ''">
+                {{app.icon}}
               </v-icon>
             </v-btn>
             <div
-              v-if="app.window.show"
+              v-if="isOpen(app.id)"
               class="blue rounded-t-pill"
               style="
                 position: absolute;
@@ -88,7 +88,6 @@ export default {
     // title() {
     //   return this.$store.state.title
     // },
-
     localAttrs() {
       const attrs = {}
 
@@ -99,6 +98,21 @@ export default {
         attrs[this.variant] = true
       }
       return attrs
+    },
+  },
+  methods: {
+    isOpen(id) {
+      const result = this.$store.state.windowList.find((app) => {
+        return app.id === id
+      })
+      return result
+    },
+    isVisible(id) {
+      const result = this.$store.state.windowList.find((app) => {
+        return app.id === id
+      })
+      if(!result) return false
+      return result.window.show
     },
   },
 }

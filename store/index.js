@@ -90,7 +90,14 @@ export const mutations = {
   CLOSE_APP(state, id) {
     // Remove items from array
     state.windowList = state.windowList.filter(item => item.id !== id)
-  }
+  },
+  IS_OPENED_APP(state, id) {
+    // alert(id)
+    const result = state.windowList.find((app) => {
+      return app.id === id
+    })
+    return result
+  },
 }
 
 
@@ -128,4 +135,7 @@ export const actions = {
       commit('CLOSE_APP', app.id)
     }, 100);
   },
+  isAppOpened({commit},id){
+    commit('IS_OPENED_APP', id)
+  }
 }
