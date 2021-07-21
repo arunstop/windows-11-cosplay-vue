@@ -1,11 +1,17 @@
 <template>
   <v-row no-gutters>
-    <Window
-      v-for="app in $store.state.windowList"
-      :key="app.id"
-      v-model="app.window.show"
-      :app="app"
-    />
+    <div v-for="app in $store.state.windowList" :key="app.type">
+      <Window
+        v-if="app.type == 'window'"
+        v-model="app.window.show"
+        :app="app"
+      />
+      <StartMenu
+        v-else-if="app.type == 'startmenu'"
+        v-show="app.window.show"
+        :app="app"
+      />
+    </div>
   </v-row>
 </template>
 

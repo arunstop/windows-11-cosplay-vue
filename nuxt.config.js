@@ -64,7 +64,10 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+        },
+        light:{
+          'windows-grey':'#e0ebfd',
         }
       }
     }

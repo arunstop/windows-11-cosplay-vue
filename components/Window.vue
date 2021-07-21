@@ -6,6 +6,7 @@
     scrollable
     :fullscreen="app.window.fullscreen"
     persistent
+    content-class="elevation-0"
   >
     <v-card :class="app.window.fullscreen ? 'rounded-0' : 'rounded-lg'">
       <v-card-title class="ma-0 pa-0">

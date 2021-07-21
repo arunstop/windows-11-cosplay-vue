@@ -3,31 +3,31 @@ export const state = () => ({
   title: 'Title',
   apps: [
     {
-      id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-windows', title: 'My Computer', window: {
+      id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-windows', title: 'My Computer', type: 'startmenu', window: {
         show: false,
         fullscreen: false,
       },
     },
     {
-      id: Math.floor(Math.random() * 1001), icon: 'mdi-magnify', title: 'Search', window: {
+      id: Math.floor(Math.random() * 1001), icon: 'mdi-magnify', title: 'Search', type: 'window', window: {
         show: false,
         fullscreen: false,
       },
     },
     {
-      id: Math.floor(Math.random() * 1001), icon: 'mdi-folder', title: 'File Explorer', window: {
+      id: Math.floor(Math.random() * 1001), icon: 'mdi-folder', title: 'File Explorer', type: 'window', window: {
         show: false,
         fullscreen: false,
       },
     },
     {
-      id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-edge', title: 'Microsoft Edge', window: {
+      id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-edge', title: 'Microsoft Edge', type: 'window', window: {
         show: false,
         fullscreen: false,
       },
     },
     {
-      id: Math.floor(Math.random() * 1001), icon: 'mdi-cart', title: 'Microsoft Store', window: {
+      id: Math.floor(Math.random() * 1001), icon: 'mdi-cart', title: 'Microsoft Store', type: 'window', window: {
         show: false,
         fullscreen: false,
       },
@@ -135,7 +135,7 @@ export const actions = {
       commit('CLOSE_APP', app.id)
     }, 100);
   },
-  isAppOpened({commit},id){
+  isAppOpened({ commit }, id) {
     commit('IS_OPENED_APP', id)
   }
 }

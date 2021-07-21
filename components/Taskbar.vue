@@ -7,7 +7,8 @@
       class="ma-0 pa-0 text-center white"
       height="36px"
       style="position: absolute; opacity: 0.8"
-    ></v-card>
+    >
+    </v-card>
     <v-card flat tile width="100%" class="ma-0 pa-0 text-center transparent">
       <v-row
         class="pa-0"
