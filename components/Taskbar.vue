@@ -17,9 +17,10 @@
         justify="center"
         style="height: 36px !important"
       >
+        <v-app-bar-nav-icon @click="drawerState = !drawerState" />
         <div class="d-flex mx-auto" style="position: absolute">
           <div
-            v-for="(app, index) in $store.state.apps"
+            v-for="(app, index) in taskbarApps"
             :key="index"
             style="width: 100%; position: relative"
           >
@@ -27,14 +28,14 @@
               class="mx-0 d-flex"
               icon
               tile
-              @click.stop="$store.dispatch('openApp', app)"
+              @click.stop="$store.dispatch('app/openApp', app)"
             >
               <v-icon size="24px" :color="isVisible(app.id) ? 'blue' : ''">
                 {{ app.icon }}
               </v-icon>
             </v-btn>
             <div
-              v-if="isOpen(app.id)"
+              v-if="isOpen(app.id) && app.type === 'window'"
               class="blue rounded-t-pill"
               style="
                 position: absolute;
@@ -69,8 +70,12 @@
                 v-on="on"
               >
                 <span class="d-flex flex-column">
-                  <span>{{ getDateNow().hours }}</span>
-                  <span>{{ getDateNow().fullDate }}</span>
+                  <h5 class="font-weight-medium">
+                    <span>{{ $store.getters.dateNow.hours }}</span>
+                  </h5>
+                  <h5 class="font-weight-medium">
+                    <span>{{ $store.getters.dateNow.fullDate }}</span>
+                  </h5>
                 </span>
               </v-btn>
             </template>
@@ -83,6 +88,8 @@
   </v-footer>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data: () => ({
     padless: false,
@@ -99,6 +106,16 @@ export default {
       .substr(0, 10),
   }),
   computed: {
+    ...mapGetters('app', ['taskbarApps']),
+
+    drawerState: {
+      get() {
+        return this.$store.getters.drawerState
+      },
+      set(v) {
+        return this.$store.commit('toggleDrawerState', v)
+      },
+    },
     // title() {
     //   return this.$store.state.title
     // },
@@ -114,38 +131,22 @@ export default {
       return attrs
     },
   },
+  created() {
+    this.$store.dispatch('app/openDefaultApps')
+  },
   methods: {
     isOpen(id) {
-      const result = this.$store.state.windowList.find((app) => {
+      const result = this.$store.state.app.windowList.find((app) => {
         return app.id === id
       })
       return result
     },
     isVisible(id) {
-      const result = this.$store.state.windowList.find((app) => {
+      const result = this.$store.state.app.windowList.find((app) => {
         return app.id === id
       })
       if (!result) return false
       return result.window.show
-    },
-    addZero(x) {
-      if (x < 10) {
-        x = '0' + x
-      }
-      return x
-    },
-    getDateNow() {
-      const now = new Date()
-      return {
-        hours:
-          this.addZero(now.getHours()) + ':' + this.addZero(now.getMinutes()),
-        fullDate:
-          this.addZero(now.getDate()) +
-          '/' +
-          this.addZero(now.getMonth() + 1) +
-          '/' +
-          now.getFullYear(),
-      }
     },
   },
 }

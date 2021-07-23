@@ -12,16 +12,23 @@
       <v-card-title class="ma-0 pa-0">
         <v-row no-gutters align="center" class="ps-2">
           <div class="d-flex">
-            <v-icon class="me-1 " size="18px">
+            <v-icon class="me-1" size="18px">
               {{ app.icon }}
             </v-icon>
             <h6 class="black--text font-weight-medium">{{ app.title }}</h6>
           </div>
           <div class="ms-auto">
-            <v-hover v-for="(wa, waId) in windowActions"
-                :key="waId" v-slot="{ hover }">
+            <v-hover
+              v-for="(wa, waId) in windowActions"
+              :key="waId"
+              v-slot="{ hover }"
+            >
               <v-btn
-                :class="((wa.type && hover) ? 'red' : '')+' '+(!app.window.fullscreen ? 'rounded-tr-lg':'')"
+                :class="
+                  (wa.type && hover ? 'red' : '') +
+                  ' ' +
+                  (!app.window.fullscreen && wa.type ? 'rounded-tr-lg' : '')
+                "
                 icon
                 tile
                 @click="wa.action"
@@ -184,7 +191,7 @@ export default {
         return this.value
       },
       set(value) {
-        this.$store.dispatch('toggleWindow', { id: this.app.id })
+        this.$store.dispatch('app/toggleWindow', { id: this.app.id })
       },
     },
     windowActions() {
@@ -193,7 +200,7 @@ export default {
           icon: 'mdi-window-minimize',
           label: 'Minimize',
           action: () => {
-            this.$store.dispatch('toggleWindow', { id: this.app.id })
+            this.$store.dispatch('app/toggleWindow', { id: this.app.id })
           },
         },
         {
@@ -202,7 +209,7 @@ export default {
             : 'mdi-window-maximize',
           label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
           action: () => {
-            this.$store.dispatch('toggleFullscreen', { id: this.app.id })
+            this.$store.dispatch('app/toggleFullscreen', { id: this.app.id })
           },
         },
         {
@@ -210,7 +217,7 @@ export default {
           label: 'Close',
           type: 'close',
           action: () => {
-            this.$store.dispatch('closeApp', { id: this.app.id })
+            this.$store.dispatch('app/closeApp', { id: this.app.id })
           },
         },
       ]
