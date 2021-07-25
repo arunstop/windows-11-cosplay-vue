@@ -11,6 +11,11 @@
         v-show="app.window.show"
         :app="app"
       />
+      <SearchPanel
+        v-else-if="app.type == 'searchpanel'"
+        v-show="app.window.show"
+        :app="app"
+      />
       <WidgetPanel v-else-if="app.type == 'widgetpanel'" v-model="app.window.show" :app="app"/>
 
       <!-- <div v-if="app.type == 'widgetpanel'" :app="app">

@@ -36,7 +36,7 @@
     >
       <v-card
         color="windows-grey"
-        style="opacity: 0.6; position: absolute"
+        style="opacity: 0.9; position: absolute"
         height="100%"
         width="100%"
       >
@@ -54,9 +54,9 @@
           <h1 class="font-weight-medium mb-6">
             {{ $store.getters.dateNow.hours }}
           </h1>
-
-          <v-row no-gutters class="grid-container-highlight">
-            <WidgetItem class="grid-item-lg" :title="'WEATHER'">
+          <!-- Widget Items -->
+          <v-row no-gutters class="grid-container-highlight px-10">
+            <WidgetItem class="grid-item-row-span-2" :title="'WEATHER'">
               <template #content>
                 <h6 class="mb-2 caption text-center font-weight-medium">
                   <v-icon small color="black">mdi-crosshairs-gps</v-icon>
@@ -99,7 +99,9 @@
                 <v-list class="no-gutters">
                   <v-list-item class="no-gutters mih-auto mt-2">
                     <v-list-item-content class="no-gutters">
-                      <v-list-item-title class="no-gutters font-size-half">
+                      <v-list-item-title
+                        class="no-gutters font-size-half font-weight-bold"
+                      >
                         UKX
                       </v-list-item-title>
                       <v-list-item-subtitle class="no-gutters font-size-half">
@@ -125,7 +127,9 @@
                   </v-list-item>
                   <v-list-item class="no-gutters mih-auto mt-2">
                     <v-list-item-content class="no-gutters">
-                      <v-list-item-title class="no-gutters font-size-half">
+                      <v-list-item-title
+                        class="no-gutters font-size-half font-weight-bold"
+                      >
                         MCK
                       </v-list-item-title>
                       <v-list-item-subtitle class="no-gutters font-size-half">
@@ -152,9 +156,9 @@
                 </v-list>
               </template>
             </WidgetItem>
-            <WidgetItem :title="'EURO CUP'" no-setting>
+            <WidgetItem :title="'EURO CUP'" no-option>
               <template #content>
-                <v-row class="d-flex no-gutters mb-2">
+                <v-row class="d-flex no-gutters mt-1 mb-2">
                   <div class="flex-grow-1">
                     <v-list-item class="no-gutters mih-auto mt-1">
                       <v-list-item-content class="no-gutters">
@@ -166,16 +170,20 @@
                             font-size-half
                           "
                         >
-                          <div class="d-flex align-center"
-                            >
+                          <div class="d-flex align-center">
                             <v-img
-                            class="me-1"
+                              class="me-1"
                               src="https://flagpedia.net/data/flags/w20/gb-eng.png"
                               sizes="20px"
                             />
-                            <span>England</span>
+                            <span class="">England</span>
                           </div>
-                          <b class="d-flex align-center">1 (2) <v-icon small color="transparent">mdi-menu-left</v-icon> </b>
+                          <b class="d-flex align-center"
+                            >1 (2)
+                            <v-icon small color="transparent"
+                              >mdi-menu-left</v-icon
+                            >
+                          </b>
                         </v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
@@ -189,16 +197,20 @@
                             font-size-half
                           "
                         >
-                          <div class="d-flex align-center"
-                            >
+                          <div class="d-flex align-center">
                             <v-img
-                            class="me-1"
+                              class="me-1"
                               src="https://flagpedia.net/data/flags/w20/it.png"
                               sizes="20px"
                             />
                             <span class="font-weight-bold">Italy</span>
                           </div>
-                          <span class="d-flex align-center font-weight-bold">1 (3) <v-icon small color="black">mdi-menu-left</v-icon></span>
+                          <span class="d-flex align-center font-weight-bold"
+                            >1 (3)
+                            <v-icon small color="black"
+                              >mdi-menu-left</v-icon
+                            ></span
+                          >
                         </v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
@@ -229,6 +241,11 @@
               </template>
             </WidgetItem>
           </v-row>
+          <v-col class="px-11 mt-8 mb-3" cols="12">
+            <WidgetItem title="TOP STORIES" no-option>
+
+            </WidgetItem>
+          </v-col>
         </v-row>
       </v-card>
     </v-navigation-drawer>
@@ -296,7 +313,7 @@ export default {
   grid-auto-flow: dense;
 }
 
-.grid-item-lg {
+.grid-item-row-span-2 {
   grid-row: span 2;
 }
 

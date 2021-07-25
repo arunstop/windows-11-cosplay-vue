@@ -1,23 +1,23 @@
 export const state = () => ({
   appItemList: [
-    { icon: 'mdi-microsoft-edge', title: 'Edge' },
-    { icon: 'mdi-microsoft-word', title: 'Word' },
-    { icon: 'mdi-microsoft-powerpoint', title: 'PowerPoint' },
-    { icon: 'mdi-email-outline', title: 'Mail' },
-    { icon: 'mdi-check-circle', title: 'To Do' },
-    { icon: 'mdi-cart', title: 'Microsoft Store' },
-    { icon: 'mdi-image', title: 'Photos' },
-    { icon: 'mdi-cellphone', title: 'Your Phone' },
-    { icon: 'mdi-scissors-cutting', title: 'Snipping Tool' },
-    { icon: 'mdi-twitter', title: 'Twitter' },
-    { icon: 'mdi-skype', title: 'Skype' },
-    { icon: 'mdi-microsoft-xbox', title: 'Xbox' },
-    { icon: 'mdi-whatsapp', title: 'WhatsApp' },
-    { icon: 'mdi-microsoft-excel', title: 'Excel' },
-    { icon: 'mdi-spotify', title: 'Spotify' },
-    { icon: 'mdi-microsoft-visual-studio-code', title: 'VS Code' },
-    { icon: 'mdi-github', title: 'Github' },
-    { icon: 'mdi-discord', title: 'Discord' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-edge', title: 'Edge' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-word', title: 'Word' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-powerpoint', title: 'PowerPoint' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-email-outline', title: 'Mail' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-check-circle', title: 'To Do' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-cart', title: 'Microsoft Store' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-image', title: 'Photos' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-cellphone', title: 'Your Phone' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-scissors-cutting', title: 'Snipping Tool' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-twitter', title: 'Twitter' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-skype', title: 'Skype' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-xbox', title: 'Xbox' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-whatsapp', title: 'WhatsApp' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-excel', title: 'Excel' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-spotify', title: 'Spotify' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-visual-studio-code', title: 'VS Code' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-github', title: 'Github' },
+    { id: Math.floor(Math.random() * 1001), icon: 'mdi-discord', title: 'Discord' },
     {
       id: Math.floor(Math.random() * 1001), icon: 'mdi-microsoft-windows', title: 'My Computer', type: 'startmenu', taskbar: true, default: true, window: {
         show: false,
@@ -31,7 +31,7 @@ export const state = () => ({
       },
     },
     {
-      id: 'wp', icon: 'mdi-view-dashboard', title: 'Widgets', type: 'widgetpanel', taskbar: true, default: true, window: {
+      id: Math.floor(Math.random() * 1001), icon: 'mdi-view-dashboard', title: 'Widgets', type: 'widgetpanel', taskbar: true, default: true, window: {
         show: false,
         fullscreen: false,
       },
@@ -71,7 +71,8 @@ export const state = () => ({
     },
     { icon: 'mdi-image', title: 'Sea.png', lastOpened: 'Jun 1' },
   ],
-  windowList: []
+  windowList: [],
+  keywordStartApp: ''
 
 })
 
@@ -86,12 +87,51 @@ export const getters = {
       return !appItem.taskbar
     })
   },
-  windowState: (state) => (id)=>{
+  windowState: (state) => (id) => {
     const result = state.windowList.find((app) => {
       return app.id === id
     })
     return result.window.show
-  }
+  },
+  cutString20: () => (str) => {
+    if (str.length >= 20) {
+      str = str.substring(0, 19) + '...'
+    }
+    return str
+  },
+  searchAppResult: (state) => () => {
+    let searchResult = state.appItemList.filter((appItem) => {
+      return appItem.title.trim().toLowerCase().includes(state.keywordStartApp)
+    });
+    // sort the list
+    searchResult = searchResult.sort((a, b) => (a.title > b.title) - (a.title < b.title))
+    // add letter to list
+    const letter = []
+    const letterAdd=(val)=>{
+      letter.push({
+        icon: 'mdi-alpha-' + val.toLowerCase(), title: val, letter: true
+      })
+    }
+    searchResult.forEach((appResult, index) => {
+      const current = appResult.title.trim().toUpperCase().substring(0, 1)
+
+      if (index < searchResult.length - 1) {
+        const next = searchResult[index + 1].title.trim().toUpperCase().substring(0, 1)
+        if (current !== next) {
+          letterAdd(current)
+        }
+      } else {
+        letterAdd(current)
+      }
+    })
+    // concatenating list with letters
+    searchResult = searchResult.concat(letter)
+    const searchResultWithLetters = searchResult.sort((a, b) => (a.title > b.title) - (a.title < b.title))
+    return searchResultWithLetters
+  },
+  // appListSortedByTitle: (state) => () => {
+  //   return state.appItemList.filter.
+  // }
 }
 
 export const mutations = {
@@ -138,6 +178,10 @@ export const mutations = {
     })
     return result
   },
+  SEARCH_APP(state, keyword) {
+    state.keywordStartApp = keyword
+  }
+
 }
 
 export const actions = {
@@ -175,5 +219,8 @@ export const actions = {
   },
   isAppOpened({ commit }, id) {
     commit('IS_OPENED_APP', id)
+  },
+  searchApp({ commit }, keyword) {
+    commit('SEARCH_APP', keyword.value.trim().toLowerCase())
   }
 }

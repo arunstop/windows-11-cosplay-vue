@@ -3,8 +3,8 @@ export const state = () => ({
     { icon: 'mdi-logout-variant', label: 'Log Off' },
     { icon: 'mdi-swap-horizontal', label: 'Switch User' },
     { icon: 'mdi-power-sleep', label: 'Sleep' },
-    { icon: 'mdi-restart', label: 'Restart' },
     { icon: 'mdi-sleep', label: 'Hibernate' },
+    { icon: 'mdi-restart', label: 'Restart' },
     { icon: 'mdi-power', label: 'Shutdown' },]
 
 })
