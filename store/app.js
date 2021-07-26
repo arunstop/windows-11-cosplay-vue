@@ -39,7 +39,7 @@ export const state = () => {
       },
       {
         id: randomId(), icon: 'mdi-view-dashboard', iconColor: randomColorRgb(), title: 'Widgets',
-        ...windowSetting('widgetpanel', false, true)
+        ...windowSetting('widgetpanel', true, true)
       },
       {
         id: randomId(), icon: 'mdi-folder', iconColor: randomColorRgb(), title: 'File Explorer',
@@ -153,7 +153,11 @@ export const state = () => {
 export const getters = {
   taskbarApps: (state) => {
     return state.appItemList.filter((appItem) => {
-      return appItem.taskbar
+      const opened = state.windowList.find((window) => {
+        return window.id === appItem.id
+      })
+      // console.log(opened)
+      return appItem.taskbar || opened
     })
   },
   startMenuApps: (state) => {
@@ -238,15 +242,18 @@ export const mutations = {
     result.window.fullscreen = !result.window.fullscreen
   },
   OPEN_APP(state, app) {
+    // console.log(state.windowList)
     state.windowList.push(app)
+    // console.log(state.windowList)
+
     // commit('TOGGLE_WINDOW', app.id)
   },
   CLOSE_APP(state, id) {
+    // const result = state.windowList.find((app) => {
+    //   return app.id === id
+    // })
+    // result.window.fullscreen = false
     // Remove items from array
-    const result = state.windowList.find((app) => {
-      return app.id === id
-    })
-    result.window.fullscreen = false
 
     state.windowList = state.windowList.filter(item => item.id !== id)
   },

@@ -18,29 +18,34 @@
         style="height: 36px !important"
       >
         <div class="d-flex mx-auto" style="position: absolute">
-          <div
+          <v-slide-y-reverse-transition
             v-for="(ta, index) in taskbarApps"
             :key="index"
-            style="width: 100%; position: relative"
           >
-            <v-btn class="mx-0 d-flex" icon tile @click.stop="openApp(ta)">
-              <v-icon size="24px" :color="ta.iconColor">
-                {{ ta.icon }}
-              </v-icon>
-            </v-btn>
-            <div
-              v-if="isOpen(ta.id)"
-              class="blue rounded-t-pill"
-              style="
-                position: absolute;
-                bottom: 0;
-                right: 15%;
-                height: 4px;
-                width: 72%;
-              "
-            ></div>
-          </div>
+            <div style="width: 100%; position: relative">
+              <v-btn class="mx-0 d-flex" icon tile @click.stop="openApp(ta)">
+                <v-icon size="24px" :color="ta.iconColor">
+                  {{ ta.icon }}
+                </v-icon>
+              </v-btn>
+              <!-- opened app indicator -->
+              <div
+                v-if="
+                  isVisible(ta.id) || (isOpen(ta.id) && ta.type === 'window')
+                "
+                class="blue rounded-t-pill"
+                style="
+                  position: absolute;
+                  bottom: 0;
+                  right: 15%;
+                  height: 4px;
+                  width: 72%;
+                "
+              ></div>
+            </div>
+          </v-slide-y-reverse-transition>
         </div>
+
         <div class="ms-auto">
           <v-btn
             v-for="(tray, index) in $store.state.trays"

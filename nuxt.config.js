@@ -42,6 +42,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/axios'
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -49,6 +50,10 @@ export default {
     manifest: {
       lang: 'en'
     }
+  },
+
+  axios:{
+
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
