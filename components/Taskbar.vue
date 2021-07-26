@@ -23,12 +23,7 @@
             :key="index"
             style="width: 100%; position: relative"
           >
-            <v-btn
-              class="mx-0 d-flex"
-              icon
-              tile
-              @click.stop="$store.dispatch('app/openApp', ta)"
-            >
+            <v-btn class="mx-0 d-flex" icon tile @click.stop="openApp(ta)">
               <v-icon size="24px" :color="ta.iconColor">
                 {{ ta.icon }}
               </v-icon>
@@ -146,6 +141,9 @@ export default {
       })
       if (!result) return false
       return result.window.show
+    },
+    openApp(app) {
+      this.$store.dispatch('app/openApp', app)
     },
   },
 }

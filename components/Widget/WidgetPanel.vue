@@ -282,7 +282,7 @@ export default {
         return this.$store.getters['app/windowState'](this.app.id)
       },
       set(value) {
-        return this.$store.commit('app/toggleState', { id: this.app.id, value })
+        return this.$store.dispatch('app/toggleWindow', { id: this.app.id, value })
         // alert('yeppa')
       },
     },

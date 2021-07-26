@@ -92,7 +92,7 @@ export default {
         return this.$store.getters['app/windowState'](this.app.id)
       },
       set(value) {
-        this.$store.dispatch('app/toggleWindow', { id: this.app.id })
+        this.$store.dispatch('app/toggleWindow', { id: this.app.id, value })
       },
     },
     windowActions() {
@@ -131,7 +131,7 @@ export default {
     }, 120)
     setTimeout(() => {
       this.isLoading = false
-    }, 1480-showTime)
+    }, 1480 - showTime)
   },
 }
 </script>

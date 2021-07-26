@@ -59,7 +59,7 @@ export default {
       },
       set(value) {
         // return this.$store.commit('app/toggleState', { id: this.app.id, value })
-        this.$store.commit('app/toggleState', { id: this.app.id, value })
+        this.$store.dispatch('app/toggleWindow', { id: this.app.id, value })
         this.$store.dispatch('app/searchApp', { value :''})
       },
     },
