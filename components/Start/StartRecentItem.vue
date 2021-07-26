@@ -6,7 +6,7 @@
             >
               <v-list-item class="">
                 <v-list-item-avatar class="ma-0">
-                  <v-icon size="30">{{ item.icon }}</v-icon>
+                  <v-icon size="30" :color="item.iconColor">{{ item.icon }}</v-icon>
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-title>

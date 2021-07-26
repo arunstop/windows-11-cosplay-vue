@@ -2,7 +2,7 @@
   <v-list-item
     link
   >
-    <v-icon class="me-2">{{ item.icon }}</v-icon>
+    <v-icon class="me-2" >{{ item.icon }}</v-icon>
     <span>{{ item.label }}</span>
   </v-list-item>
 </template>

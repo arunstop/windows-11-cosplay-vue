@@ -1,6 +1,13 @@
 <template>
-  <v-dialog v-model="show" hide-overlay content-class="start-menu elevation-0" scrollable width="600px">
-    <v-card class="transparent rounded-lg" width="600px" >
+  <v-dialog
+    v-model="show"
+    hide-overlay
+    content-class="start-menu elevation-6"
+    scrollable
+    width="600px"
+    transition="slide-y-reverse-transition"
+  >
+    <v-card class="transparent rounded-lg" width="600px">
       <v-card
         flat
         tile
@@ -11,23 +18,38 @@
         elevation="0"
       >
       </v-card>
-      <v-card class="transparent rounded-lg px-3" color="transparent" width="100%" height="100%">
-        
-          <v-card-text class="py-8">
-            <!-- Search bar -->
-            <v-row
-              no-gutters
-              class="px-6 d-flex justify-space-between black--text"
-              align="center"
-            >
-              <h4>Pinned</h4>
-              <v-chip class="font-weight-bold" link color="white" small label>
-                All apps
-                <v-icon class="ms-1" size="24px" color="black">
-                  mdi-chevron-right
-                </v-icon>
-              </v-chip>
-            </v-row>
+      <v-card
+        class="transparent rounded-lg px-3"
+        color="transparent"
+        width="100%"
+        height="100%"
+      >
+        <v-fade-transition>
+          <v-card-text v-if="showAllApps" class="py-8">
+            <StartSectionLabel
+              :title="'All apps'"
+              :icon="{ position: 'l', icon: 'mdi-chevron-left' }"
+              :action="{
+                label: 'Back',
+                action: () => {
+                  showAllApps = false
+                },
+              }"
+            />
+            <SearchResultList style="margin-top: 22px" :height="'400px'" />
+          </v-card-text>
+
+          <v-card-text v-if="!showAllApps" class="py-8">
+            <StartSectionLabel
+              :title="'Pinned'"
+              :icon="{ position: 'r', icon: 'mdi-chevron-right' }"
+              :action="{
+                label: 'All apps',
+                action: () => {
+                  showAllApps = true
+                },
+              }"
+            />
             <!-- Apps -->
             <v-row class="mt-2 grid-container" no-gutters>
               <StartApp
@@ -37,19 +59,15 @@
               />
             </v-row>
 
-            <v-row
-              no-gutters
-              class="mt-4 px-6 d-flex justify-space-between black--text"
-              align="center"
-            >
-              <h4>Recomended</h4>
-              <v-chip class="font-weight-bold" link color="white" small label>
-                More
-                <v-icon class="ms-1" size="24px" color="black">
-                  mdi-chevron-right
-                </v-icon>
-              </v-chip>
-            </v-row>
+            <StartSectionLabel
+              class="mt-4"
+              :title="'Recomended'"
+              :icon="{ position: 'r', icon: 'mdi-chevron-right' }"
+              :action="{
+                label: 'More',
+                action: () => {},
+              }"
+            />
             <!-- Recent Items -->
             <v-row class="mt-2 grid-container2" no-gutters>
               <StartRecentItem
@@ -59,42 +77,39 @@
               />
             </v-row>
           </v-card-text>
+        </v-fade-transition>
 
-          <v-divider />
-          <!-- Footer -->
-          <v-card-actions class="py-1">
-            <v-row
-              no-gutters
-              class="d-flex justify-space-between"
-              align="center"
+        <v-divider />
+        <!-- Footer -->
+        <v-card-actions class="py-1">
+          <v-row no-gutters class="d-flex justify-space-between" align="center">
+            <v-btn
+              class="rounded-lg transparent px-2 py-6 text-capitalize"
+              depressed
             >
-              <v-btn
-                class="rounded-lg transparent px-2 py-6 text-capitalize"
-                depressed
-              >
-                <v-list-item-avatar size="30">
-                  <v-img :src="'https://cdn.vuetifyjs.com/images/lists/1.jpg'">
-                  </v-img>
-                </v-list-item-avatar>
-                <v-list-item-content> Noob Programmer </v-list-item-content>
-              </v-btn>
+              <v-list-item-avatar size="30">
+                <v-img :src="'https://cdn.vuetifyjs.com/images/lists/1.jpg'">
+                </v-img>
+              </v-list-item-avatar>
+              <v-list-item-content> Noob Programmer </v-list-item-content>
+            </v-btn>
 
-              <v-menu top offset-y :close-on-content-click="true">
-                <template #activator="{ on, attr }">
-                  <v-btn depressed icon fab v-bind="attr" v-on="on">
-                    <v-icon>mdi-power</v-icon>
-                  </v-btn>
-                </template>
-                <v-list class="py-0">
-                  <StartPowerItem
-                    v-for="(pi, index) in $store.state.power.itemList"
-                    :key="index"
-                    :item="pi"
-                  />
-                </v-list>
-              </v-menu>
-            </v-row>
-          </v-card-actions>
+            <v-menu top offset-y :close-on-content-click="true">
+              <template #activator="{ on, attr }">
+                <v-btn depressed icon fab v-bind="attr" v-on="on">
+                  <v-icon>mdi-power</v-icon>
+                </v-btn>
+              </template>
+              <v-list class="py-0">
+                <StartPowerItem
+                  v-for="(pi, index) in $store.state.power.itemList"
+                  :key="index"
+                  :item="pi"
+                />
+              </v-list>
+            </v-menu>
+          </v-row>
+        </v-card-actions>
       </v-card>
     </v-card>
   </v-dialog>
@@ -105,21 +120,17 @@ import { mapGetters } from 'vuex'
 
 export default {
   props: {
-    value: Boolean,
     app: {
       type: Object,
       default: () => {
-        return {
-          window: {
-            show: true,
-            fullscreen: false,
-          },
-        }
+        return {}
       },
     },
     // fullscreen: Boolean,
   },
-  data: () => ({}),
+  data: () => ({
+    showAllApps: false,
+  }),
   computed: {
     ...mapGetters('app', ['startMenuApps', 'cutString20']),
     show: {
@@ -127,47 +138,16 @@ export default {
         return this.$store.getters['app/windowState'](this.app.id)
       },
       set(value) {
-        return this.$store.commit('app/toggleState', { id: this.app.id, value })
-        // alert('yeppa')
+        // return this.$store.commit('app/toggleState', { id: this.app.id, value })
+        this.$store.commit('app/toggleState', { id: this.app.id, value })
+        this.showAllApps=false
       },
-    },
-    windowActions() {
-      return [
-        {
-          icon: 'mdi-window-minimize',
-          label: 'Minimize',
-          action: () => {
-            this.$store.dispatch('toggleWindow', { id: this.app.id })
-          },
-        },
-        {
-          icon: this.app.window.fullscreen
-            ? 'mdi-window-restore'
-            : 'mdi-window-maximize',
-          label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
-          action: () => {
-            this.$store.dispatch('toggleFullscreen', { id: this.app.id })
-          },
-        },
-        {
-          icon: 'mdi-close-thick',
-          label: 'Close',
-          type: 'close',
-          action: () => {
-            this.$store.dispatch('closeApp', { id: this.app.id })
-          },
-        },
-      ]
     },
   },
   created() {
     // console.log(this.app)
   },
-  method: {
-    showSearchSection(v) {
-      alert(v)
-    },
-  },
+  method: {},
 }
 </script>
 

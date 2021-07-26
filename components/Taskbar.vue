@@ -17,10 +17,9 @@
         justify="center"
         style="height: 36px !important"
       >
-        <v-app-bar-nav-icon @click="drawerState = !drawerState" />
         <div class="d-flex mx-auto" style="position: absolute">
           <div
-            v-for="(app, index) in taskbarApps"
+            v-for="(ta, index) in taskbarApps"
             :key="index"
             style="width: 100%; position: relative"
           >
@@ -28,14 +27,14 @@
               class="mx-0 d-flex"
               icon
               tile
-              @click.stop="$store.dispatch('app/openApp', app)"
+              @click.stop="$store.dispatch('app/openApp', ta)"
             >
-              <v-icon size="24px" :color="isVisible(app.id) ? 'blue' : ''">
-                {{ app.icon }}
+              <v-icon size="24px" :color="ta.iconColor">
+                {{ ta.icon }}
               </v-icon>
             </v-btn>
             <div
-              v-if="isOpen(app.id) && app.type === 'window'"
+              v-if="isOpen(ta.id)"
               class="blue rounded-t-pill"
               style="
                 position: absolute;

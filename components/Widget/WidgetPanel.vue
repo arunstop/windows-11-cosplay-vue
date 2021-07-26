@@ -27,7 +27,6 @@
     </v-navigation-drawer> -->
     <v-navigation-drawer
       v-model="show"
-      class="elevation-0"
       app
       temporary
       hide-overlay
