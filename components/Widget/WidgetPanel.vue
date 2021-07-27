@@ -287,7 +287,7 @@
 </template>
 
 <script>
-import news from '@/static/news.json'
+// import news from '@/static/news.json'
 export default {
   props: {
     value: Boolean,
@@ -336,8 +336,10 @@ export default {
     },
   },
   created() {
-    news.value.forEach((element, index) => {
-      // filling up no-image articles
+
+    this.$news.showTrending().then((response) => {
+      response.data.value.forEach((element,index) => {
+        // filling up no-image articles
       element.image = element.image || {
         thumbnail: {
           contentUrl: '',
@@ -359,17 +361,8 @@ export default {
       } else {
         this.newsList.news.push(element)
       }
+      });
     })
-
-    // this.$news.showTrending().then((response) => {
-    //   response.data.value.forEach((element,index) => {
-    //     if(index<4){
-    //       this.newsList.topStories.push(element)
-    //     }else{
-    //       this.newsList.news.push(element)
-    //     }
-    //   });
-    // })
   },
   methods: {},
 }

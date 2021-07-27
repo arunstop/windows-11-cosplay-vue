@@ -1,5 +1,5 @@
 <template>
-  <v-card class="rounded-lg">
+  <v-card class="rounded-lg" link>
     <v-img
       v-if="noThumbnail()"
       height="222px"

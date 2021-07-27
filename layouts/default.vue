@@ -21,7 +21,7 @@
     class="logged-off"
   >
     <div class="d-flex flex-column justify-center align-center ma-auto">
-      <RollerLoader :color="'#000000'" size="64" />
+      <RollerLoader :color="'#000000'" :size="64" />
       <h3>Shutting down</h3>
     </div>
   </v-app>
@@ -30,7 +30,7 @@
     class="logged-off"
   >
     <div class="d-flex flex-column justify-center align-center ma-auto">
-      <RollerLoader :color="'#000000'" size="64" />
+      <RollerLoader :color="'#000000'" :size="64" />
       <h3>Logging Off</h3>
     </div>
   </v-app>
@@ -151,7 +151,7 @@
             class="mt-3 d-flex text-center align-center"
             style="margin-bottom: 56px"
           >
-            <RollerLoader :color="'#ffffff'" size="30" />
+            <RollerLoader :color="'#ffffff'" :size="30" />
             <h3 class="ms-3 white--text">Welcome</h3>
           </div>
         </div>
@@ -178,7 +178,7 @@ export default {
   }),
   computed: {},
   created() {
-    console.log(this.$store.state.status)
+    // console.log(this.$store.state.status)
   },
   methods: {
     showAuthScreen() {
