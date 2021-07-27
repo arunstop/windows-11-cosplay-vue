@@ -43,7 +43,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/moment',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

@@ -10,14 +10,14 @@ export default ({ app, $axios }, inject) => {
   })
 
   const endPoints = {
-    msg: (msg) => console.log(`Hello ${msg}!`),
+    // msg: (msg) => console.log(`Hello ${msg}!`),
     showTrending: () => {
       return api.get('news', {
         params: {
           textFormat: 'Raw',
           safeSearch: 'Off',
           mkt: 'en-ID',
-          headlineCount: '24',
+          headlineCount: '32',
         }
       })
     },

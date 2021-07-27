@@ -338,9 +338,6 @@ export default {
   created() {
     news.value.forEach((element, index) => {
       // filling up no-image articles
-      if (index > 1 && index % 5 === 0 && element.image.thumbnail.contentUrl) {
-        Object.assign(element, { spanned: true  })
-      }
       element.image = element.image || {
         thumbnail: {
           contentUrl: '',
@@ -352,6 +349,10 @@ export default {
           contentUrl: '',
         },
       }
+      if (index > 1 && index % 5 === 0 && element.image.thumbnail.contentUrl) {
+        Object.assign(element, { spanned: true })
+      }
+
       // console.log(element.image)
       if (index < 4) {
         this.newsList.topStories.push(element)

@@ -47,10 +47,11 @@
       width="100%"
       color="windows-grey"
       class="d-flex"
+      elevation="0"
     >
       <div>
         <v-list-item class="px-0">
-          <v-card class="px-3" height="222px" color="transparent">
+          <v-card class="px-3" height="222px" color="transparent" elevation="0">
             <WidgetItemNewsHeader :news="news" />
             <v-card-text class="pa-0 mb-2 font-size-half">
                 {{news.desc.substring(0,150)+'...'}}

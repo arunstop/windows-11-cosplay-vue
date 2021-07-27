@@ -1,8 +1,9 @@
 <template>
-  <v-list color="transparent" :height="height" style="overflow-y: auto">
+  <v-list color="transparent" :height="height" class="mx-3" style="overflow-y: auto">
     <v-list-item
       v-for="(sar, index) in searchAppResult()"
       :key="index"
+      class="px-0"
       :link="!sar.letter && !sar.notFound"
     >
       <!-- no result -->
