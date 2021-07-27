@@ -40,7 +40,7 @@
         width="100%"
       >
       </v-card>
-      <v-card color="transparent" elevation="0">
+      <v-card class="mb-10" color="transparent" elevation="0">
         <v-row
           no-gutters
           class="d-flex flex-column"
@@ -240,11 +240,46 @@
               </template>
             </WidgetItem>
           </v-row>
-          <v-col class="px-11 mt-8 mb-3" cols="12">
-            <WidgetItem title="TOP STORIES" no-option>
-
+          <v-row no-gutters class="grid-container-highlight px-10 mt-8 mb-3">
+            <WidgetItem
+              class="grid-item-col-span-2"
+              title="TOP STORIES"
+              no-option
+            >
+              <template #content>
+                <div class="grid-container-top-stories">
+                  <WidgetItemTopStory
+                    v-for="(news, index) in newsList.topStories"
+                    :key="index"
+                    :news="{
+                      title: news.name,
+                      provider: news.provider[0].name,
+                      logo: news.provider[0].image.thumbnail.contentUrl,
+                      date: news.datePublished,
+                    }"
+                  >
+                  </WidgetItemTopStory>
+                </div>
+              </template>
             </WidgetItem>
-          </v-col>
+          </v-row>
+          <v-row no-gutters class="grid-container-highlight px-10">
+            <WidgetItemNews
+              v-for="(news, index) in newsList.news"
+              :key="index"
+              :news="{
+                title: news.name,
+                thumbnail: news.image.thumbnail.contentUrl,
+                provider: news.provider[0].name,
+                logo: news.provider[0].image.thumbnail.contentUrl,
+                date: news.datePublished,
+                desc: news.description,
+                spanned: news.spanned,
+              }"
+              :class="news.spanned ? 'grid-item-col-span-2' : ''"
+            >
+            </WidgetItemNews>
+          </v-row>
         </v-row>
       </v-card>
     </v-navigation-drawer>
@@ -252,6 +287,7 @@
 </template>
 
 <script>
+import news from '@/static/news.json'
 export default {
   props: {
     value: Boolean,
@@ -275,6 +311,7 @@ export default {
       { title: 'Home', icon: 'mdi-view-dashboard' },
       { title: 'About', icon: 'mdi-forum' },
     ],
+    newsList: { topStories: [], news: [] },
   }),
   computed: {
     show: {
@@ -282,7 +319,10 @@ export default {
         return this.$store.getters['app/windowState'](this.app.id)
       },
       set(value) {
-        return this.$store.dispatch('app/toggleWindow', { id: this.app.id, value })
+        return this.$store.dispatch('app/toggleWindow', {
+          id: this.app.id,
+          value,
+        })
         // alert('yeppa')
       },
     },
@@ -296,7 +336,39 @@ export default {
     },
   },
   created() {
-    // console.log(this.$store.getters)
+    news.value.forEach((element, index) => {
+      // filling up no-image articles
+      if (index > 1 && index % 5 === 0 && element.image.thumbnail.contentUrl) {
+        Object.assign(element, { spanned: true  })
+      }
+      element.image = element.image || {
+        thumbnail: {
+          contentUrl: '',
+        },
+      }
+      // filling up no-image providers
+      element.provider[0].image = element.provider[0].image || {
+        thumbnail: {
+          contentUrl: '',
+        },
+      }
+      // console.log(element.image)
+      if (index < 4) {
+        this.newsList.topStories.push(element)
+      } else {
+        this.newsList.news.push(element)
+      }
+    })
+
+    // this.$news.showTrending().then((response) => {
+    //   response.data.value.forEach((element,index) => {
+    //     if(index<4){
+    //       this.newsList.topStories.push(element)
+    //     }else{
+    //       this.newsList.news.push(element)
+    //     }
+    //   });
+    // })
   },
   methods: {},
 }
@@ -312,8 +384,20 @@ export default {
   grid-auto-flow: dense;
 }
 
+.grid-container-top-stories {
+  display: grid !important;
+  grid-template-columns: repeat(2, 48%);
+  grid-template-rows: auto;
+  row-gap: 12px;
+  column-gap: 12px;
+}
+
 .grid-item-row-span-2 {
   grid-row: span 2;
+}
+
+.grid-item-col-span-2 {
+  grid-column: span 2;
 }
 
 .font-size-half {

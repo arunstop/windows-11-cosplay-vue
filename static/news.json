@@ -1,0 +1,1364 @@
+{
+    "_type": "News",
+    "webSearchUrl": "https://www.bing.com/news/search?q=top+stories&form=TNSA02",
+    "value": [
+        {
+            "_type": "NewsArticle",
+            "name": "Ex-lover of Spain's former king Juan Carlos is suing him over 'unlawful surveillance'",
+            "url": "https://www.dailymail.co.uk/femail/article-9830335/Ex-lover-Spains-former-king-Juan-Carlos-suing-unlawful-surveillance.html",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.W9c9xY2qshNIstSy_fWKiS&pid=News",
+                    "width": 636,
+                    "height": 382
+                }
+            },
+            "description": "Wittgenstein, 57, had an affair with the 83-year-old monarch - who is married to Queen Sofia, 82 - between 2004 and 2009. She is now taking him to court, reports the FT.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/1baf9d59-f443-e9f4-6e49-de048a073e3f",
+                    "name": "Spain"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5b410dee-7f0f-b605-1b27-1a3eceb61b96",
+                    "name": "Juan Carlos I of Spain"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Daily Mail",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_1fbd9345e9a9320550278c5cbd56ce5c&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T15:03:00.0000000Z",
+            "video": {
+                "_type": "VideoObject",
+                "name": "Ex-lover of Juan Carlos says king's spymaster 'frightened' her",
+                "thumbnailUrl": "https://www.bing.com/th?id=OVF.VD6VbVlRFl1L3FNcml6yOA&pid=News",
+                "embedHtml": "<iframe frameborder=\"0\" width=\"698\" height=\"573\" scrolling=\"no\" id=\"molvideoplayer\" title=\"MailOnline Embed Player\" src=\"http://www.dailymail.co.uk/embed/video/2334224.html\" ></iframe>",
+                "allowHttpsEmbed": false,
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "width": 300,
+                    "height": 180
+                }
+            },
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Georgia man pleading guilty to 4 of 8 Asian spa killings",
+            "url": "https://www.pbs.org/newshour/nation/georgia-man-pleading-guilty-to-4-of-8-asian-spa-killings",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.eAGJGkJ4LjFrL4tyFK-KKy&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "A Georgia man accused of killing eight people at three Atlanta-area massage businesses is pleading guilty. Robert Aaron Long signed a plea deal hoping for life without parole in the first four shooting deaths.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/144f6bf1-56c0-9564-fa3d-a169607dc2e6",
+                    "name": "PBS NewsHour"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/84604bc7-2c47-4f8d-8ea5-b6ac8c018a20",
+                    "name": "Georgia"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5288e6b2-094a-9e72-d584-2ccbc1c2eb88",
+                    "name": "Asia"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "PBS",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_8aa05a0ef32f6dba5d42cd93edb9f44b&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:40:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.pbs.org/newshour/amp/nation/georgia-man-pleading-guilty-to-4-of-8-asian-spa-killings"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "House Republican leaders have found the real culprit for Jan. 6: Nancy Pelosi",
+            "url": "https://www.msn.com/en-us/news/politics/house-republican-leaders-have-found-the-real-culprit-for-jan-6-nancy-pelosi/ar-AAMCy58",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.e-HKCTyWVE4hDes8GG3rZi&pid=News",
+                    "width": 700,
+                    "height": 367
+                }
+            },
+            "description": "There is no actual question about the person primarily responsible for the riot at the U.S. Capitol on Jan. 6. Had President Donald Trump simply acknowledged his loss on Nov. 7 of last year when it became obvious that he had no path to victory,",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/707086df-b7b0-a823-28d8-79914cbfbd4e",
+                    "name": "Nancy Pelosi"
+                }
+            ],
+            "mentions": [
+                {
+                    "_type": "Thing",
+                    "name": "Nancy Pelosi"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Culprit"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Republican Party"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "MSN",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_0cfcddaa71cae000b74e3bf52bc84d78&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:54:14.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "AP-NORC Poll: Many Republicans Uneasy About Party's Future",
+            "url": "https://www.usnews.com/news/politics/articles/2021-07-27/ap-norc-poll-many-republicans-uneasy-about-partys-future",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.Dx-eUo5dmK5H8MPekA66Ay&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "Most Republicans say they want former President Donald Trump to have at least some influence over the direction of their party going forward.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/d901041e-e691-3789-bb79-aa4dac9df755",
+                    "name": "Future"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b8f26db0-d3b7-4fb5-fbb0-9ea469754434",
+                    "name": "Politics"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "U.S. News & World Report",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_9f4e7717a371a0a5e2bbf48b4ca76ed5&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T15:01:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.usnews.com/news/politics/articles/2021-07-27/ap-norc-poll-many-republicans-uneasy-about-partys-future?context=amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Andrea McLean says 'trying to be a perfect Stepford Wife' led to her breakdown",
+            "url": "https://www.mirror.co.uk/3am/celebrity-news/andrea-mclean-says-trying-perfect-24628589",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.4m0HYDnNS6Ej_ov4zn89HC&pid=News",
+                    "width": 700,
+                    "height": 367
+                }
+            },
+            "description": "Andrea McLean has opened up about the nervous breakdown she suffered in 2019, admitting her belief it was caused by trying to completely perfect",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/50dbe225-150c-a135-7b75-2cf19419a7cf",
+                    "name": "Andrea McLean"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/debe6592-2074-e634-5693-5e20f6aecad8",
+                    "name": "The Stepford Wives"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/f90a0ccf-30fb-80ed-8c08-987dc40eb5b8",
+                    "name": "The Daily Mirror"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "The Mirror",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_c1e0767f1b07daaefc71796c213b27f4&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:52:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.mirror.co.uk/3am/celebrity-news/andrea-mclean-says-trying-perfect-24628589.amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Gunman who killed eight people across three Atlanta spas pleads GUILTY to four murders",
+            "url": "https://www.dailymail.co.uk/news/article-9830993/Gunman-killed-eight-people-three-Atlanta-spas-pleads-GUILTY-four-murders.html",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.-2OPMPRxmI_9acZ4deANzC&pid=News",
+                    "width": 636,
+                    "height": 382
+                }
+            },
+            "description": "Robert Aaron Long, 22, appeared in court Tuesday where he agreed to a plea deal admitting to charges of malice murder, felony murder, attempted murder and aggravated assault in Cherokee County.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/93a3e0e2-aecf-e53b-8432-c15f400cfb4e",
+                    "name": "Daily Mail"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/1a92f3fa-61f9-4e89-b606-40c945cf18d1",
+                    "name": "Atlanta"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Daily Mail",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_1fbd9345e9a9320550278c5cbd56ce5c&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:38:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Tajik president, Chinese defense minister agree to enhance cooperation",
+            "url": "http://www.xinhuanet.com/english/2021-07/27/c_1310090327.htm",
+            "description": "Tajik President Emomali Rahmon and Chinese State Councilor and Minister of National Defense Wei Fenghe agreed to strengthen cooperation between the two countries during their meeting here on Tuesday.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/280d39e8-7217-6863-6980-a8c20c211c89",
+                    "name": "England"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/51f28292-bea6-a5bd-4119-fc439f15243a",
+                    "name": "Tajikistan"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/d5381221-4444-4cc7-8524-1f485b030d5e",
+                    "name": "Presidents of the University of Alabama"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Xinhua",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_6034f89765965526777239fbb6bac707&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:37:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Ex-US Sen. Mike Enzi of Wyoming dies after bicycle accident",
+            "url": "https://www.nydailynews.com/news/politics/us-elections-government/ny-obit-mike-enzi-20210727-rr5xyoukabgptptuuwtsy7rgty-story.html",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.8CYRHsZLWHyQDE4Oa20A9C&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "A former shoe salesman first elected to the Senate in 1996, Enzi became known for emphasizing compromise over grandstanding and confrontation to get bills passed.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c53527cc-8c16-0eb6-7d9f-84f1068d8b12",
+                    "name": "Mike Enzi"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/bff03ad6-2b7f-400b-a76e-eb9fc4a93961",
+                    "name": "Wyoming"
+                }
+            ],
+            "mentions": [
+                {
+                    "_type": "Thing",
+                    "name": "Mike Enzi"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Wyoming"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "United States"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "New York Daily News",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_83c4af5b19855be9b019b52170bfe846&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:48:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.nydailynews.com/news/politics/us-elections-government/ny-obit-mike-enzi-20210727-rr5xyoukabgptptuuwtsy7rgty-story.html?outputType=amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "North and South Korea have restored direct communication hotlines that were abruptly severed over a year ago",
+            "url": "https://www.businessinsider.com/north-and-south-korea-restore-direct-communication-hotlines-2021-7",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.rGq44A5476NnbroOYF5n4C&pid=News",
+                    "width": 700,
+                    "height": 350
+                }
+            },
+            "description": "North Korea decided to cut off all communication with South Korea, but now the two sides are talking directly again.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c0e15be0-5113-402c-c03f-516a6265e9cb",
+                    "name": "Republic of Korea"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/aa807e05-121c-4ca1-0b65-71575f7a1e53",
+                    "name": "Hotlines"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/8f2d124a-c76a-d872-2f6e-550f6273d536",
+                    "name": "Communication"
+                }
+            ],
+            "mentions": [
+                {
+                    "_type": "Thing",
+                    "name": "Republic of Korea"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Hotlines"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Communication"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Business Insider",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AMMS_b3ffab7279c7b6b448383d03bb5daec1&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:46:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Lilliana Vazquez Welcomes Baby Boy Santiago Merrick: 'He Erased All the Pain and Struggles'",
+            "url": "https://www.yahoo.com/now/lilliana-vazquez-welcomes-baby-boy-150018007.html",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.GA9oIQpAv1icOxHGC9Kvzy&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "Lilliana Vazquez and husband Patrick McGrath welcomed their first baby, son Santiago Merrick McGrath, on Monday, July 19, she confirms to PEOPLE exclusively. Baby Santi weighed 7 lbs., 4 oz., and measured 20.5 inches at birth. \"I don't know if I have the ...",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/e185e956-a31d-3bb5-eb72-cecd01880b1c",
+                    "name": "Pain"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/190dd277-52dd-5feb-5523-200c59886f8e",
+                    "name": "Santiago"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/183e89bb-1ddd-42d0-9130-b77ab6b87d2b",
+                    "name": "Erased"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Yahoo"
+                }
+            ],
+            "datePublished": "2021-07-27T15:00:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.yahoo.com/amphtml/now/lilliana-vazquez-welcomes-baby-boy-150018007.html"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "British police officers accuse government of using them as ‘PR pawns’",
+            "url": "https://www.ft.com/content/26873f22-5f3e-46bf-8755-d1f2e5f7a02d",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.yPo2uI4LAbLmj34lCcwwTS&pid=News",
+                    "width": 700,
+                    "height": 393
+                }
+            },
+            "description": "A group representing police officers on Tuesday attacked the UK government for using its members as “public relations pawns” after the prime minister and home secretary visited Surrey Police to publicise a package of contentious anti-crime measures.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b1a5155a-6bb2-4646-8f7c-3e6b3a53c831",
+                    "name": "United Kingdom"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/72752f4d-11d3-5470-b64e-b9e012b0520f",
+                    "name": "Puerto Rico"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/941cdc8d-95cb-5ade-d349-63dc72d17314",
+                    "name": "Financial Times"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "The Financial Times"
+                }
+            ],
+            "datePublished": "2021-07-27T14:42:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://amp.ft.com/content/26873f22-5f3e-46bf-8755-d1f2e5f7a02d"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "CDC Implements New EU Advisories as U.S. Says Travel Restrictions Will Remain Due to Delta Variant",
+            "url": "https://www.yahoo.com/now/cdc-implements-eu-advisories-u-145000193.html",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.aDe6xTgxY4IG7Rh_DKgROC&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "The United States won't lift international travel restrictions just yet, citing the surging delta variant of the coronavirus, according to reports. Currently, the U.S. restricts non-essential travel for non-U.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/3b8ddb1a-cf19-ee77-560d-9dfa00ddf070",
+                    "name": "European Union"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/8b10d232-d7c3-0e83-98fc-2741ac77646b",
+                    "name": "Citizens' Debate Commission"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Yahoo",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_e1eef5681737e5676d7a09990b13411a&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:50:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.yahoo.com/amphtml/now/cdc-implements-eu-advisories-u-145000193.html"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "France's top political science schools 'failed to tackle sexual abuse among students'",
+            "url": "https://www.telegraph.co.uk/world-news/2021/07/27/frances-top-political-science-schools-failed-tackle-sexual-abuse/",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.pm4wnSbuMIMCP0js0PKBcy&pid=News",
+                    "width": 700,
+                    "height": 366
+                }
+            },
+            "description": "A new report comes after hundreds of students complained of a 'culture of rape' at some of France's leading institutions",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c7bfe2de-4f82-e23c-ae42-8544b5b5c0ea",
+                    "name": "France"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b168c422-8265-779b-0a0c-0c4524e9df5a",
+                    "name": "Political Science"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/e5f2bd42-616b-30b3-48e1-33c055e8bc9a",
+                    "name": "Sexual abuse"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "The Daily Telegraph"
+                }
+            ],
+            "datePublished": "2021-07-27T14:43:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.telegraph.co.uk/world-news/2021/07/27/frances-top-political-science-schools-failed-tackle-sexual-abuse/amp/"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Scary video shows Chinese city disappearing in massive dust storm",
+            "url": "https://nypost.com/2021/07/27/scary-video-shows-chinese-city-engulfed-by-huge-dust-storm/",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.yYiG5jn_kIfSBV7Ap6QkLy&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "Residents of Dunhuang, a city which hugs the Gobi Desert in Gansu province, captured the terrifying descent of the 300-foot-high dust clouds",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5fcc3d97-0cf2-94e5-6dad-cd70e387bd69",
+                    "name": "China"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "New York Post",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_0d31eadcf209bc045d8f584e6134bed0&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:42:00.0000000Z",
+            "video": {
+                "_type": "VideoObject",
+                "name": "Scary video shows Chinese city disappearing in massive dust storm",
+                "thumbnailUrl": "https://www.bing.com/th?id=OVF.pXnJPRGhQhmJw7Pl9z2RNg&pid=News",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "width": 300,
+                    "height": 200
+                }
+            },
+            "headline": true,
+            "ampUrl": "https://nypost.com/2021/07/27/scary-video-shows-chinese-city-engulfed-by-huge-dust-storm/amp/"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Explosion rocks German chemicals site",
+            "url": "https://news.yahoo.com/explosion-rocks-german-chemicals-144642070.html",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.dklwGvY5fDCMGErrGwq65i&pid=News",
+                    "width": 700,
+                    "height": 393
+                }
+            },
+            "description": "At least one person has been killed and four others are missing after an explosion rocked an industrial park in the German city of Leverkusen on Tuesday.The blast sent dark plumes of smoke into the sky.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/75c62d8e-1449-4e4d-b188-d9e88f878dd9",
+                    "name": "Germany"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "YAHOO!News",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_e1eef5681737e5676d7a09990b13411a&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:46:00.0000000Z",
+            "video": {
+                "_type": "VideoObject",
+                "name": "Explosion rocks German chemicals site",
+                "thumbnailUrl": "https://www.bing.com/th?id=OVF.VBfcPMsFvnb1O8nBgdMbXQ&pid=News",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "width": 300,
+                    "height": 168
+                }
+            },
+            "headline": true,
+            "ampUrl": "https://news.yahoo.com/amphtml/explosion-rocks-german-chemicals-144642070.html"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Jan. 6 hearing opens as police detail violence, injuries",
+            "url": "https://www.sfgate.com/news/article/Police-to-detail-violence-injuries-at-first-Jan-16341805.php",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.Ub1gjjBxlUUtv5ooMNWAMi&pid=News",
+                    "width": 700,
+                    "height": 466
+                }
+            },
+            "description": "Capitol Police Officer Aquilino Gonell told House investigators Tuesday he could feel himself losing oxygen as he was crushed by rioters – supporters of former President Donald Trump – as he was defending the Capitol during the Jan.",
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "SFGate",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_54d6e8857a180186fb2098ccfbefbf4b&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T15:05:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.sfgate.com/news/amp/Police-to-detail-violence-injuries-at-first-Jan-16341805.php"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Atlanta Spa Shooter Signs Plea Deal, Pleads Guilty to 4 Killings",
+            "url": "https://time.com/6084378/atlanta-spa-shootings-guilty-plea-hate-crime/",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.padlU-JDI6wI7W7UXFCzBi&pid=News",
+                    "width": 700,
+                    "height": 366
+                }
+            },
+            "description": "Robert Aaron Long still faces the death penalty in Atlanta, where he faces domestic terrorism charges with a hate crime enhancement",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/675143f3-b698-c1e1-50c7-2d94fa00c092",
+                    "name": "Shooter"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/1a92f3fa-61f9-4e89-b606-40c945cf18d1",
+                    "name": "Atlanta"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Time",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_f55c44e0a7d524a26ea2342e45f2f4a0&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:29:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "‘This Is How I’m Going to Die’: Capitol Cops Wipe Away Tears at Jan 6. Hearing",
+            "url": "https://www.thedailybeast.com/capitol-police-officers-wipe-away-tears-as-they-testify-to-january-6-house-committee",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.7z-y7pbmLqStGUzqQEavDi&pid=News",
+                    "width": 700,
+                    "height": 393
+                }
+            },
+            "description": "I could feel myself losing oxygen and recall thinking to myself, ‘This is how I'm going to die, defending this entrance,’” U.S. Capitol Police Sgt. Aquilino Gonell testified.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ca0ec412-02d0-23a5-fcec-dba45954eb65",
+                    "name": "Police officer"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/30ca08ad-df25-3618-6fed-d09733d64eeb",
+                    "name": "Wipe"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "The Daily Beast"
+                }
+            ],
+            "datePublished": "2021-07-27T15:06:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Cheney says ‘every minute’ of Trump’s actions on Jan. 6 will be investigated",
+            "url": "https://www.msn.com/en-us/news/politics/cheney-says-every-minute-of-trump-s-actions-on-jan-6-will-be-investigated/ar-AAMCAup",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.G-XeLFkHQmkdZZXynWw69S&pid=News",
+                    "width": 700,
+                    "height": 367
+                }
+            },
+            "description": "WASHINGTON—Republican Liz Cheney made clear Tuesday she wants the committee investigating the Jan. 6 insurrection to have teeth, moving quickly to use subpoenas to force testimony from key witnesses,",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/1a466af2-ed23-25bd-794d-1ca925e4681b",
+                    "name": "Donald Trump"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c4f3b316-e56b-ac29-2d9d-dcda9adbbd9d",
+                    "name": "Dick Cheney"
+                }
+            ],
+            "mentions": [
+                {
+                    "_type": "Thing",
+                    "name": "Donald Trump"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Dick Cheney"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Politics"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "MSN",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_0cfcddaa71cae000b74e3bf52bc84d78&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:55:26.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "China's migrating elephants keep moving southwest",
+            "url": "http://www.xinhuanet.com/english/2021-07/27/c_1310090334.htm",
+            "description": "The herd of 14 wild Asian elephants roaming southwest China's Yunnan Province has continued heading southwest since July 21, local authorities said Tuesday. The elephants entered Yuanjiang County in the city of Yuxi early Tuesday morning,",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/5fcc3d97-0cf2-94e5-6dad-cd70e387bd69",
+                    "name": "China"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/757135ff-b971-4bd0-ab77-8b962c22692c",
+                    "name": "English"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Xinhua",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_6034f89765965526777239fbb6bac707&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:42:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Saudi Arabia threatens 3-year travel ban for citizens who visit \"red list\" states",
+            "url": "https://economictimes.indiatimes.com/news/international/saudi-arabia/saudi-arabia-threatens-3-year-travel-ban-for-citizens-who-visit-red-list-states/articleshow/84794647.cms",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.USKpwBv-159sNcGfriDEly&pid=News",
+                    "width": 300,
+                    "height": 225
+                }
+            },
+            "description": "\"Anyone who is proven to be involved will be subject to legal accountability and heavy penalties upon their return, and will be banned from travel for three years,\" the official said.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/672bc136-22f9-3750-0459-2fbd2340f892",
+                    "name": "Saudi Arabia"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c8dfebad-4209-b5c5-806d-7d34444dc344",
+                    "name": "The Economic Times"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "India Times",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_3d546a2c2256f160e693bb1084e0f54b&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:30:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://m.economictimes.com/news/international/saudi-arabia/saudi-arabia-threatens-3-year-travel-ban-for-citizens-who-visit-red-list-states/amp_articleshow/84794647.cms"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Larry Elder leads GOP field in race to replace Newsom in recall, poll finds",
+            "url": "https://www.latimes.com/california/story/2021-07-27/larry-elder-leads-gop-in-newsom-recall-push-poll-shows",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.TjTqF5o36t1QmbTYcWRlPC&pid=News",
+                    "width": 700,
+                    "height": 367
+                }
+            },
+            "description": "When asked to pick their first choice among the candidates hoping to take the helm as California’s next governor, 18% of likely voters preferred Elder.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ddd0ecbf-d7a9-4913-80c4-8eca3d95b4f2",
+                    "name": "Gavin Newsom"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/65572fb0-b5c3-1b59-29a8-5835d04ef3e3",
+                    "name": "Larry Elder"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/69b5c3db-01c1-967d-09fd-3ce43f7a61b8",
+                    "name": "Recall election"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Los Angeles Times",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_f6ee0777fa236afab60d094d1018c0b6&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:58:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.latimes.com/california/story/2021-07-27/larry-elder-leads-gop-in-newsom-recall-push-poll-shows?_amp=true"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "DCMS's International Cultural Heritage Protection Programme",
+            "url": "https://www.gov.uk/guidance/dcmss-international-cultural-heritage-protection-programme",
+            "description": "The UK is a world leader and innovator in cultural heritage protection and has taken concrete steps to safeguard some of humanity’s most valued cultural heritage.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/1eef578a-51af-474f-29b0-5315bd9e2edb",
+                    "name": "International"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/a2b030d2-464f-3b00-fb83-0860d3629196",
+                    "name": "Cultural heritage"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "gov.uk"
+                }
+            ],
+            "datePublished": "2021-07-27T14:44:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Rep. Banks says Pelosi must answer questions about intelligence reports prior to January 6th",
+            "url": "https://www.foxnews.com/media/jim-banks-nancy-pelosi-questions-january-6th-intelligence-capitol-riot",
+            "description": "Ohio, was removed from a Democrat-led committee hearing on the January 6th Capitol storming, Banks said on Tuesday that House Speaker Nancy Pelosi, D-Calif., “must answer questions” about the intelligence reports related to the chaos that occurred that day.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/c44f0d80-3165-3119-6782-4286d5dcfc9e",
+                    "name": "Jim Banks"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/707086df-b7b0-a823-28d8-79914cbfbd4e",
+                    "name": "Nancy Pelosi"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/273e0477-30ed-3993-f232-f39244306805",
+                    "name": "Fox News Channel"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Fox News",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_7dc0f55e947bdbc51189eb1a022e9eb6&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:53:00.0000000Z",
+            "video": {
+                "_type": "VideoObject",
+                "name": "Rep. Banks says Pelosi must answer questions about January 6th intelligence reports",
+                "thumbnailUrl": "https://www.bing.com/th?id=OVF.6wMYS79O0nwu%2FluAIpG0Fg&pid=News",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "width": 300,
+                    "height": 168
+                }
+            },
+            "headline": true,
+            "ampUrl": "https://www.foxnews.com/media/jim-banks-nancy-pelosi-questions-january-6th-intelligence-capitol-riot.amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "The House Select Committee on Jan. 6 started its work on Tuesday. This is the only thing that matters",
+            "url": "https://www.bostonglobe.com/2021/07/27/nation/house-select-committee-jan-6-started-its-work-tuesday-this-is-only-thing-that-matters/",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.SwBZS0qoCLteKCnHmzL1dy&pid=News",
+                    "width": 506,
+                    "height": 343
+                }
+            },
+            "description": "On Tuesday, a bipartisan House committee began public hearings tasked with learning more about what caused the attack on the Capitol building on January 6th, why more precautions weren’t put in place,",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/40a7465c-4776-451a-98e3-a6baa52823dd",
+                    "name": "Select or special committee"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "The Boston Globe",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_9771321dce841bf5c6ffae48d0f78b90&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:56:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.bostonglobe.com/2021/07/27/nation/house-select-committee-jan-6-started-its-work-tuesday-this-is-only-thing-that-matters/?outputType=amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Former LAPD officer describes encounter with 'aggressive' swarm of bees that killed 2 dogs",
+            "url": "https://www.foxnews.com/us/former-lapd-officer-bees-killed-two-dogs",
+            "description": "A former Los Angeles Police officer is healing after he, his dog and his daughters' dogs were attacked by an angry swarm of bees on Saturday.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/aaf19d13-58a4-47ac-8373-bfb2b100e648",
+                    "name": "Officer"
+                }
+            ],
+            "mentions": [
+                {
+                    "_type": "Thing",
+                    "name": "Officer"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Swarm behaviour"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Fox News Channel"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Fox News",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_7dc0f55e947bdbc51189eb1a022e9eb6&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:51:00.0000000Z",
+            "video": {
+                "_type": "VideoObject",
+                "name": "Colony of at least 100,000 bees extracted from Georgia home",
+                "thumbnailUrl": "https://www.bing.com/th?id=OVF.PrnLxHze1FO85SQABjIFcQ&pid=News",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "width": 300,
+                    "height": 168
+                }
+            },
+            "headline": true,
+            "ampUrl": "https://www.foxnews.com/us/former-lapd-officer-bees-killed-two-dogs.amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Michael Power: The Struggle to Build the Catholic Church on the Canadian Frontier",
+            "url": "https://www.jstor.org/stable/pdf/j.ctt80q9d.3.pdf",
+            "description": "Those in the crowd who had read the papers leading up to 5 October 1847 or engaged in gossip amid the stalls at the St Lawrence Market would have known only the basics about the man for whom they waited.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/f1e8888f-5579-d32f-9bf0-fa65b0684fa8",
+                    "name": "Michael Power"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/af5a5e74-db91-2c94-05c5-5b773086b848",
+                    "name": "Canadian"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "JSTOR",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_ca014d5f3ffb91dcab09ac84f390eeb6&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:47:00.0000000Z",
+            "headline": true
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "West Virginia city makes final pitch in opioid lawsuit seeking $2.5 bln",
+            "url": "https://www.nasdaq.com/articles/west-virginia-city-makes-final-pitch-in-opioid-lawsuit-seeking-%242.5-bln-2021-07-27-0",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.NAncqKRFozD89Kt3V95MvC&pid=News",
+                    "width": 450,
+                    "height": 338
+                }
+            },
+            "description": "Lawyers for a West Virginia city and its county made their closing arguments on Tuesday in their three-month landmark trial against the nation's largest drug distributors, seeking $2.5 billion to remedy an opioid crisis they say the companies helped cause.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/0c3b7b2c-f40e-cba8-3bb6-29450420b38e",
+                    "name": "NASDAQ"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/8a47255a-fae3-4faa-aa32-c6f384cb6c1d",
+                    "name": "West Virginia"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Nasdaq",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_fefdf3a25667a335662ca70fc37bce11&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:13:00.0000000Z",
+            "video": {
+                "_type": "VideoObject",
+                "name": "West Virginia city makes final pitch in opioid lawsuit seeking $2.5 bln",
+                "thumbnailUrl": "https://www.bing.com/th?id=OVF.wz5CdgeBezZSZwgvMbn52Q&pid=News",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "width": 300,
+                    "height": 225
+                }
+            },
+            "headline": true,
+            "ampUrl": "https://www.nasdaq.com/articles/west-virginia-city-makes-final-pitch-in-opioid-lawsuit-seeking-%242.5-bln-2021-07-27-0?amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Binance will team up with the world's 2nd biggest art museum to release NFT versions of works, including those by Da Vinci and Van Gogh",
+            "url": "https://markets.businessinsider.com/news/currencies/binance-nfts-artwork-davinci-hermitage-2nd-biggest-art-museum-release-2021-7",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.F5plBA660XNoCWNygYcT2S&pid=News",
+                    "width": 700,
+                    "height": 350
+                }
+            },
+            "description": "Crypto exchange Binance and Russia's State Hermitage Museum will release NFTs of major artworks, including those by Da Vinci and Van Gogh.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/b9c71d27-dba0-e4d0-4bfa-308e468c6176",
+                    "name": "Leonardo da Vinci"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/2139c867-ec5a-5576-5987-9a4079e0f07c",
+                    "name": "Vincent van Gogh"
+                },
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/ddb7c000-f710-87a0-dfc6-763c39ac30ee",
+                    "name": "World"
+                }
+            ],
+            "mentions": [
+                {
+                    "_type": "Thing",
+                    "name": "Leonardo da Vinci"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "Vincent van Gogh"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "World"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "Business Insider",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AMMS_b3ffab7279c7b6b448383d03bb5daec1&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T15:05:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://www.businessinsider.com/binance-nfts-artwork-davinci-hermitage-2nd-biggest-art-museum-release-2021-7?amp"
+        },
+        {
+            "_type": "NewsArticle",
+            "name": "Tokyo Olympics: two more athletes test positive for Covid-19; storm Nepartak moves closer",
+            "url": "https://www.scmp.com/news/asia/east-asia/article/3142684/tokyo-olympics-two-more-athletes-test-positive-covid-19-storm",
+            "image": {
+                "_type": "ImageObject",
+                "thumbnail": {
+                    "_type": "ImageObject",
+                    "contentUrl": "https://www.bing.com/th?id=OVFT.rRkj_8KbIMdYeWtpEQOkFC&pid=News",
+                    "width": 700,
+                    "height": 367
+                }
+            },
+            "description": "Games organisers said seven new cases brought the total to 155 this month, while police separately said infections among officers had reached 12.",
+            "about": [
+                {
+                    "_type": "Thing",
+                    "readLink": "https://api.cognitive.microsoft.com/api/v7/entities/e5184d20-2cae-91b5-425c-468f47d2d2e4",
+                    "name": "Positive"
+                }
+            ],
+            "mentions": [
+                {
+                    "_type": "Thing",
+                    "name": "Positive"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "South China Morning Post"
+                },
+                {
+                    "_type": "Thing",
+                    "name": "1964 Summer Olympics"
+                }
+            ],
+            "provider": [
+                {
+                    "_type": "Organization",
+                    "name": "South China Morning Post",
+                    "image": {
+                        "_type": "ImageObject",
+                        "thumbnail": {
+                            "_type": "ImageObject",
+                            "contentUrl": "https://www.bing.com/th?id=AR_cf1a9f3235e56cc9198b835c2a251917&pid=news"
+                        }
+                    }
+                }
+            ],
+            "datePublished": "2021-07-27T14:30:00.0000000Z",
+            "headline": true,
+            "ampUrl": "https://amp.scmp.com/news/asia/east-asia/article/3142684/tokyo-olympics-two-more-athletes-test-positive-covid-19-storm"
+        }
+    ]
+}
