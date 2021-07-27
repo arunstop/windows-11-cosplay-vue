@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - windows-11-cosplay-vue',
-    title: 'windows-11-cosplay-vue',
+    titleTemplate: 'Windows 11',
+    title: 'Windows 11',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,11 +21,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+  
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/api/news'
+    '~/plugins/api/news',
+    // '~/plugins/vue-spinners-css'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

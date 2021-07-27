@@ -27,7 +27,8 @@ export const state = () => ({
       }
     },
   ],
-  drawerState: false
+  drawerState: false,
+  status: 'LOGGED_IN',
 
 })
 

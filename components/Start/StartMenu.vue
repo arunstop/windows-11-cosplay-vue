@@ -102,7 +102,7 @@
               </template>
               <v-list class="py-0">
                 <StartPowerItem
-                  v-for="(pi, index) in $store.state.power.itemList"
+                  v-for="(pi, index) in $store.state.power.powerItemList"
                   :key="index"
                   :item="pi"
                 />

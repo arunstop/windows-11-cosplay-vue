@@ -1,6 +1,7 @@
 <template>
   <v-list-item
     link
+    @click="powerAction(item.status)"
   >
     <v-icon class="me-2" >{{ item.icon }}</v-icon>
     <span>{{ item.label }}</span>
@@ -11,5 +12,10 @@ export default {
   props: {
     item: { type: Object, default: () => {} },
   },
+  methods:{
+    powerAction(status){
+      this.$store.dispatch('power/powerAction', status)
+    }
+  }
 }
 </script>
