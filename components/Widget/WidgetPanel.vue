@@ -337,7 +337,7 @@ export default {
   },
   created() {
 
-    this.$news.showTrending().then((response) => {
+    this.$apiNews.showTrending().then((response) => {
       response.data.value.forEach((element,index) => {
         // filling up no-image articles
       element.image = element.image || {

@@ -22,5 +22,5 @@ export default ({ app, $axios }, inject) => {
       })
     },
   }
-  inject('news', endPoints)
+  inject('apiNews', endPoints)
 }

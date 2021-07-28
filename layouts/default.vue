@@ -132,6 +132,7 @@
 
           <div v-if="!loggingOn" class="text-center">
             <v-text-field
+            v-model="pin"
               class="mt-3"
               label="PIN"
               type="password"
@@ -175,23 +176,25 @@ export default {
     },
     authScreen: false,
     loggingOn: false,
+    pin: ''
   }),
   computed: {},
   created() {
-    // console.log(this.$store.state.status)
+    // this.$localStorage.set('test', {key:'value'})
+    console.log(this.$localStorage.get('test'))
   },
   methods: {
     showAuthScreen() {
       this.authScreen = true
-      // setTimeout(() => {
-      //   this.authScreen = false
-      //   // alert(this.authScreen  )
-      // }, 3000)
+      setTimeout(() => {
+        this.authScreen = false
+        // alert(this.authScreen  )
+      }, 15000)
     },
     powerAction() {
       this.loggingOn = true
       setTimeout(() => {
-        this.$store.dispatch('power/powerAction', 'LOGGED_ON')
+        this.$store.dispatch('power/logOn', {username:'Anonymous', pin:this.pin, status :'LOGGED_ON'})
         this.authScreen = false
         this.loggingOn = false
       }, 3000)

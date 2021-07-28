@@ -9,7 +9,8 @@ export const state = () => ({
         { icon: 'mdi-power', label: 'Shutdown', status: 'TURNING_OFF' },
         // { icon: 'mdi-key', label: 'Logged in', status: 'LOGGED_ON' },
     ],
-    status: 'LOGGED_OFF'
+    status: 'LOGGED_OFF',
+    user: [],
 })
 
 export const mutations = {
@@ -22,18 +23,34 @@ export const mutations = {
         // else if (status === 'LOGGED_ON') {
         // state.status = 'LOGGED_ON'
         // }
+    },
+    SET_USER(state,user){
+        state.user=user
+        // set local storage user
+        this.$localStorage.set('user', user)
+    },
+    REMOVE_USER(){
+        this.$localStorage.remove('user')
     }
 }
 
 
 export const actions = {
-    powerAction({ commit }, status) {
+    powerAction({ commit,dispatch }, status) {
         commit('POWER_WINDOW', status)
 
-        if (status === 'RESTARTING' || status === 'TURNING_OFF'||status === 'LOGGING_OFF') {
+        if (status === 'RESTARTING' || status === 'TURNING_OFF' || status === 'LOGGING_OFF') {
             setTimeout(() => {
+                dispatch('logOff', status)
                 commit('POWER_WINDOW', 'LOGGED_OFF')
             }, 4200)
         }
+    },
+    logOn({ commit, dispatch}, user) {
+        commit('SET_USER', user)
+        dispatch('powerAction', user.status)
+    },
+    logOff({ commit, dispatch}, status) {
+        commit('REMOVE_USER', status)
     }
 }
