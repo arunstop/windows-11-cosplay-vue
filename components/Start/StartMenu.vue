@@ -158,7 +158,7 @@ export default {
   display: flex;
   justify-content: center;
   /* margin-left: auto; */
-  position: fixed;
+  position: absolute;
   bottom: 0;
   transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 1ms;
   width: 100%;
