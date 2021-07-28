@@ -181,7 +181,9 @@ export default {
   computed: {},
   created() {
     // this.$localStorage.set('test', {key:'value'})
-    console.log(this.$localStorage.get('test'))
+    if(this.$localStorage.has('user')){
+      this.$store.dispatch('power/logOn', this.$localStorage.get('user'))
+    }
   },
   methods: {
     showAuthScreen() {
