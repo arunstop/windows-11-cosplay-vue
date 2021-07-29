@@ -1,6 +1,6 @@
 <template>
   <v-scale-transition>
-    <div v-if="$store.getters['app/windowState'](app.id)" class="window-frame">
+    <div v-if="$store.getters['app/window/windowState'](app.id)" class="window-frame">
       <v-card
         :class="app.window.fullscreen ? 'rounded-0' : 'rounded-lg'"
         :height="getWindowSize().height"
@@ -116,10 +116,10 @@ export default {
   computed: {
     show: {
       get() {
-        return this.$store.getters['app/windowState'](this.app.id)
+        return this.$store.getters['app/window/windowState'](this.app.id)
       },
       set(value) {
-        this.$store.dispatch('app/toggleWindow', { id: this.app.id, value })
+        this.$store.dispatch('app/window/toggleWindow', { id: this.app.id, value })
       },
     },
     windowActions() {
@@ -129,7 +129,7 @@ export default {
           label: 'Minimize',
           type: 'minimize',
           action: () => {
-            this.$store.dispatch('app/toggleWindow', { id: this.app.id })
+            this.$store.dispatch('app/window/toggleWindow', { id: this.app.id })
           },
         },
         {
@@ -139,7 +139,7 @@ export default {
           type: 'size',
           label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
           action: () => {
-            this.$store.dispatch('app/toggleFullscreen', { id: this.app.id })
+            this.$store.dispatch('app/window/toggleFullscreen', { id: this.app.id })
           },
         },
         {
@@ -147,7 +147,7 @@ export default {
           label: 'Close',
           type: 'close',
           action: () => {
-            this.$store.dispatch('app/closeApp', { id: this.app.id })
+            this.$store.dispatch('app/window/closeApp', { id: this.app.id })
           },
         },
       ]

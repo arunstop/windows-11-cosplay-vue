@@ -131,24 +131,24 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('app/openDefaultApps')
+    this.$store.dispatch('app/window/openDefaultApps')
   },
   methods: {
     isOpen(id) {
-      const result = this.$store.state.app.windowList.find((app) => {
+      const result = this.$store.state.app.window.windowList.find((app) => {
         return app.id === id
       })
       return result
     },
     isVisible(id) {
-      const result = this.$store.state.app.windowList.find((app) => {
+      const result = this.$store.state.app.window.windowList.find((app) => {
         return app.id === id
       })
       if (!result) return false
       return result.window.show
     },
     openApp(app) {
-      this.$store.dispatch('app/openApp', app)
+      this.$store.dispatch('app/window/openApp', app)
     },
   },
 }

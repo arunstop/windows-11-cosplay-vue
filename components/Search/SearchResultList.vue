@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     openApp(app) {
-      this.$store.dispatch('app/openApp', app)
+      this.$store.dispatch('app/window/openApp', app)
     },
   },
 }

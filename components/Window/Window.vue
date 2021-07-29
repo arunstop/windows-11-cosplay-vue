@@ -28,10 +28,10 @@ export default {
   computed: {
     show: {
       get() {
-        return this.$store.getters['app/windowState'](this.app.id)
+        return this.$store.getters['app/window/windowState'](this.app.id)
       },
       set(value) {
-        this.$store.dispatch('app/toggleWindow', { id: this.app.id })
+        this.$store.dispatch('app/window/toggleWindow', { id: this.app.id })
       },
     },
     windowActions() {
@@ -40,7 +40,7 @@ export default {
           icon: 'mdi-window-minimize',
           label: 'Minimize',
           action: () => {
-            this.$store.dispatch('app/toggleWindow', { id: this.app.id })
+            this.$store.dispatch('app/window/toggleWindow', { id: this.app.id })
           },
         },
         {
@@ -49,7 +49,7 @@ export default {
             : 'mdi-window-maximize',
           label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
           action: () => {
-            this.$store.dispatch('app/toggleFullscreen', { id: this.app.id })
+            this.$store.dispatch('app/window/toggleFullscreen', { id: this.app.id })
           },
         },
         {
@@ -57,7 +57,7 @@ export default {
           label: 'Close',
           type: 'close',
           action: () => {
-            this.$store.dispatch('app/closeApp', { id: this.app.id })
+            this.$store.dispatch('app/window/closeApp', { id: this.app.id })
           },
         },
       ]

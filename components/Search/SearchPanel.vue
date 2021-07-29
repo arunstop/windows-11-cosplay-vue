@@ -55,11 +55,11 @@ export default {
   computed: {
     show: {
       get() {
-        return this.$store.getters['app/windowState'](this.app.id)
+        return this.$store.getters['app/window/windowState'](this.app.id)
       },
       set(value) {
         // return this.$store.commit('app/toggleState', { id: this.app.id, value })
-        this.$store.dispatch('app/toggleWindow', { id: this.app.id, value })
+        this.$store.dispatch('app/window/toggleWindow', { id: this.app.id, value })
         this.$store.dispatch('app/searchApp', { value :''})
       },
     },

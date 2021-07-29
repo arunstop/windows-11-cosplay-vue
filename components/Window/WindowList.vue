@@ -1,8 +1,8 @@
 <template>
   <v-row no-gutters>
-    <div v-for="app in $store.state.app.windowList" :key="app.id">
+    <div v-for="app in $store.state.app.window.windowList" :key="app.id">
       <Window
-        v-if="app.type == 'window'"
+        v-if="app.type == 'window' && !app.snap"
         v-model="app.window.show"
         :app="app"
       />
@@ -48,6 +48,7 @@
         </v-navigation-drawer>
       </div> -->
     </div>
+    <WindowSnapLayout/>
   </v-row>
 </template>
 

@@ -1,8 +1,10 @@
-
 export const state = () => {
-  
+  const addedId = [];
   const randomId = () => {
-    return Math.floor(Math.random() * 1001)
+    const newId = Math.floor(Math.random() * 1001)
+    const duplicatedId = addedId.find((item) => item === newId)
+    if (!duplicatedId) return newId
+    else return randomId()
   }
   // const randomColorHex=()=>{
   // return '#'+Math.floor(Math.random()*16777215).toString(16)
@@ -16,7 +18,6 @@ export const state = () => {
     }
     return `rgba(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)},1)`
   }
-
   const windowSetting = (type = 'window', def = false, taskbar = true) => {
     return {
       type, default: def, taskbar, window: {
@@ -145,16 +146,15 @@ export const state = () => {
       },
       { icon: 'mdi-image', iconColor: randomColorRgb(), title: 'Sea.png', lastOpened: 'Jun 1' },
     ],
-    windowList: [],
     searchAppKeyword: ''
-
   }
 }
 
 export const getters = {
   taskbarApps: (state) => {
+    // console.log(state.snapLayout)
     return state.appItemList.filter((appItem) => {
-      const opened = state.windowList.find((window) => {
+      const opened = state.window.windowList.find((window) => {
         return window.id === appItem.id
       })
       // console.log(opened)
@@ -165,12 +165,6 @@ export const getters = {
     return state.appItemList.filter((appItem) => {
       return !appItem.taskbar
     })
-  },
-  windowState: (state) => (id) => {
-    const result = state.windowList.find((app) => {
-      return app.id === id
-    })
-    return result.window.show
   },
   cutString20: () => (str) => {
     if (str.length >= 20) {
@@ -194,9 +188,10 @@ export const getters = {
         icon: 'mdi-alpha-' + val.toLowerCase(), title: val, letter: true
       })
     }
+    // add each letter to list
     searchResult.forEach((appResult, index) => {
       const current = appResult.title.trim().toUpperCase().substring(0, 1)
-
+      // get letter from the first letter from app name
       if (index < searchResult.length - 1) {
         const next = searchResult[index + 1].title.trim().toUpperCase().substring(0, 1)
         if (current !== next) {
@@ -208,106 +203,20 @@ export const getters = {
     })
     // concatenating list with letters
     searchResult = searchResult.concat(letter)
+    // sort the list
     const searchResultWithLetters = searchResult.sort((a, b) => (a.title > b.title) - (a.title < b.title))
     return searchResultWithLetters
   },
 }
 
 export const mutations = {
-  OPEN_DEFAULT_APPS(state) {
-    state.windowList = state.appItemList.filter((appItem) => appItem.default)
-    // console.log(state.windowList)
-  },
-
-  TOGGLE_WINDOW(state, data) {
-    // console.log(data)
-    const result = state.windowList.find((app) => {
-      return app.id === data.id
-    })
-    result.window.show = data.value
-    // console.log(data.id)
-    // console.log(result.window.show)
-  },
-  TOGGLE_FULLSCREEN(state, id) {
-    // alert(id)
-    const result = state.windowList.find((app) => {
-      return app.id === id
-    })
-    // const result1 = state.appItemList.find((app) => {
-    //   return app.id === id
-    // })
-    // result.title = "Key"
-    // result.icon = "mdi-key"
-    // console.log(result.title)
-    // console.log(result1.title)
-    result.window.fullscreen = !result.window.fullscreen
-  },
-  OPEN_APP(state, app) {
-    // console.log(state.windowList)
-    state.windowList.push(app)
-    // console.log(state.windowList)
-
-    // commit('TOGGLE_WINDOW', app.id)
-  },
-  CLOSE_APP(state, id) {
-    // const result = state.windowList.find((app) => {
-    //   return app.id === id
-    // })
-    // result.window.fullscreen = false
-    // Remove items from array
-
-    state.windowList = state.windowList.filter(item => item.id !== id)
-  },
-  IS_OPENED_APP(state, id) {
-    // alert(id)
-    const result = state.windowList.find((app) => {
-      return app.id === id
-    })
-    return result
-  },
   SEARCH_APP(state, keyword) {
     state.searchAppKeyword = keyword
   }
-
 }
 
 export const actions = {
-  openDefaultApps({ commit }) {
-    commit('OPEN_DEFAULT_APPS')
-  },
-  toggleWindow({ commit }, data) {
-    commit('TOGGLE_WINDOW', data)
-  },
-  toggleFullscreen({ commit }, payload) {
-    commit('TOGGLE_FULLSCREEN', payload.id)
-  },
-  openApp({ state, commit }, app) {
-    // console.log(state.windowList)
-    // console.log(app)
-
-    const duplicateItem = state.windowList.find((item) => item.id === app.id)
-    if (duplicateItem) {
-      commit('TOGGLE_WINDOW', {id:app.id,value:true})
-      // alert('duplicate')
-
-    } else {
-      commit('OPEN_APP', app)
-      commit('TOGGLE_WINDOW', {id:app.id,value:true})
-      // alert(state.windowList)
-    }
-  },
-  closeApp({ commit, dispatch }, app) {
-    // dispatch('toggleWindow', { id: app.id }).then(() => {
-    //   commit('CLOSE_APP', app.id)
-    // },1000)
-    dispatch('toggleWindow', {id:app.id,value:false})
-    setTimeout(() => {
-      commit('CLOSE_APP', app.id)
-    }, 100);
-  },
-  isAppOpened({ commit }, id) {
-    commit('IS_OPENED_APP', id)
-  },
+  
   searchApp({ commit }, keyword) {
     commit('SEARCH_APP', keyword.value.trim().toLowerCase())
   }
