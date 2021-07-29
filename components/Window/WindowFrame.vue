@@ -24,7 +24,7 @@
                   </v-icon>
                 </v-btn>
                 <!-- Resize button -->
-                <v-menu v-if="wa.type === 'size'" open-on-hover bottom offset-y nudge-left="180%" open-delay="420" close-delay="180">
+                <v-menu v-if="wa.type === 'size'" open-on-hover bottom offset-y nudge-left="180%" open-delay="420" close-delay="420" close-on-click transition="slide-y-transition">
                   <template #activator="{ on, attrs }">
                     <v-btn
                       icon
