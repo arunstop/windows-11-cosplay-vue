@@ -1,5 +1,5 @@
 <template>
-  <WindowFrame :app="app">
+  <WindowFrame :app="app" :snapped="snapped">
     <template #content>
       content
     </template>
@@ -20,6 +20,7 @@ export default {
         }
       },
     },
+    snapped:Boolean,
     // fullscreen: Boolean,
   },
   data: () => ({

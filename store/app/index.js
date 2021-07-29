@@ -24,6 +24,7 @@ export const state = () => {
         title: 'XD',
         show: false,
         fullscreen: false,
+        snap: false,
       },
     }
   }
@@ -216,7 +217,7 @@ export const mutations = {
 }
 
 export const actions = {
-  
+
   searchApp({ commit }, keyword) {
     commit('SEARCH_APP', keyword.value.trim().toLowerCase())
   }

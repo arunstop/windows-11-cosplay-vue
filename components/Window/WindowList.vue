@@ -2,7 +2,7 @@
   <v-row no-gutters>
     <div v-for="app in $store.state.app.window.windowList" :key="app.id">
       <Window
-        v-if="app.type == 'window' && !app.snap"
+        v-if="app.type == 'window' && !app.window.snap"
         v-model="app.window.show"
         :app="app"
       />
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   data: () => ({
     //   window: this.$store.state.dialog
@@ -62,6 +64,7 @@ export default {
     ],
   }),
   computed: {
+    ...mapGetters('app/window', ['NonSnappedWindowList']),
     show: {
       get() {
         return this.$store.state.dialog.show

@@ -3,12 +3,24 @@ export const state = () => ({
 })
 
 export const getters = {
-  windowState: (state) => (id) => {
+  windowState: (state, getters, rootState) => (id) => {
     const result = state.windowList.find((app) => {
       return app.id === id
     })
+    // if(!result) return false
     return result.window.show
   },
+  //   NonSnappedWindowList:(state)=>()=>{
+  // return state.windowList.filter((app)=>{
+  //   const snappedWindow = state.snap.snapLayout.find()
+  //   return state.snap.snap
+  // })
+  //   }
+  snappedWindowList: (state) => () => {
+    return state.windowList.filter((app) => {
+      return app.window.snap === true
+    })
+  }
 }
 
 export const mutations = {
@@ -17,35 +29,49 @@ export const mutations = {
     // console.log(state.windowList)
   },
   TOGGLE_WINDOW(state, data) {
-    const result = state.windowList.find((app) => {
+    const target = state.windowList.find((app) => {
       return app.id === data.id
     })
-    result.window.show = data.value
+    target.window.show = data.value
   },
   TOGGLE_FULLSCREEN(state, id) {
-    const result = state.windowList.find((app) => {
+    const target = state.windowList.find((app) => {
       return app.id === id
     })
-    result.window.fullscreen = !result.window.fullscreen
+
+    target.window.fullscreen = !target.window.fullscreen
   },
   OPEN_APP(state, app) {
     state.windowList.push(app)
   },
   CLOSE_APP(state, id) {
-    // const result = state.windowList.find((app) => {
-    //   return app.id === id
-    // })
-    // result.window.fullscreen = false
+    const target = state.windowList.find((app) => {
+      return app.id === id
+    })
+    if(target.window.snap ===true)  target.window.fullscreen = false
+    target.window.snap = false
     // Remove items from array
-
     state.windowList = state.windowList.filter(item => item.id !== id)
   },
   IS_OPENED_APP(state, id) {
-    const result = state.windowList.find((app) => {
+    const target = state.windowList.find((app) => {
       return app.id === id
     })
-    return result
+    return target
   },
+  SNAP_WINDOW(state, id) {
+    const target = state.windowList.find((app) => {
+      return app.id === id
+    })
+    target.window.fullscreen = false
+    target.window.snap = true
+  },
+  UNSNAP_WINDOW(state, id) {
+    const target = state.windowList.find((app) => {
+      return app.id === id
+    })
+    target.window.snap = false
+  }
 }
 
 export const actions = {
@@ -56,7 +82,8 @@ export const actions = {
   toggleWindow({ commit }, data) {
     commit('TOGGLE_WINDOW', data)
   },
-  toggleFullscreen({ commit }, payload) {
+  toggleFullscreen({ commit, dispatch }, payload) {
+    dispatch('app/snap/removeSnap', payload.id, { root: true })
     commit('TOGGLE_FULLSCREEN', payload.id)
   },
   openApp({ state, commit }, app) {
@@ -72,6 +99,7 @@ export const actions = {
     // dispatch('toggleWindow', { id: app.id }).then(() => {
     //   commit('CLOSE_APP', app.id)
     // },1000)
+    dispatch('app/snap/closeSnapApp', app.id, { root: true })
     dispatch('toggleWindow', { id: app.id, value: false })
     setTimeout(() => {
       commit('CLOSE_APP', app.id)

@@ -2,7 +2,7 @@
   <div class="snap-layout-menu">
     <v-card class="grid-container-snap-layout-menu pa-3 rounded-lg">
       <v-card
-        v-for="(sl, index) in snapLayoutList"
+        v-for="(sl, index) in $store.state.app.snap.snapLayoutTemplate"
         :key="index"
         class="d-flex justify-center align-center"
         min-width="120px"
@@ -18,6 +18,7 @@
             :rounded="item.rounded"
             :height="item.height"
             link
+            @click="addSnap(sl.snapType, app)"
           />
         </div>
       </v-card>
@@ -26,57 +27,15 @@
 </template>
 <script>
 export default {
-  data: () => ({
-    snapLayoutList: [
-      {
-        type: 'grid-container-snap-layout-menu-cols-50-50',
-        itemList: [
-          { rounded: 'sm l-lg', height: '80px' },
-          { rounded: 'sm r-lg', height: '80px' },
-        ],
-      },
-      {
-        type: 'grid-container-snap-layout-menu-cols-66-34',
-        itemList: [
-          { rounded: 'sm l-lg', height: '80px' },
-          { rounded: 'sm r-lg', height: '80px' },
-        ],
-      },
-      {
-        type: 'grid-container-snap-layout-menu-cols-33-34-33',
-        itemList: [
-          { rounded: 'sm l-lg', height: '80px' },
-          { rounded: 'sm', height: '80px' },
-          { rounded: 'sm r-lg', height: '80px' },
-        ],
-      },
-      {
-        type: 'grid-container-snap-layout-menu-col-50-col-50-rows-50-50',
-        itemList: [
-          { rounded: 'sm l-lg', height: '40px' },
-          { rounded: 'sm tr-lg', height: '40px' },
-          { rounded: 'sm br-lg', height: '40px' },
-        ],
-      },
-      {
-        type: 'grid-container-snap-layout-menu-cols-50-rows-50',
-        itemList: [
-          { rounded: 'sm tl-lg', height: '40px' },
-          { rounded: 'sm tr-lg', height: '40px' },
-          { rounded: 'sm bl-lg', height: '40px' },
-          { rounded: 'sm br-lg', height: '40px' },
-        ],
-      },
-      {
-        type: 'grid-container-snap-layout-menu-cols-20-30-20',
-        itemList: [
-          { rounded: 'sm l-lg', height: '80px' },
-          { rounded: 'sm', height: '80px' },
-          { rounded: 'sm r-lg', height: '80px' },
-        ],
-      },
-    ],
-  }),
+  props: {
+    app: { type: Object, default: () => {} },
+  },
+  data: () => ({}),
+  methods: {
+    addSnap(type, app) {
+      this.$store.dispatch('app/snap/addSnap', {type,app})
+    },
+  },
 }
 </script>
 <style>
