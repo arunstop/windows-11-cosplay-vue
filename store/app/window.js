@@ -10,12 +10,11 @@ export const getters = {
     // if(!result) return false
     return result.window.show
   },
-  //   NonSnappedWindowList:(state)=>()=>{
-  // return state.windowList.filter((app)=>{
-  //   const snappedWindow = state.snap.snapLayout.find()
-  //   return state.snap.snap
-  // })
-  //   }
+  NonSnappedWindowList: (state) => () => {
+    return state.windowList.filter((app) => {
+      return app.window.snap === false && app.type === 'window'
+    })
+  },
   snappedWindowList: (state) => () => {
     return state.windowList.filter((app) => {
       return app.window.snap === true
@@ -48,7 +47,7 @@ export const mutations = {
     const target = state.windowList.find((app) => {
       return app.id === id
     })
-    if(target.window.snap ===true)  target.window.fullscreen = false
+    if (target.window.snap === true) target.window.fullscreen = false
     target.window.snap = false
     // Remove items from array
     state.windowList = state.windowList.filter(item => item.id !== id)
@@ -99,7 +98,7 @@ export const actions = {
     // dispatch('toggleWindow', { id: app.id }).then(() => {
     //   commit('CLOSE_APP', app.id)
     // },1000)
-    dispatch('app/snap/closeSnapApp', app.id, { root: true })
+    if (app.window.snap === true) dispatch('app/snap/closeSnapApp', app.id, { root: true })
     dispatch('toggleWindow', { id: app.id, value: false })
     setTimeout(() => {
       commit('CLOSE_APP', app.id)

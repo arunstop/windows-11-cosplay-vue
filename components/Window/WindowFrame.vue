@@ -46,7 +46,7 @@
                 </v-btn>
               </template>
 
-              <WindowSnapLayoutMenu :app="app" />
+              <SnapLayoutMenu :app="app" />
             </v-menu>
             <!-- Close button -->
             <v-hover
@@ -151,7 +151,7 @@ export default {
           label: 'Close',
           type: 'close',
           action: () => {
-            this.$store.dispatch('app/window/closeApp', { id: this.app.id })
+            this.$store.dispatch('app/window/closeApp', this.app )
           },
         },
       ]

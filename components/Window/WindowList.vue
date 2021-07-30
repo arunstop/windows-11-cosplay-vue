@@ -48,7 +48,7 @@
         </v-navigation-drawer>
       </div> -->
     </div>
-    <WindowSnapLayout/>
+    <SnapLayoutList/>
   </v-row>
 </template>
 

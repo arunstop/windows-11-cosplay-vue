@@ -12,13 +12,13 @@
       >
         <div :class="sl.type" color="transparent">
           <v-card
-            v-for="(item, index1) in sl.itemList"
-            :key="index1"
+            v-for="(item, itemIndex) in sl.itemList"
+            :key="itemIndex"
             class="snap-layout-item"
             :rounded="item.rounded"
             :height="item.height"
             link
-            @click="addSnap(sl.snapType, app)"
+            @click="addSnap(sl.snapType,itemIndex, app)"
           />
         </div>
       </v-card>
@@ -32,8 +32,8 @@ export default {
   },
   data: () => ({}),
   methods: {
-    addSnap(type, app) {
-      this.$store.dispatch('app/snap/addSnap', {type,app})
+    addSnap(type, index, app) {
+      this.$store.dispatch('app/snap/addSnap', {type,index,app})
     },
   },
 }

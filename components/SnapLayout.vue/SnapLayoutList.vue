@@ -4,11 +4,11 @@
     class="snap-layout"
     :class="'grid-container-snap-layout-' + snapLayout.type"
   >
-    <Window
+    <SnapLayoutItem
       v-for="(app, index) in snapLayout.appList"
       :key="index"
-      :snapped="true"
       :app="app"
+      :initializer="app.initializer"
     />
   </div>
 </template>
