@@ -31,6 +31,7 @@
             dense
             clearable
             hide-details=""
+            autofocus
           >
           </v-text-field>
         </v-card-title>
