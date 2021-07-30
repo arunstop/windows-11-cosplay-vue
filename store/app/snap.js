@@ -69,6 +69,7 @@ export const getters = {
 
 export const mutations = {
     ADD_SNAP(state, item) {
+        const initializerItem = (index) => ({ index, initializer: true })
         // if (state.snapLayout.fullscreen === true) {
         //     state.snapLayout.fullscreen = false
         // }
@@ -81,9 +82,9 @@ export const mutations = {
             state.snapLayout.type = item.type
             for (let i = 0; i < templateTarget.max; i++) {
                 if (i === item.index) {
-                    snapItems.push({ index: i, initializer: false, ...item.app })
+                    snapItems.push({ ...item.app, index: i, initializer: false, })
                 } else {
-                    snapItems.push({ index: i, initializer: true })
+                    snapItems.push(initializerItem(i))
                 }
             }
             if (duplicate) return
@@ -101,11 +102,21 @@ export const mutations = {
             //     }
             // }
             snapItems = state.snapLayout.appList;
-            snapItems[item.index] = { index: item.index, initializer: false, ...item.app }
+            // console.log(item.index)
+            const deprecatedItem = snapItems.find((app) => app.id === item.app.id)
+            // console.log(deprecatedItem)
+            if (deprecatedItem) {
+                // console.log(deprecatedItem.index + ' -> ' + item.index)
+                snapItems[deprecatedItem.index] = initializerItem(deprecatedItem.index)
+            }
+
+            snapItems[item.index] = { ...item.app, index: item.index, initializer: false, }
+
+            // console.log(snapItems)
             // snapItems.forEach(element => {
             //     console.log(element.index)
             // });
-            if (duplicate) return
+            // if (duplicate) return
             // Should initializer the REACTIVE props first to change it
             state.snapLayout.appList = []
             state.snapLayout.appList = snapItems
@@ -135,7 +146,7 @@ export const mutations = {
         }
         if (state.snapLayout.appList.length === 0) state.snapLayout.type = ''
     },
-    CLEAR_SNAP_APP(state){
+    CLEAR_SNAP_APP(state) {
         state.snapLayout.appList = []
     }
     // TOGGLE_SNAP_FULLSCREEN(state, value) {
@@ -144,16 +155,16 @@ export const mutations = {
 }
 
 export const actions = {
-    addSnap({ commit, state,dispatch }, item) {
-        if(state.snapLayout.type !== item.type){
+    addSnap({ commit, state, dispatch }, item) {
+        if (state.snapLayout.type !== item.type) {
             // alert('different type, reconstructing')
             state.snapLayout.appList.forEach(element => {
-                if(element.id){
+                if (element.id) {
                     dispatch('removeSnap', element.id)
-                    dispatch('app/window/toggleWindow', {id :element.id}, { root: true })
+                    dispatch('app/window/toggleWindow', { id: element.id }, { root: true })
 
                 }
-                else{
+                else {
                     commit('CLEAR_SNAP_APP')
                 }
             });
