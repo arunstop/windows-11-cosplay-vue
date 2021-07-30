@@ -13,12 +13,18 @@
       elevation="0"
     >
     </v-card>
-    <v-card class="pa-2" >
-      <v-card class="snap-layout-initializer-menu" max-height="200px" color="transparent" elevation="0">
+    <v-card class="pa-2">
+      <v-card
+        class="snap-layout-initializer-menu"
+        max-height="200px"
+        color="transparent"
+        elevation="0"
+      >
         <SnapLayoutInitializerApp
           v-for="(sma, index) in NonSnappedWindowList()"
           :key="index"
           :app="sma"
+          :snap="snap"
         />
       </v-card>
     </v-card>
@@ -29,6 +35,9 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  props: {
+    snap: { type: Object, default: () => ({}) },
+  },
   computed: {
     ...mapGetters('app/window', ['NonSnappedWindowList']),
   },

@@ -9,12 +9,16 @@
       :key="index"
       :app="app"
       :initializer="app.initializer"
+      :snap="{index:app.index, type:snapLayout.type}"
     />
   </div>
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex'
 export default {
+  props: {
+    snap: { type: Object, default: () => ({}) },
+  },
   computed: {
     ...mapState('app/snap', ['snapLayout', 'snapLayoutTemplate']),
     ...mapGetters('app/window', ['snappedWindowList']),

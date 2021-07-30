@@ -64,6 +64,7 @@ export const mutations = {
     })
     target.window.fullscreen = false
     target.window.snap = true
+    target.window.show = true
   },
   UNSNAP_WINDOW(state, id) {
     const target = state.windowList.find((app) => {
