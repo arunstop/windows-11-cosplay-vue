@@ -14,11 +14,14 @@ export default {
       type: Object,
       default: () => {},
     },
+     windowId: { type: Number, default: 0 },
   },
   computed:{
       ...mapGetters('app', ['cutString20'])
   },methods:{
     openApp(app) {
+      // console.log(this.windowId)
+      this.$store.dispatch('app/window/toggleWindow', { id: this.windowId, value:false })
       this.$store.dispatch('app/window/openApp', app)
     },
   }

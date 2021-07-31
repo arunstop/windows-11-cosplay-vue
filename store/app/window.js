@@ -94,7 +94,7 @@ export const actions = {
   },
   toggleWindow({ commit, state, dispatch }, data) {
     const target = state.windowList.find((item) => item.id === data.id)
-    console.log(target)
+    // console.log(target)
     if (target.window.snap === true) {
       dispatch('app/snap/removeSnap', target.id, { root: true })
       // dispatch('app/snap/closeSnapApp', target.id, { root: true })
@@ -119,7 +119,7 @@ export const actions = {
     //   commit('CLOSE_APP', app.id)
     // },1000)
     if (app.window.snap === true) dispatch('app/snap/closeSnapApp', app.id, { root: true })
-    dispatch('toggleWindow', { id: app.id, value: false })
+    else dispatch('toggleWindow', { id: app.id, value: false })
     setTimeout(() => {
       commit('CLOSE_APP', app.id)
     }, 100);

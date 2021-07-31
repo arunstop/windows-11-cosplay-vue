@@ -36,7 +36,7 @@
           </v-text-field>
         </v-card-title>
         <!-- Search result section -->
-        <SearchResultList :height="'470px'"/>
+        <SearchResultList :window-id="app.id" :height="'470px'"/>
       </v-card>
     </v-card>
   </v-dialog>

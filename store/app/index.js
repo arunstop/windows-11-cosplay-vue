@@ -3,7 +3,10 @@ export const state = () => {
   const randomId = () => {
     const newId = Math.floor(Math.random() * 1001)
     const duplicatedId = addedId.find((item) => item === newId)
-    if (!duplicatedId) return newId
+    if (!duplicatedId) {
+      addedId.push(newId)
+      return newId
+    }
     else return randomId()
   }
   // const randomColorHex=()=>{

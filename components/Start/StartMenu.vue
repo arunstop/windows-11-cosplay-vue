@@ -56,6 +56,7 @@
                 v-for="(sma, index) in startMenuApps"
                 :key="index"
                 :app="sma"
+                :window-id="app.id"
               />
             </v-row>
 

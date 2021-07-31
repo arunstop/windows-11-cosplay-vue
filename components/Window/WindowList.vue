@@ -1,6 +1,5 @@
 <template>
   <v-row no-gutters>
-    <!-- <v-btn @click="xd()">XD</v-btn> -->
     <div v-for="app in sortedWindowList()" :key="app.id">
       <Window
         v-if="app.type == 'window' && !app.window.snap"
@@ -76,9 +75,7 @@ export default {
     },
   },
   methods:{
-    xd(){
-      console.log(this.sortedWindowList())
-    }
+
   }
 }
 </script>

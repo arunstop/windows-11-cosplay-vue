@@ -36,6 +36,7 @@ import { mapGetters } from 'vuex'
 export default {
   props: {
     height: { type: String, default: '390px' },
+    windowId: { type: Number, default: 0 },
   },
   data: () => ({}),
   computed: {
@@ -43,6 +44,7 @@ export default {
   },
   methods: {
     openApp(app) {
+      this.$store.dispatch('app/window/toggleWindow', { id: this.windowId, value:false })
       this.$store.dispatch('app/window/openApp', app)
     },
   },

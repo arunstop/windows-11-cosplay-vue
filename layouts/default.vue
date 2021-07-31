@@ -111,19 +111,39 @@
     <v-card v-show="authScreen" class="lock-screen" color="transparent">
       <v-card
         class="d-flex justify-space-between"
-        color="windows-grey"
+        color="windows-black"
         height="100%"
         width="100%"
         style="position: absolute; opacity: 0.6"
       >
       </v-card>
       <v-card
-        class="d-flex justify-space-between"
+        class="d-flex justify-space-between pa-4"
         color="transparent"
         height="100%"
         width="100%"
       >
-        <div><h1>Noob Programmer</h1></div>
+        <!-- Left -->
+        <div class="d-flex flex-column flex-column-reverse">
+          <v-list color="transparent" dense>
+            <v-list-item
+              v-for="(user, index) in $store.state.user.userList"
+              :key="index"
+              class="mt-2 px-2 rounded-lg"
+              link
+            >
+              <v-list-item-avatar class="my-1" size="36">
+                <v-img :src="user.image" />
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-title class="black--text text--darken-2">
+                  <h5>{{ user.name }}</h5>
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </div>
+        <!-- Middle -->
         <div class="d-flex flex-column justify-center align-center">
           <v-avatar size="140">
             <v-img :src="'https://i.pravatar.cc/180'"> </v-img>
@@ -132,7 +152,7 @@
 
           <div v-if="!loggingOn" class="text-center">
             <v-text-field
-            v-model="pin"
+              v-model="pin"
               class="mt-3"
               label="PIN"
               type="password"
@@ -156,7 +176,32 @@
             <h3 class="ms-3 white--text">Welcome</h3>
           </div>
         </div>
-        <div><h1>Noob Programmer</h1></div>
+        <!-- Right -->
+        <div class="d-flex flex-column flex-column-reverse">
+          <div>
+            <v-row no-gutters justify="end" align="center">
+              <v-btn
+                class="ms-1 rounded-lg black--text h1 py-4"
+                color="transparent"
+                elevation="0"
+                x-small
+              >
+                <h3>ENG</h3>
+              </v-btn>
+              <v-btn
+                v-for="(option, index) in authScreenOptionList"
+                :key="index"
+                class="ms-1 rounded-lg"
+                color="black darken-2"
+                elevation="0"
+                icon
+                small
+              >
+                <v-icon size="18px">{{ option.icon }}</v-icon>
+              </v-btn>
+            </v-row>
+          </div>
+        </div>
       </v-card>
     </v-card>
   </v-app>
@@ -176,12 +221,18 @@ export default {
     },
     authScreen: false,
     loggingOn: false,
-    pin: ''
+    pin: '',
+    authScreenOptionList: [
+      { icon: 'mdi-lock-alert' },
+      { icon: 'mdi-wifi' },
+      { icon: 'mdi-human' },
+      { icon: 'mdi-power-standby' },
+    ],
   }),
   computed: {},
   created() {
     // this.$localStorage.set('test', {key:'value'})
-    if(this.$localStorage.has('user')){
+    if (this.$localStorage.has('user')) {
       this.$store.dispatch('power/logOn', this.$localStorage.get('user'))
     }
   },
@@ -191,12 +242,16 @@ export default {
       setTimeout(() => {
         this.authScreen = false
         // alert(this.authScreen  )
-      }, 15000)
+      }, 120000)
     },
     powerAction() {
       this.loggingOn = true
       setTimeout(() => {
-        this.$store.dispatch('power/logOn', {username:'Anonymous', pin:this.pin, status :'LOGGED_ON'})
+        this.$store.dispatch('power/logOn', {
+          username: 'Anonymous',
+          pin: this.pin,
+          status: 'LOGGED_ON',
+        })
         this.authScreen = false
         this.loggingOn = false
       }, 3000)
