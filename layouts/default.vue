@@ -160,8 +160,17 @@
               dark
               dense
               hide-details
-              @keydown.enter="powerAction()"
-            />
+              @keydown.enter="logOn()"
+            >
+              <template v-if="pin" #append>
+                <v-btn icon small>
+                  <v-icon size="18" > mdi-fingerprint </v-icon>
+                </v-btn>
+                <v-btn icon small>
+                  <v-icon size="18" @click="logOn()"> mdi-arrow-right </v-icon>
+                </v-btn>
+              </template>
+            </v-text-field>
             <v-btn class="mt-3 text-none rounded-lg white--text" text>
               I forgot my PIN
             </v-btn>
@@ -244,7 +253,7 @@ export default {
         // alert(this.authScreen  )
       }, 120000)
     },
-    powerAction() {
+    logOn() {
       this.loggingOn = true
       setTimeout(() => {
         this.$store.dispatch('power/logOn', {

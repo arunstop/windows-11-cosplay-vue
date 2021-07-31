@@ -303,10 +303,35 @@ export default {
     },
   },
   created() {
+    this.$apiNews.showTrending().then((response) => {
+      response.data.value.forEach((element,index) => {
+        // filling up no-image articles
+      element.image = element.image || {
+        thumbnail: {
+          contentUrl: '',
+        },
+      }
+      // filling up no-image providers
+      element.provider[0].image = element.provider[0].image || {
+        thumbnail: {
+          contentUrl: '',
+        },
+      }
+      if (index > 1 && index % 5 === 0 && element.image.thumbnail.contentUrl) {
+        Object.assign(element, { spanned: true })
+      }
 
-    // this.$apiNews.showTrending().then((response) => {
-    //   response.data.value.forEach((element,index) => {
-    //     // filling up no-image articles
+      // console.log(element.image)
+      if (index < 4) {
+        this.newsList.topStories.push(element)
+      } else {
+        this.newsList.news.push(element)
+      }
+      });
+    })
+
+    // news.value.forEach((element, index) => {
+    //   // filling up no-image articles
     //   element.image = element.image || {
     //     thumbnail: {
     //       contentUrl: '',
@@ -328,10 +353,9 @@ export default {
     //   } else {
     //     this.newsList.news.push(element)
     //   }
-    //   });
     // })
- 
- },
+  
+  },
   methods: {},
 }
 </script>
