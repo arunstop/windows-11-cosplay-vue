@@ -10,7 +10,12 @@ export const getters = {
     // if(!result) return false
     return result.window.show
   },
-  NonSnappedWindowList: (state) => () => {
+  sortedWindowList: (state) => () => {
+    return state.windowList
+      .filter((app) => app.window.snap === false)
+      .sort((a, b) => a.position - b.position)
+  },
+  nonSnappedWindowList: (state) => () => {
     return state.windowList.filter((app) => {
       return app.window.snap === false && app.type === 'window'
     })
@@ -32,6 +37,11 @@ export const mutations = {
       return app.id === data.id
     })
     target.window.show = data.value
+    if (target.position && data.value===true) {
+      target.position = state.windowList[state.windowList.length - 1].position + 1
+      // console.log(target.position)
+    }
+
   },
   TOGGLE_FULLSCREEN(state, id) {
     const target = state.windowList.find((app) => {
@@ -41,7 +51,10 @@ export const mutations = {
     target.window.fullscreen = !target.window.fullscreen
   },
   OPEN_APP(state, app) {
-    state.windowList.push(app)
+    // alert(this.$moment().format())
+    const position = state.windowList[state.windowList.length - 1].position + 1 || state.windowList.length + 1;
+    // console.log(position)
+    state.windowList.push({ ...app, position })
   },
   CLOSE_APP(state, id) {
     const target = state.windowList.find((app) => {
@@ -79,7 +92,13 @@ export const actions = {
     const defaultApps = rootState.app.appItemList.filter((appItem) => appItem.default)
     commit('OPEN_DEFAULT_APPS', defaultApps)
   },
-  toggleWindow({ commit }, data) {
+  toggleWindow({ commit, state, dispatch }, data) {
+    const target = state.windowList.find((item) => item.id === data.id)
+    console.log(target)
+    if (target.window.snap === true) {
+      dispatch('app/snap/removeSnap', target.id, { root: true })
+      // dispatch('app/snap/closeSnapApp', target.id, { root: true })
+    }
     commit('TOGGLE_WINDOW', data)
   },
   toggleFullscreen({ commit, dispatch }, payload) {

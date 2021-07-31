@@ -162,7 +162,6 @@ export const actions = {
                 if (element.id) {
                     dispatch('removeSnap', element.id)
                     dispatch('app/window/toggleWindow', { id: element.id }, { root: true })
-
                 }
                 else {
                     commit('CLEAR_SNAP_APP')

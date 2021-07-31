@@ -21,7 +21,7 @@
         elevation="0"
       >
         <SnapLayoutInitializerApp
-          v-for="(sma, index) in NonSnappedWindowList()"
+          v-for="(sma, index) in nonSnappedWindowList()"
           :key="index"
           :app="sma"
           :snap="snap"
@@ -39,7 +39,7 @@ export default {
     snap: { type: Object, default: () => ({}) },
   },
   computed: {
-    ...mapGetters('app/window', ['NonSnappedWindowList']),
+    ...mapGetters('app/window', ['nonSnappedWindowList']),
   },
   created() {},
 }

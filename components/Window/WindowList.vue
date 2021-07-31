@@ -1,6 +1,7 @@
 <template>
   <v-row no-gutters>
-    <div v-for="app in $store.state.app.window.windowList" :key="app.id">
+    <!-- <v-btn @click="xd()">XD</v-btn> -->
+    <div v-for="app in sortedWindowList()" :key="app.id">
       <Window
         v-if="app.type == 'window' && !app.window.snap"
         v-model="app.window.show"
@@ -64,7 +65,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters('app/window', ['NonSnappedWindowList']),
+    ...mapGetters('app/window', ['nonSnappedWindowList','sortedWindowList']),
     show: {
       get() {
         return this.$store.state.dialog.show
@@ -73,33 +74,11 @@ export default {
         this.$store.commit('toggleDialog')
       },
     },
-    windowActions() {
-      return [
-        {
-          icon: 'mdi-window-minimize',
-          label: 'Minimize',
-          action: () => {
-            this.$store.commit('toggleDialog')
-          },
-        },
-        {
-          icon: this.$store.state.dialog.fullscreen
-            ? 'mdi-window-restore'
-            : 'mdi-window-maximize',
-          label: this.$store.state.dialog.fullscreen ? 'Restore' : 'Maximize',
-          action: () => {
-            this.$store.commit('toggleFullScreen')
-          },
-        },
-        {
-          icon: 'mdi-close-thick',
-          label: 'Close',
-          action: () => {
-            this.$store.commit('toggleDialog')
-          },
-        },
-      ]
-    },
   },
+  methods:{
+    xd(){
+      console.log(this.sortedWindowList())
+    }
+  }
 }
 </script>
