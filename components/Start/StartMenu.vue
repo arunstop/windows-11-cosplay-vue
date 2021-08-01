@@ -36,7 +36,11 @@
                 },
               }"
             />
-            <SearchResultList style="margin-top: 22px" :height="'400px'" />
+            <SearchResultList
+              :window-id="app.id"
+              style="margin-top: 22px"
+              :height="'400px'"
+            />
           </v-card-text>
 
           <v-card-text v-if="!showAllApps" class="py-8">
@@ -89,10 +93,13 @@
               depressed
             >
               <v-list-item-avatar size="30">
-                <v-img :src="'https://cdn.vuetifyjs.com/images/lists/1.jpg'">
-                </v-img>
+                <v-img :src="loggedOnUser.image"> </v-img>
               </v-list-item-avatar>
-              <v-list-item-content> Noob Programmer </v-list-item-content>
+              <v-list-item-content>
+                <v-list-item-title>
+                  <h5>{{ loggedOnUser.name }}</h5>
+                </v-list-item-title>
+              </v-list-item-content>
             </v-btn>
 
             <v-menu top offset-y :close-on-content-click="true">
@@ -117,7 +124,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   props: {
@@ -133,15 +140,19 @@ export default {
     showAllApps: false,
   }),
   computed: {
-    ...mapGetters('app', ['startMenuApps', 'cutString20']),
+    ...mapGetters('app', ['startMenuApps']),
+    ...mapState('user', ['loggedOnUser']),
     show: {
       get() {
         return this.$store.getters['app/window/windowState'](this.app.id)
       },
       set(value) {
         // return this.$store.commit('app/toggleState', { id: this.app.id, value })
-        this.$store.dispatch('app/window/toggleWindow', { id: this.app.id, value })
-        this.showAllApps=false
+        this.$store.dispatch('app/window/toggleWindow', {
+          id: this.app.id,
+          value,
+        })
+        this.showAllApps = false
       },
     },
   },

@@ -12,7 +12,7 @@
     class="logged-off"
   >
     <div class="d-flex flex-column justify-center align-center ma-auto">
-      <RollerLoader :color="'#000000'" size="64" />
+      <RollerLoader :color="'#000000'" :size="64" />
       <h3>Restarting</h3>
     </div>
   </v-app>
@@ -130,13 +130,15 @@
               v-for="(user, index) in $store.state.user.userList"
               :key="index"
               class="mt-2 px-2 rounded-lg"
+              :class="user.active ? 'primary' : ''"
               link
+              @click="activateUser(user.email)"
             >
               <v-list-item-avatar class="my-1" size="36">
                 <v-img :src="user.image" />
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title class="black--text text--darken-2">
+                <v-list-item-title class="black--text text--darken-2" :class="user.active ? 'white--text' : ''">
                   <h5>{{ user.name }}</h5>
                 </v-list-item-title>
               </v-list-item-content>
@@ -146,9 +148,9 @@
         <!-- Middle -->
         <div class="d-flex flex-column justify-center align-center">
           <v-avatar size="140">
-            <v-img :src="'https://i.pravatar.cc/180'"> </v-img>
+            <v-img :src="activatedUser.image"> </v-img>
           </v-avatar>
-          <h3 class="mt-3 white--text">Noob Programmer</h3>
+          <h3 class="mt-3 white--text">{{ activatedUser.name }}</h3>
 
           <div v-if="!loggingOn" class="text-center">
             <v-text-field
@@ -164,7 +166,7 @@
             >
               <template v-if="pin" #append>
                 <v-btn icon small>
-                  <v-icon size="18" > mdi-fingerprint </v-icon>
+                  <v-icon size="18"> mdi-fingerprint </v-icon>
                 </v-btn>
                 <v-btn icon small>
                   <v-icon size="18" @click="logOn()"> mdi-arrow-right </v-icon>
@@ -218,6 +220,7 @@
 
 <script>
 import { RollerLoader } from 'vue-spinners-css'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -238,11 +241,13 @@ export default {
       { icon: 'mdi-power-standby' },
     ],
   }),
-  computed: {},
+  computed: {
+    ...mapGetters('user', ['activatedUser']),
+  },
   created() {
     // this.$localStorage.set('test', {key:'value'})
     if (this.$localStorage.has('user')) {
-      this.$store.dispatch('power/logOn', this.$localStorage.get('user'))
+      this.$store.dispatch('user/logOn', this.$localStorage.get('user'))
     }
   },
   methods: {
@@ -256,14 +261,13 @@ export default {
     logOn() {
       this.loggingOn = true
       setTimeout(() => {
-        this.$store.dispatch('power/logOn', {
-          username: 'Anonymous',
-          pin: this.pin,
-          status: 'LOGGED_ON',
-        })
+        this.$store.dispatch('user/logOn', this.activatedUser)
         this.authScreen = false
         this.loggingOn = false
       }, 3000)
+    },
+    activateUser(email) {
+      this.$store.dispatch('user/activateUser', email)
     },
     getHours() {
       return this.$moment().format('HH:mm')

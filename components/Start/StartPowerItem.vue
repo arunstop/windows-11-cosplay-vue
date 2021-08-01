@@ -14,7 +14,7 @@ export default {
   },
   methods:{
     powerAction(status){
-      this.$store.dispatch('power/powerAction', status)
+      this.$store.dispatch('user/logOff', status)
     }
   }
 }

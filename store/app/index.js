@@ -169,12 +169,6 @@ export const getters = {
       return !appItem.taskbar
     })
   },
-  cutString20: () => (str) => {
-    if (str.length >= 20) {
-      str = str.substring(0, 19) + '...'
-    }
-    return str
-  },
   searchAppResult: (state) => () => {
 
     let searchResult = state.appItemList.filter((appItem) => {

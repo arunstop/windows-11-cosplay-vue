@@ -11,7 +11,7 @@
                 <v-list-item-content>
                   <v-list-item-title>
                     <h5>
-                      {{ cutString20(item.title) }}
+                      {{ $globals.cutStr(item.title,20) }}
                     </h5>
                   </v-list-item-title>
                   <v-list-item-subtitle>
@@ -24,13 +24,11 @@
             </v-btn>
 </template>
 <script>
-import {mapGetters} from 'vuex'
 export default {
     props:{
         item:{type:Object, default:()=>{}}
     },
     computed:{
-        ...mapGetters('app',['cutString20'])
     }
 }
 </script>

@@ -2,12 +2,11 @@
     <v-btn class="mx-1 transparent text-capitalize pa-2" height="100%" depressed @click="openApp(app)">
     <div class="d-flex flex-column justify-center align-center">
       <v-icon size="30" :color="app.iconColor">{{ app.icon }}</v-icon>
-      <h5 class="mt-2">{{ cutString20(app.title) }}</h5>
+      <h5 class="mt-2">{{ $globals.cutStr(app.title, 20) }}</h5>
     </div>
   </v-btn>
 </template>
 <script>
-import{ mapGetters} from 'vuex'
 export default {
     props: {
     app: {
@@ -17,7 +16,7 @@ export default {
      windowId: { type: Number, default: 0 },
   },
   computed:{
-      ...mapGetters('app', ['cutString20'])
+    
   },methods:{
     openApp(app) {
       // console.log(this.windowId)
