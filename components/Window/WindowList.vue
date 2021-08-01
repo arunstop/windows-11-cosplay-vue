@@ -1,23 +1,10 @@
 <template>
   <v-row no-gutters>
     <div v-for="app in sortedWindowList()" :key="app.id">
-      <Window
-        v-if="app.type == 'window' && !app.window.snap"
-        v-model="app.window.show"
-        :app="app"
-      />
-      <StartMenu
-        v-else-if="app.type == 'startmenu'"
-        v-show="app.window.show"
-        :app="app"
-      />
-      <SearchPanel
-        v-else-if="app.type == 'searchpanel'"
-        v-show="app.window.show"
-        :app="app"
-      />
-      <WidgetPanel v-else-if="app.type == 'widgetpanel'" v-model="app.window.show" :app="app"/>
-
+      <Window v-if="app.type == 'window' && !app.window.snap" :app="app" />
+      <StartMenu v-else-if="app.type == 'startmenu'" :app="app" />
+      <SearchPanel v-else-if="app.type == 'searchpanel'" :app="app" />
+      <WidgetPanel v-else-if="app.type == 'widgetpanel'" :app="app" />
       <!-- <div v-if="app.type == 'widgetpanel'" :app="app">
         <v-navigation-drawer v-model="app.window.show" app temporary>
           <v-list-item>
@@ -48,12 +35,12 @@
         </v-navigation-drawer>
       </div> -->
     </div>
-    <SnapLayoutList/>
+    <SnapLayoutList />
   </v-row>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   data: () => ({
@@ -64,7 +51,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters('app/window', ['nonSnappedWindowList','sortedWindowList']),
+    ...mapGetters('app/window', ['nonSnappedWindowList', 'sortedWindowList']),
     show: {
       get() {
         return this.$store.state.dialog.show
@@ -74,8 +61,6 @@ export default {
       },
     },
   },
-  methods:{
-
-  }
+  methods: {},
 }
 </script>

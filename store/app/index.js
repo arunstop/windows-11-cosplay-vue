@@ -24,7 +24,6 @@ export const state = () => {
   const windowSetting = (type = 'window', def = false, taskbar = true) => {
     return {
       type, default: def, taskbar, window: {
-        title: 'XD',
         show: false,
         fullscreen: false,
         snap: false,

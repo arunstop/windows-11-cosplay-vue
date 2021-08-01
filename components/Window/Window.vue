@@ -11,14 +11,7 @@ export default {
   props: {
     app: {
       type: Object,
-      default: () => {
-        return {
-          window: {
-            show: true,
-            fullscreen: false,
-          },
-        }
-      },
+      default: () => {},
     },
     snapped:Boolean,
     // fullscreen: Boolean,

@@ -1,0 +1,7 @@
+.animate__fastest{
+    --animate-duration: 300ms;
+}
+
+.animate__flash{
+    --animate-duration: 150ms;
+}

@@ -1,6 +1,7 @@
 <template>
   <v-card
     v-if="$store.getters['app/window/windowState'](app.id)"
+    class="animate__animated animate__zoomIn animate__fastest"
     :class="
       (app.window.fullscreen ? 'rounded-0' : 'rounded-lg') +
       ' ' +
