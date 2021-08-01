@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters>
+  <v-row no-gutters >
     <div v-for="app in sortedWindowList()" :key="app.id">
       <Window v-if="app.type == 'window' && !app.window.snap" :app="app" />
       <StartMenu v-else-if="app.type == 'startmenu'" :app="app" />

@@ -120,9 +120,10 @@ export const actions = {
     // },1000)
     if (app.window.snap === true) dispatch('app/snap/closeSnapApp', app.id, { root: true })
     else dispatch('toggleWindow', { id: app.id, value: false })
-    setTimeout(() => {
-      commit('CLOSE_APP', app.id)
-    }, 100);
+    commit('CLOSE_APP', app.id)
+
+    // setTimeout(() => {
+    // }, 100);
   },
   isAppOpened({ commit }, id) {
     commit('IS_OPENED_APP', id)
