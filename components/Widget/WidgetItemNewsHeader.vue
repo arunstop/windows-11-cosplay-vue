@@ -2,18 +2,18 @@
   <v-list-item-content>
     <v-list-item-subtitle class="mb-2 font-size-half">
       <h5 class="d-flex align-center black--text">
-        <v-icon v-if="news.logo == ''" class="me-1" size="12px"
-          >mdi-newspaper</v-icon
-        >
+        <v-icon v-if="news.logo == ''" class="me-1" size="14px">
+          mdi-script
+        </v-icon>
         <v-img
           v-else
-          class="me-1"
-          max-height="12px"
-          max-width="12px"
+          class="me-1 rounded-md"
+          max-height="14px"
+          max-width="14px"
           :src="getProviderLogo(news.logo)"
         />
 
-        {{ news.provider }} - {{ getPublishedDate() }}
+        {{ $globals.cutStr(news.provider, 24) }} - {{ getPublishedDate() }}
       </h5>
     </v-list-item-subtitle>
     <v-list-item-title
@@ -21,7 +21,7 @@
       class="font-size-half"
     >
       <h3 style="line-height: 150%">
-        {{ news.title.substring(0, 120) + '...' }}
+        {{ $globals.cutStr(news.title, 120) }}
       </h3>
     </v-list-item-title>
   </v-list-item-content>
@@ -36,7 +36,7 @@ export default {
       return link.replace('&pid=news', '')
     },
     getPublishedDate() {
-      return this.$moment(this.news.date).fromNow()
+      return this.$moment(this.news.date).fromNow().replace('minutes', 'mins')
     },
   },
 }

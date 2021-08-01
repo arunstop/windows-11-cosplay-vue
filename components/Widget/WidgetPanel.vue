@@ -224,7 +224,7 @@
               <template #content>
                 <div class="grid-container-top-stories">
                   <WidgetItemTopStory
-                    v-for="(news, index) in newsList.topStories"
+                    v-for="(news, index) in topStories"
                     :key="index"
                     :news="{
                       title: news.name,
@@ -240,8 +240,8 @@
           </v-row>
           <v-row no-gutters class="grid-container-highlight px-10">
             <WidgetItemNews
-              v-for="(news, index) in newsList.news"
-              :key="index"
+              v-for="(news) in newsList"
+              :key="news._key"
               :news="{
                 title: news.name,
                 thumbnail: news.image.thumbnail.contentUrl,
@@ -250,6 +250,7 @@
                 date: news.datePublished,
                 desc: news.description,
                 spanned: news.spanned,
+                url: news.url,
               }"
               :class="news.spanned ? 'grid-item-col-span-2' : ''"
             >
@@ -262,7 +263,8 @@
 </template>
 
 <script>
-// import news from '@/static/news.json'
+import {mapState} from 'vuex'
+
 export default {
   props: {
     value: Boolean,
@@ -286,9 +288,10 @@ export default {
       { title: 'Home', icon: 'mdi-view-dashboard' },
       { title: 'About', icon: 'mdi-forum' },
     ],
-    newsList: { topStories: [], news: [] },
+   
   }),
   computed: {
+    ...mapState('news', ['topStories','newsList']),
     show: {
       get() {
         return this.$store.getters['app/window/windowState'](this.app.id)
@@ -303,58 +306,7 @@ export default {
     },
   },
   created() {
-    this.$apiNews.showTrending().then((response) => {
-      response.data.value.forEach((element,index) => {
-        // filling up no-image articles
-      element.image = element.image || {
-        thumbnail: {
-          contentUrl: '',
-        },
-      }
-      // filling up no-image providers
-      element.provider[0].image = element.provider[0].image || {
-        thumbnail: {
-          contentUrl: '',
-        },
-      }
-      if (index > 1 && index % 5 === 0 && element.image.thumbnail.contentUrl) {
-        Object.assign(element, { spanned: true })
-      }
-
-      // console.log(element.image)
-      if (index < 4) {
-        this.newsList.topStories.push(element)
-      } else {
-        this.newsList.news.push(element)
-      }
-      });
-    })
-
-    // news.value.forEach((element, index) => {
-    //   // filling up no-image articles
-    //   element.image = element.image || {
-    //     thumbnail: {
-    //       contentUrl: '',
-    //     },
-    //   }
-    //   // filling up no-image providers
-    //   element.provider[0].image = element.provider[0].image || {
-    //     thumbnail: {
-    //       contentUrl: '',
-    //     },
-    //   }
-    //   if (index > 1 && index % 5 === 0 && element.image.thumbnail.contentUrl) {
-    //     Object.assign(element, { spanned: true })
-    //   }
-
-    //   // console.log(element.image)
-    //   if (index < 4) {
-    //     this.newsList.topStories.push(element)
-    //   } else {
-    //     this.newsList.news.push(element)
-    //   }
-    // })
-  
+   this.$store.dispatch('news/getNewsList', {})
   },
   methods: {},
 }

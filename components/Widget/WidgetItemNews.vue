@@ -1,7 +1,7 @@
 <template>
-  <v-card class="rounded-lg" link>
+  <v-scale-transition>
     <v-hover v-slot="{ hover }">
-      <div>
+      <v-card class="rounded-lg" link>
         <v-img
           v-if="noThumbnail()"
           height="222px"
@@ -26,7 +26,10 @@
                 color="transparent"
                 elevation="0"
               >
-                <WidgetItemNewsHeader :news="news" />
+                <WidgetItemNewsHeader
+                  :class="hover ? 'text-decoration-underline' : ''"
+                  :news="news"
+                />
                 <v-card-text class="pa-0 mb-2 font-size-half">
                   {{ news.desc.substring(0, 150) + '...' }}
                 </v-card-text>
@@ -94,9 +97,9 @@
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-scale-transition>
-      </div>
+      </v-card>
     </v-hover>
-  </v-card>
+  </v-scale-transition>
 </template>
 <script>
 export default {
@@ -110,9 +113,9 @@ export default {
     noThumbnail() {
       return this.news.thumbnail !== ''
     },
-    removeNewsItem(){
-      alert('removed')
-    }
+    removeNewsItem() {
+      this.$store.dispatch('news/removeNews', this.news.url)
+    },
   },
 }
 </script>
