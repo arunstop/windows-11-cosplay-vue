@@ -7,7 +7,7 @@
           height="222px"
           width="100%"
           :src="getResizedImage(news.thumbnail)"
-          class="d-flex align-end"
+          class="d-flex align-end rounded-lg"
         >
           <div v-if="news.spanned">
             <v-list-item class="px-0">

@@ -1,7 +1,19 @@
-.animate__fastest{
-    --animate-duration: 300ms;
+.animate__fastest {
+  --animate-duration: 300ms;
 }
 
-.animate__flash{
-    --animate-duration: 150ms;
+.animate__flash {
+  --animate-duration: 150ms;
+}
+
+.blur-background {
+  position: absolute !important;
+  opacity: 0.8;
+  border-radius: 0 !important;
+  width: 100% !important;
+  margin:0px !important;
+  padding:0px !important;
+  background: #e0ebfd !important;
+  /* Add the blur effect */
+  backdrop-filter: blur(12px);
 }

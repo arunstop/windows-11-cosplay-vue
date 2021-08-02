@@ -1,14 +1,6 @@
 <template>
   <v-footer class="transparent" padless>
-    <v-card
-      flat
-      tile
-      width="100%"
-      class="ma-0 pa-0 text-center white"
-      height="36px"
-      style="position: absolute; opacity: 0.8"
-    >
-    </v-card>
+    <v-card flat class="blur-background" height="36px" elevation="0" />
     <v-card flat tile width="100%" class="ma-0 pa-0 text-center transparent">
       <v-row
         class="pa-0"
@@ -18,31 +10,33 @@
         style="height: 36px !important"
       >
         <div class="d-flex mx-auto" style="position: absolute">
-            <div  v-for="(ta, index) in taskbarApps"
-            :key="index" style="width: 100%; position: relative" class="animate__animated animate__fadeInUp animate__flash">
-              <v-btn class="mx-0 d-flex" icon tile @click.stop="openApp(ta)">
-                <v-icon size="24px" :color="ta.iconColor">
-                  {{ ta.icon }}
-                </v-icon>
-              </v-btn>
-              <!-- opened app indicator -->
-              <div
-                v-if="
-                  isVisible(ta.id) || (isOpen(ta.id) && ta.type === 'window')
-                "
-                class="blue rounded-t-pill"
-                style="
-                  position: absolute;
-                  bottom: 0;
-                  right: 15%;
-                  height: 4px;
-                  width: 72%;
-                "
-              ></div>
-            </div>
+          <div
+            v-for="(ta, index) in taskbarApps"
+            :key="index"
+            style="width: 100%; position: relative"
+            class="animate__animated animate__fadeInUp animate__flash"
+          >
+            <v-btn class="mx-0 d-flex" icon tile @click.stop="openApp(ta)">
+              <v-icon size="24px" :color="ta.iconColor">
+                {{ ta.icon }}
+              </v-icon>
+            </v-btn>
+            <!-- opened app indicator -->
+            <div
+              v-if="isVisible(ta.id) || (isOpen(ta.id) && ta.type === 'window')"
+              class="blue rounded-t-pill"
+              style="
+                position: absolute;
+                bottom: 0;
+                right: 15%;
+                height: 4px;
+                width: 72%;
+              "
+            ></div>
+          </div>
         </div>
 
-        <div class="ms-auto">
+        <div class="ms-auto d-flex align-stretch">
           <v-btn
             v-for="(tray, index) in $store.state.trays"
             :key="index"
@@ -54,7 +48,6 @@
               {{ tray.icon }}
             </v-icon>
           </v-btn>
-
           <v-menu top offset-y :close-on-content-click="false">
             <template #activator="{ on, attrs }">
               <v-btn
@@ -76,6 +69,17 @@
             </template>
             <v-date-picker v-model="datePicker" readonly></v-date-picker>
           </v-menu>
+          <v-card
+            class="d-inline-flex"
+            height="36px"
+            width="12px"
+            flat
+            link
+            tile
+            color="grey"
+            @click="$store.dispatch('app/window/hideAllWindows')"
+          >
+          </v-card>
         </div>
       </v-row>
     </v-card>

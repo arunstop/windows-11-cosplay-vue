@@ -6,27 +6,30 @@
   >
     <v-card
       flat
-      width="100%"
-      class="ma-0 pa-0 text-center white rounded-lg"
+      class="blur-background rounded-lg"
       height="100%"
-      style="position: absolute; opacity: 0.8"
+      elevation="0"
+    />
+
+    <v-card
+      class="snap-layout-initializer-menu pa-2"
+      max-height="200px"
+      color="transparent"
       elevation="0"
     >
-    </v-card>
-    <v-card class="pa-2">
-      <v-card
-        class="snap-layout-initializer-menu"
-        max-height="200px"
-        color="transparent"
-        elevation="0"
-      >
-        <SnapLayoutInitializerApp
-          v-for="(sma, index) in nonSnappedWindowList()"
-          :key="index"
-          :app="sma"
-          :snap="snap"
-        />
-      </v-card>
+      <SnapLayoutInitializerApp
+        v-for="(sma, index) in nonSnappedWindowList()"
+        :key="index"
+        :app="sma"
+        :snap="snap"
+      />
+
+      <div v-if="nonSnappedWindowList().length === 0">
+        <v-btn class="text-none" outlined color="primary">
+          <v-icon class="me-2">mdi-microsoft-windows</v-icon>
+          Open App
+        </v-btn>
+      </div>
     </v-card>
   </v-card>
 </template>

@@ -9,15 +9,11 @@
   >
     <v-card class="transparent rounded-lg" width="660px" height="540px">
       <v-card
-        flat
-        tile
-        width="100%"
-        height="100%"
-        class="ma-0 pa-0 text-center windows-grey rounded-lg"
-        style="position: absolute; opacity: 0.9"
-        elevation="0"
-      >
-      </v-card>
+      flat
+      class="blur-background"
+      height="100%"
+      elevation="0"
+    />
       <v-card class="rounded-lg" color="transparent" width="100%" height="100%">
         <v-card-title class="mb-0 pb-0">
           <v-text-field

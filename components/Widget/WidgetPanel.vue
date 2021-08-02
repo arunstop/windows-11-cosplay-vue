@@ -8,13 +8,12 @@
       width="540px"
       color="transparent"
     >
-      <v-card
-        color="windows-grey"
-        style="opacity: 0.9; position: absolute"
-        height="100%"
-        width="100%"
-      >
-      </v-card>
+       <v-card
+      flat
+      class="blur-background"
+      height="100%"
+      elevation="0"
+    />
       <v-card class="mb-10" color="transparent" elevation="0">
         <v-row
           no-gutters

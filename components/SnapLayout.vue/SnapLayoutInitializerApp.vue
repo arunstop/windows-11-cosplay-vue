@@ -1,7 +1,9 @@
 <template>
   <v-btn
-    class="transparent text-capitalize pa-2"
+    class="text-capitalize pa-2"
     height="100%"
+    outlined
+    color="primary"
     depressed
     @click="openSnapApp()"
   >
