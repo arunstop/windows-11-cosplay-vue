@@ -72,7 +72,7 @@ export default {
 .grid-container-snap-layout-cols-50-rows-50 {
   display: grid !important;
   grid-template-columns: repeat(2, 49.8vw);
-  grid-template-rows: repeat(2, 47.4vh);
+  grid-template-rows: repeat(2, 47.3vh);
   column-gap: 2px;
   row-gap: 2px;
 }

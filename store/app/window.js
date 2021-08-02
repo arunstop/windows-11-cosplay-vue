@@ -72,6 +72,9 @@ export const mutations = {
     return target
   },
   SNAP_WINDOW(state, id) {
+    state.windowList.forEach(element => {
+      if (element.window.snap === false) element.window.show = false
+    });
     const target = state.windowList.find((app) => {
       return app.id === id
     })
@@ -84,6 +87,11 @@ export const mutations = {
       return app.id === id
     })
     target.window.snap = false
+  },
+  HIDE_ALL_WINDOWS(state) {
+    state.windowList.forEach(element => {
+      element.window.show = false
+    });
   }
 }
 
@@ -101,12 +109,12 @@ export const actions = {
     }
     commit('TOGGLE_WINDOW', data)
   },
-  toggleFullscreen({ commit, dispatch }, payload) {
-    dispatch('app/snap/removeSnap', payload.id, { root: true })
-    commit('TOGGLE_FULLSCREEN', payload.id)
+  toggleFullscreen({ commit, dispatch }, app) {
+    // console.log(app)
+    if (app.window.snap === true) dispatch('app/snap/removeSnap', app.id, { root: true })
+    commit('TOGGLE_FULLSCREEN', app.id)
   },
   openApp({ state, commit, rootGetters, dispatch }, app) {
-
     const duplicateItem = state.windowList.find((item) => item.id === app.id)
     if (duplicateItem) {
       commit('TOGGLE_WINDOW', { id: app.id, value: true })
@@ -140,4 +148,7 @@ export const actions = {
   isAppOpened({ commit }, id) {
     commit('IS_OPENED_APP', id)
   },
+  hideAllWindows({ commit }) {
+    commit('HIDE_ALL_WINDOWS')
+  }
 }

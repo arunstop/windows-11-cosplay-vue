@@ -142,9 +142,7 @@ export default {
           type: 'size',
           label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
           action: () => {
-            this.$store.dispatch('app/window/toggleFullscreen', {
-              id: this.app.id,
-            })
+            this.$store.dispatch('app/window/toggleFullscreen', this.app)
           },
         },
         {
