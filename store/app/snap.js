@@ -64,7 +64,15 @@ export const state = () => ({
 })
 
 export const getters = {
-
+    getEmptySnapSlots(state) {
+        return state.snapLayout.appList.find(app => app.initializer === true)
+    },
+    isSnapActivated(state) {
+        return state.snapLayout.type !== ''
+    },
+    getSnapType(state) {
+        return state.snapLayout.type
+    }
 }
 
 export const mutations = {

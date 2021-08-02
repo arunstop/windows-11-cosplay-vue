@@ -37,7 +37,7 @@ export const mutations = {
       return app.id === data.id
     })
     target.window.show = data.value
-    if (target.position && data.value===true) {
+    if (target.position && data.value === true) {
       target.position = state.windowList[state.windowList.length - 1].position + 1
       // console.log(target.position)
     }
@@ -105,13 +105,25 @@ export const actions = {
     dispatch('app/snap/removeSnap', payload.id, { root: true })
     commit('TOGGLE_FULLSCREEN', payload.id)
   },
-  openApp({ state, commit }, app) {
+  openApp({ state, commit, rootGetters, dispatch }, app) {
+
     const duplicateItem = state.windowList.find((item) => item.id === app.id)
     if (duplicateItem) {
       commit('TOGGLE_WINDOW', { id: app.id, value: true })
     } else {
       commit('OPEN_APP', app)
       commit('TOGGLE_WINDOW', { id: app.id, value: true })
+      if (rootGetters['app/snap/isSnapActivated']) {
+        const emptySnapSlot = rootGetters['app/snap/getEmptySnapSlots']
+        if (emptySnapSlot) {
+          dispatch('app/snap/addSnap', {
+            type: rootGetters['app/snap/getSnapType'],
+            index: emptySnapSlot.index,
+            app
+          }, { root: true })
+
+        }
+      }
     }
   },
   closeApp({ commit, dispatch }, app) {
