@@ -90,6 +90,7 @@ export const mutations = {
   },
   HIDE_ALL_WINDOWS(state) {
     state.windowList.forEach(element => {
+      element.window.snap = false
       element.window.show = false
     });
   }
@@ -148,7 +149,8 @@ export const actions = {
   isAppOpened({ commit }, id) {
     commit('IS_OPENED_APP', id)
   },
-  hideAllWindows({ commit }) {
+  hideAllWindows({ commit, dispatch }) {
+    dispatch('app/snap/removeSnapLayout', '', { root: true })
     commit('HIDE_ALL_WINDOWS')
   }
 }

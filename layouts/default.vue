@@ -1,9 +1,7 @@
 <template>
   <v-app v-if="$store.state.power.status === 'LOGGED_ON'" :style="bgStyle">
     <v-main>
-      <v-container>
         <Nuxt />
-      </v-container>
     </v-main>
     <Taskbar />
   </v-app>

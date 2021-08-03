@@ -1,9 +1,10 @@
 <template>
-  <v-row justify="start" align="center" class="ma-0 pa-0">
-    <DesktopIcon v-for="(app,index) in desktopApps" :key="index" :label="app.label" :icon="app.icon" />
+  <v-row justify="start" align="start" class="ma-0 pa-4">
+    <DesktopIcon v-for="(app,index) in getDesktopAppList" :key="index" :app="app"/>
   </v-row>
 </template>
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data: () => ({
     desktopApps:[
@@ -18,5 +19,8 @@ export default {
       // {label:'Edge',icon:'mdi-microsoft-edge'},
     ]
   }),
+  computed:{
+    ...mapGetters('app', ['getDesktopAppList'])
+  }
 }
 </script>

@@ -156,10 +156,11 @@ export const mutations = {
     },
     CLEAR_SNAP_APP(state) {
         state.snapLayout.appList = []
+    },
+    REMOVE_SNAP_LAYOUT(state){
+            state.snapLayout= { type: '', fullscreen: false, appList: [] }
+            console.log(state.snapLayout)
     }
-    // TOGGLE_SNAP_FULLSCREEN(state, value) {
-    //     state.snapLayout.fullscreen = value
-    // }
 }
 
 export const actions = {
@@ -189,4 +190,7 @@ export const actions = {
     closeSnapApp({ commit, state }, id) {
         commit('CLOSE_SNAP_APP', id)
     },
+    removeSnapLayout({commit}){
+        commit('REMOVE_SNAP_LAYOUT')
+    }
 }

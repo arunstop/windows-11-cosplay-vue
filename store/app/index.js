@@ -21,9 +21,9 @@ export const state = () => {
     }
     return `rgba(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)},1)`
   }
-  const windowSetting = (type = 'window', def = false, taskbar = true) => {
+  const windowSetting = (type = 'window', def = false, taskbar = true, desktop = false) => {
     return {
-      type, default: def, taskbar, window: {
+      type, default: def, taskbar, desktop, window: {
         show: false,
         fullscreen: false,
         snap: false,
@@ -36,101 +36,101 @@ export const state = () => {
       // default win apps
       {
         id: randomId(), icon: 'mdi-microsoft-windows', iconColor: randomColorRgb(), title: 'My Computer',
-        ...windowSetting('startmenu', true, true)
+        ...windowSetting('startmenu', true, true, false)
       },
       {
         id: randomId(), icon: 'mdi-magnify', iconColor: randomColorRgb(), title: 'Search',
-        ...windowSetting('searchpanel', true, true)
+        ...windowSetting('searchpanel', true, true, false)
       },
       {
         id: randomId(), icon: 'mdi-view-dashboard', iconColor: randomColorRgb(), title: 'Widgets',
-        ...windowSetting('widgetpanel', true, true)
+        ...windowSetting('widgetpanel', true, true, false)
       },
       {
         id: randomId(), icon: 'mdi-folder', iconColor: randomColorRgb(), title: 'File Explorer',
-        ...windowSetting('window', false, true)
+        ...windowSetting('window', false, true, false)
       },
       // taskbar app
       {
         id: randomId(), icon: 'mdi-microsoft-edge', iconColor: randomColorRgb(), title: 'Microsoft Edge',
-        ...windowSetting('window', false, true)
+        ...windowSetting('window', false, true, false)
       },
       {
         id: randomId(), icon: 'mdi-cart', iconColor: randomColorRgb(), title: 'Microsoft Store',
-        ...windowSetting('window', false, true)
+        ...windowSetting('window', false, true, false)
       },
       // other app
       {
         id: randomId(), icon: 'mdi-microsoft-edge', iconColor: randomColorRgb(), title: 'Edge',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, false)
       },
       {
         id: randomId(), icon: 'mdi-microsoft-word', iconColor: randomColorRgb(), title: 'Word',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, false)
       },
       {
         id: randomId(), icon: 'mdi-microsoft-powerpoint', iconColor: randomColorRgb(), title: 'PowerPoint',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, false)
       },
       {
         id: randomId(), icon: 'mdi-email-outline', iconColor: randomColorRgb(), title: 'Mail',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, false)
       },
       {
         id: randomId(), icon: 'mdi-check-circle', iconColor: randomColorRgb(), title: 'To Do',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-netflix', iconColor: randomColorRgb(), title: 'Netflix',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-image', iconColor: randomColorRgb(), title: 'Photos',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-cellphone', iconColor: randomColorRgb(), title: 'Your Phone',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-scissors-cutting', iconColor: randomColorRgb(), title: 'Snipping Tool',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-twitter', iconColor: randomColorRgb(), title: 'Twitter',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-skype', iconColor: randomColorRgb(), title: 'Skype',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-microsoft-xbox', iconColor: randomColorRgb(), title: 'Xbox',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-whatsapp', iconColor: randomColorRgb(), title: 'WhatsApp',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-microsoft-excel', iconColor: randomColorRgb(), title: 'Excel',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-spotify', iconColor: randomColorRgb(), title: 'Spotify',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-microsoft-visual-studio-code', iconColor: randomColorRgb(), title: 'VS Code',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-github', iconColor: randomColorRgb(), title: 'Github',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
       {
         id: randomId(), icon: 'mdi-discord', iconColor: randomColorRgb(), title: 'Discord',
-        ...windowSetting('window', false, false)
+        ...windowSetting('window', false, false, true)
       },
     ],
     recentItemList: [
@@ -163,6 +163,10 @@ export const getters = {
       // console.log(opened)
       return appItem.taskbar || opened
     })
+  },
+  getDesktopAppList: (state) => {
+    // console.log(state.appItemList)
+    return state.appItemList.filter(app => app.desktop === true)
   },
   startMenuApps: (state) => {
     return state.appItemList.filter((appItem) => {
