@@ -6,30 +6,26 @@
   >
     <v-card
       flat
-      class="blur-background rounded-lg"
+      class="blur-background rounded-lg scroll" 
       height="100%"
       elevation="0"
     />
 
-    <v-card
-      class="snap-layout-initializer-menu pa-2"
-      max-height="200px"
-      color="transparent"
-      elevation="0"
-    >
+    <v-card class="d-flex pa-2" max-height="240px" color="transparent" elevation="0" style="overflow-y:auto;">
+      <v-slide-x-reverse-transition class="snap-layout-initializer-menu no-scroll" group hide-on-leave>
       <SnapLayoutInitializerApp
-        v-for="(sma, index) in nonSnappedWindowList()"
-        :key="index"
+        v-for="sma in nonSnappedWindowList()"
+        :key="sma.id"
         :app="sma"
         :snap="snap"
       />
-
-      <div v-if="nonSnappedWindowList().length === 0">
-        <v-btn class="text-none" outlined color="primary">
+    </v-slide-x-reverse-transition>
+    <v-slide-x-reverse-transition hide-on-leave>
+        <v-btn  v-if="nonSnappedWindowList().length === 0" class="text-none" outlined color="primary">
           <v-icon class="me-2">mdi-microsoft-windows</v-icon>
           Open App
         </v-btn>
-      </div>
+    </v-slide-x-reverse-transition>
     </v-card>
   </v-card>
 </template>

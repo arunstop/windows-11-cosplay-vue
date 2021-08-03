@@ -84,7 +84,7 @@
           <v-icon
             v-if="isLoading"
             class="ma-auto"
-            :size="180"
+            :size="120"
             :color="app.iconColor"
           >
             {{ app.icon }}

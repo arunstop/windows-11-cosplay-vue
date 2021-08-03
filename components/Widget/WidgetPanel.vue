@@ -8,13 +8,9 @@
       width="540px"
       color="transparent"
     >
-       <v-card
-      flat
-      class="blur-background"
-      height="100%"
-      elevation="0"
-    />
-      <v-card class="mb-10" color="transparent" elevation="0">
+      <v-card flat class="blur-background" height="100%" elevation="0" />
+      <v-card class="scroll-y" max-height="100vh" color="transparent">
+        <v-card class="mb-10" color="transparent" elevation="0">
         <v-row
           no-gutters
           class="d-flex flex-column"
@@ -237,9 +233,9 @@
               </template>
             </WidgetItem>
           </v-row>
-          <v-row no-gutters class="grid-container-highlight px-10">
+          <v-scale-transition class="grid-container-highlight px-10" group>
             <WidgetItemNews
-              v-for="(news) in newsList"
+              v-for="news in newsList"
               :key="news._key"
               :news="{
                 title: news.name,
@@ -252,17 +248,17 @@
                 url: news.url,
               }"
               :class="news.spanned ? 'grid-item-col-span-2' : ''"
-            >
-            </WidgetItemNews>
-          </v-row>
+            />
+          </v-scale-transition>
         </v-row>
+      </v-card>
       </v-card>
     </v-navigation-drawer>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   props: {
@@ -287,10 +283,9 @@ export default {
       { title: 'Home', icon: 'mdi-view-dashboard' },
       { title: 'About', icon: 'mdi-forum' },
     ],
-   
   }),
   computed: {
-    ...mapState('news', ['topStories','newsList']),
+    ...mapState('news', ['topStories', 'newsList']),
     show: {
       get() {
         return this.$store.getters['app/window/windowState'](this.app.id)
@@ -305,7 +300,7 @@ export default {
     },
   },
   created() {
-   this.$store.dispatch('news/getNewsList', {})
+    this.$store.dispatch('news/getNewsList', {})
   },
   methods: {},
 }

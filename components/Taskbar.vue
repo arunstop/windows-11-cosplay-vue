@@ -9,12 +9,11 @@
         justify="center"
         style="height: 36px !important"
       >
-        <div class="d-flex mx-auto" style="position: absolute">
+        <v-slide-y-reverse-transition class="d-flex mx-auto" style="position: absolute" group>
           <div
             v-for="(ta, index) in taskbarApps"
             :key="index"
             style="width: 100%; position: relative"
-            class="animate__animated animate__fadeInUp animate__flash"
           >
             <v-btn class="mx-0 d-flex" icon tile @click.stop="openApp(ta)">
               <v-icon size="24px" :color="ta.iconColor">
@@ -34,7 +33,7 @@
               "
             ></div>
           </div>
-        </div>
+        </v-slide-y-reverse-transition>
 
         <div class="ms-auto d-flex align-stretch">
           <v-btn
