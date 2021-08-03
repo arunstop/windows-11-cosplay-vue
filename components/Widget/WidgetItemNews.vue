@@ -1,103 +1,103 @@
 <template>
-    <v-hover v-slot="{ hover }">
-      <v-card class="rounded-lg" link>
-        <v-img
-          v-if="noThumbnail()"
-          height="222px"
-          width="100%"
-          :src="getResizedImage(news.thumbnail)"
-          class="d-flex align-end rounded-lg"
-        >
-          <div v-if="news.spanned">
-            <v-list-item class="px-0">
-              <v-card
-                class="widget-item-header-bg-h elevation-0"
-                elevation="0"
-                disabled
-                flat
-                height="100%"
-                color="transparent"
+  <v-hover v-slot="{ hover }">
+    <v-card class="rounded-lg" link>
+      <v-img
+        v-if="noThumbnail()"
+        height="222px"
+        width="100%"
+        :src="getResizedImage(news.thumbnail)"
+        class="d-flex align-end rounded-lg"
+      >
+        <div v-if="news.spanned">
+          <v-list-item class="px-0">
+            <v-card
+              class="widget-item-header-bg-h elevation-0"
+              elevation="0"
+              disabled
+              flat
+              :width="hover ? '144%' : '72%'"
+              color="transparent"
+            />
+            <v-card
+              class="px-3"
+              height="222px"
+              width="50%"
+              color="transparent"
+              elevation="0"
+            >
+              <WidgetItemNewsHeader
+                :class="hover ? 'text-decoration-underline' : ''"
+                :news="news"
               />
-              <v-card
-                class="px-3"
-                height="222px"
-                width="50%"
-                color="transparent"
-                elevation="0"
-              >
-                <WidgetItemNewsHeader
-                  :class="hover ? 'text-decoration-underline' : ''"
-                  :news="news"
-                />
-                <v-card-text class="pa-0 mb-2 font-size-half">
-                  {{ news.desc.substring(0, 150) + '...' }}
-                </v-card-text>
-              </v-card>
-            </v-list-item>
-          </div>
-          <div v-else>
-            <v-list-item class="px-0">
+              <v-card-text class="pa-0 mb-2 font-size-half">
+                {{ news.desc.substring(0, 150) + '...' }}
+              </v-card-text>
+            </v-card>
+          </v-list-item>
+        </div>
+        <div v-else>
+          <v-list-item class="px-0">
               <v-card
                 class="widget-item-header-bg-v elevation-0"
                 elevation="0"
                 disabled
                 flat
-                height="150%"
+                :height="hover ? '600%' : '150%'"
                 color="transparent"
               />
-              <v-card class="px-3" color="transparent" elevation="0">
-                <WidgetItemNewsHeader
-                  :class="hover ? 'text-decoration-underline' : ''"
-                  :news="news"
-                />
-              </v-card>
-            </v-list-item>
-          </div>
-        </v-img>
-        <v-card
-          v-else
-          height="222px"
-          width="100%"
-          color="windows-grey"
-          class="d-flex"
-          elevation="0"
-        >
-          <div>
-            <v-list-item class="px-0">
-              <v-card
-                class="px-3"
-                height="222px"
-                color="transparent"
-                elevation="0"
-              >
-                <WidgetItemNewsHeader
-                  :class="hover ? 'text-decoration-underline' : ''"
-                  :news="news"
-                />
-                <v-card-text class="pa-0 mb-2 font-size-half">
-                  {{ news.desc.substring(0, 150) + '...' }}
-                </v-card-text>
-              </v-card>
-            </v-list-item>
-          </div>
-        </v-card>
-
-        <v-fade-transition>
-          <v-btn
-            v-if="hover"
-            class="ma-2"
-            color="grey darken-4"
-            fab
-            dark
-            x-small
-            style="position: absolute; top: 0; right: 0"
-            @click="removeNewsItem()"
-          >
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
-        </v-fade-transition>
+            <v-card class="px-3" color="transparent" elevation="0">
+              <WidgetItemNewsHeader
+                :class="hover ? 'text-decoration-underline' : ''"
+                :news="news"
+              />
+            </v-card>
+          </v-list-item>
+        </div>
+      </v-img>
+      <v-card
+        v-else
+        height="222px"
+        width="100%"
+        color="windows-grey"
+        class="d-flex"
+        elevation="0"
+      >
+        <div>
+          <v-list-item class="px-0">
+            <v-card
+              class="px-3"
+              height="222px"
+              color="transparent"
+              elevation="0"
+            >
+              <WidgetItemNewsHeader
+                :class="hover ? 'text-decoration-underline' : ''"
+                :news="news"
+              />
+              <v-card-text class="pa-0 mb-2 font-size-half">
+                {{ news.desc.substring(0, 150) + '...' }}
+              </v-card-text>
+            </v-card>
+          </v-list-item>
+        </div>
       </v-card>
-    </v-hover>
+
+      <v-scale-transition>
+        <v-btn
+          v-if="hover"
+          class="ma-2"
+          color="grey darken-4"
+          fab
+          dark
+          x-small
+          style="position: absolute; top: 0; right: 0"
+          @click="removeNewsItem()"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </v-scale-transition>
+    </v-card>
+  </v-hover>
 </template>
 <script>
 export default {
@@ -112,7 +112,7 @@ export default {
       return this.news.thumbnail !== ''
     },
     removeNewsItem() {
-      this.$store.dispatch('news/removeNews', this.news.url)
+      this.$store.dispatch('user/hideNews', this.news.url)
     },
   },
 }
@@ -121,11 +121,21 @@ export default {
 .widget-item-header-bg-v {
   position: absolute;
   width: 100%;
-  background: linear-gradient(transparent, #d4d6d8, #d4d6d8);
+  transition: height 600ms ease;
+  /* background: linear-gradient(transparent, #d4d6d8, #d4d6d8); */
+  background: linear-gradient(transparent, #fdfdfd, #fdfdfd);
+
 }
 .widget-item-header-bg-h {
   position: absolute;
-  width: 72%;
-  background: linear-gradient(to left, transparent, #d4d6d8, #d4d6d8);
+  height: 100%;
+  transition: width 600ms ease;
+  background: linear-gradient(to left, transparent, #fdfdfd, #fdfdfd);
+}
+.widget-item-header-bg-v:hover {
+  height: 600%;
+}
+.widget-item-header-bg-h:hover {
+  width: 146%;
 }
 </style>

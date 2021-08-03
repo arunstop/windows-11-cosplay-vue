@@ -21,7 +21,11 @@ export const mutations = {
 }
 
 export const getters = {
-
+    getUnhiddenNewsList: (state, getters,rootState) => () => {
+        // const unhiddenNews = state.newsList.filter(news => !rootState.user.loggedOnUser.hiddenNews.includes(news.url))
+        // console.log(unhiddenNews)
+        return state.newsList.filter(news => !rootState.user.loggedOnUser.hiddenNews.includes(news.url))
+    }
 }
 
 export const actions = {
@@ -29,7 +33,7 @@ export const actions = {
         this.$apiNews.showTrending().then((response) => {
             response.data.value.forEach((element, index) => {
                 // filling up no-image articles
-                Object.assign(element, {_key: this.$globals.generateKey()})
+                Object.assign(element, { _key: this.$globals.generateKey() })
                 element.image = element.image || {
                     thumbnail: {
                         contentUrl: '',

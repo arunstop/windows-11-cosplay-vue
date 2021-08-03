@@ -235,7 +235,7 @@
           </v-row>
           <v-scale-transition class="grid-container-highlight px-10" group>
             <WidgetItemNews
-              v-for="news in newsList"
+              v-for="news in $store.getters['news/getUnhiddenNewsList']()"
               :key="news._key"
               :news="{
                 title: news.name,
