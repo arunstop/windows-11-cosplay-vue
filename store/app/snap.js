@@ -100,32 +100,26 @@ export const mutations = {
 
 
         } else if (state.snapLayout.type === item.type) {
-
-            // alert('same')
-            // const notinitializer = state.snapLayout.appList.find(element=>element.initializer===false)
-            //     snapItems.push(notinitializer)
-            // for (let i = 0; i < templateTarget.max; i++) {
-            //     if (i === item.index) {
-            //         snapItems.push({ index: i, initializer: false, ...item.app })
-            //     }
-            // }
             snapItems = state.snapLayout.appList;
-            // console.log(item.index)
-            const deprecatedItem = snapItems.find((app) => app.id === item.app.id)
-            // console.log(deprecatedItem)
-            if (deprecatedItem) {
-                // console.log(deprecatedItem.index + ' -> ' + item.index)
-                snapItems[deprecatedItem.index] = initializerItem(deprecatedItem.index)
+            // check if app is already in the snap layout
+            const deprecatedSlot = snapItems.find((app) => app.id === item.app.id)
+            if (deprecatedSlot) {
+                // if same app same slot
+                if (deprecatedSlot.index === item.index) {
+                    return
+                }
+                const targetSlot = snapItems.find(app => app.index === item.index)
+                // if target slot is an initializer swap the apps
+                if (targetSlot.initializer === false) {
+                    // return
+                    snapItems[deprecatedSlot.index] = { ...targetSlot, index: deprecatedSlot.index, initializer: false, }
+                } else {
+                    snapItems[deprecatedSlot.index] = initializerItem(deprecatedSlot.index) 
+                }
             }
-
+            // Applies the app to the targeted slot
             snapItems[item.index] = { ...item.app, index: item.index, initializer: false, }
-
-            // console.log(snapItems)
-            // snapItems.forEach(element => {
-            //     console.log(element.index)
-            // });
-            // if (duplicate) return
-            // Should initializer the REACTIVE props first to change it
+            // Should initialize the REACTIVE props first to change it
             state.snapLayout.appList = []
             state.snapLayout.appList = snapItems
         }
