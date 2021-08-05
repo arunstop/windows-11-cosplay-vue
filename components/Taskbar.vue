@@ -1,37 +1,40 @@
 <template>
   <v-footer class="transparent" padless>
-    <v-card flat class="blur-background" height="36px" elevation="0" />
+    <v-card flat class="blur-background" height="100%" elevation="0" />
     <v-card flat tile width="100%" class="ma-0 pa-0 text-center transparent">
       <v-row
         class="pa-0"
         no-gutters
         align="center"
         justify="center"
-        style="height: 36px !important"
+        style="height: 40px !important"
       >
-        <v-slide-y-reverse-transition class="d-flex mx-auto" style="position: absolute" group>
+        <v-slide-y-reverse-transition
+          class="d-flex mx-auto"
+          style="position: absolute"
+          group
+        >
           <div
             v-for="(ta, index) in taskbarApps"
             :key="index"
             style="width: 100%; position: relative"
           >
-            <v-btn class="mx-0 d-flex" icon tile @click.stop="openApp(ta)">
+            <v-btn class="mx-0 d-flex" icon tile min-height="40px" @click.stop="openApp(ta)">
               <v-icon size="24px" :color="ta.iconColor">
                 {{ ta.icon }}
               </v-icon>
             </v-btn>
             <!-- opened app indicator -->
+            <v-expand-x-transition>
+              <div
+               v-if="isVisible(ta.id)"
+              class="taskbar-app-indicator-visible blue darken-2"
+            />
+            </v-expand-x-transition>
             <div
-              v-if="isVisible(ta.id) || (isOpen(ta.id) && ta.type === 'window')"
-              class="blue rounded-t-pill"
-              style="
-                position: absolute;
-                bottom: 0;
-                right: 15%;
-                height: 4px;
-                width: 72%;
-              "
-            ></div>
+              v-if="isOpen(ta.id) && ta.type === 'window'"
+              class="taskbar-app-indicator-hidden blue darken-2"
+            />
           </div>
         </v-slide-y-reverse-transition>
 
@@ -54,6 +57,7 @@
                 depressed
                 tile
                 v-bind="attrs"
+                min-height="40px"
                 v-on="on"
               >
                 <span class="d-flex flex-column">
@@ -70,7 +74,7 @@
           </v-menu>
           <v-card
             class="d-inline-flex"
-            height="36px"
+            height="40px"
             width="12px"
             flat
             link
@@ -152,3 +156,30 @@ export default {
   },
 }
 </script>
+<style scoped>
+.taskbar-app-indicator-visible {
+  position: absolute;
+  bottom: 0;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-bottom: 4px;
+  height: 3px;
+  width: 60%;
+  border-radius: 8px;
+}
+
+.taskbar-app-indicator-hidden {
+  position: absolute;
+ bottom: 0;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-bottom: 4px;
+  height: 3px;
+  width: 24%;
+  border-radius: 8px;
+}
+</style>
