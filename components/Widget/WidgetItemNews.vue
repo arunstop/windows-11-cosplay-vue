@@ -82,7 +82,7 @@
         </div>
       </v-card>
 
-      <v-scale-transition>
+      <v-fade-transition>
         <v-btn
           v-if="hover"
           class="ma-2"
@@ -95,7 +95,7 @@
         >
           <v-icon>mdi-close</v-icon>
         </v-btn>
-      </v-scale-transition>
+      </v-fade-transition>
     </v-card>
   </v-hover>
 </template>
