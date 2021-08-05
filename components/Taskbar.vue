@@ -15,8 +15,8 @@
           group
         >
           <div
-            v-for="(ta, index) in taskbarApps"
-            :key="index"
+            v-for="ta in taskbarApps"
+            :key="ta.id"
             style="width: 100%; position: relative"
           >
             <v-btn class="mx-0 d-flex" icon tile min-height="40px" @click.stop="openApp(ta)">
