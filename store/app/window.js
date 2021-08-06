@@ -37,7 +37,7 @@ export const mutations = {
       return app.id === data.id
     })
     target.window.show = data.value
-    if (data.value === true) {
+    if (target.type === 'window' && data.value === true) {
       const latestApp = state.windowList
       .filter((app) => app.window.snap === false && app.type==='window')
       .sort((a, b) => b.position - a.position)[0]
