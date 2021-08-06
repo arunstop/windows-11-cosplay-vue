@@ -9,7 +9,8 @@
     "
     :height="getWindowSize().height"
     :width="getWindowSize().width"
-    :elevation="snapped ? 0 : 6"
+    elevation="0"
+    outlined
   >
     <v-card-title class="ma-0 pa-0">
       <v-row no-gutters align="center" class="ps-2">

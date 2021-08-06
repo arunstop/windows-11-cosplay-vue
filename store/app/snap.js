@@ -158,12 +158,6 @@ export const mutations = {
 
 export const actions = {
     addSnap({ commit, state, dispatch }, item) {
-        if (state.snapLayout.type !== '') {
-            const targetSlot = state.snapLayout.appList.find(app => app.index === item.index)
-            if (targetSlot.initializer === false) {
-                dispatch('removeSnap', targetSlot.id)
-            }
-        }
         if (state.snapLayout.type !== item.type) {
             // alert('different type, reconstructing')
             state.snapLayout.appList.forEach(element => {
@@ -175,6 +169,11 @@ export const actions = {
                     commit('CLEAR_SNAP_APP')
                 }
             });
+        }else{
+            const targetSlot = state.snapLayout.appList.find(app => app.index === item.index)
+            if (targetSlot.initializer === false) {
+                dispatch('removeSnap', targetSlot.id)
+            }
         }
         commit('app/window/SNAP_WINDOW', item.app.id, { root: true })
         commit('ADD_SNAP', item)

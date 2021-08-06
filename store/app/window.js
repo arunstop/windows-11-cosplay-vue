@@ -37,8 +37,13 @@ export const mutations = {
       return app.id === data.id
     })
     target.window.show = data.value
-    if (target.position && data.value === true) {
-      target.position = state.windowList[state.windowList.length - 1].position + 1
+    if (data.value === true) {
+      const latestApp = state.windowList
+      .filter((app) => app.window.snap === false && app.type==='window')
+      .sort((a, b) => b.position - a.position)[0]
+      // console.log(latestApp)
+      if(latestApp.position!==target.position)
+      target.position = latestApp.position + 1
       // console.log(target.position)
     }
 
@@ -53,7 +58,7 @@ export const mutations = {
   OPEN_APP(state, app) {
     // alert(this.$moment().format())
     const position = state.windowList[state.windowList.length - 1].position + 1 || state.windowList.length + 1;
-    // console.log(position)
+    app.window.show = true
     state.windowList.push({ ...app, position })
   },
   CLOSE_APP(state, id) {
@@ -121,7 +126,7 @@ export const actions = {
       commit('TOGGLE_WINDOW', { id: app.id, value: true })
     } else {
       commit('OPEN_APP', app)
-      commit('TOGGLE_WINDOW', { id: app.id, value: true })
+      // commit('TOGGLE_WINDOW', { id: app.id, value: true })
       if (rootGetters['app/snap/isSnapActivated']) {
         const emptySnapSlot = rootGetters['app/snap/getEmptySnapSlots']
         if (emptySnapSlot) {
