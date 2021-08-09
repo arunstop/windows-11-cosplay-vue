@@ -169,7 +169,7 @@ export const actions = {
                     commit('CLEAR_SNAP_APP')
                 }
             });
-        }else{
+        } else if (item.app.window.snap === false) {
             const targetSlot = state.snapLayout.appList.find(app => app.index === item.index)
             if (targetSlot.initializer === false) {
                 dispatch('removeSnap', targetSlot.id)

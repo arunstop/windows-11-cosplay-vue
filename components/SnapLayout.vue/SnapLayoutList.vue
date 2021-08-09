@@ -32,11 +32,10 @@ export default {
 <style>
 .snap-layout {
   right: 0;
-  bottom: 0;
+  top: 0;
   position: fixed !important;
-  height: 94.8vh !important;
+  height: 94vh !important;
   width: 100% !important ;
-  margin-bottom: 36px;
   z-index: 0;
 }
 
@@ -59,8 +58,10 @@ export default {
 }
 .grid-container-snap-layout-col-50-col-50-rows-50-50 {
   display: grid !important;
-  grid-template-columns: repeat(2, 49.8vw);
+  grid-template-columns: repeat(2, 49.95vw);
   /* grid-template-rows: 10px 10px; */
+  grid-template-rows: repeat(2, 46.85vh);
+
   column-gap: 2px;
   row-gap: 2px;
 }
@@ -71,8 +72,8 @@ export default {
 
 .grid-container-snap-layout-cols-50-rows-50 {
   display: grid !important;
-  grid-template-columns: repeat(2, 49.8vw);
-  grid-template-rows: repeat(2, 47.3vh);
+  grid-template-columns: repeat(2, 49.95vw);
+  grid-template-rows: repeat(2, 46.85vh);
   column-gap: 2px;
   row-gap: 2px;
 }
