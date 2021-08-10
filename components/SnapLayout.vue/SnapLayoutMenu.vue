@@ -15,10 +15,11 @@
             v-for="(item, itemIndex) in sl.itemList"
             :key="itemIndex"
             class="snap-layout-item"
+            :class="isItemActive(app.id, sl.snapType, itemIndex)"
             :rounded="item.rounded"
             :height="item.height"
             link
-            @click="addSnap(sl.snapType,itemIndex, app)"
+            @click="addSnap(sl.snapType, itemIndex, app)"
           />
         </div>
       </v-card>
@@ -33,7 +34,17 @@ export default {
   data: () => ({}),
   methods: {
     addSnap(type, index, app) {
-      this.$store.dispatch('app/snap/addSnap', {type,index,app})
+      this.$store.dispatch('app/snap/addSnap', { type, index, app })
+    },
+    isItemActive(id, type, index) {
+      let activeStyle = ''
+      if (this.$store.getters['app/snap/getSnapType'] === type) {
+        activeStyle = 'snap-layout-active '
+        if (this.$store.getters['app/snap/isItemActive'](id, type, index)) {
+          activeStyle = activeStyle + 'snap-layout-item-active'
+        }
+      }
+      return activeStyle
     },
   },
 }
@@ -103,6 +114,15 @@ export default {
 }
 .snap-layout-item:hover {
   background-color: #0068c0 !important;
+  border: 2px solid #0068c0 !important;
+}
+
+.snap-layout-item-active {
+  background-color: #0068c0 !important;
+  border: 2px solid #0068c0 !important;
+}
+.snap-layout-active {
+  /* background-color: #0068c0 !important; */
   border: 2px solid #0068c0 !important;
 }
 </style>

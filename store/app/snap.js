@@ -72,6 +72,11 @@ export const getters = {
     },
     getSnapType(state) {
         return state.snapLayout.type
+    },
+    isItemActive: (state) => (id, type, index) => {
+
+        return state.snapLayout.appList.find(app => app.id === id && app.index === index)
+        // return state.snapLayout.appList.find(app => app.id === id && app.index === index && state.snapLayout === type)
     }
 }
 
