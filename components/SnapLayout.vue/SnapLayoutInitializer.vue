@@ -21,7 +21,7 @@
       />
     </v-slide-x-reverse-transition>
     <v-slide-x-reverse-transition hide-on-leave>
-        <v-btn  v-if="nonSnappedWindowList().length === 0" class="text-none" outlined color="primary">
+        <v-btn  v-if="nonSnappedWindowList().length === 0" class="text-none" outlined color="primary" @click="openSearchPanel()">
           <v-icon class="me-2">mdi-microsoft-windows</v-icon>
           Open App
         </v-btn>
@@ -41,6 +41,12 @@ export default {
     ...mapGetters('app/window', ['nonSnappedWindowList']),
   },
   created() {},
+  methods:{
+    openSearchPanel(){
+      const targetApp = this.$store.getters['app/window/getAppByType']('searchpanel')
+      this.$store.dispatch('app/window/openApp', targetApp)
+    }
+  }
 }
 </script>
 

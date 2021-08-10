@@ -24,6 +24,9 @@ export const getters = {
     return state.windowList.filter((app) => {
       return app.window.snap === true
     })
+  },
+  getAppByType: (state) => (type)=> {
+    return state.windowList.find(app => app.type === type)
   }
 }
 
@@ -39,11 +42,11 @@ export const mutations = {
     target.window.show = data.value
     if (target.type === 'window' && data.value === true && target.window.snap === false) {
       const latestApp = state.windowList
-      .filter((app) => app.window.snap === false && app.type==='window')
-      .sort((a, b) => b.position - a.position)[0]
+        .filter((app) => app.window.snap === false && app.type === 'window')
+        .sort((a, b) => b.position - a.position)[0]
       // console.log(latestApp)
-      if(latestApp.position!==target.position)
-      target.position = latestApp.position + 1
+      if (latestApp.position !== target.position)
+        target.position = latestApp.position + 1
       // console.log(target.position)
     }
 
