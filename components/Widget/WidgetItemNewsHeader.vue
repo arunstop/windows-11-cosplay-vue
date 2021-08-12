@@ -36,7 +36,7 @@ export default {
       return link.replace('&pid=news', '')
     },
     getPublishedDate() {
-      return this.$moment(this.news.date).fromNow().replace('minutes', 'mins')
+      return this.$date.fromNow(this.news.date)
     },
   },
 }

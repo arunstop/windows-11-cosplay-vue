@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="snapLayout.type"
-    class="snap-layout"
+    class="snap-layout animate__animated animate__backInUp animate__fastest"
     :class="'grid-container-snap-layout-' + snapLayout.type"
   >
     <SnapLayoutItem

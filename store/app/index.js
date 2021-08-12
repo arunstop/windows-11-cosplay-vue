@@ -47,6 +47,10 @@ export const state = () => {
         ...windowSetting('widgetpanel', true, true, false)
       },
       {
+        id: randomId(), icon: 'mdi-message-text', iconColor: randomColorRgb(), title: 'Widgets',
+        ...windowSetting('notificationpanel', true, false, false)
+      },
+      {
         id: randomId(), icon: 'mdi-folder', iconColor: randomColorRgb(), title: 'File Explorer',
         ...windowSetting('window', false, true, false)
       },

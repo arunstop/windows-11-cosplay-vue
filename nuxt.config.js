@@ -31,6 +31,7 @@ export default {
     '~/plugins/api/news',
     '~/plugins/local-storage',
     '~/plugins/globals',
+    '~/plugins/date',
     // '~/plugins/vue-spinners-css'
   ],
 

@@ -5,6 +5,7 @@
       <StartMenu v-else-if="app.type == 'startmenu'" :app="app" />
       <SearchPanel v-else-if="app.type == 'searchpanel'" :app="app" />
       <WidgetPanel v-else-if="app.type == 'widgetpanel'" :app="app" />
+      <NotificationPanel v-else-if="app.type == 'notificationpanel'" :app="app" />
       <!-- <div v-if="app.type == 'widgetpanel'" :app="app">
         <v-navigation-drawer v-model="app.window.show" app temporary>
           <v-list-item>

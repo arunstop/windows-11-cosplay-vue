@@ -19,17 +19,17 @@
 }
 
 .no-scroll{
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .scroll-x{
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
 }
 
 .scroll-y{
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
 }
 
 /* width */
