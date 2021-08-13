@@ -6,6 +6,10 @@
   --animate-duration: 150ms;
 }
 
+.text-wrap{
+  white-space: normal !important;
+}
+
 .blur-background {
   position: absolute !important;
   opacity: 0.8;
