@@ -1,4 +1,4 @@
-export default ({ app, $axios }, inject) => {
+export default ({ app }, inject) => {
     // Generate key for animation/transition
     const usedKey = []
     const generateKey = () => {

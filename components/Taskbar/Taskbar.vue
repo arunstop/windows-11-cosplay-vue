@@ -36,6 +36,7 @@
             depressed
             tile
             min-height="40px"
+            @click="openNotifPanel()"
           >
             <span class="d-flex flex-column">
               <h5 class="font-weight-medium">
@@ -104,6 +105,12 @@ export default {
   },
   created() {
     this.$store.dispatch('app/window/openDefaultApps')
+  },
+  methods: {
+    openNotifPanel() {
+      const targetApp = this.$store.getters['app/window/getAppByType']('notificationpanel')
+      this.$store.dispatch('app/window/openApp', targetApp)
+    },
   },
 }
 </script>

@@ -1,0 +1,109 @@
+
+export const state = () => ({
+    notificationList: [
+        {
+            header: '@Kappa123 started following you',
+            details: 'You might want to follow them back!',
+            app: { name: 'Twitter', icon: 'mdi-twitter' }, dateTime: '2021-08-12',
+            image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        },
+        {
+            header: '@Pepega started following you',
+            details: 'You might want to follow them back!',
+            app: { name: 'Twitter', icon: 'mdi-twitter' }, dateTime: '2021-08-12',
+            image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        },
+        {
+            header: '@KEKW started following you',
+            details: 'You might want to follow them back!',
+            app: { name: 'Twitter', icon: 'mdi-twitter' }, dateTime: '2021-08-12',
+            image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        },
+        {
+            header: '@PepeLaugh started following you',
+            details: 'You might want to follow them back!',
+            app: { name: 'Twitter', icon: 'mdi-twitter' }, dateTime: '2021-08-12',
+            image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        },
+        {
+            header: 'AdmiralBullog is live!',
+            details: 'BASED stream with Alliance fam! [A] @AdmiralBulldog',
+            app: { name: 'Twitch', icon: 'mdi-twitch' }, dateTime: '2021-08-11',
+            image: 'https://cdn.vuetifyjs.com/images/lists/3.jpg'
+        },
+        {
+            header: 'DrDisrespect is live!',
+            details: 'Champions Club gathering, special events later @DrDisrespect on all socmeds',
+            app: { name: 'Twitch', icon: 'mdi-twitch' }, dateTime: '2021-08-11',
+            image: 'https://cdn.vuetifyjs.com/images/lists/3.jpg'
+        },
+        {
+            header: 'PewDiePie uploaded a new video!',
+            details: 'Try Not To Laugh Challenge #666 - Animals are stupidly funny',
+            app: { name: 'Youtube', icon: 'mdi-youtube' }, dateTime: '2021-08-10',
+            image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg'
+        },
+        {
+            header: 'Colinfurze uploaded a new video!',
+            details: 'Building Tunnels Under My House #4',
+            app: { name: 'Youtube', icon: 'mdi-youtube' }, dateTime: '2021-08-10',
+            image: 'https://cdn.vuetifyjs.com/images/lists/1.jpg'
+        },
+        {
+            header: 'WATCH NOW: The Wheel Of Time Has Aired!',
+            details: 'The long awaited show based on one of the best selling fantasy novel of all time, The Wheel Of Time is ready for you to watch it!',
+            app: { name: 'Netflix', icon: 'mdi-netflix' }, dateTime: '2021-08-10',
+            image: 'https://cdn.vuetifyjs.com/images/lists/4.jpg'
+        },
+        {
+            header: 'CONTINUE WATCHING: Castlevania Season 4 Ep 3',
+            details: 'Hold up there, You left this episode at 14:22, there is more to left, let\'s finish it!',
+            app: { name: 'Netflix', icon: 'mdi-netflix' }, dateTime: '2021-08-09',
+            image: 'https://cdn.vuetifyjs.com/images/lists/4.jpg'
+        },
+        {
+            header: 'CONTINUE WATCHING: Infinite (2021)',
+            details: 'Leaving movie hanging is considered a sin if you are a cinephile. Come back to see more fantastical action!',
+            app: { name: 'Netflix', icon: 'mdi-netflix' }, dateTime: '2021-08-09',
+            image: 'https://cdn.vuetifyjs.com/images/lists/4.jpg'
+        },
+        {
+            header: 'Spotify playlist of the month: July 2021',
+            details: 'Check out last month\'s playlist. The best songs, able to give you the best vibes possible. Coldplay, Billie Ellish, The Weeknd, Maneskin and more!',
+            app: { name: 'Spotify', icon: 'mdi-spotify' }, dateTime: '2021-08-08',
+            image: ''
+        },
+        {
+            header: 'Hear musics of your taste! Yes this is your MUSIC',
+            details: 'Based on your music taste, We\'ve brought You some suggestions. Take a look : "Pink Floyd - Another Brick In The Wall" , "YES! - Roundabout", "Jojo Bizzare Adventure - Giorno\'s Theme" and many more!',
+            app: { name: 'Spotify', icon: 'mdi-spotify' }, dateTime: '2021-08-08',
+            image: ''
+        },
+    ]
+})
+
+export const mutations = {
+    REMOVE_NOTIF(state, notif) {
+        // console.log(notif)
+        state.notificationList = state.notificationList.filter(notifItem => notifItem !== notif)
+    },
+    CLEAR_NOTIF(state){
+        state.notificationList=[]
+    }
+}
+
+export const getters = {
+    getNotificationList: (state) => () => {
+        // console.log(state.notificationList)
+        return state.notificationList
+    }
+}
+
+export const actions = {
+    removeNotif({ commit }, notif) {
+        commit('REMOVE_NOTIF', notif)
+    },
+    clearNotif({commit}){
+        commit('CLEAR_NOTIF')
+    }
+}

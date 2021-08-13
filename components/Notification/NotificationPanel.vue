@@ -1,95 +1,103 @@
 <template>
-    <v-navigation-drawer
-      v-model="show"
-      app
-      temporary
-      hide-overlay
-      right
-      width="400px"
+  <v-navigation-drawer
+    v-model="show"
+    app
+    temporary
+    hide-overlay
+    right
+    width="400px"
+    color="transparent"
+    class="elevation-0 notification-panel"
+    floating
+  >
+    <v-card
+      class="d-flex flex-column-reverse align-end justify-start pt-4 pe-4"
+      height="94vh"
       color="transparent"
-      class="elevation-0 notification-panel"
-      floating
+      outlined
     >
+      <!-- Calendar -->
       <v-card
-        class="d-flex flex-column align-end justify-end pt-4"
-        min-height="94vh"
-        color="transparent"
-        style="overflow-y: scroll !important"
+        class="my-4 d-flex flex-column"
+        elevation="6"
+        width="342px"
+        outlined
       >
-        <!-- Notifications -->
-        <v-card elevation="6" width="342px" min-height="280px" max-height="400px" style="flex:1;">
-          <v-row
-            no-gutters
-            class="d-flex"
-            align="center"
-            justify="center"
+        <v-card-title class="justify-space-between py-2 px-4">
+          <span class="body-2 font-weight-medium">{{ today }}</span>
+          <v-card
+            class="d-flex rounded"
+            link
+            outlined
+            @click="showCalendar = !showCalendar"
           >
-            <v-card min-width="100%">
-              <v-card-title class="justify-space-between py-2 px-4">
-                <h6>Notifications</h6>
-                
-                <v-chip
-                  class="rounded-lg font-weight-bold"
-                  outlined
-                  small
-                  link
-                  pill
-                >
-                  Clear all
-                </v-chip>
-              </v-card-title>
-              <v-expand-transition>
-                <v-card-text class="pa-0">
-                  <v-divider />
+            <v-icon>{{ calendarIcon() }}</v-icon>
+          </v-card>
+        </v-card-title>
+        <v-expand-transition>
+          <v-card-text v-show="showCalendar" class="pa-0">
+            <v-divider />
 
-                </v-card-text>
-              </v-expand-transition>
-            </v-card>
-          </v-row>
-        </v-card>
-         <!-- Calendar -->
-        <v-card class="mt-4" elevation="6" width="342px">
-          <v-row
-            no-gutters
-            class="d-flex"
-            align="center"
-            justify="center"
-          >
-            <v-card min-width="100%">
-              <v-card-title class="justify-space-between py-2 px-4">
-                <h6>{{ today }}</h6>
-                <v-card
-                  class="d-flex rounded"
-                  link
-                  outlined
-                  @click="showCalendar = !showCalendar"
-                >
-                  <v-icon>{{ calendarIcon() }}</v-icon>
-                </v-card>
-              </v-card-title>
-              <v-expand-transition>
-                <v-card-text v-show="showCalendar" class="pa-0">
-                  <v-divider />
-
-                  <v-date-picker
-                    v-model="datePicker"
-                    readonly
-                    full-width
-                    flat
-                    no-title
-                    color="primary darken-2"
-                  />
-                </v-card-text>
-              </v-expand-transition>
-            </v-card>
-          </v-row>
-        </v-card>
+            <v-date-picker
+              v-model="datePicker"
+              readonly
+              full-width
+              flat
+              no-title
+              color="primary darken-2"
+            />
+          </v-card-text>
+        </v-expand-transition>
       </v-card>
-    </v-navigation-drawer>
+      <!-- Notifications -->
+      <v-slide-x-reverse-transition>
+        <v-card
+        v-if="getNotificationList().length>0"
+        elevation="6"
+        width="342px"
+        min-height="240px"
+        style="flex: 1"
+        class="d-flex flex-column"
+        outlined
+        color="transparent"
+      >
+        <v-card
+          flat
+          class="blur-background rounded"
+          height="100%"
+          elevation="0"
+          style="z-index: 0"
+        />
+
+        <v-card-title
+          class="justify-space-between py-2 px-4 white rounded-t"
+          style="z-index: 1"
+        >
+          <span class="body-2 font-weight-medium">Notifications</span>
+
+          <v-chip class="font-weight-bold" link outlined small label @click="clearNotif()">
+            Clear all
+          </v-chip>
+        </v-card-title>
+        <v-divider />
+
+        <v-card-text class="pa-0 transparent" style="z-index: 2; overflow-y:scroll !important; overflow-x:hidden;">
+          <v-slide-x-reverse-transition group >
+            <NotificationItem
+            v-for="notif in getNotificationList()"
+            :key="notif.header"
+            :notif="notif"
+          />
+          </v-slide-x-reverse-transition>
+        </v-card-text>
+      </v-card>
+      </v-slide-x-reverse-transition>
+    </v-card>
+  </v-navigation-drawer>
 </template>
 
 <script>
-// import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -105,6 +113,7 @@ export default {
       .substr(0, 10),
   }),
   computed: {
+    ...mapGetters('user/notification', ['getNotificationList']),
     show: {
       get() {
         return this.$store.getters['app/window/windowState'](this.app.id)
@@ -129,17 +138,20 @@ export default {
         return 'mdi-chevron-up'
       }
     },
+    clearNotif(){
+      this.$store.dispatch('user/notification/clearNotif')
+    }
   },
 }
 </script>
 
 <style>
-.v-navigation-drawer__content{
-    overflow-y: hidden !important;
-}
-.notification-panel{
-    top:0 !important;
-    right:0 !important;
-height: 94vh !important;
+/* .v-navigation-drawer__content {
+  overflow-y: scroll !important;
+} */
+.notification-panel {
+  top: 0 !important;
+  right: 0 !important;
+  height: 94vh !important;
 }
 </style>

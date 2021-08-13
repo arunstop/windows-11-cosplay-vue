@@ -77,7 +77,7 @@ export const state = () => {
         ...windowSetting('window', false, false, false)
       },
       {
-        id: randomId(), icon: 'mdi-email-outline', iconColor: randomColorRgb(), title: 'Mail',
+        id: randomId(), icon: 'mdi-twitch', iconColor: randomColorRgb(), title: 'Twitch',
         ...windowSetting('window', false, false, false)
       },
       {
@@ -90,10 +90,6 @@ export const state = () => {
       },
       {
         id: randomId(), icon: 'mdi-image', iconColor: randomColorRgb(), title: 'Photos',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-cellphone', iconColor: randomColorRgb(), title: 'Your Phone',
         ...windowSetting('window', false, false, true)
       },
       {
@@ -165,7 +161,7 @@ export const getters = {
         return window.id === appItem.id
       })
       // console.log(opened)
-      return appItem.taskbar || opened
+      return appItem.taskbar || (opened && appItem.type !== 'notificationpanel')
     })
   },
   getDesktopAppList: (state) => {
