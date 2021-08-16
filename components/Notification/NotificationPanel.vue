@@ -5,7 +5,7 @@
     temporary
     hide-overlay
     right
-    width="400px"
+    width="380px"
     color="transparent"
     class="elevation-0 notification-panel"
     floating
@@ -17,21 +17,19 @@
     >
       <!-- Calendar -->
       <v-card
-        class="my-4 d-flex flex-column"
+        class="my-4 d-flex flex-column windows-grey"
         elevation="6"
         width="342px"
         outlined
       >
         <v-card-title class="justify-space-between py-2 px-4">
           <span class="body-2 font-weight-medium">{{ today }}</span>
-          <v-card
-            class="d-flex rounded"
-            link
-            outlined
+          <v-chip
+            class="font-weight-bold pa-1" link outlined small label 
             @click="showCalendar = !showCalendar"
           >
-            <v-icon>{{ calendarIcon() }}</v-icon>
-          </v-card>
+            <v-icon size="24">{{ calendarIcon() }}</v-icon>
+          </v-chip>
         </v-card-title>
         <v-expand-transition>
           <v-card-text v-show="showCalendar" class="pa-0">
@@ -68,7 +66,7 @@
         />
 
         <v-card-title
-          class="justify-space-between py-2 px-4 white rounded-t"
+          class="justify-space-between py-2 px-4 white rounded-t windows-grey"
           style="z-index: 1"
         >
           <span class="body-2 font-weight-medium">Notifications</span>
