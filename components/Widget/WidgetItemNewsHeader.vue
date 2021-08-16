@@ -36,7 +36,7 @@ export default {
       return link.replace('&pid=news', '')
     },
     getPublishedDate() {
-      return this.$date.fromNow(this.news.date)
+      return this.$date.fromNow(this.news.date).full
     },
   },
 }

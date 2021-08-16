@@ -19,7 +19,7 @@
   padding:0px !important;
   background: #e0ebfd !important;
   /* Add the blur effect */
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(48px);
 }
 
 .no-scroll{

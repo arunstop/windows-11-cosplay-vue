@@ -14,7 +14,6 @@
       class="d-flex flex-column-reverse align-end justify-start pt-4 pe-4"
       height="94vh"
       color="transparent"
-      outlined
     >
       <!-- Calendar -->
       <v-card
@@ -52,13 +51,12 @@
       <!-- Notifications -->
       <v-slide-x-reverse-transition>
         <v-card
-        v-if="getNotificationList().length>0"
+        v-if="getGroupedNotifList().length>0"
         elevation="6"
         width="342px"
         min-height="240px"
         style="flex: 1"
         class="d-flex flex-column"
-        outlined
         color="transparent"
       >
         <v-card
@@ -84,8 +82,8 @@
         <v-card-text class="pa-0 transparent" style="z-index: 2; overflow-y:scroll !important; overflow-x:hidden;">
           <v-slide-x-reverse-transition group >
             <NotificationItem
-            v-for="notif in getNotificationList()"
-            :key="notif.header"
+            v-for="notif in getGroupedNotifList()"
+            :key="notif.app.name"
             :notif="notif"
           />
           </v-slide-x-reverse-transition>
@@ -113,7 +111,7 @@ export default {
       .substr(0, 10),
   }),
   computed: {
-    ...mapGetters('user/notification', ['getNotificationList']),
+    ...mapGetters('user/notification', ['getGroupedNotifList']),
     show: {
       get() {
         return this.$store.getters['app/window/windowState'](this.app.id)
@@ -127,7 +125,7 @@ export default {
       },
     },
     today() {
-      return this.$date.format('dddd, MMMM DD')
+      return this.$date.format('','dddd, MMMM DD')
     },
   },
   methods: {
