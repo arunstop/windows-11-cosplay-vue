@@ -1,16 +1,8 @@
 <template>
   <v-card
-    class="d-flex justify-center align-center"
-    color="transparent"
+    class="blur-bg d-flex justify-center align-center"
     elevation="0"
   >
-    <v-card
-      flat
-      class="blur-background rounded-lg scroll" 
-      height="100%"
-      elevation="0"
-    />
-
     <v-card class="d-flex pa-2" max-height="240px" color="transparent" elevation="0" style="overflow-y:auto;">
       <v-slide-x-reverse-transition class="snap-layout-initializer-menu no-scroll" group hide-on-leave>
       <SnapLayoutInitializerApp

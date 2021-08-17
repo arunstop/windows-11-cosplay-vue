@@ -6,9 +6,8 @@
       temporary
       hide-overlay
       width="540px"
-      color="transparent"
+      class="blur-bg"
     >
-      <v-card flat class="blur-background" height="100%" elevation="0" />
       <v-card class="scroll-y" max-height="100vh" color="transparent">
         <v-card class="mb-10" color="transparent" elevation="0">
         <v-row

@@ -1,7 +1,8 @@
 <template>
   <div
     v-if="snapLayout.type"
-    class="snap-layout animate__animated animate__backInUp animate__fastest"
+    :key="1231231231232"
+    class="snap-layout transparent animate__animated animate__backInUp animate__fastest"
     :class="'grid-container-snap-layout-' + snapLayout.type"
   >
     <SnapLayoutItem
@@ -36,6 +37,7 @@ export default {
   position: fixed !important;
   height: 94vh !important;
   width: 100% !important ;
+  background-color: transparent;
   z-index: 0;
 }
 

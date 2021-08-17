@@ -1,7 +1,7 @@
 <template>
   <v-card
     v-if="$store.getters['app/window/windowState'](app.id)"
-    class="animate__animated animate__zoomIn animate__fastest"
+    class="blur-bg animate__animated animate__zoomIn animate__fastest"
     :class="
       (app.window.fullscreen ? 'rounded-0' : 'rounded-lg') +
       ' ' +
@@ -12,7 +12,8 @@
     elevation="0"
     outlined
   >
-    <v-card-title class="ma-0 pa-0">
+
+    <v-card-title class="ma-0 pa-0 z-index">
       <v-row no-gutters align="center" class="ps-2">
         <div class="d-flex">
           <v-icon class="me-1" size="18px" :color="app.iconColor">
@@ -79,7 +80,7 @@
         </div>
       </v-row>
     </v-card-title>
-    <v-card-text class="d-flex">
+    <v-card-text class="d-flex z-index">
       <div class="loading-icon">
         <v-fab-transition>
           <v-icon

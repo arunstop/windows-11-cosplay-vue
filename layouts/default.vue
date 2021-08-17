@@ -106,15 +106,8 @@
         >
       </v-row>
     </v-card>
-    <v-card v-show="authScreen" class="lock-screen" color="transparent">
-      <v-card
-        class="d-flex justify-space-between"
-        color="windows-black"
-        height="100%"
-        width="100%"
-        style="position: absolute; opacity: 0.6"
-      >
-      </v-card>
+    <v-card v-show="authScreen" class="lock-screen blur-bg" color="transparent">
+
       <v-card
         class="d-flex justify-space-between pa-4"
         color="transparent"

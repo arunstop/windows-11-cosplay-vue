@@ -7,13 +7,7 @@
     width="600px"
     transition="slide-y-reverse-transition"
   >
-    <v-card class="transparent rounded-lg" width="600px">
-      <v-card
-      flat
-      class="blur-background"
-      height="100%"
-      elevation="0"
-    />
+    <v-card class="blur-bg rounded-lg" width="600px">
       <v-card
         class="transparent rounded-lg px-3"
         color="transparent"

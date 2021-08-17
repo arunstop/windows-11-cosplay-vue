@@ -57,14 +57,6 @@
         class="d-flex flex-column"
         color="transparent"
       >
-        <v-card
-          flat
-          class="blur-background rounded"
-          height="100%"
-          elevation="0"
-          style="z-index: 0"
-        />
-
         <v-card-title
           class="justify-space-between py-2 px-4 white rounded-t windows-grey"
           style="z-index: 1"
@@ -75,9 +67,9 @@
             Clear all
           </v-chip>
         </v-card-title>
-        <v-divider />
+        
 
-        <v-card-text class="pa-0 transparent" style="z-index: 2; overflow-y:scroll !important; overflow-x:hidden;">
+        <v-card-text class="pa-0 blur-bg" style="z-index: 2; overflow-y:scroll !important; overflow-x:hidden;">
           <v-slide-x-reverse-transition group >
             <NotificationItem
             v-for="notif in getGroupedNotifList()"

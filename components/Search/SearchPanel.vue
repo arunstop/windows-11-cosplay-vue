@@ -7,13 +7,7 @@
     width="660px"
     transition="slide-y-reverse-transition"
   >
-    <v-card class="transparent rounded-lg" width="660px" height="540px">
-      <v-card
-      flat
-      class="blur-background"
-      height="100%"
-      elevation="0"
-    />
+    <v-card class="blur-bg rounded-lg" width="660px" height="540px">
       <v-card class="rounded-lg" color="transparent" width="100%" height="100%">
         <v-card-title class="mb-0 pb-0">
           <v-text-field
