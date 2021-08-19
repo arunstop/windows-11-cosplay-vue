@@ -88,7 +88,7 @@ export const mutations = {
         // }
         // const duplicateIndex = state.snapLayout. appList.find((app) => app.index === item.index)
         const templateTarget = state.snapLayoutTemplate.find((template) => template.snapType === item.type)
-        let snapItems = []
+        const snapItems = []
         const duplicate = state.snapLayout.appList.find((app) => app.id === item.app.id)
         if (state.snapLayout.type !== item.type) {
             state.snapLayout.appList = []
@@ -105,7 +105,9 @@ export const mutations = {
 
 
         } else if (state.snapLayout.type === item.type) {
-            snapItems = state.snapLayout.appList;
+            state.snapLayout.appList.forEach(e=>{
+                snapItems.push(e)
+            })
             // check if app is already in the snap layout
             const deprecatedSlot = snapItems.find((app) => app.id === item.app.id)
             if (deprecatedSlot) {
@@ -125,8 +127,7 @@ export const mutations = {
             // Applies the app to the targeted slot
             snapItems[item.index] = { ...item.app, index: item.index, initializer: false, }
             // Should initialize the REACTIVE props first to change it
-            state.snapLayout.appList = []
-            state.snapLayout.appList = snapItems
+            state.snapLayout.appList = [...snapItems]
         }
     },
     CLOSE_SNAP_APP(state, id) {
@@ -148,8 +149,7 @@ export const mutations = {
             });
             // state.snapLayout.appList = state.snapLayout.appList.filter(app => app.id !== id)
 
-            state.snapLayout.appList = []
-            state.snapLayout.appList = snapItems
+            state.snapLayout.appList = [...snapItems]
         }
         if (state.snapLayout.appList.length === 0) state.snapLayout.type = ''
     },
@@ -179,6 +179,9 @@ export const actions = {
             if (targetSlot.initializer === false) {
                 dispatch('removeSnap', targetSlot.id)
             }
+        } else if(state.snapLayout.appList.find(app=>app.id === item.app.id && app.index === item.index)){
+            dispatch('removeSnap', item.app.id)
+            return
         }
         commit('app/window/SNAP_WINDOW', item.app.id, { root: true })
         commit('ADD_SNAP', item)

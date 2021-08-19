@@ -1,5 +1,11 @@
 export const state = () => ({
-    notificationList: require('@/assets/json/notificationList.json')
+    notificationList: require('@/assets/json/notificationList.json'),
+    optionList: [
+        { id: 1, icon: 'mdi-volume-mute', label: 'Mute app' },
+        { id: 2, icon: 'mdi-cancel', label: 'Block all notifications' },
+        { id: 3, icon: 'mdi-close', label: 'Cancel' },
+        // { icon: 'mdi-volume-mute', label: 'Mute' },
+      ],
 })
 
 export const mutations = {
@@ -9,7 +15,11 @@ export const mutations = {
     },
     CLEAR_NOTIF(state) {
         state.notificationList = []
-    }
+    },
+    REMOVE_NOTIF_BY_APP(state, app) {
+        // console.log(notif)
+        state.notificationList = state.notificationList.filter(notifItem => notifItem.app.name !== app.name)
+    },
 }
 
 export const getters = {
@@ -37,6 +47,15 @@ export const getters = {
         })
         // console.log(groupedNList)
         return groupedNList
+    },
+    getNotifOptionList:(state)=>(app)=>{
+        const optionList = JSON.parse(JSON.stringify(state.optionList))
+        optionList.forEach(o=>{
+            if(o.id===1){
+                o.label =o.label.replace('app', app.name)
+            }
+        })
+        return optionList
     }
 }
 
@@ -46,5 +65,8 @@ export const actions = {
     },
     clearNotif({commit}){
         commit('CLEAR_NOTIF')
+    },
+    removeNotifByApp({commit},app){
+        commit('REMOVE_NOTIF_BY_APP', app)
     }
 }

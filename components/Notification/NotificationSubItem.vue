@@ -40,14 +40,11 @@
       <v-fade-transition>
         <div
           v-if="hover"
-          class="d-flex mt-1 pe-1"
+          class="d-flex mt-1 pe-2"
           style="position: absolute; top: 0; right: 0"
         >
-          <v-btn class="ms-1" icon x-small>
-            <v-icon v-text="'mdi-cog'" />
-          </v-btn>
-          <v-btn class="ms-1" icon x-small @click="removeNotif(notif)">
-            <v-icon v-text="'mdi-close-thick'" />
+          <v-btn icon small @click="removeNotif(notif)">
+            <v-icon v-text="'mdi-close-circle'" />
           </v-btn>
         </div>
       </v-fade-transition>
