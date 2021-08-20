@@ -16,5 +16,10 @@ export default ({ app }, inject) => {
         if (str.length <= limit) return str
         else return str.substring(0, limit + 1) + '...'
     }
-    inject('globals', { generateKey, cutStr })
+
+    // Clone Vuex state
+    const cloneState = (stateObject) => {
+        return JSON.parse(JSON.stringify(stateObject))
+    }
+    inject('globals', { generateKey, cutStr, cloneState })
 }

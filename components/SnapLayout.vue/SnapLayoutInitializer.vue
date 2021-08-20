@@ -3,7 +3,7 @@
     class="blur-bg d-flex justify-center align-center"
     elevation="0"
   >
-    <v-card class="d-flex pa-2" max-height="240px" color="transparent" elevation="0" style="overflow-y:auto;">
+    <v-card class="pa-2 scroll-y" max-height="240px" color="transparent" elevation="0">
       <v-slide-x-reverse-transition class="snap-layout-initializer-menu no-scroll" group hide-on-leave>
       <SnapLayoutInitializerApp
         v-for="sma in nonSnappedWindowList()"

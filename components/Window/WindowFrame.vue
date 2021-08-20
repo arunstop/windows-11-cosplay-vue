@@ -1,17 +1,15 @@
 <template>
   <v-card
     v-if="$store.getters['app/window/windowState'](app.id)"
-    class="d-flex flex-column bg-transparent animate__animated animate__zoomIn animate__fastest"
+    class="d-flex flex-column bg-transparent animate__animated animate__zoomIn animate__flash"
     :class="
-      (app.window.fullscreen ? 'rounded-0' : 'rounded-lg') +
-      ' ' +
-      (snapped || 'window-frame')
+      (snapped || 'window-frame ')+
+      (app.window.fullscreen ? 'window-frame-fullscreen elevation-0 rounded-0' : 'rounded-lg ') 
     "
     :height="getWindowSize().height"
     :width="getWindowSize().width"
     :elevation="snapped ? 0 : 6"
   >
-
     <v-card-title class="ma-0 pa-0 z-index blur-bg">
       <v-row no-gutters align="center" class="ps-2">
         <div class="d-flex">
@@ -168,8 +166,8 @@ export default {
   methods: {
     getWindowSize() {
       if (this.snapped) return { height: '', width: '' }
-      else if (this.app.window.fullscreen)
-        return { height: '100vh', width: '100vw' }
+      // else if (this.app.window.fullscreen)
+      //   return { height: '100vh', width: '100vw' }
       else return { height: this.height, width: this.width }
     },
   },
@@ -207,6 +205,16 @@ export default {
 
   /* pointer-events: none; */
   /* transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 1ms; */
+}
+
+.window-frame-fullscreen {
+ /* border-radius: 0px !important; */
+ height: 94vh !important;
+ width: 100vw !important;
+ /* /* left: 50% !important; */
+  left: 0 !important;
+  top: 0 !important;
+  transform: none !important;
 }
 
 .loading-icon {

@@ -60,7 +60,7 @@
           />
           <div :key="notif.app.name">
             <v-btn
-              v-if="showCount === 1"
+              v-if="showCount === 1 && notif.notifList.length>1"
               label
               small
               class="ms-4 mb-3 text-none"
@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+// import {mapGetters} from 'vuex'
 
 export default {
   props: {
@@ -93,7 +93,7 @@ export default {
     
   }),
   computed:{
-...mapGetters('user/notification', ['getNotifOptionList'])
+// ...mapGetters('user/notification', ['getNotifOptionList'])
   },
   methods: {
     getMoreNotifLabel(notifCount) {
@@ -106,6 +106,15 @@ export default {
     removeNotifByApp(app) {
       this.$store.dispatch('user/notification/removeNotifByApp', app)
     },
+    getNotifOptionList(app){
+      const optionList = this.$globals.cloneState(this.$store.state.user.notification.optionList)
+        optionList.forEach(o=>{
+            if(o.id===1){
+                o.label =o.label.replace('app', app.name)
+            }
+        })
+        return optionList
+    }
   },
 }
 </script>

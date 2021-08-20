@@ -48,15 +48,6 @@ export const getters = {
         // console.log(groupedNList)
         return groupedNList
     },
-    getNotifOptionList:(state)=>(app)=>{
-        const optionList = JSON.parse(JSON.stringify(state.optionList))
-        optionList.forEach(o=>{
-            if(o.id===1){
-                o.label =o.label.replace('app', app.name)
-            }
-        })
-        return optionList
-    }
 }
 
 export const actions = {
