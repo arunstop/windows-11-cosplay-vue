@@ -20,13 +20,13 @@
         <div class="ms-auto d-flex align-stretch">
           <!-- Tray icons -->
           <v-btn
-            v-for="(tray, index) in $store.state.trays"
-            :key="index"
-            class="mx-0"
-            icon
-            tile
+            class="mx-0 my-auto pa-0"
+            color="transparent"
+            elevation="0"
+            @click="openActionCenter()"
           >
-            <v-icon size="24px">
+            <v-icon  v-for="(tray, index) in $store.state.trays"
+            :key="index" class="mx-1" size="24px">
               {{ tray.icon }}
             </v-icon>
           </v-btn>
@@ -109,6 +109,10 @@ export default {
   methods: {
     openNotifPanel() {
       const targetApp = this.$store.getters['app/window/getAppByType']('notificationpanel')
+      this.$store.dispatch('app/window/openApp', targetApp)
+    },
+    openActionCenter() {
+      const targetApp = this.$store.getters['app/window/getAppByType']('actioncenter')
       this.$store.dispatch('app/window/openApp', targetApp)
     },
   },

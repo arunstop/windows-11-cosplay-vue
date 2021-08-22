@@ -2,7 +2,7 @@
   <v-card flat rounded="0" color="transparent">
     <v-card-text class="d-flex flex-column no-gutters">
       <v-hover v-slot="{ hover }" >
-        <v-list-item class="pa-3 pb-1" style="min-height: 20px !important">
+        <v-list-item class="pa-3 pe-2 pb-1" style="min-height: 20px !important">
           <v-list-item-content class="pa-0">
             <v-list-item-title class="d-flex align-center">
               <v-icon class="me-1" size="18px" color="red">
@@ -16,7 +16,7 @@
                   <v-menu>
                     <template #activator="{ on, attrs }">
                       <v-btn class="ms-1" icon x-small v-bind="attrs" v-on="on">
-                        <v-icon v-text="'mdi-cog'" />
+                        <v-icon v-text="'mdi-dots-horizontal'" />
                       </v-btn>
                     </template>
                     <v-list class="pa-0">

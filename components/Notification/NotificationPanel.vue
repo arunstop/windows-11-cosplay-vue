@@ -17,7 +17,7 @@
     >
       <!-- Calendar -->
       <v-card
-        class="my-4 d-flex flex-column windows-grey"
+        class="my-4 d-flex flex-column windows-grey rounded-lg"
         elevation="6"
         width="342px"
         outlined
@@ -54,7 +54,7 @@
         width="342px"
         min-height="240px"
         style="flex: 1"
-        class="d-flex flex-column blur-bg"
+        class="d-flex flex-column blur-bg rounded-lg"
       >
         <v-card-title
           class="justify-space-between py-2 px-4 white rounded-t windows-grey"

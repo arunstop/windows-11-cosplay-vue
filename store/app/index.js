@@ -47,12 +47,16 @@ export const state = () => {
         ...windowSetting('widgetpanel', true, true, false)
       },
       {
-        id: randomId(), icon: 'mdi-message-text', iconColor: randomColorRgb(), title: 'Widgets',
+        id: randomId(), icon: 'mdi-message-text', iconColor: randomColorRgb(), title: 'Notifications',
         ...windowSetting('notificationpanel', true, false, false)
       },
       {
         id: randomId(), icon: 'mdi-folder', iconColor: randomColorRgb(), title: 'File Explorer',
         ...windowSetting('window', false, true, false)
+      },
+      {
+        id: randomId(), icon: 'mdi-gesture-double-tap', iconColor: randomColorRgb(), title: 'Action Center',
+        ...windowSetting('actioncenter', true, false, false)
       },
       // taskbar app
       {
@@ -161,7 +165,7 @@ export const getters = {
         return window.id === appItem.id
       })
       // console.log(opened)
-      return appItem.taskbar || (opened && appItem.type !== 'notificationpanel')
+      return appItem.taskbar || (opened && appItem.type !== 'notificationpanel' && appItem.type !== 'actioncenter')
     })
   },
   getDesktopAppList: (state) => {
