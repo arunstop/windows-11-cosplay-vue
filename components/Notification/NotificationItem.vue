@@ -1,7 +1,7 @@
 <template>
   <v-card flat rounded="0" color="transparent">
     <v-card-text class="d-flex flex-column no-gutters">
-      <v-hover v-slot="{ hover }" >
+      <v-hover v-slot="{ hover }">
         <v-list-item class="pa-3 pe-2 pb-1" style="min-height: 20px !important">
           <v-list-item-content class="pa-0">
             <v-list-item-title class="d-flex align-center">
@@ -12,7 +12,7 @@
                 {{ notif.app.name }}
               </h5>
               <v-fade-transition>
-                <div class="ms-auto" :class="(hover ? 'd-flex' : 'd-none')">
+                <div class="ms-auto" :class="hover ? 'd-flex' : 'd-none'">
                   <v-menu>
                     <template #activator="{ on, attrs }">
                       <v-btn class="ms-1" icon x-small v-bind="attrs" v-on="on">
@@ -60,7 +60,7 @@
           />
           <div :key="notif.app.name">
             <v-btn
-              v-if="showCount === 1 && notif.notifList.length>1"
+              v-if="showCount === 1 && notif.notifList.length > 1"
               label
               small
               class="ms-4 mb-3 text-none"
@@ -90,10 +90,9 @@ export default {
   },
   data: () => ({
     showCount: 1,
-    
   }),
-  computed:{
-// ...mapGetters('user/notification', ['getNotifOptionList'])
+  computed: {
+    // ...mapGetters('user/notification', ['getNotifOptionList'])
   },
   methods: {
     getMoreNotifLabel(notifCount) {
@@ -106,15 +105,17 @@ export default {
     removeNotifByApp(app) {
       this.$store.dispatch('user/notification/removeNotifByApp', app)
     },
-    getNotifOptionList(app){
-      const optionList = this.$globals.cloneState(this.$store.state.user.notification.optionList)
-        optionList.forEach(o=>{
-            if(o.id===1){
-                o.label =o.label.replace('app', app.name)
-            }
-        })
-        return optionList
-    }
+    getNotifOptionList(app) {
+      const optionList = this.$globals.cloneState(
+        this.$store.state.user.notification.optionList
+      )
+      optionList.forEach((o) => {
+        // if(o.id===1){
+        o.label = o.label.replace('app', app.name)
+        // }
+      })
+      return optionList
+    },
   },
 }
 </script>

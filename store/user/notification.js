@@ -1,9 +1,9 @@
 export const state = () => ({
     notificationList: require('@/assets/json/notificationList.json'),
     optionList: [
-        { id: 1, icon: 'mdi-volume-mute', label: 'Mute app' },
-        { id: 2, icon: 'mdi-cancel', label: 'Block all notifications' },
-        { id: 3, icon: 'mdi-close', label: 'Cancel' },
+        { id: 1, icon: 'mdi-cancel', label: 'Turnoff all notification for app' },
+        { id: 2, icon: 'mdi-cog-outline', label: 'Go to notification settings' },
+        { id: 3, icon: 'mdi-exclamation-thick', label: 'Make app high priority' },
         // { icon: 'mdi-volume-mute', label: 'Mute' },
       ],
 })
