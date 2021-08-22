@@ -5,9 +5,14 @@
     width="342px"
     outlined
   >
+    <!-- content -->
     <v-card-text class="pa-6">
       <v-item-group multiple>
-        <v-scale-transition group class="action-center-action-list text-center" origin="center center">
+        <v-scale-transition
+          group
+          class="action-center-action-list text-center"
+          origin="center center"
+        >
           <ActionCenterPanelButton
             v-for="action in getPinnedActionList()"
             :key="action.label"
@@ -29,7 +34,9 @@
         :prepend-icon="getVolumeIcon(volume)"
       />
     </v-card-text>
+    <!-- divider -->
     <v-divider />
+    <!-- footer -->
     <v-card-actions
       class="d-flex py-2 px-3 no-scroll"
       style="height: 48px !important"
@@ -40,7 +47,15 @@
         group
         class="d-flex flex"
       >
-        <div v-if="!editActionList" :key="'acpEditOff'" class="ms-auto">
+        <div
+          v-if="!editActionList"
+          :key="'acpEditOff'"
+          class="d-flex flex ms-auto"
+        >
+          <h5 class="me-auto font-weight-medium" label large>
+            <v-icon size="24">mdi-battery-high mdi-rotate-90</v-icon>
+            100%
+          </h5>
           <v-btn icon small @click="toggleEditActionList()">
             <v-icon size="18">mdi-pencil</v-icon>
           </v-btn>
