@@ -35,6 +35,7 @@
 .blur-bg {
   background-color: rgba(224 235 253 / 0.5) !important;
   backdrop-filter: blur(24px) !important;
+  transition: ease-in-out;
 }
 
 .no-scroll {

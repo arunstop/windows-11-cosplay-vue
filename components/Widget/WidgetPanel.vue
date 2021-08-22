@@ -232,7 +232,7 @@
               </template>
             </WidgetItem>
           </v-row>
-          <v-scale-transition class="grid-container-highlight px-10" group>
+          <v-scale-transition class="grid-container-highlight px-10" group origin="center center">
             <WidgetItemNews
               v-for="news in $store.getters['news/getUnhiddenNewsList']()"
               :key="news._key"

@@ -3,12 +3,6 @@ export const state = () => ({
   title: 'Title',
   trays: [
     {
-      icon: 'mdi-chevron-up', title: '', window: {
-        show: false,
-        fullscreen: false,
-      },
-    },
-    {
       icon: 'mdi-wifi', title: '', window: {
         show: false,
         fullscreen: false,
@@ -21,7 +15,7 @@ export const state = () => ({
       },
     },
     {
-      icon: 'mdi-battery-high', title: '', window: {
+      icon: 'mdi-battery-high mdi-rotate-90', title: '', window: {
         show: false,
         fullscreen: false,
       }

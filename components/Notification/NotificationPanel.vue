@@ -17,7 +17,7 @@
     >
       <!-- Calendar -->
       <v-card
-        class="my-4 d-flex flex-column windows-grey rounded-lg"
+        class="my-2 d-flex flex-column windows-grey rounded-lg"
         elevation="6"
         width="342px"
         outlined
@@ -54,10 +54,10 @@
         width="342px"
         min-height="240px"
         style="flex: 1"
-        class="d-flex flex-column blur-bg rounded-lg"
+        class="d-flex flex-column blur-bg rounded-lg my-2"
       >
         <v-card-title
-          class="justify-space-between py-2 px-4 white rounded-t windows-grey"
+          class="justify-space-between py-2 px-4 white windows-grey"
           style="z-index: 1"
         >
           <span class="body-2 font-weight-medium">Notifications</span>
@@ -66,7 +66,7 @@
             Clear all
           </v-chip>
         </v-card-title>
-        
+        <v-divider/>
 
         <v-card-text class="pa-0" style="z-index: 2; overflow-y:scroll !important; overflow-x:hidden;">
           <v-slide-x-reverse-transition group >

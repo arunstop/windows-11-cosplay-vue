@@ -21,6 +21,16 @@
           <!-- Tray icons -->
           <v-btn
             class="mx-0 my-auto pa-0"
+            elevation="0"
+            icon
+            tile
+          >
+            <v-icon size="30px">
+              mdi-chevron-up
+            </v-icon>
+          </v-btn>
+          <v-btn
+            class="mx-0 my-auto pa-0"
             color="transparent"
             elevation="0"
             @click="openActionCenter()"

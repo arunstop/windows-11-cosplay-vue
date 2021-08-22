@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="my-4 d-flex flex-column windows-grey rounded-lg"
+    class="my-2 d-flex flex-column windows-grey rounded-lg"
     elevation="6"
     width="342px"
     outlined
@@ -27,12 +27,13 @@
         hide-details
         :prepend-icon="getBrightnessIcon(brightness)"
       />
-      <v-slider
-        v-model="volume"
-        class="mt-6"
-        hide-details
-        :prepend-icon="getVolumeIcon(volume)"
-      />
+      <v-slider v-model="volume" class="mt-6" hide-details>
+        <template #prepend>
+          <v-icon @click="toggleMuteVolume()">
+            {{ getVolumeIcon(volume) }}
+          </v-icon>
+        </template>
+      </v-slider>
     </v-card-text>
     <!-- divider -->
     <v-divider />
@@ -53,7 +54,7 @@
           class="d-flex flex ms-auto"
         >
           <h5 class="me-auto font-weight-medium" label large>
-            <v-icon size="24">mdi-battery-high mdi-rotate-90</v-icon>
+            <v-icon size="20">mdi-battery-high mdi-rotate-90</v-icon>
             100%
           </h5>
           <v-btn icon small @click="toggleEditActionList()">
@@ -136,24 +137,31 @@ export default {
   methods: {
     getBrightnessIcon(brightness) {
       if (brightness <= 0) {
-        return 'mdi-volume-mute'
+        return 'mdi-brightness-5'
       } else if (brightness <= 30) {
-        return 'mdi-volume-low'
+        return 'mdi-brightness-4'
       } else if (brightness <= 70) {
+        return 'mdi-brightness-6'
+      } else {
+        return 'mdi-brightness-7'
+      }
+    },
+    getVolumeIcon(volume) {
+      if (volume <= 0) {
+        return 'mdi-volume-mute'
+      } else if (volume <= 30) {
+        return 'mdi-volume-low'
+      } else if (volume <= 70) {
         return 'mdi-volume-medium'
       } else {
         return 'mdi-volume-high'
       }
     },
-    getVolumeIcon(volume) {
-      if (volume <= 0) {
-        return 'mdi-brightness-5'
-      } else if (volume <= 30) {
-        return 'mdi-brightness-4'
-      } else if (volume <= 70) {
-        return 'mdi-brightness-6'
+    toggleMuteVolume() {
+      if (this.volume === 0) {
+        this.volume = 50
       } else {
-        return 'mdi-brightness-7'
+        this.volume = 0
       }
     },
     toggleEditActionList() {

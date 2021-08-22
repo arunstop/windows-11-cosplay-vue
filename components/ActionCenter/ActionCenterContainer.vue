@@ -16,7 +16,41 @@
       color="transparent"
     >
       <!-- Action Center Panel -->
-     <ActionCenterPanel />
+      <ActionCenterPanel />
+      <!-- Media player -->
+      <v-card
+        class="my-2 windows-grey rounded-lg"
+        elevation="6"
+        width="342px"
+        outlined
+      >
+        <v-card-title class="d-flex py-2">
+          <v-icon size="18">mdi-microsoft-edge</v-icon>
+          <h6 class="ms-1">Microsoft Edge</h6>
+        </v-card-title>
+        <v-card-text class="d-flex flex-column">
+          <v-list-item class="flex pa-0">
+            <v-list-item-content class="py-0">
+              <v-list-item-title >Title</v-list-item-title>
+              <v-list-item-subtitle >Creator</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-icon class="my-0">
+              <v-img class="rounded-lg elevation-6" height="60px" width="60px" src="https://picsum.photos/id/11/300/300" />
+            </v-list-item-icon>
+          </v-list-item>
+          <div class="flex d-flex justify-center justify-md-space-around px-12 pt-4">
+            <v-btn icon>
+              <v-icon size="30">mdi-skip-previous</v-icon>
+            </v-btn>
+            <v-btn icon>
+              <v-icon size="30">mdi-play</v-icon>
+            </v-btn>
+            <v-btn icon>
+              <v-icon size="30">mdi-skip-next</v-icon>
+            </v-btn>
+          </div>
+        </v-card-text>
+      </v-card>
     </v-card>
   </v-navigation-drawer>
 </template>
