@@ -14,8 +14,8 @@
         width="100%"
         height="100%"
       >
-        <v-fade-transition>
-          <v-card-text v-if="showAllApps" class="py-8">
+        <v-slide-x-transition hide-on-leave leave-absolute group>
+          <v-card-text v-if="showAllApps" :key="'StartMenuAllApps'" class="py-8">
             <StartSectionLabel
               :title="'All apps'"
               :icon="{ position: 'l', icon: 'mdi-chevron-left' }"
@@ -33,7 +33,7 @@
             />
           </v-card-text>
 
-          <v-card-text v-if="!showAllApps" class="py-8">
+          <v-card-text v-if="!showAllApps" :key="'StartMenuPinnedApps'" class="py-8">
             <StartSectionLabel
               :title="'Pinned'"
               :icon="{ position: 'r', icon: 'mdi-chevron-right' }"
@@ -47,7 +47,7 @@
             <!-- Apps -->
             <v-row class="mt-2 grid-container" no-gutters>
               <StartApp
-                v-for="(sma, index) in startMenuApps"
+                v-for="(sma, index) in getPinnedApps()"
                 :key="index"
                 :app="sma"
                 :window-id="app.id"
@@ -72,7 +72,7 @@
               />
             </v-row>
           </v-card-text>
-        </v-fade-transition>
+        </v-slide-x-transition>
 
         <v-divider />
         <!-- Footer -->
@@ -130,7 +130,7 @@ export default {
     showAllApps: false,
   }),
   computed: {
-    ...mapGetters('app', ['startMenuApps']),
+    ...mapGetters('app', ['getPinnedApps']),
     ...mapState('user', ['loggedOnUser']),
     show: {
       get() {

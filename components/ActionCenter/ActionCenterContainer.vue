@@ -11,8 +11,8 @@
     floating
   >
     <v-card
-      class="d-flex flex-column-reverse align-end justify-start pt-4 pe-4"
-      height="94vh"
+      class="d-flex flex-column-reverse align-end justify-start py-2 px-2"
+      min-height="100%"
       color="transparent"
     >
       <!-- Action Center Panel -->

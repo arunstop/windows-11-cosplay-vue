@@ -172,9 +172,9 @@ export const getters = {
     // console.log(state.appItemList)
     return state.appItemList.filter(app => app.desktop === true)
   },
-  startMenuApps: (state) => {
+  getPinnedApps: (state) =>()=> {
     return state.appItemList.filter((appItem) => {
-      return !appItem.taskbar
+      return !appItem.taskbar && appItem.type==='window'
     })
   },
   searchAppResult: (state) => () => {

@@ -53,9 +53,9 @@
           :key="'acpEditOff'"
           class="d-flex flex ms-auto"
         >
-          <h5 class="me-auto font-weight-medium" label large>
+          <h5 class="me-auto font-weight-medium d-flex align-center" label large>
             <v-icon size="20">mdi-battery-high mdi-rotate-90</v-icon>
-            100%
+            <span class="ms-1">100%</span>
           </h5>
           <v-btn icon small @click="toggleEditActionList()">
             <v-icon size="18">mdi-pencil</v-icon>

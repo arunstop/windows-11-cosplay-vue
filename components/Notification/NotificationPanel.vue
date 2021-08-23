@@ -11,7 +11,7 @@
     floating
   >
     <v-card
-      class="d-flex flex-column-reverse align-end justify-start pt-4 pe-4"
+      class="d-flex flex-column-reverse align-end justify-start py-2 pe-4"
       height="94vh"
       color="transparent"
     >
