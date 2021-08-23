@@ -30,21 +30,21 @@
                 :news="news"
               />
               <v-card-text class="pa-0 mb-2 font-size-half">
-                {{ news.desc.substring(0, 150) + '...' }}
+                {{ $globals.cutStr(news.desc, 150) }}
               </v-card-text>
             </v-card>
           </v-list-item>
         </div>
         <div v-else>
           <v-list-item class="px-0">
-              <v-card
-                class="widget-item-header-bg-v elevation-0"
-                elevation="0"
-                disabled
-                flat
-                :height="hover ? '600%' : '150%'"
-                color="transparent"
-              />
+            <v-card
+              class="widget-item-header-bg-v elevation-0"
+              elevation="0"
+              disabled
+              flat
+              :height="hover ? '600%' : '150%'"
+              color="transparent"
+            />
             <v-card class="px-3" color="transparent" elevation="0">
               <WidgetItemNewsHeader
                 :class="hover ? 'text-decoration-underline' : ''"
@@ -53,6 +53,32 @@
             </v-card>
           </v-list-item>
         </div>
+        <template #placeholder>
+          <v-row v-if="!news.spanned" class="ma-0" align="center" justify="center" style="height:60%;">
+             <v-progress-circular
+                indeterminate
+                color="red"
+              />
+          </v-row>
+          <v-row v-else class="ma-0" align="center" justify="center" style="position:absolute; right:0; height:100%; width:50%;">
+             <v-progress-circular
+                indeterminate
+                color="red"
+              />
+          </v-row>
+          <!-- <div class="d-flex" style="width: 100%; height: 100%;position:relative;">
+            <div v-if="news.spanned" class="my-auto ms-auto" >
+              <v-progress-circular indeterminate color="red" />
+            </div>
+
+            <div v-else class="mx-auto mt-12" >
+              <v-progress-circular
+                indeterminate
+                color="red"
+              />
+            </div>
+          </div> -->
+        </template>
       </v-img>
       <v-card
         v-else
@@ -75,7 +101,7 @@
                 :news="news"
               />
               <v-card-text class="pa-0 mb-2 font-size-half">
-                {{ news.desc.substring(0, 150) + '...' }}
+                {{ $globals.cutStr(news.desc, 150) }}
               </v-card-text>
             </v-card>
           </v-list-item>
@@ -124,7 +150,6 @@ export default {
   transition: height 600ms ease;
   /* background: linear-gradient(transparent, #d4d6d8, #d4d6d8); */
   background: linear-gradient(transparent, #fdfdfd, #fdfdfd);
-
 }
 .widget-item-header-bg-h {
   position: absolute;

@@ -7,7 +7,7 @@
     right
     width="380px"
     color="transparent"
-    class="elevation-0 action-center"
+    class="elevation-0 action-center nav-drawer-container"
     floating
   >
     <v-card
@@ -82,10 +82,14 @@ export default {
 }
 </script>
 
-<style>
-/* .v-navigation-drawer__content {
-  overflow-y: scroll !important;
+<style >
+/* .nav-drawer-container {
+  overflow-y: hidden !important;
 } */
+
+.nav-drawer-container .v-navigation-drawer__content {
+  overflow-y: scroll !important;
+}
 .action-center {
   top: 0 !important;
   right: 0 !important;
