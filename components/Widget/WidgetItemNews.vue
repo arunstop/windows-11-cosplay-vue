@@ -57,27 +57,15 @@
           <v-row v-if="!news.spanned" class="ma-0" align="center" justify="center" style="height:60%;">
              <v-progress-circular
                 indeterminate
-                color="red"
+                color="primary lighten-3"
               />
           </v-row>
           <v-row v-else class="ma-0" align="center" justify="center" style="position:absolute; right:0; height:100%; width:50%;">
              <v-progress-circular
                 indeterminate
-                color="red"
+                color="primary lighten-3"
               />
           </v-row>
-          <!-- <div class="d-flex" style="width: 100%; height: 100%;position:relative;">
-            <div v-if="news.spanned" class="my-auto ms-auto" >
-              <v-progress-circular indeterminate color="red" />
-            </div>
-
-            <div v-else class="mx-auto mt-12" >
-              <v-progress-circular
-                indeterminate
-                color="red"
-              />
-            </div>
-          </div> -->
         </template>
       </v-img>
       <v-card

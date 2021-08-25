@@ -6,7 +6,7 @@
     link
     elevation="0"
     color="transparent"
-    @click="openApp()"
+    @dblclick="openApp()"
   >
     <div class="d-flex flex-column justify-center align-center">
       <v-icon size="36" :color="app.iconColor">{{ app.icon }}</v-icon>

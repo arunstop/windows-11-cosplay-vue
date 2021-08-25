@@ -9,13 +9,14 @@
         justify="center"
         style="height: 40px !important"
       >
-        <v-slide-y-reverse-transition
+        <v-scale-transition
           class="d-flex mx-auto"
           style="position: absolute"
+          origin="bottom"
           group
         >
           <TaskbarApp v-for="ta in taskbarApps" :key="ta.id" :app="ta" />
-        </v-slide-y-reverse-transition>
+        </v-scale-transition>
 
         <div class="ms-auto d-flex align-stretch">
           <!-- Tray icons -->
