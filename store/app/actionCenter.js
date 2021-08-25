@@ -1,27 +1,29 @@
 export const state = () => ({
     actionList: [],
+    activeActionList: []
 })
 
 export const mutations = {
     INIT_ACTION_LIST(state, list) {
         state.actionList = list
+        state.activeActionList = list.filter(item => item.pinned === true)
     },
     PIN_ACTION(state, action) {
-        state.actionList.find(alItem => alItem.label === action.label).pinned = true
+        state.activeActionList.push(state.actionList.find(item => item.label === action.label))
+
     },
     UNPIN_ACTION(state, action) {
-        state.actionList.find(alItem => alItem.label === action.label).pinned = false
+        state.activeActionList= state.activeActionList.filter(item => item!==action)
     },
 
 }
 
 export const getters = {
     getPinnedActionList: (state) => () => {
-        const pinnedAction = state.actionList.filter(paItem => paItem.pinned === true)
-        return pinnedAction
+        return state.activeActionList
     },
     getUnpinnedActionList: (state) => () => {
-        const unpinnedAction = state.actionList.filter(paItem => paItem.pinned === false)
+        const unpinnedAction = state.actionList.filter(paItem => !state.activeActionList.includes(paItem))
         // console.log(unpinnedAction)
         return unpinnedAction
     }
