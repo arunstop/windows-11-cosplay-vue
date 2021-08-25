@@ -63,4 +63,8 @@ export default ({ store }) => {
     })
 
     store.dispatch('app/initRecentItemList', recentItemList)
+    
+    // init taskbar app option list
+    const taskbarAppOptionList = require('@/assets/json/taskbarAppOptionList')
+    store.dispatch('app/initTaskbarAppOptionList', taskbarAppOptionList)
 }

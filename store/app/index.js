@@ -1,8 +1,9 @@
-export const state = {
+export const state=() => ({
   appItemList: [],
   recentItemList: [],
+  taskbarAppOptionList:[],
   searchAppKeyword: ''
-}
+})
 
 export const getters = {
   taskbarApps: (state) => {
@@ -14,6 +15,9 @@ export const getters = {
       // console.log(opened)
       return appItem.taskbar || (opened && appItem.type !== 'notificationpanel' && appItem.type !== 'actioncenter')
     })
+  },
+  getTaskbarappOptionList: (state)=> ()=>{
+return state.taskbarAppOptionList
   },
   getDesktopAppList: (state) => {
     // console.log(state.appItemList)
@@ -70,6 +74,9 @@ export const mutations = {
   INIT_RECENT_ITEM_LIST(state, list) {
     state.recentItemList = list
   },
+  INIT_TASKBAR_APP_OPTION_LIST(state, list) {
+    state.taskbarAppOptionList = list
+  },
   SEARCH_APP(state, keyword) {
     state.searchAppKeyword = keyword
   }
@@ -81,6 +88,9 @@ export const actions = {
   },
   initRecentItemList({ commit }, list) {
     commit('INIT_RECENT_ITEM_LIST', list)
+  },
+  initTaskbarAppOptionList({ commit }, list) {
+    commit('INIT_TASKBAR_APP_OPTION_LIST', list)
   },
   searchApp({ commit }, keyword) {
     commit('SEARCH_APP', keyword.value.trim().toLowerCase())

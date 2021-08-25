@@ -1,0 +1,6 @@
+[
+    {"id":"app", "icon":"mdi-microsoft-windows", "label":"app", "onOpenOnly":false,"show":true},
+    {"id":"unpin", "icon":"mdi-pin-off-outline mdi-rotate-90", "label":"Unpin from taskbar", "onOpenOnly":false,"show":true},
+    {"id":"pin", "icon":"mdi-pin-outline mdi-rotate-90", "label":"Pin to taskbar", "onOpenOnly":false,"show":true},
+    {"id":"close", "icon":"mdi-close", "label":"Close all windows", "onOpenOnly":true,"show":true}
+]
