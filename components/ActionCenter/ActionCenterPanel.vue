@@ -53,7 +53,11 @@
           :key="'acpEditOff'"
           class="d-flex flex ms-auto"
         >
-          <h5 class="me-auto font-weight-medium d-flex align-center" label large>
+          <h5
+            class="me-auto font-weight-medium d-flex align-center"
+            label
+            large
+          >
             <v-icon size="20">mdi-battery-high mdi-rotate-90</v-icon>
             <span class="ms-1">100%</span>
           </h5>
@@ -108,7 +112,9 @@
                 v-if="getUnpinnedActionList().length === 0"
                 style="min-width: 160px !important"
               >
-                <v-list-item-subtitle>No items</v-list-item-subtitle>
+                <v-list-item-subtitle class="text-center font-weight-bold"
+                  >No items</v-list-item-subtitle
+                >
               </v-list-item>
             </v-list>
           </v-menu>
@@ -133,6 +139,17 @@ export default {
       'getPinnedActionList',
       'getUnpinnedActionList',
     ]),
+    ...mapGetters('app/', ['getAppByTitleKebab']),
+    actionCenterAppWindow() {
+      return this.getAppByTitleKebab('action-center').window.show
+    },
+  },
+  watch: {
+    actionCenterAppWindow(v) {
+      if (v === false) {
+        this.editActionList = false
+      }
+    },
   },
   methods: {
     getBrightnessIcon(brightness) {

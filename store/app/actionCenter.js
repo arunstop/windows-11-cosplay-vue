@@ -1,6 +1,6 @@
 export const state = () => ({
     actionList: [],
-    activeActionList: []
+    activeActionList: [],
 })
 
 export const mutations = {

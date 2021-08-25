@@ -25,7 +25,6 @@ export const getters = {
     })
   },
   searchAppResult: (state) => () => {
-
     let searchResult = state.appItemList.filter((appItem) => {
       return appItem.title.trim().toLowerCase().includes(state.searchAppKeyword)
     });
@@ -59,6 +58,9 @@ export const getters = {
     const searchResultWithLetters = searchResult.sort((a, b) => (a.title > b.title) - (a.title < b.title))
     return searchResultWithLetters
   },
+  getAppByTitleKebab: (state) => (titleKebab) => {
+    return state.appItemList.find(app => app.titleKebab === titleKebab)
+  }
 }
 
 export const mutations = {
