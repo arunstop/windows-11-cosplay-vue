@@ -6,16 +6,17 @@
       link
       dense
       class="px-2"
+      @click="option.action(app)"
     >
       <v-list-item-icon class="me-2">
-        <v-icon v-if="option.id !== 'app'" color="black">{{
-          option.icon
-        }}</v-icon>
+        <v-icon v-if="option.id !== 'app'" color="black">
+          {{ option.icon }}
+        </v-icon>
         <v-icon v-else :color="app.iconColor">{{ app.icon }}</v-icon>
       </v-list-item-icon>
-      <v-list-item-subtitle class="black--text">{{
-        option.label
-      }}</v-list-item-subtitle>
+      <v-list-item-subtitle class="black--text">
+        {{ option.label }}
+      </v-list-item-subtitle>
     </v-list-item>
   </v-list>
 </template>
@@ -26,10 +27,10 @@ export default {
   props: {
     app: { type: Object, default: () => {} },
   },
-   computed: {
+  computed: {
     ...mapGetters('app/', ['getTaskbarappOptionList']),
   },
-  methods:{
+  methods: {
     getOptionList(app) {
       if (app.type !== 'window') return
       const optionList = this.$globals.cloneState(
@@ -54,8 +55,38 @@ export default {
           option.show = false
         }
       })
-      return optionList.filter((option) => option.show === true)
+      const activeOptionList = optionList.filter(
+        (option) => option.show === true
+      )
+      activeOptionList.forEach((option) => {
+        if (option.id === 'app') {
+          Object.assign(option, {
+            action: (app2) => {
+              this.$store.dispatch('app/window/openApp', app2)
+            },
+          })
+        } else if (option.id === 'unpin') {
+          Object.assign(option, {
+            action: (app2) => {
+              this.$store.dispatch('app/unpinTaskbar', app2)
+            },
+          })
+        } else if (option.id === 'pin') {
+          Object.assign(option, {
+            action: (app2) => {
+              this.$store.dispatch('app/pinTaskbar', app2)
+            },
+          })
+        } else if (option.id === 'close') {
+          Object.assign(option, {
+            action: (app2) => {
+              this.$store.dispatch('app/window/closeApp', app2)
+            },
+          })
+        }
+      })
+      return activeOptionList
     },
-  }
+  },
 }
 </script>

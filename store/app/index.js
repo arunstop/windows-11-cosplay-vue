@@ -1,7 +1,7 @@
-export const state=() => ({
+export const state = () => ({
   appItemList: [],
   recentItemList: [],
-  taskbarAppOptionList:[],
+  taskbarAppOptionList: [],
   searchAppKeyword: ''
 })
 
@@ -16,8 +16,8 @@ export const getters = {
       return appItem.taskbar || (opened && appItem.type !== 'notificationpanel' && appItem.type !== 'actioncenter')
     })
   },
-  getTaskbarappOptionList: (state)=> ()=>{
-return state.taskbarAppOptionList
+  getTaskbarappOptionList: (state) => () => {
+    return state.taskbarAppOptionList
   },
   getDesktopAppList: (state) => {
     // console.log(state.appItemList)
@@ -79,6 +79,12 @@ export const mutations = {
   },
   SEARCH_APP(state, keyword) {
     state.searchAppKeyword = keyword
+  },
+  PIN_TASKBAR(state, app) {
+    state.appItemList.find(item=>item.titleKebab===app.titleKebab).taskbar=true
+  },
+  UNPIN_TASKBAR(state, app) {
+    state.appItemList.find(item=>item.titleKebab===app.titleKebab).taskbar=false
   }
 }
 
@@ -94,5 +100,11 @@ export const actions = {
   },
   searchApp({ commit }, keyword) {
     commit('SEARCH_APP', keyword.value.trim().toLowerCase())
-  }
+  },
+  pinTaskbar({ commit }, app) {
+    commit('PIN_TASKBAR', app)
+  },
+  unpinTaskbar({ commit }, app) {
+    commit('UNPIN_TASKBAR', app)
+  },
 }
