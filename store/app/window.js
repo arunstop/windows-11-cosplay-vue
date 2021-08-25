@@ -106,7 +106,7 @@ export const mutations = {
 
 export const actions = {
   openDefaultApps({ commit, rootState }) {
-    const defaultApps = rootState.app.appItemList.filter((appItem) => appItem.default)
+    const defaultApps = rootState.app.appItemList.filter((appItem) => appItem.preOpen)
     commit('OPEN_DEFAULT_APPS', defaultApps)
   },
   toggleWindow({ commit, state, dispatch }, data) {

@@ -1,0 +1,16 @@
+[
+  { "icon": "mdi-buffer", "title": "WinRAR", "lastOpened": "Recently added" },
+  { "icon": "mdi-steam", "title": "Steam", "lastOpened": "Yesterday" },
+  {
+    "icon": "mdi-microsoft-powerpoint",
+    "title": "Monthly Presentation.pptx",
+    "lastOpened": "3 days ago"
+  },
+  { "icon": "mdi-movie-play", "title": "Beach.mp4", "lastOpened": "Jul 17" },
+  {
+    "icon": "mdi-music-circle",
+    "title": "Coldplay - Every Teardrop Is a Waterfall.mp3",
+    "lastOpened": "Jun 6"
+  },
+  { "icon": "mdi-image", "title": "Sea.png", "lastOpened": "Jun 1" }
+]

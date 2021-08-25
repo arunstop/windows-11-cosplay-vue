@@ -1,0 +1,61 @@
+[
+  {
+    "type": "grid-container-snap-layout-menu-cols-50-50",
+    "snapType": "cols-50-50",
+    "max": 2,
+    "itemList": [
+      { "rounded": "sm l-lg", "height": "80px" },
+      { "rounded": "sm r-lg", "height": "80px" }
+    ]
+  },
+  {
+    "type": "grid-container-snap-layout-menu-cols-66-34",
+    "snapType": "cols-66-34",
+    "max": 2,
+    "itemList": [
+      { "rounded": "sm l-lg", "height": "80px" },
+      { "rounded": "sm r-lg", "height": "80px" }
+    ]
+  },
+  {
+    "type": "grid-container-snap-layout-menu-cols-33-34-33",
+    "snapType": "cols-33-34-33",
+    "max": 3,
+    "itemList": [
+      { "rounded": "sm l-lg", "height": "80px" },
+      { "rounded": "sm", "height": "80px" },
+      { "rounded": "sm r-lg", "height": "80px" }
+    ]
+  },
+  {
+    "type": "grid-container-snap-layout-menu-col-50-col-50-rows-50-50",
+    "snapType": "col-50-col-50-rows-50-50",
+    "max": 3,
+    "itemList": [
+      { "rounded": "sm l-lg", "height": "40px" },
+      { "rounded": "sm tr-lg", "height": "40px" },
+      { "rounded": "sm br-lg", "height": "40px" }
+    ]
+  },
+  {
+    "type": "grid-container-snap-layout-menu-cols-50-rows-50",
+    "snapType": "cols-50-rows-50",
+    "max": 4,
+    "itemList": [
+      { "rounded": "sm tl-lg", "height": "40px" },
+      { "rounded": "sm tr-lg", "height": "40px" },
+      { "rounded": "sm bl-lg", "height": "40px" },
+      { "rounded": "sm br-lg", "height": "40px" }
+    ]
+  },
+  {
+    "type": "grid-container-snap-layout-menu-cols-20-30-20",
+    "snapType": "cols-20-30-20",
+    "max": 3,
+    "itemList": [
+      { "rounded": "sm l-lg", "height": "80px" },
+      { "rounded": "sm", "height": "80px" },
+      { "rounded": "sm r-lg", "height": "80px" }
+    ]
+  }
+]

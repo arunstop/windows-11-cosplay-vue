@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Daniel Force Forthmay",
+    "email": "user1@outlook.com",
+    "pin": "123123",
+    "image": "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+    "status": "LOGGED_OFF",
+    "active": true
+  },
+  {
+    "name": "Javier de la Pepega",
+    "email": "user2@outlook.com",
+    "pin": "123123",
+    "image": "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+    "status": "LOGGED_OFF",
+    "active": false
+  },
+  {
+    "name": "Camille Mariam Hotpokket",
+    "email": "user3@outlook.com",
+    "pin": "123123",
+    "image": "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+    "status": "LOGGED_OFF",
+    "active": false
+  },
+  {
+    "name": "Karen K Karen",
+    "email": "user4@outlook.com",
+    "pin": "123123",
+    "image": "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+    "status": "LOGGED_OFF",
+    "active": false
+  }
+]

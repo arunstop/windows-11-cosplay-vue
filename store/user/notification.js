@@ -1,5 +1,5 @@
 export const state = () => ({
-    notificationList: require('@/assets/json/notificationList.json'),
+    notificationList: [],
     optionList: [
         { id: 1, icon: 'mdi-cancel', label: 'Turnoff all notification for app' },
         { id: 2, icon: 'mdi-cog-outline', label: 'Go to notification settings' },
@@ -9,6 +9,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+    INIT_NOTIF_LIST(state, list) {
+        state.notificationList = list
+    },
     REMOVE_NOTIF(state, notif) {
         // console.log(notif)
         state.notificationList = state.notificationList.filter(notifItem => notifItem !== notif)
@@ -51,6 +54,9 @@ export const getters = {
 }
 
 export const actions = {
+    initNotifList({ commit }, list) {
+        commit('INIT_NOTIF_LIST', list)
+    },
     removeNotif({ commit }, notif) {
         commit('REMOVE_NOTIF', notif)
     },

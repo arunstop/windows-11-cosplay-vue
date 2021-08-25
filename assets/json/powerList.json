@@ -1,0 +1,13 @@
+[
+  { "icon": "mdi-lock", "label": "Lock", "status": "LOGGED_OFF" },
+  { "icon": "mdi-logout-variant", "label": "Log Off", "status": "LOGGING_OFF" },
+  {
+    "icon": "mdi-swap-horizontal",
+    "label": "Switch User",
+    "status": "LOGGED_OFF"
+  },
+  { "icon": "mdi-power-sleep", "label": "Sleep", "status": "LOGGED_OFF" },
+  { "icon": "mdi-sleep", "label": "Hibernate", "status": "RESTARTING" },
+  { "icon": "mdi-restart", "label": "Restart", "status": "RESTARTING" },
+  { "icon": "mdi-power", "label": "Shutdown", "status": "TURNING_OFF" }
+]

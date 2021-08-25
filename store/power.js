@@ -1,18 +1,12 @@
 export const state = () => ({
-    powerItemList: [
-        { icon: 'mdi-lock', label: 'Lock', status: 'LOGGED_OFF' },
-        { icon: 'mdi-logout-variant', label: 'Log Off', status: 'LOGGING_OFF' },
-        { icon: 'mdi-swap-horizontal', label: 'Switch User', status: 'LOGGED_OFF' },
-        { icon: 'mdi-power-sleep', label: 'Sleep', status: 'LOGGED_OFF' },
-        { icon: 'mdi-sleep', label: 'Hibernate', status: 'RESTARTING' },
-        { icon: 'mdi-restart', label: 'Restart', status: 'RESTARTING' },
-        { icon: 'mdi-power', label: 'Shutdown', status: 'TURNING_OFF' },
-        // { icon: 'mdi-key', label: 'Logged in', status: 'LOGGED_ON' },
-    ],
+    powerItemList: [],
     status: 'LOGGED_OFF',
 })
 
 export const mutations = {
+    INIT_POWER_LIST(state, list) {
+        state.powerItemList = list
+    },
     POWER_WINDOW(state, status) {
         // alert(state.powerItemList)
         // if (status === 'RESTARTING') {
@@ -26,6 +20,9 @@ export const mutations = {
 
 
 export const actions = {
+    initPowerList({ commit }, list) {
+        commit('INIT_POWER_LIST', list)
+    },
     powerAction({ commit,dispatch }, status) {
         commit('POWER_WINDOW', status)
 

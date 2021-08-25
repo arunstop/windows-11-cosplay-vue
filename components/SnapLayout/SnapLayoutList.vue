@@ -21,7 +21,7 @@ export default {
     snap: { type: Object, default: () => ({}) },
   },
   computed: {
-    ...mapState('app/snap', ['snapLayout', 'snapLayoutTemplate']),
+    ...mapState('app/snap', ['snapLayout', 'snapTemplateList']),
     ...mapGetters('app/window', ['snappedWindowList']),
   },
 

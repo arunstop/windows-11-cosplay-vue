@@ -1,0 +1,149 @@
+[
+  {
+    "icon": "mdi-microsoft-windows",
+    "title": "Start",
+    "default": true,
+    "type": "startmenu"
+  },
+  {
+    "icon": "mdi-magnify",
+    "title": "Search",
+    "default": true,
+    "type": "searchpanel"
+  },
+  {
+    "icon": "mdi-view-dashboard",
+    "title": "Widgets",
+    "default": true,
+    "type": "widgetpanel"
+  },
+  {
+    "icon": "mdi-message-text",
+    "title": "Notifications",
+    "default": true,
+    "type": "notificationpanel"
+  },
+  {
+    "icon": "mdi-gesture-double-tap",
+    "title": "Action Center",
+    "default": true,
+    "type": "actioncenter"
+  },
+  { "icon": "mdi-cog", "title": "Settings", "default": true, "type": "window" },
+
+  {
+    "icon": "mdi-folder",
+    "title": "File Explorer",
+    "default": true,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-microsoft-edge",
+    "title": "Microsoft Edge",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-cart",
+    "title": "Microsoft Store",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-microsoft-edge",
+    "title": "Edge",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-microsoft-word",
+    "title": "Word",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-microsoft-powerpoint",
+    "title": "PowerPoint",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-twitch",
+    "title": "Twitch",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-check-circle",
+    "title": "To Do",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-netflix",
+    "title": "Netflix",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-image",
+    "title": "Photos",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-scissors-cutting",
+    "title": "Snipping Tool",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-twitter",
+    "title": "Twitter",
+    "default": false,
+    "type": "window"
+  },
+  { "icon": "mdi-skype", "title": "Skype", "default": false, "type": "window" },
+  {
+    "icon": "mdi-microsoft-xbox",
+    "title": "Xbox",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-whatsapp",
+    "title": "WhatsApp",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-microsoft-excel",
+    "title": "Excel",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-spotify",
+    "title": "Spotify",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-microsoft-visual-studio-code",
+    "title": "VS Code",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-github",
+    "title": "Github",
+    "default": false,
+    "type": "window"
+  },
+  {
+    "icon": "mdi-discord",
+    "title": "Discord",
+    "default": false,
+    "type": "window"
+  }
+]

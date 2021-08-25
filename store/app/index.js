@@ -1,160 +1,7 @@
-export const state = () => {
-  const addedId = [];
-  const randomId = () => {
-    const newId = Math.floor(Math.random() * 1001)
-    const duplicatedId = addedId.find((item) => item === newId)
-    if (!duplicatedId) {
-      addedId.push(newId)
-      return newId
-    }
-    else return randomId()
-  }
-  // const randomColorHex=()=>{
-  // return '#'+Math.floor(Math.random()*16777215).toString(16)
-  //   return '#000';
-  // }
-  const randomColorRgb = () => {
-    const getRandomInt = (min, max) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    return `rgba(${getRandomInt(0, 255)},${getRandomInt(0, 255)},${getRandomInt(0, 255)},1)`
-  }
-  const windowSetting = (type = 'window', def = false, taskbar = true, desktop = false) => {
-    return {
-      type, default: def, taskbar, desktop, window: {
-        show: false,
-        fullscreen: false,
-        snap: false,
-      },
-    }
-  }
-  return {
-
-    appItemList: [
-      // default win apps
-      {
-        id: randomId(), icon: 'mdi-microsoft-windows', iconColor: randomColorRgb(), title: 'My Computer',
-        ...windowSetting('startmenu', true, true, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-magnify', iconColor: randomColorRgb(), title: 'Search',
-        ...windowSetting('searchpanel', true, true, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-view-dashboard', iconColor: randomColorRgb(), title: 'Widgets',
-        ...windowSetting('widgetpanel', true, true, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-message-text', iconColor: randomColorRgb(), title: 'Notifications',
-        ...windowSetting('notificationpanel', true, false, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-folder', iconColor: randomColorRgb(), title: 'File Explorer',
-        ...windowSetting('window', false, true, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-gesture-double-tap', iconColor: randomColorRgb(), title: 'Action Center',
-        ...windowSetting('actioncenter', true, false, false)
-      },
-      // taskbar app
-      {
-        id: randomId(), icon: 'mdi-microsoft-edge', iconColor: randomColorRgb(), title: 'Microsoft Edge',
-        ...windowSetting('window', false, true, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-cart', iconColor: randomColorRgb(), title: 'Microsoft Store',
-        ...windowSetting('window', false, true, false)
-      },
-      // other app
-      {
-        id: randomId(), icon: 'mdi-microsoft-edge', iconColor: randomColorRgb(), title: 'Edge',
-        ...windowSetting('window', false, false, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-microsoft-word', iconColor: randomColorRgb(), title: 'Word',
-        ...windowSetting('window', false, false, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-microsoft-powerpoint', iconColor: randomColorRgb(), title: 'PowerPoint',
-        ...windowSetting('window', false, false, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-twitch', iconColor: randomColorRgb(), title: 'Twitch',
-        ...windowSetting('window', false, false, false)
-      },
-      {
-        id: randomId(), icon: 'mdi-check-circle', iconColor: randomColorRgb(), title: 'To Do',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-netflix', iconColor: randomColorRgb(), title: 'Netflix',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-image', iconColor: randomColorRgb(), title: 'Photos',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-scissors-cutting', iconColor: randomColorRgb(), title: 'Snipping Tool',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-twitter', iconColor: randomColorRgb(), title: 'Twitter',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-skype', iconColor: randomColorRgb(), title: 'Skype',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-microsoft-xbox', iconColor: randomColorRgb(), title: 'Xbox',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-whatsapp', iconColor: randomColorRgb(), title: 'WhatsApp',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-microsoft-excel', iconColor: randomColorRgb(), title: 'Excel',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-spotify', iconColor: randomColorRgb(), title: 'Spotify',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-microsoft-visual-studio-code', iconColor: randomColorRgb(), title: 'VS Code',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-github', iconColor: randomColorRgb(), title: 'Github',
-        ...windowSetting('window', false, false, true)
-      },
-      {
-        id: randomId(), icon: 'mdi-discord', iconColor: randomColorRgb(), title: 'Discord',
-        ...windowSetting('window', false, false, true)
-      },
-    ],
-    recentItemList: [
-      { icon: 'mdi-buffer', iconColor: randomColorRgb(), title: 'WinRAR', lastOpened: 'Recently added' },
-      { icon: 'mdi-steam', iconColor: randomColorRgb(), title: 'Steam', lastOpened: 'Yesterday' },
-      {
-        icon: 'mdi-microsoft-powerpoint',
-        iconColor: randomColorRgb(), title: 'Monthly Presentation.pptx',
-        lastOpened: '3 days ago',
-      },
-      { icon: 'mdi-movie-play', iconColor: randomColorRgb(), title: 'Beach.mp4', lastOpened: 'Jul 17' },
-      {
-        icon: 'mdi-music-circle',
-        iconColor: randomColorRgb(), title: 'Coldplay - Every Teardrop Is a Waterfall.mp3',
-        lastOpened: 'Jun 6',
-      },
-      { icon: 'mdi-image', iconColor: randomColorRgb(), title: 'Sea.png', lastOpened: 'Jun 1' },
-    ],
-    searchAppKeyword: ''
-  }
+export const state = {
+  appItemList: [],
+  recentItemList: [],
+  searchAppKeyword: ''
 }
 
 export const getters = {
@@ -172,9 +19,9 @@ export const getters = {
     // console.log(state.appItemList)
     return state.appItemList.filter(app => app.desktop === true)
   },
-  getPinnedApps: (state) =>()=> {
+  getPinnedApps: (state) => () => {
     return state.appItemList.filter((appItem) => {
-      return !appItem.taskbar && appItem.type==='window'
+      return !appItem.taskbar && appItem.type === 'window'
     })
   },
   searchAppResult: (state) => () => {
@@ -215,13 +62,24 @@ export const getters = {
 }
 
 export const mutations = {
+  INIT_APP_LIST(state, list) {
+    state.appItemList = list
+  },
+  INIT_RECENT_ITEM_LIST(state, list) {
+    state.recentItemList = list
+  },
   SEARCH_APP(state, keyword) {
     state.searchAppKeyword = keyword
   }
 }
 
 export const actions = {
-
+  initAppList({ commit }, list) {
+    commit('INIT_APP_LIST', list)
+  },
+  initRecentItemList({ commit }, list) {
+    commit('INIT_RECENT_ITEM_LIST', list)
+  },
   searchApp({ commit }, keyword) {
     commit('SEARCH_APP', keyword.value.trim().toLowerCase())
   }

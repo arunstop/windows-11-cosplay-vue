@@ -1,65 +1,5 @@
 export const state = () => ({
-    snapLayoutTemplate: [
-        {
-            type: 'grid-container-snap-layout-menu-cols-50-50',
-            snapType: 'cols-50-50',
-            max: 2,
-            itemList: [
-                { rounded: 'sm l-lg', height: '80px' },
-                { rounded: 'sm r-lg', height: '80px' },
-            ],
-        },
-        {
-            type: 'grid-container-snap-layout-menu-cols-66-34',
-            snapType: 'cols-66-34',
-            max: 2,
-            itemList: [
-                { rounded: 'sm l-lg', height: '80px' },
-                { rounded: 'sm r-lg', height: '80px' },
-            ],
-        },
-        {
-            type: 'grid-container-snap-layout-menu-cols-33-34-33',
-            snapType: 'cols-33-34-33',
-            max: 3,
-            itemList: [
-                { rounded: 'sm l-lg', height: '80px' },
-                { rounded: 'sm', height: '80px' },
-                { rounded: 'sm r-lg', height: '80px' },
-            ],
-        },
-        {
-            type: 'grid-container-snap-layout-menu-col-50-col-50-rows-50-50',
-            snapType: 'col-50-col-50-rows-50-50',
-            max: 3,
-            itemList: [
-                { rounded: 'sm l-lg', height: '40px' },
-                { rounded: 'sm tr-lg', height: '40px' },
-                { rounded: 'sm br-lg', height: '40px' },
-            ],
-        },
-        {
-            type: 'grid-container-snap-layout-menu-cols-50-rows-50',
-            snapType: 'cols-50-rows-50',
-            max: 4,
-            itemList: [
-                { rounded: 'sm tl-lg', height: '40px' },
-                { rounded: 'sm tr-lg', height: '40px' },
-                { rounded: 'sm bl-lg', height: '40px' },
-                { rounded: 'sm br-lg', height: '40px' },
-            ],
-        },
-        {
-            type: 'grid-container-snap-layout-menu-cols-20-30-20',
-            snapType: 'cols-20-30-20',
-            max: 3,
-            itemList: [
-                { rounded: 'sm l-lg', height: '80px' },
-                { rounded: 'sm', height: '80px' },
-                { rounded: 'sm r-lg', height: '80px' },
-            ],
-        },
-    ],
+    snapTemplateList: [],
     snapLayout: { type: '', fullscreen: false, appList: [] }
 })
 
@@ -81,13 +21,16 @@ export const getters = {
 }
 
 export const mutations = {
+    INIT_SNAP_TEMPLATE_LIST(state,list){
+        state.snapTemplateList = list
+    },
     ADD_SNAP(state, item) {
         const initializerItem = (index) => ({ index, initializer: true })
         // if (state.snapLayout.fullscreen === true) {
         //     state.snapLayout.fullscreen = false
         // }
         // const duplicateIndex = state.snapLayout. appList.find((app) => app.index === item.index)
-        const templateTarget = state.snapLayoutTemplate.find((template) => template.snapType === item.type)
+        const templateTarget = state.snapTemplateList.find((template) => template.snapType === item.type)
         const snapItems = []
         const duplicate = state.snapLayout.appList.find((app) => app.id === item.app.id)
         if (state.snapLayout.type !== item.type) {
@@ -162,6 +105,9 @@ export const mutations = {
 }
 
 export const actions = {
+    initSnapTemplateList({ commit }, list) {
+        commit('INIT_SNAP_TEMPLATE_LIST', list)
+    },
     addSnap({ commit, state, dispatch }, item) {
         if (state.snapLayout.type !== item.type) {
             // alert('different type, reconstructing')

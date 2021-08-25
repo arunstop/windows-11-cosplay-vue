@@ -1,7 +1,7 @@
 <template>
   <v-app v-if="$store.state.power.status === 'LOGGED_ON'" :style="bgStyle">
     <v-main>
-        <Nuxt />
+      <Nuxt />
     </v-main>
     <Taskbar />
   </v-app>
@@ -107,7 +107,6 @@
       </v-row>
     </v-card>
     <v-card v-show="authScreen" class="lock-screen blur-bg" color="transparent">
-
       <v-card
         class="d-flex justify-space-between pa-4"
         color="transparent"
@@ -129,7 +128,10 @@
                 <v-img :src="user.image" />
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title class="black--text text--darken-2" :class="user.active ? 'white--text' : ''">
+                <v-list-item-title
+                  class="black--text text--darken-2"
+                  :class="user.active ? 'white--text' : ''"
+                >
                   <h5>{{ user.name }}</h5>
                 </v-list-item-title>
               </v-list-item-content>
@@ -217,6 +219,7 @@ export default {
   components: {
     RollerLoader,
   },
+  middleware: ['initAppList','initActionList','initNotifList','initUserList','initPowerList','initSnapTemplateList'],
   data: () => ({
     bgStyle: {
       background: `url(${require('@/assets/img/bg.jpg')}) no-repeat !important`,

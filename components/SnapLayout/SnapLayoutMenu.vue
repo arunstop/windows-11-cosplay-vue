@@ -2,7 +2,7 @@
   <div class="snap-layout-menu">
     <v-card class="grid-container-snap-layout-menu pa-3 rounded-lg">
       <v-card
-        v-for="(sl, index) in $store.state.app.snap.snapLayoutTemplate"
+        v-for="(sl, index) in $store.state.app.snap.snapTemplateList"
         :key="index"
         class="d-flex justify-center align-center"
         min-width="120px"

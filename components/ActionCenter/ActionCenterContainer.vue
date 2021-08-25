@@ -57,6 +57,7 @@
 
 <script>
 export default {
+  // middleware: ['initActionList'],
   props: {
     app: {
       type: Object,
