@@ -219,7 +219,7 @@ export default {
   components: {
     RollerLoader,
   },
-  middleware: ['initAppList','initActionList','initNotifList','initUserList','initPowerList','initSnapTemplateList'],
+  middleware: ['initAppList','initActionList','initNotifList','initUserList','initPowerList','initSnapTemplateList','initDesktopOptionList'],
   data: () => ({
     bgStyle: {
       background: `url(${require('@/assets/img/bg.jpg')}) no-repeat !important`,

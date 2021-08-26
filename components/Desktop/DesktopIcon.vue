@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="mx-1 text-capitalize pa-2 text-break v-btn text-center"
-    height="100%"
+    height="auto"
     max-width="90px"
     link
     elevation="0"

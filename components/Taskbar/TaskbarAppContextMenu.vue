@@ -1,11 +1,11 @@
 <template>
-  <v-list class="pa-0 blur-bg">
+  <v-list class="pa-0 blur-bg rounded-lg">
     <v-list-item
       v-for="option in getOptionList(app)"
       :key="option.label"
       link
       dense
-      class="px-2"
+      class="px-2 rounded-lg"
       @click="option.action(app)"
     >
       <v-list-item-icon class="me-2">
