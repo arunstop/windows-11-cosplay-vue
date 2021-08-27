@@ -2,14 +2,14 @@
   <v-menu absolute min-width="320px">
     <template #activator="{ on, attrs }">
       <div class="fill-height" v-bind="attrs" @contextmenu.prevent="on.click">
-<v-row justify="start" align="start" class="ma-0 pa-4">
-        <!-- <v-btn v-bind="attrs" v-on="on"> xd </v-btn> -->
-        <DesktopIcon
-          v-for="(app, index) in getDesktopAppList"
-          :key="index"
-          :app="app"
-        />
-      </v-row>
+        <v-row justify="start" align="start" class="ma-0 pa-4">
+          <!-- <v-btn v-bind="attrs" v-on="on"> xd </v-btn> -->
+          <DesktopIcon
+            v-for="(app, index) in getDesktopAppList"
+            :key="index"
+            :app="app"
+          />
+        </v-row>
       </div>
     </template>
     <DesktopContextMenu />

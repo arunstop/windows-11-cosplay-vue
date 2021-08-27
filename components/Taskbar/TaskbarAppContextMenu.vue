@@ -14,7 +14,7 @@
         </v-icon>
         <v-icon v-else :color="app.iconColor">{{ app.icon }}</v-icon>
       </v-list-item-icon>
-      <v-list-item-subtitle class="black--text">
+      <v-list-item-subtitle class="black--text font-weight-regular">
         {{ option.label }}
       </v-list-item-subtitle>
     </v-list-item>
