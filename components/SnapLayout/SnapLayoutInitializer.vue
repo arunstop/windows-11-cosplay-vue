@@ -35,8 +35,7 @@ export default {
   created() {},
   methods:{
     openSearchPanel(){
-      const targetApp = this.$store.getters['app/window/getAppByType']('searchpanel')
-      this.$store.dispatch('app/window/openApp', targetApp)
+      this.$store.dispatch('app/window/openAppById', 'search')
     }
   }
 }

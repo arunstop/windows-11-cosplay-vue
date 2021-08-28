@@ -25,9 +25,6 @@ export const getters = {
       return app.window.snap === true
     })
   },
-  getAppByType: (state) => (type)=> {
-    return state.windowList.find(app => app.type === type)
-  }
 }
 
 export const mutations = {
@@ -142,6 +139,10 @@ export const actions = {
         }
       }
     }
+  },
+  openAppById({dispatch,rootGetters}, id){
+    const targetApp = rootGetters['app/getAppById'](id)
+    dispatch('openApp', targetApp)
   },
   closeApp({ commit, dispatch }, app) {
     // dispatch('toggleWindow', { id: app.id }).then(() => {

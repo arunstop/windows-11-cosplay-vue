@@ -119,12 +119,10 @@ export default {
   },
   methods: {
     openNotifPanel() {
-      const targetApp = this.$store.getters['app/window/getAppByType']('notificationpanel')
-      this.$store.dispatch('app/window/openApp', targetApp)
+      this.$store.dispatch('app/window/openAppById', 'notifications')
     },
     openActionCenter() {
-      const targetApp = this.$store.getters['app/window/getAppByType']('actioncenter')
-      this.$store.dispatch('app/window/openApp', targetApp)
+      this.$store.dispatch('app/window/openAppById', 'action-center')
     },
   },
 }

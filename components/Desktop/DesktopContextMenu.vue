@@ -56,6 +56,14 @@ export default {
           if (option.id === 'open') {
             option.label = 'Open ' + this.app.title
             option.icon = this.app.icon
+            Object.assign(option, {
+              action: () => {
+                this.$store.dispatch(
+                  'app/window/openAppById',
+                  this.app.titleKebab
+                )
+              },
+            })
           }
         })
       }

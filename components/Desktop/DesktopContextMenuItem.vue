@@ -1,5 +1,5 @@
 <template>
-  <v-list-item link class="rounded-lg" :disabled="option.disabled">
+  <v-list-item link class="rounded-lg" :disabled="option.disabled" @click="getOptionAction()">
     <v-list-item-icon v-if="subItem && !option.noStatus" class="me-2">
       <v-icon v-if="option.active" color="black">
         mdi-circle-medium
@@ -46,6 +46,9 @@ export default {
     getAppIconColor() {
       return this.option.id==="open" ? this.app?.iconColor : 'primary darken-3'
     },
+    getOptionAction(){
+      this.option.action?.()
+    }
   },
 }
 </script>

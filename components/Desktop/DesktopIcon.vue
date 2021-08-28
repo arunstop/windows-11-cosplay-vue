@@ -1,5 +1,5 @@
 <template>
-  <v-menu>
+  <v-menu absolute>
     <template #activator="{ on, attrs }">
       <v-card
         class="mx-1 text-capitalize pa-2 text-break v-btn text-center"

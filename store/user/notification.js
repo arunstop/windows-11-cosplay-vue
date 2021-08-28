@@ -1,7 +1,7 @@
 export const state = () => ({
     notificationList: [],
     optionList: [
-        { id: 1, icon: 'mdi-cancel', label: 'Turnoff all notification for app' },
+        { id: 1, icon: 'mdi-cancel', label: 'Turn off all notification for app' },
         { id: 2, icon: 'mdi-cog-outline', label: 'Go to notification settings' },
         { id: 3, icon: 'mdi-exclamation-thick', label: 'Make app high priority' },
         // { icon: 'mdi-volume-mute', label: 'Mute' },

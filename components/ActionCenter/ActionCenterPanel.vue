@@ -139,9 +139,9 @@ export default {
       'getPinnedActionList',
       'getUnpinnedActionList',
     ]),
-    ...mapGetters('app/', ['getAppByTitleKebab']),
+    ...mapGetters('app/', ['getAppById']),
     actionCenterAppWindow() {
-      return this.getAppByTitleKebab('action-center').window.show
+      return this.getAppById('action-center').window.show
     },
   },
   watch: {
