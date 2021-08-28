@@ -42,6 +42,7 @@
               flat
               no-title
               color="primary darken-2"
+              class="rounded-b-lg"
             />
           </v-card-text>
         </v-expand-transition>

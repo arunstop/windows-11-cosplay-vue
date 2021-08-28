@@ -1,6 +1,6 @@
 [
   {
-    "icon": "mdi-content-cut mdri-rotate-270",
+    "icon": "mdi-content-cut mdi-rotate-270",
     "label": "Cut",
     "keyboard": "Ctrl + X",
     "editing":true,
