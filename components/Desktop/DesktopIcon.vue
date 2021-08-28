@@ -10,7 +10,7 @@
         color="transparent"
         v-bind="attrs"
         @dblclick="openApp()"
-        @contextmenu.prevent="on.click"
+        @contextmenu.prevent.stop="on.click"
       >
         <div class="d-flex flex-column justify-center align-center">
           <v-icon size="36" :color="app.iconColor">{{ app.icon }}</v-icon>

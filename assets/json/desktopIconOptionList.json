@@ -1,5 +1,37 @@
 [
   {
+    "icon": "mdi-content-cut mdri-rotate-270",
+    "label": "Cut",
+    "keyboard": "Ctrl + X",
+    "editing":true,
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-content-copy",
+    "label": "Copy",
+    "keyboard": "Ctrl + C",
+    "editing":true,
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-form-textbox",
+    "label": "Rename",
+    "keyboard": "F2",
+    "editing":true,
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-trash-can-outline",
+    "label": "Delete",
+    "keyboard": "Delete",
+    "editing":true,
+    "disabled": false,
+    "underLined": false
+  },
+  {
     "icon": "mdi-microsoft-windows",
     "label": "Open",
     "keyboard": "Enter",
