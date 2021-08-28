@@ -10,6 +10,7 @@
         "icon": "mdi-checkbox-blank-outline",
         "label": "Large icons",
         "active": false,
+        "noStatus":false,
         "keyboard": "Ctrl + Shift + 2",
         "disabled": false,
         "underLined": false
@@ -18,6 +19,7 @@
         "icon": "mdi-grid-large",
         "label": "Medium icons",
         "active": true,
+        "noStatus":false,
         "keyboard": "Ctrl + Shift + 3",
         "disabled": false,
         "underLined": false
@@ -26,6 +28,7 @@
         "icon": "mdi-grid",
         "label": "Small icons",
         "active": false,
+        "noStatus":false,
         "keyboard": "Ctrl + Shift + 4",
         "disabled": false,
         "underLined": true
@@ -34,6 +37,7 @@
         "icon": "mdi-flash-auto",
         "label": "Auto arrange icons",
         "active": false,
+        "noStatus":false,
         "keyboard": "",
         "disabled": true,
         "underLined": false
@@ -42,6 +46,7 @@
         "icon": "mdi-file-table-box-outline mdi-flip-v",
         "label": "Align icons to grid",
         "active": false,
+        "noStatus":false,
         "keyboard": "",
         "disabled": true,
         "underLined": true
@@ -50,6 +55,7 @@
         "icon": "",
         "label": "Show desktop icons",
         "active": true,
+        "noStatus":false,
         "keyboard": "",
         "disabled": false,
         "underLined": false
@@ -66,7 +72,7 @@
         "icon": "mdi-sort-alphabetical-ascending",
         "label": "Name",
         "active": false,
-        "keyboard": "   ",
+        "keyboard": "",
         "disabled": false,
         "underLined": false
       },
@@ -74,7 +80,7 @@
         "icon": "mdi-sort-numeric-ascending",
         "label": "Size",
         "active": false,
-        "keyboard": "   ",
+        "keyboard": "",
         "disabled": false,
         "underLined": false
       },
@@ -82,7 +88,7 @@
         "icon": "mdi-sort",
         "label": "Item type",
         "active": false,
-        "keyboard": "   ",
+        "keyboard": "",
         "disabled": false,
         "underLined": false
       },
@@ -90,7 +96,7 @@
         "icon": "mdi-sort-calendar-ascending",
         "label": "Date modified",
         "active": true,
-        "keyboard": "   ",
+        "keyboard": "",
         "disabled": false,
         "underLined": false
       }]
@@ -141,7 +147,62 @@
     "keyboard": "",
     "disabled": false,
     "underLined": true,
-    "subItemList": ["1", "2"]
+    "subItemList": [
+      {
+        "icon": "mdi-folder",
+        "label": "Folder",
+        "active": false,
+        "noStatus":true,
+        "keyboard": "",
+        "disabled": false,
+        "underLined": false
+      },
+      {
+        "icon": "mdi-arrow-top-right-thin-circle-outline",
+        "label": "Shortcut",
+        "active": false,
+        "noStatus":true,
+        "keyboard": "",
+        "disabled": false,
+        "underLined": true
+      },
+      {
+        "icon": "mdi-file-document-outline",
+        "label": "Text Document",
+        "active": false,
+        "noStatus":true,
+        "keyboard": "",
+        "disabled": false,
+        "underLined": false
+      },
+      {
+        "icon": "mdi-file-word",
+        "label": "Microsoft Word Document",
+        "active": false,
+        "noStatus":true,
+        "keyboard": "",
+        "disabled": false,
+        "underLined": false
+      },
+      {
+        "icon": "mdi-file-powerpoint",
+        "label": "Microsoft PowerPoint Presentation",
+        "active": false,
+        "noStatus":true,
+        "keyboard": "",
+        "disabled": false,
+        "underLined": false
+      },
+      {
+        "icon": "mdi-file-excel",
+        "label": "Microsoft Excel Worksheet",
+        "active": false,
+        "noStatus":true,
+        "keyboard": "",
+        "disabled": false,
+        "underLined": false
+      }
+    ]
   },
   {
     "icon": "mdi-application-cog mdi-rotate-180",

@@ -1,4 +1,4 @@
-export default ({ store }) => {
+export default ({ store,$globals }) => {
     const appList = require('@/assets/json/appList.json')
 
     const addedId = [];
@@ -33,14 +33,10 @@ export default ({ store }) => {
         }
     }
 
-    const kebabize = (str) => {
-        return str.replace(" ", "-").toLowerCase()
-    }
-
     const taskbarAppList = require('@/assets/json/taskbarAppList')
 
     appList.forEach(app => {
-        const titleKebab = kebabize(app.title)
+        const titleKebab = $globals.kebabStr(app.title)
         Object.assign(app, { id: randomId() })
         Object.assign(app, { iconColor: randomColorRgb() })
         if (app.type === "window") {

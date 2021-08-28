@@ -1,0 +1,58 @@
+[
+  {
+    "icon": "mdi-microsoft-windows",
+    "label": "Open",
+    "keyboard": "Enter",
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-star-outline",
+    "label": "Pin to Quick Access",
+    "keyboard": "",
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-pin-outline mdi-rotate-90",
+    "label": "Pin to Start",
+    "keyboard": "",
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-folder-zip-outline",
+    "label": "Compress to ZIP file",
+    "keyboard": "",
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-checkbook",
+    "label": "Copy as path",
+    "keyboard": "",
+    "disabled": false,
+    "underLined": false
+  },
+  {
+    "icon": "mdi-ballot-outline",
+    "label": "Properties",
+    "keyboard": "Alt + Enter",
+    "disabled": false,
+    "underLined": true
+  },
+  {
+    "icon": "mdi-console",
+    "label": "Open in Windows Terminal",
+    "keyboard": "",
+    "disabled": false,
+    "underLined": true
+  },
+  {
+    "icon": "mdi-card-plus-outline",
+    "label": "Show more options",
+    "keyboard": "Shift + F10",
+    "disabled": false,
+    "underLined": true
+  }
+]

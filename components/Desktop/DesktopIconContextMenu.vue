@@ -1,19 +1,11 @@
 <template>
   <v-list class="pa-0 blur-bg rounded-lg" dense>
-    <div v-for="option in getOptionList()" :key="option.label">
+    <div v-for="option in getDesktopOptionList()" :key="option.label">
       <DesktopContextMenuItem
-        v-if="icon && !option.subItemList"
+        v-if="option.subItemList.length === 0"
         :option="option"
-        :app="app"
       />
-      <v-menu
-        v-else-if="!icon && option.subItemList"
-        open-on-hover
-        offset-x
-        offset-overflow
-        open-delay="200"
-        close-delay="200"
-      >
+      <v-menu v-else open-on-hover offset-x offset-overflow  open-delay="200" close-delay="200">
         <template #activator="{ on, attrs }">
           <div v-bind="attrs" v-on="on">
             <DesktopContextMenuItem :option="option" />
@@ -37,31 +29,11 @@ import { mapGetters } from 'vuex'
 export default {
   props: {
     app: { type: Object, default: () => {} },
-    icon: Boolean,
   },
   computed: {
-    ...mapGetters('desktop/', [
-      'getDesktopOptionList',
-      'getDesktopIconOptionList',
-    ]),
+    ...mapGetters('desktop/', ['getDesktopOptionList']),
   },
-  methods: {
-    getOptionList() {
-      let optionList = this.icon
-        ? this.getDesktopIconOptionList()
-        : this.getDesktopOptionList()
-      if (this.app) {
-        optionList = this.$globals.cloneState(this.getDesktopIconOptionList())
-        optionList.forEach((option) => {
-          if (option.id === 'open') {
-            option.label = 'Open ' + this.app.title
-            option.icon = this.app.icon
-          }
-        })
-      }
-      return optionList
-    },
-  },
+  methods: {},
 }
 </script>
 <style>

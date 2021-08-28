@@ -18,8 +18,12 @@ export default ({ app }, inject) => {
     }
 
     // Clone Vuex state
-    const cloneState = (stateObject) => {
-        return JSON.parse(JSON.stringify(stateObject))
+    const cloneState = (stateVar) => {
+        return JSON.parse(JSON.stringify(stateVar))
     }
-    inject('globals', { generateKey, cutStr, cloneState })
+
+    const kebabStr = (str)=>{
+        return str.replaceAll(" ", "-").toLowerCase()
+    }
+    inject('globals', { generateKey, cutStr, cloneState,kebabStr })
 }
