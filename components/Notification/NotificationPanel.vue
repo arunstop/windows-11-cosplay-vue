@@ -7,11 +7,11 @@
     right
     width="380px"
     color="transparent"
-    class="elevation-0 notification-panel"
+    class="elevation-0 notification-panel no-pointer-events"
     floating
   >
     <v-card
-      class="d-flex flex-column-reverse align-end justify-start py-2 pe-4"
+      class="d-flex flex-column-reverse align-end justify-start py-2 pe-4 notification-container"
       height="94vh"
       color="transparent"
     >
@@ -133,12 +133,19 @@ export default {
 </script>
 
 <style>
-/* .v-navigation-drawer__content {
-  overflow-y: scroll !important;
-} */
+.notification-container div {
+  pointer-events: auto !important;
+}
 .notification-panel {
   top: 0 !important;
   right: 0 !important;
   height: 94vh !important;
+}
+.no-pointer-events{
+  pointer-events: none !important;
+}
+
+.pointer-events{
+  pointer-events: auto !important;
 }
 </style>

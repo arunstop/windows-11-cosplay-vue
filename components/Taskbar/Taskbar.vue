@@ -7,7 +7,7 @@
         no-gutters
         align="center"
         justify="center"
-        style="height: 40px !important"
+        style="height: 6vh !important"
       >
         <v-scale-transition
           class="d-flex mx-auto"
