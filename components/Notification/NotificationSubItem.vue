@@ -4,18 +4,18 @@
       <v-list-item class="pt-2 pb-3" style="min-height: auto !important">
         <v-list-item-content class="pa-0">
           <h5 class="font-weight-medium d-flex align-center">
+            <v-chip
+              v-if="isExpandable(notif.header, notif.details)"
+              label
+              x-small
+              class="px-0 transparent"
+              @click="expanded = !expanded"
+            >
             <span class="notif-datetime">
               {{ getNotifDateTime(notif.dateTime) }}
             </span>
-            <v-btn
-              v-if="isExpandable(notif.header, notif.details)"
-              class="ms-1"
-              icon
-              x-small
-              @click="expanded = !expanded"
-            >
-              <v-icon v-text="getExpandIcon()" />
-            </v-btn>
+              <v-icon class="ms-1" size="18" v-text="getExpandIcon()" />
+            </v-chip>
           </h5>
         </v-list-item-content>
       </v-list-item>

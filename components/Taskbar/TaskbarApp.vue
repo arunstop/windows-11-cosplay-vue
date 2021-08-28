@@ -1,5 +1,6 @@
 <template>
-  <v-menu top offset-y nudge-left="50%">
+  <div>
+    <v-menu top offset-y nudge-left="50%">
     <template #activator="{ on: menu, menuAttrs }">
       <v-tooltip
         top
@@ -58,6 +59,7 @@
     <!-- menu -->
     <TaskbarAppContextMenu :app="app" />
   </v-menu>
+  </div>
 </template>
 
 <script>
