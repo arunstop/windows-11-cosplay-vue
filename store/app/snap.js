@@ -13,6 +13,9 @@ export const getters = {
     getSnapType(state) {
         return state.snapLayout.type
     },
+    getSnapTemplateByType: (state) => (type) => {
+        return state.snapTemplateList.find(el => el.snapType === type)
+    },
     isItemActive: (state) => (id, type, index) => {
 
         return state.snapLayout.appList.find(app => app.id === id && app.index === index)
@@ -21,7 +24,7 @@ export const getters = {
 }
 
 export const mutations = {
-    INIT_SNAP_TEMPLATE_LIST(state,list){
+    INIT_SNAP_TEMPLATE_LIST(state, list) {
         state.snapTemplateList = list
     },
     ADD_SNAP(state, item) {
@@ -48,7 +51,7 @@ export const mutations = {
 
 
         } else if (state.snapLayout.type === item.type) {
-            state.snapLayout.appList.forEach(e=>{
+            state.snapLayout.appList.forEach(e => {
                 snapItems.push(e)
             })
             // check if app is already in the snap layout
@@ -125,7 +128,7 @@ export const actions = {
             if (targetSlot.initializer === false) {
                 dispatch('removeSnap', targetSlot.id)
             }
-        } else if(state.snapLayout.appList.find(app=>app.id === item.app.id && app.index === item.index)){
+        } else if (state.snapLayout.appList.find(app => app.id === item.app.id && app.index === item.index)) {
             dispatch('removeSnap', item.app.id)
             return
         }

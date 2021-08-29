@@ -1,5 +1,10 @@
 <template>
   <div class="snap-layout-menu">
+    <SnapLayoutPreview
+      v-if="snapPreview.type"
+      :snap-preview="snapPreview"
+      />
+
     <v-card class="grid-container-snap-layout-menu pa-3 rounded-lg">
       <v-card
         v-for="(sl, index) in $store.state.app.snap.snapTemplateList"
@@ -10,6 +15,7 @@
         elevation="0"
         rounded="0"
       >
+        <!-- <v-hover v-slot="{ hover }"> -->
         <div :class="sl.type" color="transparent">
           <v-card
             v-for="(item, itemIndex) in sl.itemList"
@@ -20,8 +26,11 @@
             :height="item.height"
             link
             @click="addSnap(sl.snapType, itemIndex, app)"
+            @mouseover="showPreview(sl.snapType, itemIndex, app)"
+            @mouseleave="hidePreview()"
           />
         </div>
+        <!-- </v-hover> -->
       </v-card>
     </v-card>
   </div>
@@ -31,7 +40,9 @@ export default {
   props: {
     app: { type: Object, default: () => {} },
   },
-  data: () => ({}),
+  data: () => ({
+    snapPreview: {},
+  }),
   methods: {
     addSnap(type, index, app) {
       this.$store.dispatch('app/snap/addSnap', { type, index, app })
@@ -46,13 +57,23 @@ export default {
       }
       return activeStyle
     },
+    showPreview(type, index, app) {
+      const snapList = []
+      const snap = this.$store.getters['app/snap/getSnapTemplateByType'](type)
+      snap.itemList.forEach((el, i) => {
+        snapList.push({ show: i === index , app})
+      })
+      this.snapPreview = { type, index, app, snapList }
+    },
+    hidePreview() {
+      this.snapPreview = {}
+    },
   },
 }
 </script>
 <style>
 /* .snap-layout-menu{
-    position: absolute;
-    left:10%; 
+ position:relative; 
 } */
 
 .grid-container-snap-layout-menu {

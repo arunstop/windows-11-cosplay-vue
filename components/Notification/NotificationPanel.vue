@@ -11,7 +11,15 @@
     floating
   >
     <v-card
-      class="d-flex flex-column-reverse align-end justify-start py-2 pe-4 notification-container"
+      class="
+        d-flex
+        flex-column-reverse
+        align-end
+        justify-start
+        py-2
+        pe-4
+        notification-container
+      "
       height="94vh"
       color="transparent"
     >
@@ -25,7 +33,11 @@
         <v-card-title class="justify-space-between py-2 px-4">
           <span class="body-2 font-weight-medium">{{ today }}</span>
           <v-chip
-            class="font-weight-bold pa-1" link outlined small label 
+            class="font-weight-bold pa-1"
+            link
+            outlined
+            small
+            label
             @click="showCalendar = !showCalendar"
           >
             <v-icon size="24">{{ calendarIcon() }}</v-icon>
@@ -50,35 +62,49 @@
       <!-- Notifications -->
       <v-slide-x-reverse-transition>
         <v-card
-        v-if="getGroupedNotifList().length>0"
-        elevation="6"
-        width="342px"
-        min-height="240px"
-        style="flex: 1"
-        class="d-flex flex-column blur-bg rounded-lg my-2"
-      >
-        <v-card-title
-          class="justify-space-between py-2 px-4 white windows-grey"
-          style="z-index: 1"
+          v-if="getGroupedNotifList().length > 0"
+          elevation="6"
+          width="342px"
+          min-height="240px"
+          style="flex: 1"
+          class="d-flex flex-column blur-bg rounded-lg my-2"
         >
-          <span class="body-2 font-weight-medium">Notifications</span>
+          <v-card-title
+            class="justify-space-between py-2 px-4 white windows-grey"
+            style="z-index: 1"
+          >
+            <span class="body-2 font-weight-medium">Notifications</span>
 
-          <v-chip class="font-weight-bold" link outlined small label @click="clearNotif()">
-            Clear all
-          </v-chip>
-        </v-card-title>
-        <v-divider/>
+            <v-chip
+              class="font-weight-bold"
+              link
+              outlined
+              small
+              label
+              @click="clearNotif()"
+            >
+              Clear all
+            </v-chip>
+          </v-card-title>
+          <v-divider />
 
-        <v-card-text class="pa-0" style="z-index: 2; overflow-y:scroll !important; overflow-x:hidden;">
-          <v-slide-x-reverse-transition group >
-            <NotificationItem
-            v-for="notif in getGroupedNotifList()"
-            :key="notif.app.name"
-            :notif="notif"
-          />
-          </v-slide-x-reverse-transition>
-        </v-card-text>
-      </v-card>
+          <v-card-text
+            class="pa-0"
+            style="
+              z-index: 2;
+              overflow-y: scroll !important;
+              overflow-x: hidden;
+            "
+          >
+            <v-slide-x-reverse-transition group>
+              <NotificationItem
+                v-for="notif in getGroupedNotifList()"
+                :key="notif.app.name"
+                :notif="notif"
+              />
+            </v-slide-x-reverse-transition>
+          </v-card-text>
+        </v-card>
       </v-slide-x-reverse-transition>
     </v-card>
   </v-navigation-drawer>
@@ -115,7 +141,7 @@ export default {
       },
     },
     today() {
-      return this.$date.format('','dddd, MMMM DD')
+      return this.$date.format('', 'dddd, MMMM DD')
     },
   },
   methods: {
@@ -126,9 +152,9 @@ export default {
         return 'mdi-chevron-up'
       }
     },
-    clearNotif(){
+    clearNotif() {
       this.$store.dispatch('user/notification/clearNotif')
-    }
+    },
   },
 }
 </script>
@@ -141,12 +167,5 @@ export default {
   top: 0 !important;
   right: 0 !important;
   height: 94vh !important;
-}
-.no-pointer-events{
-  pointer-events: none !important;
-}
-
-.pointer-events{
-  pointer-events: auto !important;
 }
 </style>
