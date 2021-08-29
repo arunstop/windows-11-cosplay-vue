@@ -1,5 +1,16 @@
 [
-  { "label": "Wi-Fi", "icon": "mdi-wifi", "pinned": true, "toggleable": true },
+  {
+    "label": "Wi-Fi",
+    "icon": "mdi-wifi",
+    "pinned": true,
+    "toggleable": true,
+    "subItemList": [
+      { "icon": "mdi-wifi", "label": "Kitchen", "details": "Connected" },
+      { "icon": "mdi-wifi", "label": "Living Room", "details": "" },
+      { "icon": "mdi-wifi", "label": "Bedroom 1", "details": "" },
+      { "icon": "mdi-wifi", "label": "Upper Living Room", "details": "" }
+    ]
+  },
   {
     "label": "Bluetooth",
     "icon": "mdi-bluetooth",

@@ -6,10 +6,13 @@
         width="100%"
         height="50"
         class="mb-2 rounded-lg"
+        :class="!action.subItemList || 'justify-space-between'"
         :disabled="editActionList"
         @click="action.toggleable ? toggle() : null"
       >
         <v-icon size="18">{{ action.icon }}</v-icon>
+        <v-divider v-if="action.subItemList" vertical/>
+        <v-icon v-if="action.subItemList" size="18">mdi-chevron-right</v-icon>
       </v-btn>
       <v-fade-transition>
           <v-btn v-if="editActionList" class="action-center-button-unpin-btn" x-small fab height="24px" width="24px" dark elevation="0" @click="unpinAction(action)">
