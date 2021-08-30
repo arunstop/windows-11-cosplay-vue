@@ -42,11 +42,9 @@
             </v-icon>
           </v-btn>
           <!-- Date Button -->
-          <v-btn
-            class="transparent"
-            depressed
-            tile
-            min-height="40px"
+          <v-card
+            class="transparent fill-height px-3"
+            elevation="0"
             @click="openNotifPanel()"
           >
             <span class="d-flex flex-column">
@@ -57,7 +55,7 @@
                 <span>{{ $store.getters.dateNow.fullDate }}</span>
               </h5>
             </span>
-          </v-btn>
+          </v-card>
           <!-- Notification Panel -->
           <!-- Show Desktop Button -->
           <v-card

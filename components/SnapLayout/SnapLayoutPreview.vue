@@ -1,6 +1,7 @@
 <template>
-  <div
-      class="snap-layout-container animate__animated animate__fadeIn animate__flash no-pointer-events"
+  <div class="snap-layout-container">
+    <div
+      class="fill-height animate__animated animate__fadeIn animate__flash no-pointer-events"
       :class="'grid-container-snap-layout-' + snapPreview.type"
     >
       <v-card
@@ -20,17 +21,17 @@
         </v-icon>
       </v-card>
     </div>
+    <UtilityTaskbarSpacer/>
+  </div>
 </template>
 
 <script>
 export default {
-    props:{
-        snapPreview: {type:Object, default:()=>{}}
-    }
-
+  props: {
+    snapPreview: { type: Object, default: () => {} },
+  },
 }
 </script>
 
 <style>
-
 </style>
