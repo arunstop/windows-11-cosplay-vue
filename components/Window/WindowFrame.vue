@@ -45,7 +45,7 @@
                 close-delay="420"
                 close-on-click
                 transition="slide-y-transition"
-                content-class="menu-no-contain"
+                content-class="menu-no-contain no-scroll"
               >
                 <template #activator="{ on, attrs }">
                   <v-btn icon tile v-bind="attrs" @click="wa.action" v-on="on">
