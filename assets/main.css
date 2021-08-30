@@ -105,14 +105,17 @@
 
 /* SNAP LAYOUT */
 
-.snap-layout {
+.snap-layout-container {
+  display: flex;
+  flex-direction: column;
   right: 0;
   top: 0;
   position: fixed !important;
-  height: 94vh !important;
+  height: 100vh !important;
   width: 100% !important ;
   background-color: transparent;
   z-index: 0;
+  pointer-events: none !important;
 }
 
 .grid-container-snap-layout-cols-50-50 {

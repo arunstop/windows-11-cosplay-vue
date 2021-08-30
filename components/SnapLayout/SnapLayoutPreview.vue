@@ -1,6 +1,6 @@
 <template>
   <div
-      class="snap-layout animate__animated animate__fadeIn animate__flash no-pointer-events"
+      class="snap-layout-container animate__animated animate__fadeIn animate__flash no-pointer-events"
       :class="'grid-container-snap-layout-' + snapPreview.type"
     >
       <v-card

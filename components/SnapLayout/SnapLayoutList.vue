@@ -1,8 +1,8 @@
 <template>
-  <div
-    v-if="snapLayout.type"
-    :key="'snap-layout-list'"
-    class="snap-layout transparent animate__animated animate__backInUp animate__fastest"
+  <div v-if="snapLayout.type" class="snap-layout-container">
+    <div
+    :key="'snap-layout-container'"
+    class="fill-height pointer-events transparent animate__animated animate__backInUp animate__fastest"
     :class="'grid-container-snap-layout-' + snapLayout.type"
   >
     <SnapLayoutItem
@@ -12,6 +12,8 @@
       :initializer="app.initializer"
       :snap="{index:app.index, type:snapLayout.type}"
     />
+  </div>
+  <UtilityTaskbarSpacer/>
   </div>
 </template>
 <script>

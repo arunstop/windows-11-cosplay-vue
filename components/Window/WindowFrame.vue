@@ -102,7 +102,7 @@
         <slot v-if="!isLoading" name="content"></slot>
       </v-card-text>
     </v-card>
-    <div v-if="app.window.fullscreen" style="height: 43px !important" />
+    <UtilityTaskbarSpacer v-if="app.window.fullscreen" />
   </v-card>
 </template>
 
