@@ -2,7 +2,7 @@ export const state = () => ({
   appItemList: [],
   recentItemList: [],
   taskbarAppOptionList: [],
-  searchAppKeyword: ''
+  searchAppKeyword: 'dis'
 })
 
 export const getters = {

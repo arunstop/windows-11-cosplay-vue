@@ -14,8 +14,14 @@
         width="100%"
         height="100%"
       >
+       
         <v-slide-x-transition hide-on-leave leave-absolute group>
-          <v-card-text v-if="showAllApps" :key="'StartMenuAllApps'" class="py-8">
+           <SearchBar :key="'search-bar'" class="pt-4" :app="app" />
+          <v-card-text
+            v-if="showAllApps"
+            :key="'StartMenuAllApps'"
+            class="pb-6 pt-0"
+          >
             <StartSectionLabel
               :title="'All apps'"
               :icon="{ position: 'l', icon: 'mdi-chevron-left' }"
@@ -33,7 +39,11 @@
             />
           </v-card-text>
 
-          <v-card-text v-if="!showAllApps" :key="'StartMenuPinnedApps'" class="py-8">
+          <v-card-text
+            v-if="!showAllApps"
+            :key="'StartMenuPinnedApps'"
+            class="pb-6 pt-0"
+          >
             <StartSectionLabel
               :title="'Pinned'"
               :icon="{ position: 'r', icon: 'mdi-chevron-right' }"

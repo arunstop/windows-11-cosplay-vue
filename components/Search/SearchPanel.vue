@@ -10,20 +10,7 @@
     <v-card class="blur-bg rounded-lg" width="660px" height="540px">
       <v-card class="rounded-lg" color="transparent" width="100%" height="100%">
         <v-card-title class="mb-0 pb-0">
-          <v-text-field
-            v-model="searchKeyword"
-            class="mb-4"
-            solo
-            label="Type here to search"
-            placeholder="Type here to search"
-            prepend-inner-icon="mdi-magnify"
-            flat
-            dense
-            clearable
-            hide-details=""
-            autofocus
-          >
-          </v-text-field>
+          <SearchBar/>
         </v-card-title>
         <!-- Search result section -->
         <SearchResultList :window-id="app.id" :height="'470px'"/>
@@ -53,15 +40,6 @@ export default {
         this.$store.dispatch('app/window/toggleWindow', { id: this.app.id, value })
         this.$store.dispatch('app/searchApp', { value :''})
         this.$store.dispatch('app/snap/setSnapInitIndex', null)
-      },
-    },
-    searchKeyword: {
-      get() {
-        return this.$store.state.app.keywordStartApp
-      },
-      set(value) {
-        if (value === null) value = ''
-        return this.$store.dispatch('app/searchApp', { value })
       },
     },
   },
