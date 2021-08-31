@@ -1,9 +1,6 @@
 <template>
   <div class="snap-layout-menu">
-    <SnapLayoutPreview
-      v-if="snapPreview.type"
-      :snap-preview="snapPreview"
-      />
+    <SnapLayoutPreview v-if="snapPreview.type" :snap-preview="snapPreview" />
 
     <v-card class="grid-container-snap-layout-menu pa-3 rounded-lg">
       <v-card
@@ -52,16 +49,21 @@ export default {
       if (this.$store.getters['app/snap/getSnapType'] === type) {
         activeStyle = 'snap-layout-active '
         if (this.$store.getters['app/snap/isItemActive'](id, type, index)) {
-          activeStyle = activeStyle + 'snap-layout-item-active'
+          activeStyle =
+            activeStyle + 'snap-layout-active snap-layout-item-active'
         }
       }
       return activeStyle
     },
     showPreview(type, index, app) {
+      // if item already in the same slot, no need to preview
+      if (this.$store.getters['app/snap/isItemActive'](app.id, type, index)) {
+        return
+      }
       const snapList = []
       const snap = this.$store.getters['app/snap/getSnapTemplateByType'](type)
       snap.itemList.forEach((el, i) => {
-        snapList.push({ show: i === index , app})
+        snapList.push({ show: i === index, app })
       })
       this.snapPreview = { type, index, app, snapList }
     },

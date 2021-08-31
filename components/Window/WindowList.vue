@@ -4,7 +4,7 @@
       <Window v-if="app.type == 'window' && !app.window.snap" :app="app" />
       <StartMenu v-else-if="app.type == 'startmenu'" :app="app" />
       <SearchPanel v-else-if="app.type == 'searchpanel'" :app="app" />
-      <WidgetPanel v-else-if="app.type == 'widgetpanel'" :app="app" />
+      <LazyWidgetPanel v-else-if="app.type == 'widgetpanel'" :app="app" />
       <NotificationPanel v-else-if="app.type == 'notificationpanel'" :app="app" />
       <ActionCenterContainer v-else-if="app.type == 'actioncenter'" :app="app" />
       <!-- <div v-if="app.type == 'widgetpanel'" :app="app">

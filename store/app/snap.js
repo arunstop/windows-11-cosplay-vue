@@ -18,11 +18,11 @@ export const getters = {
         return state.snapTemplateList.find(el => el.snapType === type)
     },
     isItemActive: (state) => (id, type, index) => {
-
-        return state.snapLayout.appList.find(app => app.id === id && app.index === index)
+        if (type === state.snapLayout.type)
+            return state.snapLayout.appList.find(app => app.id === id && app.index === index)
         // return state.snapLayout.appList.find(app => app.id === id && app.index === index && state.snapLayout === type)
     },
-    getSnapInitIndex(state){
+    getSnapInitIndex(state) {
         return state.snapInitIndex
     }
 }
@@ -110,7 +110,6 @@ export const mutations = {
         state.snapLayout = { type: '', fullscreen: false, appList: [] }
     },
     SET_SNAP_INIT_INDEX(state, val) {
-        alert(val)
         state.snapInitIndex = val
     }
 }
