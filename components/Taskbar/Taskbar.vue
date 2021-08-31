@@ -12,7 +12,7 @@
         <v-scale-transition
           class="d-flex mx-auto"
           style="position: absolute"
-          origin="bottom"
+          origin="center bottom"
           group
         >
           <TaskbarApp v-for="ta in taskbarApps" :key="ta.id" :app="ta" />

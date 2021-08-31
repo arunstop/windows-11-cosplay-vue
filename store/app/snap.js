@@ -110,6 +110,7 @@ export const mutations = {
         state.snapLayout = { type: '', fullscreen: false, appList: [] }
     },
     SET_SNAP_INIT_INDEX(state, val) {
+        alert(val)
         state.snapInitIndex = val
     }
 }

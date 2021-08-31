@@ -46,6 +46,8 @@ export default {
     openApp(app) {
       this.$store.dispatch('app/window/toggleWindow', { id: this.windowId, value:false })
       this.$store.dispatch('app/window/openApp', app)
+        this.$store.dispatch('app/snap/setSnapInitIndex', null)
+
     },
   },
 }
