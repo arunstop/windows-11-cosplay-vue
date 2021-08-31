@@ -129,18 +129,21 @@ export const actions = {
       // commit('TOGGLE_WINDOW', { id: app.id, value: true })
       if (rootGetters['app/snap/isSnapActivated']) {
         const emptySnapSlot = rootGetters['app/snap/getEmptySnapSlots']
+        // open app depends on snap
+        const snapInitIndex = rootGetters['app/snap/getSnapInitIndex']
+        const snapIndex = snapInitIndex || emptySnapSlot?.index;
+        // console.log(snapIndex)
         if (emptySnapSlot) {
           dispatch('app/snap/addSnap', {
             type: rootGetters['app/snap/getSnapType'],
-            index: emptySnapSlot.index,
+            index: snapIndex,
             app
           }, { root: true })
-
         }
       }
     }
   },
-  openAppById({dispatch,rootGetters}, id){
+  openAppById({ dispatch, rootGetters }, id) {
     const targetApp = rootGetters['app/getAppById'](id)
     dispatch('openApp', targetApp)
   },

@@ -52,6 +52,7 @@ export default {
         // return this.$store.commit('app/toggleState', { id: this.app.id, value })
         this.$store.dispatch('app/window/toggleWindow', { id: this.app.id, value })
         this.$store.dispatch('app/searchApp', { value :''})
+        this.$store.dispatch('app/snap/setSnapInitIndex', null)
       },
     },
     searchKeyword: {

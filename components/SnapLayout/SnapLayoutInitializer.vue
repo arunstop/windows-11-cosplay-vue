@@ -13,7 +13,7 @@
       />
     </v-slide-x-reverse-transition>
     <v-slide-x-reverse-transition hide-on-leave>
-        <v-btn  v-if="nonSnappedWindowList().length === 0" class="text-none" outlined color="primary" @click="openSearchPanel()">
+        <v-btn  v-if="nonSnappedWindowList().length === 0" class="text-none" outlined color="primary" @click="openSearchPanel(snap.index)">
           <v-icon class="me-2">mdi-microsoft-windows</v-icon>
           Open App
         </v-btn>
@@ -34,8 +34,10 @@ export default {
   },
   created() {},
   methods:{
-    openSearchPanel(){
+    openSearchPanel(index){
       this.$store.dispatch('app/window/openAppById', 'search')
+        this.$store.dispatch('app/snap/setSnapInitIndex', index)
+      
     }
   }
 }

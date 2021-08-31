@@ -1,6 +1,7 @@
 export const state = () => ({
     snapTemplateList: [],
-    snapLayout: { type: '', fullscreen: false, appList: [] }
+    snapLayout: { type: '', fullscreen: false, appList: [] },
+    snapInitIndex: null
 })
 
 export const getters = {
@@ -20,6 +21,9 @@ export const getters = {
 
         return state.snapLayout.appList.find(app => app.id === id && app.index === index)
         // return state.snapLayout.appList.find(app => app.id === id && app.index === index && state.snapLayout === type)
+    },
+    getSnapInitIndex(state){
+        return state.snapInitIndex
     }
 }
 
@@ -104,6 +108,9 @@ export const mutations = {
     },
     REMOVE_SNAP_LAYOUT(state) {
         state.snapLayout = { type: '', fullscreen: false, appList: [] }
+    },
+    SET_SNAP_INIT_INDEX(state, val) {
+        state.snapInitIndex = val
     }
 }
 
@@ -147,5 +154,8 @@ export const actions = {
     },
     removeSnapLayout({ commit }) {
         commit('REMOVE_SNAP_LAYOUT')
-    }
+    },
+    setSnapInitIndex({ commit }, val) {
+        commit('SET_SNAP_INIT_INDEX', val)
+    },
 }
