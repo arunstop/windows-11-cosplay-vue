@@ -15,21 +15,12 @@
           origin="center bottom"
           group
         >
-          <TaskbarApp v-for="ta in taskbarApps" :key="ta.id" :app="ta" />
+          <TaskbarApp v-for="ta in getTaskbarAppList()" :key="ta.id" :app="ta" />
         </v-scale-transition>
 
         <div class="ms-auto d-flex align-stretch">
           <!-- Tray icons -->
-          <v-btn
-            class="mx-0 my-auto pa-0"
-            elevation="0"
-            icon
-            tile
-          >
-            <v-icon size="30px">
-              mdi-chevron-up
-            </v-icon>
-          </v-btn>
+          <TaskbarSystemTray/>
           <v-btn
             class="mx-0 my-auto pa-0"
             color="transparent"
@@ -56,7 +47,6 @@
               </h5>
             </span>
           </v-card>
-          <!-- Notification Panel -->
           <!-- Show Desktop Button -->
           <v-card
             class="d-inline-flex"
@@ -87,7 +77,7 @@ export default {
       .substr(0, 10),
   }),
   computed: {
-    ...mapGetters('app', ['taskbarApps']),
+    ...mapGetters('app', ['getTaskbarAppList']),
 
     drawerState: {
       get() {

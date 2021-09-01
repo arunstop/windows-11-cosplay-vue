@@ -6,7 +6,7 @@ export const state = () => ({
 })
 
 export const getters = {
-  taskbarApps: (state) => {
+  getTaskbarAppList: (state) =>()=> {
     // console.log(state.snapLayout)
     return state.appItemList.filter((appItem) => {
       const opened = state.window.windowList.find((window) => {

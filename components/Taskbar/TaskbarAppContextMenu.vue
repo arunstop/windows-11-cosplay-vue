@@ -51,7 +51,7 @@ export default {
         else if (app.taskbar === false && option.id === 'unpin') {
           option.show = false
         }
-        if (app.window.show === false && option.id === 'close') {
+        if (app.taskbar === true && app.window.show === true && option.id === 'close') {
           option.show = false
         }
       })
