@@ -186,6 +186,8 @@ export default {
     },
     pinAction(action) {
       this.$store.dispatch('app/actionCenter/pinAction', action)
+    //  document.querySelector('.action-center-container').firstChild.scrollIntoView(false)
+      // acContainer.scrollTop = acContainer.scrollHeight;
     },
   },
 }

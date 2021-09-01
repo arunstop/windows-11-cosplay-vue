@@ -16,9 +16,9 @@ export default ({ store, $globals }) => {
 
     const desktopOptionList = require('@/assets/json/desktopOptionList.json')
     addIdToList(desktopOptionList)
-    store.dispatch('desktop/initDesktopOptionList', desktopOptionList)
+    store.dispatch('ui/desktop/initDesktopOptionList', desktopOptionList)
 
     const desktopIconOptionList = require('@/assets/json/desktopIconOptionList.json')
     addIdToList(desktopIconOptionList)
-    store.dispatch('desktop/initDesktopIconOptionList', desktopIconOptionList)
+    store.dispatch('ui/desktop/initDesktopIconOptionList', desktopIconOptionList)
 }

@@ -40,7 +40,7 @@ export default {
     icon: Boolean,
   },
   computed: {
-    ...mapGetters('desktop/', [
+    ...mapGetters('ui/desktop/', [
       'getDesktopOptionList',
       'getDesktopIconOptionList',
     ]),

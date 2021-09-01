@@ -7,7 +7,7 @@
     right
     width="380px"
     color="transparent"
-    class="elevation-0 action-center nav-drawer-container"
+    class="action-center-container elevation-0 action-center nav-drawer-container"
     floating
   >
     <v-card

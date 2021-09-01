@@ -18,7 +18,7 @@
             v-for="(item, itemIndex) in sl.itemList"
             :key="itemIndex"
             class="snap-layout-item"
-            :class="isItemActive(app.id, sl.snapType, itemIndex)"
+            :class="isSlotActive(app.id, sl.snapType, itemIndex)"
             :rounded="item.rounded"
             :height="item.height"
             link
@@ -33,6 +33,8 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: {
     app: { type: Object, default: () => {} },
@@ -40,15 +42,22 @@ export default {
   data: () => ({
     snapPreview: {},
   }),
+  computed: {
+    ...mapGetters('app/snap/', [
+      'getSnapType',
+      'isItemActive',
+      'getSnapTemplateByType',
+    ]),
+  },
   methods: {
     addSnap(type, index, app) {
       this.$store.dispatch('app/snap/addSnap', { type, index, app })
     },
-    isItemActive(id, type, index) {
+    isSlotActive(id, type, index) {
       let activeStyle = ''
-      if (this.$store.getters['app/snap/getSnapType'] === type) {
+      if (this.getSnapType === type) {
         activeStyle = 'snap-layout-active '
-        if (this.$store.getters['app/snap/isItemActive'](id, type, index)) {
+        if (this.isItemActive(id, type, index)) {
           activeStyle =
             activeStyle + 'snap-layout-active snap-layout-item-active'
         }
@@ -57,11 +66,11 @@ export default {
     },
     showPreview(type, index, app) {
       // if item already in the same slot, no need to preview
-      if (this.$store.getters['app/snap/isItemActive'](app.id, type, index)) {
+      if (this.isItemActive(app.id, type, index)) {
         return
       }
       const snapList = []
-      const snap = this.$store.getters['app/snap/getSnapTemplateByType'](type)
+      const snap = this.getSnapTemplateByType(type)
       snap.itemList.forEach((el, i) => {
         snapList.push({ show: i === index, app })
       })
