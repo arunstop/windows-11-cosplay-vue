@@ -56,7 +56,7 @@
             link
             tile
             color="grey"
-            @click="$store.dispatch('app/window/hideAllWindows')"
+            @click="$store.dispatch('app/window/toggleShowDesktop')"
           >
           </v-card>
         </div>

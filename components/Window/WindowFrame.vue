@@ -86,7 +86,7 @@
           </div>
         </v-row>
       </v-card-title>
-      <v-card-text class="flex windows-grey pa-0">
+      <v-card-text class="flex pa-0" :class="app.default ? 'blur-bg' : 'windows-grey'">
         <div class="loading-icon">
           <v-fab-transition>
             <v-icon

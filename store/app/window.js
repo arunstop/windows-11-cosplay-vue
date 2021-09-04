@@ -1,5 +1,6 @@
 export const state = () => ({
   windowList: [],
+  showDesktop: false,
 })
 
 export const getters = {
@@ -15,12 +16,12 @@ export const getters = {
       .filter((app) => app.window.snap === false)
       .sort((a, b) => a.position - b.position)
   },
-  nonSnappedWindowList: (state) => () => {
+  getNonSnappedWindowList: (state) => () => {
     return state.windowList.filter((app) => {
       return app.window.snap === false && app.type === 'window'
     })
   },
-  snappedWindowList: (state) => () => {
+  getSnappedWindowList: (state) => () => {
     return state.windowList.filter((app) => {
       return app.window.snap === true
     })
@@ -46,7 +47,6 @@ export const mutations = {
         target.position = latestApp.position + 1
       // console.log(target.position)
     }
-
   },
   TOGGLE_FULLSCREEN(state, id) {
     const target = state.windowList.find((app) => {
@@ -93,11 +93,13 @@ export const mutations = {
     })
     target.window.snap = false
   },
-  HIDE_ALL_WINDOWS(state) {
+  HIDE_ALL_NON_SNAPPED_WINDOWS(state) {
     state.windowList.forEach(element => {
-      element.window.snap = false
-      element.window.show = false
+      if (element.window.snap === false) element.window.show = false
     });
+  },
+  TOGGLE_SHOW_DESKTOP(state) {
+    state.showDesktop = !state.showDesktop
   }
 }
 
@@ -123,6 +125,7 @@ export const actions = {
   openApp({ state, commit, rootGetters, dispatch }, app) {
     const duplicateItem = state.windowList.find((item) => item.id === app.id)
     if (duplicateItem) {
+      if (duplicateItem.window.snap) dispatch('toggleShowDesktop')
       commit('TOGGLE_WINDOW', { id: app.id, value: true })
     } else {
       commit('OPEN_APP', app)
@@ -134,11 +137,14 @@ export const actions = {
         const snapIndex = snapInitIndex || emptySnapSlot?.index;
         // console.log(snapIndex)
         if (emptySnapSlot) {
-          dispatch('app/snap/addSnap', {
-            type: rootGetters['app/snap/getSnapType'],
-            index: snapIndex,
-            app
-          }, { root: true })
+          // commit('TOGGLE_SHOW_DESKTOP')
+          if (!state.showDesktop) {
+            dispatch('app/snap/addSnap', {
+              type: rootGetters['app/snap/getSnapType'],
+              index: snapIndex,
+              app
+            }, { root: true })
+          }
         }
       }
     }
@@ -161,8 +167,9 @@ export const actions = {
   isAppOpened({ commit }, id) {
     commit('IS_OPENED_APP', id)
   },
-  hideAllWindows({ commit, dispatch }) {
-    dispatch('app/snap/removeSnapLayout', '', { root: true })
-    commit('HIDE_ALL_WINDOWS')
+  toggleShowDesktop({ commit, dispatch }) {
+    // dispatch('app/snap/removeSnapLayout', '', { root: true })
+    commit('HIDE_ALL_NON_SNAPPED_WINDOWS')
+    commit('TOGGLE_SHOW_DESKTOP')
   }
 }

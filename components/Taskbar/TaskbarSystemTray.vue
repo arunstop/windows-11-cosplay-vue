@@ -1,5 +1,5 @@
 <template>
-  <v-menu top offset-y nudge-left="55%" nudge-top="20">
+  <v-menu top offset-y nudge-left="55%" nudge-top="20" transition="slide-y-reverse-transition">
     <template #activator="{ on, attrs }">
       <v-btn
         class="mx-0 my-auto pa-0"

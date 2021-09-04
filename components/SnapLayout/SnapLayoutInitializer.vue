@@ -6,14 +6,14 @@
     <v-card class="pa-2 scroll-y" max-height="240px" color="transparent" elevation="0">
       <v-slide-x-reverse-transition class="snap-layout-initializer-menu no-scroll" group hide-on-leave>
       <SnapLayoutInitializerApp
-        v-for="sma in nonSnappedWindowList()"
+        v-for="sma in getNonSnappedWindowList()"
         :key="sma.id"
         :app="sma"
         :snap="snap"
       />
     </v-slide-x-reverse-transition>
     <v-slide-x-reverse-transition hide-on-leave>
-        <v-btn  v-if="nonSnappedWindowList().length === 0" class="text-none" outlined color="primary" @click="openSearchPanel(snap.index)">
+        <v-btn  v-if="getNonSnappedWindowList().length === 0" class="text-none" outlined color="primary" @click="openSearchPanel(snap.index)">
           <v-icon class="me-2">mdi-microsoft-windows</v-icon>
           Open App
         </v-btn>
@@ -30,7 +30,7 @@ export default {
     snap: { type: Object, default: () => ({}) },
   },
   computed: {
-    ...mapGetters('app/window', ['nonSnappedWindowList']),
+    ...mapGetters('app/window', ['getNonSnappedWindowList']),
   },
   created() {},
   methods:{

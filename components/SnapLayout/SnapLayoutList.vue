@@ -1,5 +1,5 @@
 <template>
-  <div v-if="snapLayout.type" class="snap-layout-container">
+  <div v-if="snapLayout.type" v-show="!showDesktop" class="snap-layout-container">
     <div
     :key="'snap-layout-container'"
     class="fill-height pointer-events transparent animate__animated animate__backInUp animate__fastest"
@@ -24,7 +24,8 @@ export default {
   },
   computed: {
     ...mapState('app/snap', ['snapLayout', 'snapTemplateList']),
-    ...mapGetters('app/window', ['snappedWindowList']),
+    ...mapState('app/window', ['showDesktop']),
+    ...mapGetters('app/window', ['getSnappedWindowList']),
   },
 
   created() {
