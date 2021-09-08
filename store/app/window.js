@@ -26,6 +26,10 @@ export const getters = {
       return app.window.snap === true
     })
   },
+  getTrayWindowList: (state) => ()=>{
+    // console.log(state.appItemList)
+    return state.windowList.filter(app => app.tray === true)
+  },
 }
 
 export const mutations = {

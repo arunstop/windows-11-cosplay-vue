@@ -3,147 +3,183 @@
     "icon": "mdi-microsoft-windows",
     "title": "Start",
     "default": true,
-    "type": "startmenu"
+    "type": "startmenu",
+    "tray": false
   },
   {
     "icon": "mdi-magnify",
     "title": "Search",
     "default": true,
-    "type": "searchpanel"
+    "type": "searchpanel",
+    "tray": false
   },
   {
     "icon": "mdi-view-dashboard",
     "title": "Widgets",
     "default": true,
-    "type": "widgetpanel"
+    "type": "widgetpanel",
+    "tray": false
   },
   {
     "icon": "mdi-message-text",
     "title": "Notifications",
     "default": true,
-    "type": "notificationpanel"
+    "type": "notificationpanel",
+    "tray": false
   },
   {
     "icon": "mdi-gesture-double-tap",
     "title": "Action Center",
     "default": true,
-    "type": "actioncenter"
+    "type": "actioncenter",
+    "tray": false
   },
-  { "icon": "mdi-cog", "title": "Settings", "default": true, "type": "window" },
+  {
+    "icon": "mdi-cog",
+    "title": "Settings",
+    "default": true,
+    "type": "window",
+    "tray": true
+  },
 
   {
     "icon": "mdi-folder",
     "title": "File Explorer",
     "default": true,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-microsoft-edge",
     "title": "Microsoft Edge",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-cart",
     "title": "Microsoft Store",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": true
   },
   {
     "icon": "mdi-microsoft-edge",
     "title": "Edge",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-microsoft-word",
     "title": "Word",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-microsoft-powerpoint",
     "title": "PowerPoint",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-twitch",
     "title": "Twitch",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-check-circle",
     "title": "To Do",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": true
   },
   {
     "icon": "mdi-netflix",
     "title": "Netflix",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-image",
     "title": "Photos",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-scissors-cutting",
     "title": "Snipping Tool",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": true
   },
   {
     "icon": "mdi-twitter",
     "title": "Twitter",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
-  { "icon": "mdi-skype", "title": "Skype", "default": false, "type": "window" },
+  {
+    "icon": "mdi-skype",
+    "title": "Skype",
+    "default": false,
+    "type": "window",
+    "tray": true
+  },
   {
     "icon": "mdi-microsoft-xbox",
     "title": "Xbox",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-whatsapp",
     "title": "WhatsApp",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-microsoft-excel",
     "title": "Excel",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-spotify",
     "title": "Spotify",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-microsoft-visual-studio-code",
     "title": "VS Code",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": false
   },
   {
     "icon": "mdi-github",
     "title": "Github",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": true
   },
   {
     "icon": "mdi-discord",
     "title": "Discord",
     "default": false,
-    "type": "window"
+    "type": "window",
+    "tray": true
   }
 ]

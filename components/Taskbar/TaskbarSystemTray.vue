@@ -14,7 +14,7 @@
     </template>
     <v-card>
       <v-card-text class="system-tray-container pa-0">
-        <v-card v-for="app in getTaskbarAppList()" :key="app.id" elevation="0" color="transparent" link class="pa-3">
+        <v-card v-for="app in getTrayWindowList()" :key="app.id" elevation="0" color="transparent" link class="pa-3">
           <v-icon :color="app.iconColor">{{app.icon}}</v-icon>
         </v-card>
       </v-card-text>
@@ -27,7 +27,7 @@ import {mapGetters} from 'vuex'
 
 export default {
     computed:{
-        ...mapGetters('app/', ['getTaskbarAppList'])
+        ...mapGetters('app/window/', ['getTrayWindowList'])
     }
 }
 </script>
