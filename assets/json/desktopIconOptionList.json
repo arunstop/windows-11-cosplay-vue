@@ -53,6 +53,13 @@
     "underLined": false
   },
   {
+    "icon": "mdi-pin-off-outline mdi-rotate-90",
+    "label": "Unpin from Start",
+    "keyboard": "",
+    "disabled": false,
+    "underLined": false
+  },
+  {
     "icon": "mdi-folder-zip-outline",
     "label": "Compress to ZIP file",
     "keyboard": "",

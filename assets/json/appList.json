@@ -39,6 +39,7 @@
     "title": "Settings",
     "default": true,
     "type": "window",
+    "start": true,
     "tray": true
   },
 
@@ -47,6 +48,7 @@
     "title": "File Explorer",
     "default": true,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -54,6 +56,7 @@
     "title": "Microsoft Edge",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -61,13 +64,31 @@
     "title": "Microsoft Store",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": true
   },
   {
-    "icon": "mdi-microsoft-edge",
-    "title": "Edge",
+    "icon": "mdi-google-chrome",
+    "title": "Google Chrome",
     "default": false,
     "type": "window",
+    "start": true,
+    "tray": false
+  },
+  {
+    "icon": "mdi-google-play",
+    "title": "Google Play",
+    "default": false,
+    "type": "window",
+    "start": true,
+    "tray": false
+  },
+  {
+    "icon": "mdi-google-translate",
+    "title": "Google Translate",
+    "default": false,
+    "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -75,6 +96,7 @@
     "title": "Word",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -82,6 +104,7 @@
     "title": "PowerPoint",
     "default": false,
     "type": "window",
+    "start": false,
     "tray": false
   },
   {
@@ -89,6 +112,7 @@
     "title": "Twitch",
     "default": false,
     "type": "window",
+    "start": false,
     "tray": false
   },
   {
@@ -96,6 +120,7 @@
     "title": "To Do",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": true
   },
   {
@@ -103,6 +128,7 @@
     "title": "Netflix",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -110,6 +136,7 @@
     "title": "Photos",
     "default": false,
     "type": "window",
+    "start": false,
     "tray": false
   },
   {
@@ -117,6 +144,7 @@
     "title": "Snipping Tool",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": true
   },
   {
@@ -124,6 +152,7 @@
     "title": "Twitter",
     "default": false,
     "type": "window",
+    "start": false,
     "tray": false
   },
   {
@@ -131,6 +160,7 @@
     "title": "Skype",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": true
   },
   {
@@ -138,6 +168,7 @@
     "title": "Xbox",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -145,6 +176,7 @@
     "title": "WhatsApp",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -152,6 +184,7 @@
     "title": "Excel",
     "default": false,
     "type": "window",
+    "start": false,
     "tray": false
   },
   {
@@ -159,6 +192,7 @@
     "title": "Spotify",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -166,6 +200,7 @@
     "title": "VS Code",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": false
   },
   {
@@ -173,6 +208,7 @@
     "title": "Github",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": true
   },
   {
@@ -180,6 +216,7 @@
     "title": "Discord",
     "default": false,
     "type": "window",
+    "start": true,
     "tray": true
   }
 ]

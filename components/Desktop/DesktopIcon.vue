@@ -2,7 +2,7 @@
   <v-menu absolute>
     <template #activator="{ on, attrs }">
       <v-card
-        class="mx-1 text-capitalize pa-2 text-break v-btn text-center"
+        class="mx-1 text-capitalize pa-2 text-break v-btn text-center btn-app"
         height="auto"
         max-width="90px"
         link

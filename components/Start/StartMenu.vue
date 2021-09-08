@@ -55,7 +55,7 @@
               }"
             />
             <!-- Apps -->
-            <v-row class="mt-2 grid-container" no-gutters>
+            <v-row class="mt-2 grid-container scroll-y" no-gutters style="height:210px !important;">
               <StartApp
                 v-for="(sma, index) in getPinnedApps()"
                 :key="index"

@@ -166,3 +166,9 @@
   column-gap: 2px;
   row-gap: 2px;
 }
+
+.btn-app{
+  letter-spacing: 0.0125rem !important;
+  text-indent: 0 !important;
+  white-space: break-spaces !important;
+}

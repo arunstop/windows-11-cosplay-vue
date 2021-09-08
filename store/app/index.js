@@ -25,7 +25,7 @@ export const getters = {
   },
   getPinnedApps: (state) => () => {
     return state.appItemList.filter((appItem) => {
-      return !appItem.taskbar && appItem.type === 'window'
+      return appItem.start
     })
   },
   searchAppResult: (state) => () => {
@@ -85,6 +85,12 @@ export const mutations = {
   },
   UNPIN_TASKBAR(state, app) {
     state.appItemList.find(item=>item.titleKebab===app.titleKebab).taskbar=false
+  },
+  PIN_START(state, app) {
+    state.appItemList.find(item=>item.titleKebab===app.titleKebab).start=true
+  },
+  UNPIN_START(state, app) {
+    state.appItemList.find(item=>item.titleKebab===app.titleKebab).start=false
   }
 }
 
@@ -106,5 +112,11 @@ export const actions = {
   },
   unpinTaskbar({ commit }, app) {
     commit('UNPIN_TASKBAR', app)
+  },
+  pinStart({ commit }, app) {
+    commit('PIN_START', app)
+  },
+  unpinStart({ commit }, app) {
+    commit('UNPIN_START', app)
   },
 }
