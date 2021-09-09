@@ -27,7 +27,6 @@ export const getters = {
     })
   },
   getTrayWindowList: (state) => ()=>{
-    // console.log(state.appItemList)
     return state.windowList.filter(app => app.tray === true)
   },
 }
@@ -109,7 +108,7 @@ export const mutations = {
 
 export const actions = {
   openDefaultApps({ commit, rootState }) {
-    const defaultApps = rootState.app.appItemList.filter((appItem) => appItem.preOpen)
+    const defaultApps = rootState.app.appList.filter((appItem) => appItem.preOpen)
     commit('OPEN_DEFAULT_APPS', defaultApps)
   },
   toggleWindow({ commit, state, dispatch }, data) {

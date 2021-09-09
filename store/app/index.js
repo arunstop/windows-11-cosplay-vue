@@ -1,35 +1,39 @@
 export const state = () => ({
-  appItemList: [],
+  appList: [],
+  startAppList: [],
+  taskbarAppList: [],
   recentItemList: [],
   taskbarAppOptionList: [],
   searchAppKeyword: ''
 })
 
 export const getters = {
-  getTaskbarAppList: (state) =>()=> {
+  getTaskbarAppList: (state) => () => {
     // console.log(state.snapLayout)
-    return state.appItemList.filter((appItem) => {
+    return state.appList.filter((appItem) => {
       const opened = state.window.windowList.find((window) => {
         return window.id === appItem.id
       })
+      const taskbared = state.taskbarAppList.find(el => el.titleKebab === appItem.titleKebab)
       // console.log(opened)
-      return appItem.taskbar || (opened && appItem.type !== 'notificationpanel' && appItem.type !== 'actioncenter')
+      return taskbared || (opened && appItem.type !== 'notificationpanel' && appItem.type !== 'actioncenter')
     })
   },
   getTaskbarappOptionList: (state) => () => {
     return state.taskbarAppOptionList
   },
   getDesktopAppList: (state) => {
-    // console.log(state.appItemList)
-    return state.appItemList.filter(app => app.desktop === true)
+    // console.log(state.appList)
+    return state.appList.filter(app => app.desktop === true)
   },
-  getPinnedApps: (state) => () => {
-    return state.appItemList.filter((appItem) => {
-      return appItem.start
-    })
+  getPinnedAppList: (state) => () => {
+    // return state.appList.filter((appItem) => {
+    //   return appItem.start
+    // })
+    return state.startAppList
   },
   searchAppResult: (state) => () => {
-    let searchResult = state.appItemList.filter((appItem) => {
+    let searchResult = state.appList.filter((appItem) => {
       return appItem.title.trim().toLowerCase().includes(state.searchAppKeyword)
     });
     // if no items found
@@ -63,13 +67,19 @@ export const getters = {
     return searchResultWithLetters
   },
   getAppById: (state) => (titleKebab) => {
-    return state.appItemList.find(app => app.titleKebab === titleKebab)
+    return state.appList.find(app => app.titleKebab === titleKebab)
   }
 }
 
 export const mutations = {
   INIT_APP_LIST(state, list) {
-    state.appItemList = list
+    state.appList = list
+  },
+  INIT_START_APP_LIST(state, list) {
+    state.startAppList = list
+  },
+  INIT_TASKBAR_APP_LIST(state, list) {
+    state.taskbarAppList = list
   },
   INIT_RECENT_ITEM_LIST(state, list) {
     state.recentItemList = list
@@ -80,23 +90,37 @@ export const mutations = {
   SEARCH_APP(state, keyword) {
     state.searchAppKeyword = keyword
   },
-  PIN_TASKBAR(state, app) {
-    state.appItemList.find(item=>item.titleKebab===app.titleKebab).taskbar=true
-  },
-  UNPIN_TASKBAR(state, app) {
-    state.appItemList.find(item=>item.titleKebab===app.titleKebab).taskbar=false
-  },
   PIN_START(state, app) {
-    state.appItemList.find(item=>item.titleKebab===app.titleKebab).start=true
+    const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
+    targetApp.start = true
+    state.startAppList.push(targetApp)
   },
   UNPIN_START(state, app) {
-    state.appItemList.find(item=>item.titleKebab===app.titleKebab).start=false
-  }
+    const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
+    targetApp.start = false
+    state.startAppList = state.startAppList.filter(el => el.titleKebab !== targetApp.titleKebab)
+  },
+  PIN_TASKBAR(state, app) {
+    const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
+    targetApp.taskbar = true
+    state.taskbarAppList.push(targetApp)
+  },
+  UNPIN_TASKBAR(state, app) {
+    const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
+    targetApp.taskbar = false
+    state.taskbarAppList = state.taskbarAppList.filter(el => el.titleKebab !== targetApp.titleKebab)
+  },
 }
 
 export const actions = {
   initAppList({ commit }, list) {
     commit('INIT_APP_LIST', list)
+  },
+  initStartAppList({ commit }, list) {
+    commit('INIT_START_APP_LIST', list)
+  },
+  initTaskbarAppList({ commit }, list) {
+    commit('INIT_TASKBAR_APP_LIST', list)
   },
   initRecentItemList({ commit }, list) {
     commit('INIT_RECENT_ITEM_LIST', list)
@@ -107,16 +131,16 @@ export const actions = {
   searchApp({ commit }, keyword) {
     commit('SEARCH_APP', keyword.value.trim().toLowerCase())
   },
-  pinTaskbar({ commit }, app) {
-    commit('PIN_TASKBAR', app)
-  },
-  unpinTaskbar({ commit }, app) {
-    commit('UNPIN_TASKBAR', app)
-  },
   pinStart({ commit }, app) {
     commit('PIN_START', app)
   },
   unpinStart({ commit }, app) {
     commit('UNPIN_START', app)
+  },
+  pinTaskbar({ commit }, app) {
+    commit('PIN_TASKBAR', app)
+  },
+  unpinTaskbar({ commit }, app) {
+    commit('UNPIN_TASKBAR', app)
   },
 }

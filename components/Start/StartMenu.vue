@@ -57,7 +57,7 @@
             <!-- Apps -->
             <v-row class="mt-2 grid-container scroll-y" no-gutters style="height:210px !important;">
               <StartApp
-                v-for="(sma, index) in getPinnedApps()"
+                v-for="(sma, index) in getPinnedAppList()"
                 :key="index"
                 :app="sma"
                 :window-id="app.id"
@@ -140,7 +140,7 @@ export default {
     showAllApps: false,
   }),
   computed: {
-    ...mapGetters('app', ['getPinnedApps']),
+    ...mapGetters('app', ['getPinnedAppList']),
     ...mapState('user', ['loggedOnUser']),
     show: {
       get() {

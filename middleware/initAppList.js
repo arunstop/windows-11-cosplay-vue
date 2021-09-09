@@ -1,4 +1,4 @@
-export default ({ store,$globals }) => {
+export default ({ store, $globals }) => {
     const appList = require('@/assets/json/appList.json')
 
     const addedId = [];
@@ -33,8 +33,8 @@ export default ({ store,$globals }) => {
         }
     }
 
-    const taskbarAppList = require('@/assets/json/taskbarAppList')
-
+    // init app list
+    let taskbarAppList = require('@/assets/json/taskbarAppList')
     appList.forEach(app => {
         const titleKebab = $globals.kebabStr(app.title)
         Object.assign(app, { id: randomId() })
@@ -49,17 +49,28 @@ export default ({ store,$globals }) => {
         }
         Object.assign(app, { titleKebab })
     })
-
     store.dispatch('app/initAppList', appList)
+
+    // init taskbar app list
+    taskbarAppList = [];
+    appList.filter(app => app.taskbar).forEach(app => {
+        taskbarAppList.push(app)
+    });
+    store.dispatch('app/initTaskbarAppList', taskbarAppList)
+
+    const startAppList = [];
+    appList.filter(app => app.start).forEach(app => {
+        startAppList.push(app)
+    });
+    store.dispatch('app/initStartAppList', startAppList)
 
     // init recent item list
     const recentItemList = require('@/assets/json/recentItemList.json')
     recentItemList.forEach(recentItem => {
         Object.assign(recentItem, { iconColor: randomColorRgb() })
     })
-
     store.dispatch('app/initRecentItemList', recentItemList)
-    
+
     // init taskbar app option list
     const taskbarAppOptionList = require('@/assets/json/taskbarAppOptionList')
     store.dispatch('app/initTaskbarAppOptionList', taskbarAppOptionList)

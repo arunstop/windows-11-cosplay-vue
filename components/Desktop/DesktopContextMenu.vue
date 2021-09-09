@@ -54,9 +54,9 @@ export default {
       if (this.icon) {
         optionList = this.$globals.cloneState(this.getDesktopIconOptionList())
         if (this.app.start === true) {
-          optionList=optionList.filter((el) => el.id !== 'pin-to-start')
+          optionList = optionList.filter((el) => el.id !== 'pin-to-start')
         } else {
-          optionList=optionList.filter((el) => el.id !== 'unpin-from-start')
+          optionList = optionList.filter((el) => el.id !== 'unpin-from-start')
         }
         optionList.forEach((option) => {
           if (option.id === 'open') {
@@ -74,20 +74,13 @@ export default {
           if (option.id === 'pin-to-start') {
             Object.assign(option, {
               action: () => {
-                this.$store.dispatch(
-                  'app/pinStart',
-                  this.app
-                )
+                this.$store.dispatch('app/pinStart', this.app)
               },
             })
-          }
-          else if (option.id === 'unpin-from-start') {
+          } else if (option.id === 'unpin-from-start') {
             Object.assign(option, {
               action: () => {
-                this.$store.dispatch(
-                  'app/unpinStart',
-                  this.app
-                )
+                this.$store.dispatch('app/unpinStart', this.app)
               },
             })
           }
