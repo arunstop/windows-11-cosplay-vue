@@ -10,14 +10,18 @@ export const state = () => ({
 export const getters = {
   getTaskbarAppList: (state) => () => {
     // console.log(state.snapLayout)
-    return state.appList.filter((appItem) => {
-      const opened = state.window.windowList.find((window) => {
-        return window.id === appItem.id
-      })
-      const taskbared = state.taskbarAppList.find(el => el.titleKebab === appItem.titleKebab)
+    const isDefault = (tk) => state.taskbarAppList.find(el => el.titleKebab === tk)
+    const talDefault = state.appList.filter((appItem) => {
+      // const opened = state.window.windowList.find((window) => {
+      //   return window.id === appItem.id
+      // })
       // console.log(opened)
-      return taskbared || (opened && appItem.type !== 'notificationpanel' && appItem.type !== 'actioncenter')
+      return isDefault(appItem.titleKebab) && (appItem.type !== 'notificationpanel' && appItem.type !== 'actioncenter')
     })
+
+    const talOpened = state.window.windowList.filter(appItem => !isDefault(appItem.titleKebab) && appItem.type === 'window')
+
+    return [...talDefault, ...talOpened]
   },
   getTaskbarappOptionList: (state) => () => {
     return state.taskbarAppOptionList
