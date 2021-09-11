@@ -10,7 +10,7 @@ export const state = () => ({
 export const getters = {
   getTaskbarAppList: (state) => () => {
     // console.log(state.snapLayout)
-    const isDefault = (tk) => state.taskbarAppList.find(el => el.titleKebab === tk)
+    const isDefault = (titleKebab) => state.taskbarAppList.find(ta => ta === titleKebab)
     const talDefault = state.appList.filter((appItem) => {
       // const opened = state.window.windowList.find((window) => {
       //   return window.id === appItem.id
@@ -34,7 +34,10 @@ export const getters = {
     // return state.appList.filter((appItem) => {
     //   return appItem.start
     // })
-    return state.startAppList
+    const sal = state.startAppList
+    return state.appList
+      .filter(appItem => sal.includes(appItem.titleKebab))
+      .sort((a, b) => sal.indexOf(a.titleKebab) - sal.indexOf(b.titleKebab))
   },
   searchAppResult: (state) => () => {
     let searchResult = state.appList.filter((appItem) => {
@@ -97,22 +100,22 @@ export const mutations = {
   PIN_START(state, app) {
     const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
     targetApp.start = true
-    state.startAppList.push(targetApp)
+    state.startAppList.push(app.titleKebab)
   },
   UNPIN_START(state, app) {
     const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
     targetApp.start = false
-    state.startAppList = state.startAppList.filter(el => el.titleKebab !== targetApp.titleKebab)
+    state.startAppList = state.startAppList.filter(sa => sa !== app.titleKebab)
   },
   PIN_TASKBAR(state, app) {
     const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
     targetApp.taskbar = true
-    state.taskbarAppList.push(targetApp)
+    state.taskbarAppList.push(app.titleKebab)
   },
   UNPIN_TASKBAR(state, app) {
     const targetApp = state.appList.find(item => item.titleKebab === app.titleKebab)
     targetApp.taskbar = false
-    state.taskbarAppList = state.taskbarAppList.filter(el => el.titleKebab !== targetApp.titleKebab)
+    state.taskbarAppList = state.taskbarAppList.filter(ta => ta !== app.titleKebab)
   },
 }
 

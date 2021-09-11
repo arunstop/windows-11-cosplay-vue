@@ -34,7 +34,7 @@ export default ({ store, $globals }) => {
     }
 
     // init app list
-    let taskbarAppList = require('@/assets/json/taskbarAppList')
+    const taskbarAppList = require('@/assets/json/taskbarAppList')
     appList.forEach(app => {
         const titleKebab = $globals.kebabStr(app.title)
         Object.assign(app, { id: randomId() })
@@ -52,16 +52,16 @@ export default ({ store, $globals }) => {
     store.dispatch('app/initAppList', appList)
 
     // init taskbar app list
-    taskbarAppList = [];
-    appList.filter(app => app.taskbar).forEach(app => {
-        taskbarAppList.push(app)
-    });
+    // taskbarAppList = [];
+    // appList.filter(app => app.taskbar).forEach(app => {
+    //     taskbarAppList.push(app)
+    // });
     store.dispatch('app/initTaskbarAppList', taskbarAppList)
 
-    const startAppList = [];
-    appList.filter(app => app.start).forEach(app => {
-        startAppList.push(app)
-    });
+    const startAppList = require('@/assets/json/startAppList');
+    // appList.filter(app => app.start).forEach(app => {
+    //     startAppList.push(app)
+    // });
     store.dispatch('app/initStartAppList', startAppList)
 
     // init recent item list
