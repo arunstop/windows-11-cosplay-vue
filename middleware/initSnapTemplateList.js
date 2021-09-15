@@ -1,4 +1,4 @@
 export default({store})=>{
     const snapTemplateList = require('@/assets/json/snapTemplateList.json')
-    store.dispatch('app/snap/initSnapTemplateList', snapTemplateList)
+    store.dispatch('windows/snap/initSnapTemplateList', snapTemplateList)
 }

@@ -135,11 +135,11 @@ export default {
     editActionList: false,
   }),
   computed: {
-    ...mapGetters('app/actionCenter', [
+    ...mapGetters('windows/actionCenter', [
       'getPinnedActionList',
       'getUnpinnedActionList',
     ]),
-    ...mapGetters('app/', ['getAppById']),
+    ...mapGetters('windows/', ['getAppById']),
     actionCenterAppWindow() {
       return this.getAppById('action-center').window.show
     },
@@ -185,7 +185,7 @@ export default {
       this.editActionList = !this.editActionList
     },
     pinAction(action) {
-      this.$store.dispatch('app/actionCenter/pinAction', action)
+      this.$store.dispatch('windows/actionCenter/pinAction', action)
     //  document.querySelector('.action-center-container').firstChild.scrollIntoView(false)
       // acContainer.scrollTop = acContainer.scrollHeight;
     },

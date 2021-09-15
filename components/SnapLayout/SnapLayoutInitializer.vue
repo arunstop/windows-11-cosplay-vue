@@ -30,13 +30,13 @@ export default {
     snap: { type: Object, default: () => ({}) },
   },
   computed: {
-    ...mapGetters('app/window', ['getNonSnappedWindowList']),
+    ...mapGetters('windows/window', ['getNonSnappedWindowList']),
   },
   created() {},
   methods:{
     openSearchPanel(index){
-      this.$store.dispatch('app/window/openAppById', 'search')
-        this.$store.dispatch('app/snap/setSnapInitIndex', index)
+      this.$store.dispatch('windows/window/openAppById', 'search')
+        this.$store.dispatch('windows/snap/setSnapInitIndex', index)
       
     }
   }

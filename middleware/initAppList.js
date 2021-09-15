@@ -49,29 +49,29 @@ export default ({ store, $globals }) => {
         }
         Object.assign(app, { titleKebab })
     })
-    store.dispatch('app/initAppList', appList)
+    store.dispatch('windows/initAppList', appList)
 
     // init taskbar app list
     // taskbarAppList = [];
     // appList.filter(app => app.taskbar).forEach(app => {
     //     taskbarAppList.push(app)
     // });
-    store.dispatch('app/initTaskbarAppList', taskbarAppList)
+    store.dispatch('windows/initTaskbarAppList', taskbarAppList)
 
     const startAppList = require('@/assets/json/startAppList');
     // appList.filter(app => app.start).forEach(app => {
     //     startAppList.push(app)
     // });
-    store.dispatch('app/initStartAppList', startAppList)
+    store.dispatch('windows/initStartAppList', startAppList)
 
     // init recent item list
     const recentItemList = require('@/assets/json/recentItemList.json')
     recentItemList.forEach(recentItem => {
         Object.assign(recentItem, { iconColor: randomColorRgb() })
     })
-    store.dispatch('app/initRecentItemList', recentItemList)
+    store.dispatch('windows/initRecentItemList', recentItemList)
 
     // init taskbar app option list
     const taskbarAppOptionList = require('@/assets/json/taskbarAppOptionList')
-    store.dispatch('app/initTaskbarAppOptionList', taskbarAppOptionList)
+    store.dispatch('windows/initTaskbarAppOptionList', taskbarAppOptionList)
 }

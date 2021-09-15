@@ -124,7 +124,7 @@ export const actions = {
             state.snapLayout.appList.forEach(element => {
                 if (element.id) {
                     dispatch('removeSnap', element.id)
-                    dispatch('app/window/toggleWindow', { id: element.id }, { root: true })
+                    dispatch('windows/window/toggleWindow', { id: element.id }, { root: true })
                 }
                 else {
                     commit('CLEAR_SNAP_APP')
@@ -139,11 +139,11 @@ export const actions = {
             dispatch('removeSnap', item.app.id)
             return
         }
-        commit('app/window/SNAP_WINDOW', item.app.id, { root: true })
+        commit('windows/window/SNAP_WINDOW', item.app.id, { root: true })
         commit('ADD_SNAP', item)
     },
     removeSnap({ commit, dispatch }, id) {
-        commit('app/window/UNSNAP_WINDOW', id, { root: true })
+        commit('windows/window/UNSNAP_WINDOW', id, { root: true })
         commit('CLOSE_SNAP_APP', id)
     },
     // toggleSnapFullscreen({ commit }, value) {

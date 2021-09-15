@@ -3,5 +3,5 @@ export default ({ store }) => {
     // actionList.forEach((action, index) => {
     //     Object.assign(action, { order: index + 1 })
     // });
-    store.dispatch('app/actionCenter/initActionList', actionList)
+    store.dispatch('windows/actionCenter/initActionList', actionList)
 }

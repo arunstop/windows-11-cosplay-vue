@@ -32,7 +32,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters('app', ['getDesktopAppList']),
+    ...mapGetters('windows', ['getDesktopAppList']),
   },
 }
 </script>

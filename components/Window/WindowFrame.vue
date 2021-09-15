@@ -1,6 +1,6 @@
 <template>
   <v-card
-    v-if="$store.getters['app/window/windowState'](app.id)"
+    v-if="$store.getters['windows/window/windowState'](app.id)"
     class="
       d-flex
       flex-column
@@ -124,10 +124,10 @@ export default {
   computed: {
     show: {
       get() {
-        return this.$store.getters['app/window/windowState'](this.app.id)
+        return this.$store.getters['windows/window/windowState'](this.app.id)
       },
       set(value) {
-        this.$store.dispatch('app/window/toggleWindow', {
+        this.$store.dispatch('windows/window/toggleWindow', {
           id: this.app.id,
           value,
         })
@@ -140,7 +140,7 @@ export default {
           label: 'Minimize',
           type: 'minimize',
           action: () => {
-            this.$store.dispatch('app/window/toggleWindow', { id: this.app.id })
+            this.$store.dispatch('windows/window/toggleWindow', { id: this.app.id })
           },
         },
         {
@@ -150,7 +150,7 @@ export default {
           type: 'size',
           label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
           action: () => {
-            this.$store.dispatch('app/window/toggleFullscreen', this.app)
+            this.$store.dispatch('windows/window/toggleFullscreen', this.app)
           },
         },
         {
@@ -158,7 +158,7 @@ export default {
           label: 'Close',
           type: 'close',
           action: () => {
-            this.$store.dispatch('app/window/closeApp', this.app)
+            this.$store.dispatch('windows/window/closeApp', this.app)
           },
         },
       ]

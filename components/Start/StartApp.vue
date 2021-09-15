@@ -20,8 +20,8 @@ export default {
   },methods:{
     openApp(app) {
       // console.log(this.windowId)
-      this.$store.dispatch('app/window/toggleWindow', { id: this.windowId, value:false })
-      this.$store.dispatch('app/window/openApp', app)
+      this.$store.dispatch('windows/window/toggleWindow', { id: this.windowId, value:false })
+      this.$store.dispatch('windows/window/openApp', app)
     },
   }
 }

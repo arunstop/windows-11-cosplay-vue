@@ -27,23 +27,23 @@ export default {
   computed: {
     searchKeyword: {
       get() {
-        return this.$store.state.app.searchAppKeyword
+        return this.$store.state.windows.searchAppKeyword
       },
       set(value) {
         if (value === null) value = ''
-        return this.$store.dispatch('app/searchApp', { value })
+        return this.$store.dispatch('windows/searchApp', { value })
       },
     },
   },
   methods: {
     openSearchPanel() {
       if (!this.app?.id) return
-      this.$store.dispatch('app/window/toggleWindow', {
+      this.$store.dispatch('windows/window/toggleWindow', {
         id: this.app.id,
         value: false,
       })
-      this.$store.dispatch('app/window/openAppById', 'search')
-      // this.$store.dispatch('app/window/openAppById', 'search')
+      this.$store.dispatch('windows/window/openAppById', 'search')
+      // this.$store.dispatch('windows/window/openAppById', 'search')
     },
   },
 }

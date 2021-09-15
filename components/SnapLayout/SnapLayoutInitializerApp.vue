@@ -33,7 +33,7 @@ export default {
     //     index: this.snap.index,
     //     app: this.app,
     //   })
-      this.$store.dispatch('app/snap/addSnap', {
+      this.$store.dispatch('windows/snap/addSnap', {
         type: this.snap.type,
         index: this.snap.index,
         app: this.app,

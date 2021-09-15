@@ -31,7 +31,7 @@ export default {
   data: () => ({}),
   methods: {
     openApp() {
-      this.$store.dispatch('app/window/openApp', this.app)
+      this.$store.dispatch('windows/window/openApp', this.app)
     },
   },
 }

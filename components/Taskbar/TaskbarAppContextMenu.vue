@@ -28,7 +28,7 @@ export default {
     app: { type: Object, default: () => {} },
   },
   computed: {
-    ...mapGetters('app/', ['getTaskbarappOptionList']),
+    ...mapGetters('windows/', ['getTaskbarappOptionList']),
   },
   methods: {
     getOptionList(app) {
@@ -62,25 +62,25 @@ export default {
         if (option.id === 'app') {
           Object.assign(option, {
             action: (app2) => {
-              this.$store.dispatch('app/window/openApp', app2)
+              this.$store.dispatch('windows/window/openApp', app2)
             },
           })
         } else if (option.id === 'unpin') {
           Object.assign(option, {
             action: (app2) => {
-              this.$store.dispatch('app/unpinTaskbar', app2)
+              this.$store.dispatch('windows/unpinTaskbar', app2)
             },
           })
         } else if (option.id === 'pin') {
           Object.assign(option, {
             action: (app2) => {
-              this.$store.dispatch('app/pinTaskbar', app2)
+              this.$store.dispatch('windows/pinTaskbar', app2)
             },
           })
         } else if (option.id === 'close') {
           Object.assign(option, {
             action: (app2) => {
-              this.$store.dispatch('app/window/closeApp', app2)
+              this.$store.dispatch('windows/window/closeApp', app2)
             },
           })
         }

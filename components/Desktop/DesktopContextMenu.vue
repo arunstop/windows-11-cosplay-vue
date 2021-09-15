@@ -65,7 +65,7 @@ export default {
             Object.assign(option, {
               action: () => {
                 this.$store.dispatch(
-                  'app/window/openAppById',
+                  'windows/window/openAppById',
                   this.app.titleKebab
                 )
               },
@@ -74,13 +74,13 @@ export default {
           if (option.id === 'pin-to-start') {
             Object.assign(option, {
               action: () => {
-                this.$store.dispatch('app/pinStart', this.app)
+                this.$store.dispatch('windows/pinStart', this.app)
               },
             })
           } else if (option.id === 'unpin-from-start') {
             Object.assign(option, {
               action: () => {
-                this.$store.dispatch('app/unpinStart', this.app)
+                this.$store.dispatch('windows/unpinStart', this.app)
               },
             })
           }

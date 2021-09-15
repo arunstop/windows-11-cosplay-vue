@@ -53,7 +53,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapGetters('app/window', ['getNonSnappedWindowList', 'sortedWindowList']),
+    ...mapGetters('windows/window', ['getNonSnappedWindowList', 'sortedWindowList']),
     show: {
       get() {
         return this.$store.state.dialog.show

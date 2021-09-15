@@ -1,19 +1,20 @@
 <template>
   <WindowFrame :app="app" :snapped="snapped">
     <template #content>
-      content
+      <component :is="getAppTarget" :app="app"/>
     </template>
   </WindowFrame>
 </template>
 
 <script>
 export default {
+  components: {},
   props: {
     app: {
       type: Object,
       default: () => {},
     },
-    snapped:Boolean,
+    snapped: Boolean,
     // fullscreen: Boolean,
   },
   data: () => ({
@@ -22,11 +23,15 @@ export default {
   computed: {
     show: {
       get() {
-        return this.$store.getters['app/window/windowState'](this.app.id)
+        return this.$store.getters['windows/window/windowState'](this.app.id)
       },
       set(value) {
-        this.$store.dispatch('app/window/toggleWindow', { id: this.app.id })
+        this.$store.dispatch('windows/window/toggleWindow', { id: this.app.id })
       },
+    },
+    getAppTarget() {
+      const pascalizedStr = this.$globals.pascalStr(this.app.titleKebab)
+      return () => import(`@/components/Apps/${pascalizedStr}/Index.vue`)
     },
   },
   created() {

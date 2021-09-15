@@ -33,7 +33,7 @@ export default {
   data: () => ({}),
   methods:{
     unpinAction(action) {
-      this.$store.dispatch('app/actionCenter/unpinAction', action)
+      this.$store.dispatch('windows/actionCenter/unpinAction', action)
     },
 
   }

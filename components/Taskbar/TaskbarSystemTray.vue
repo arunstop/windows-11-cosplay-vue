@@ -27,7 +27,7 @@ import {mapGetters} from 'vuex'
 
 export default {
     computed:{
-        ...mapGetters('app/window/', ['getTrayWindowList'])
+        ...mapGetters('windows/window/', ['getTrayWindowList'])
     }
 }
 </script>

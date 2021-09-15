@@ -56,7 +56,7 @@
             link
             tile
             color="grey"
-            @click="$store.dispatch('app/window/toggleShowDesktop')"
+            @click="$store.dispatch('windows/window/toggleShowDesktop')"
           >
           </v-card>
         </div>
@@ -77,7 +77,7 @@ export default {
       .substr(0, 10),
   }),
   computed: {
-    ...mapGetters('app', ['getTaskbarAppList']),
+    ...mapGetters('windows', ['getTaskbarAppList']),
 
     drawerState: {
       get() {
@@ -103,14 +103,14 @@ export default {
     // },
   },
   created() {
-    this.$store.dispatch('app/window/openDefaultApps')
+    this.$store.dispatch('windows/window/openDefaultApps')
   },
   methods: {
     openNotifPanel() {
-      this.$store.dispatch('app/window/openAppById', 'notifications')
+      this.$store.dispatch('windows/window/openAppById', 'notifications')
     },
     openActionCenter() {
-      this.$store.dispatch('app/window/openAppById', 'action-center')
+      this.$store.dispatch('windows/window/openAppById', 'action-center')
     },
   },
 }

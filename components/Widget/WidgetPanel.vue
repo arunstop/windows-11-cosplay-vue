@@ -287,10 +287,10 @@ export default {
     ...mapState('news', ['topStories', 'newsList']),
     show: {
       get() {
-        return this.$store.getters['app/window/windowState'](this.app.id)
+        return this.$store.getters['windows/window/windowState'](this.app.id)
       },
       set(value) {
-        return this.$store.dispatch('app/window/toggleWindow', {
+        return this.$store.dispatch('windows/window/toggleWindow', {
           id: this.app.id,
           value,
         })

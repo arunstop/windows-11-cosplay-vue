@@ -76,7 +76,7 @@
             <!-- Recent Items -->
             <v-row class="mt-2 grid-container2" no-gutters>
               <StartRecentItem
-                v-for="(ri, index) in $store.state.app.recentItemList"
+                v-for="(ri, index) in $store.state.windows.recentItemList"
                 :key="index"
                 :item="ri"
               />
@@ -140,15 +140,15 @@ export default {
     showAllApps: false,
   }),
   computed: {
-    ...mapGetters('app', ['getPinnedAppList']),
+    ...mapGetters('windows', ['getPinnedAppList']),
     ...mapState('user', ['loggedOnUser']),
     show: {
       get() {
-        return this.$store.getters['app/window/windowState'](this.app.id)
+        return this.$store.getters['windows/window/windowState'](this.app.id)
       },
       set(value) {
-        // return this.$store.commit('app/toggleState', { id: this.app.id, value })
-        this.$store.dispatch('app/window/toggleWindow', {
+        // return this.$store.commit('windows/toggleState', { id: this.app.id, value })
+        this.$store.dispatch('windows/window/toggleWindow', {
           id: this.app.id,
           value,
         })

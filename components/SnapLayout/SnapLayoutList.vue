@@ -23,9 +23,9 @@ export default {
     snap: { type: Object, default: () => ({}) },
   },
   computed: {
-    ...mapState('app/snap', ['snapLayout', 'snapTemplateList']),
-    ...mapState('app/window', ['showDesktop']),
-    ...mapGetters('app/window', ['getSnappedWindowList']),
+    ...mapState('windows/snap', ['snapLayout', 'snapTemplateList']),
+    ...mapState('windows/window', ['showDesktop']),
+    ...mapGetters('windows/window', ['getSnappedWindowList']),
   },
 
   created() {

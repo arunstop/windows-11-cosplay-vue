@@ -40,13 +40,13 @@ export default {
   },
   data: () => ({}),
   computed: {
-    ...mapGetters('app', ['searchAppResult']),
+    ...mapGetters('windows', ['searchAppResult']),
   },
   methods: {
     openApp(app) {
-      this.$store.dispatch('app/window/toggleWindow', { id: this.windowId, value:false })
-      this.$store.dispatch('app/window/openApp', app)
-        this.$store.dispatch('app/snap/setSnapInitIndex', null)
+      this.$store.dispatch('windows/window/toggleWindow', { id: this.windowId, value:false })
+      this.$store.dispatch('windows/window/openApp', app)
+        this.$store.dispatch('windows/snap/setSnapInitIndex', null)
 
     },
   },

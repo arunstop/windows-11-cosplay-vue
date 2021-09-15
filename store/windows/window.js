@@ -26,9 +26,15 @@ export const getters = {
       return app.window.snap === true
     })
   },
-  getTrayWindowList: (state) => ()=>{
+  getTrayWindowList: (state) => () => {
     return state.windowList.filter(app => app.tray === true)
   },
+  isOpened: (state) => (id) => {
+    return state.windowList.find((app) => app.id === id)
+  },
+  isVisible: (state) => (id) => {
+    return state.windowList.find((app) => app.id === id)?.window.show || false
+  }
 }
 
 export const mutations = {
@@ -73,12 +79,6 @@ export const mutations = {
     // Remove items from array
     state.windowList = state.windowList.filter(item => item.id !== id)
   },
-  IS_OPENED_APP(state, id) {
-    const target = state.windowList.find((app) => {
-      return app.id === id
-    })
-    return target
-  },
   SNAP_WINDOW(state, id) {
     state.windowList.forEach(element => {
       if (element.window.snap === false) element.window.show = false
@@ -108,21 +108,21 @@ export const mutations = {
 
 export const actions = {
   openDefaultApps({ commit, rootState }) {
-    const defaultApps = rootState.app.appList.filter((appItem) => appItem.preOpen)
+    const defaultApps = rootState.windows.appList.filter((appItem) => appItem.preOpen)
     commit('OPEN_DEFAULT_APPS', defaultApps)
   },
   toggleWindow({ commit, state, dispatch }, data) {
     const target = state.windowList.find((item) => item.id === data.id)
     // console.log(target)
     if (target.window.snap === true) {
-      dispatch('app/snap/removeSnap', target.id, { root: true })
-      // dispatch('app/snap/closeSnapApp', target.id, { root: true })
+      dispatch('windows/snap/removeSnap', target.id, { root: true })
+      // dispatch('windows/snap/closeSnapApp', target.id, { root: true })
     }
     commit('TOGGLE_WINDOW', data)
   },
   toggleFullscreen({ commit, dispatch }, app) {
     // console.log(app)
-    if (app.window.snap === true) dispatch('app/snap/removeSnap', app.id, { root: true })
+    if (app.window.snap === true) dispatch('windows/snap/removeSnap', app.id, { root: true })
     commit('TOGGLE_FULLSCREEN', app.id)
   },
   openApp({ state, commit, rootGetters, dispatch }, app) {
@@ -133,17 +133,17 @@ export const actions = {
     } else {
       commit('OPEN_APP', app)
       // commit('TOGGLE_WINDOW', { id: app.id, value: true })
-      if (rootGetters['app/snap/isSnapActivated']) {
-        const emptySnapSlot = rootGetters['app/snap/getEmptySnapSlots']
+      if (rootGetters['windows/snap/isSnapActivated']) {
+        const emptySnapSlot = rootGetters['windows/snap/getEmptySnapSlots']
         // open app depends on snap
-        const snapInitIndex = rootGetters['app/snap/getSnapInitIndex']
+        const snapInitIndex = rootGetters['windows/snap/getSnapInitIndex']
         const snapIndex = snapInitIndex || emptySnapSlot?.index;
         // console.log(snapIndex)
         if (emptySnapSlot) {
           // commit('TOGGLE_SHOW_DESKTOP')
           if (!state.showDesktop) {
-            dispatch('app/snap/addSnap', {
-              type: rootGetters['app/snap/getSnapType'],
+            dispatch('windows/snap/addSnap', {
+              type: rootGetters['windows/snap/getSnapType'],
               index: snapIndex,
               app
             }, { root: true })
@@ -153,25 +153,22 @@ export const actions = {
     }
   },
   openAppById({ dispatch, rootGetters }, id) {
-    const targetApp = rootGetters['app/getAppById'](id)
+    const targetApp = rootGetters['windows/getAppById'](id)
     dispatch('openApp', targetApp)
   },
   closeApp({ commit, dispatch }, app) {
     // dispatch('toggleWindow', { id: app.id }).then(() => {
     //   commit('CLOSE_APP', app.id)
     // },1000)
-    if (app.window.snap === true) dispatch('app/snap/closeSnapApp', app.id, { root: true })
+    if (app.window.snap === true) dispatch('windows/snap/closeSnapApp', app.id, { root: true })
     else dispatch('toggleWindow', { id: app.id, value: false })
     commit('CLOSE_APP', app.id)
 
     // setTimeout(() => {
     // }, 100);
   },
-  isAppOpened({ commit }, id) {
-    commit('IS_OPENED_APP', id)
-  },
   toggleShowDesktop({ commit, dispatch }) {
-    // dispatch('app/snap/removeSnapLayout', '', { root: true })
+    // dispatch('windows/snap/removeSnapLayout', '', { root: true })
     commit('HIDE_ALL_NON_SNAPPED_WINDOWS')
     commit('TOGGLE_SHOW_DESKTOP')
   }

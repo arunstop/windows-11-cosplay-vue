@@ -36,7 +36,7 @@
               />
             </v-expand-x-transition>
             <div
-              v-if="isOpen(app.id) && app.type === 'window'"
+              v-if="isOpened(app.id) && app.type === 'window'"
               class="taskbar-app-indicator-hidden blue darken-2"
             />
           </div>
@@ -63,35 +63,22 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   props: {
     app: { type: Object, default: () => {} },
   },
   computed: {
-    // ...mapGetters('app/', ['getTaskbarappOptionList']),
+    ...mapGetters('windows/window', ['isOpened','isVisible']),
   },
   methods: {
     showContextMenu(menu,tooltip,event){
       tooltip.mouseleave()
       menu.click(event)
     },
-    isOpen(id) {
-      const result = this.$store.state.app.window.windowList.find((app) => {
-        return app.id === id
-      })
-      return result
-    },
-    isVisible(id) {
-      const result = this.$store.state.app.window.windowList.find((app) => {
-        return app.id === id
-      })
-      if (!result) return false
-      return result.window.show
-    },
     openApp(app) {
-      this.$store.dispatch('app/window/openApp', app)
+      this.$store.dispatch('windows/window/openApp', app)
     },
   },
 }

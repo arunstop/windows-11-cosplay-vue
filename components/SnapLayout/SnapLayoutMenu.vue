@@ -4,7 +4,7 @@
 
     <v-card class="grid-container-snap-layout-menu pa-3 rounded-lg">
       <v-card
-        v-for="(sl, index) in $store.state.app.snap.snapTemplateList"
+        v-for="(sl, index) in $store.state.windows.snap.snapTemplateList"
         :key="index"
         class="d-flex justify-center align-center"
         min-width="120px"
@@ -43,7 +43,7 @@ export default {
     snapPreview: {},
   }),
   computed: {
-    ...mapGetters('app/snap/', [
+    ...mapGetters('windows/snap/', [
       'getSnapType',
       'isItemActive',
       'getSnapTemplateByType',
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     addSnap(type, index, app) {
-      this.$store.dispatch('app/snap/addSnap', { type, index, app })
+      this.$store.dispatch('windows/snap/addSnap', { type, index, app })
     },
     isSlotActive(id, type, index) {
       let activeStyle = ''

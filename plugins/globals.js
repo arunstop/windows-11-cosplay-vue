@@ -22,8 +22,17 @@ export default ({ app }, inject) => {
         return JSON.parse(JSON.stringify(stateVar))
     }
 
-    const kebabStr = (str)=>{
+    const kebabStr = (str) => {
         return str.replaceAll(" ", "-").toLowerCase()
     }
-    inject('globals', { generateKey, cutStr, cloneState,kebabStr })
+
+    const pascalStr = (str) => {
+        let result = ''   
+        const split = str.split('-')
+        split.forEach(s => {
+            result = result.concat(s.charAt(0).toUpperCase() + s.slice(1))
+        });
+        return result
+    }
+    inject('globals', { generateKey, cutStr, cloneState, kebabStr,pascalStr })
 }
