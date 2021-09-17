@@ -1,7 +1,7 @@
 <template>
   <WindowFrame :app="app" :snapped="snapped">
     <template #content>
-      <component :is="getAppTarget" :app="app"/>
+      <component :is="getAppComponent" :app="app"/>
     </template>
   </WindowFrame>
 </template>
@@ -29,9 +29,9 @@ export default {
         this.$store.dispatch('windows/window/toggleWindow', { id: this.app.id })
       },
     },
-    getAppTarget() {
+    getAppComponent() {
       const pascalizedStr = this.$globals.pascalStr(this.app.titleKebab)
-      return () => import(`@/components/Apps/${pascalizedStr}/Index.vue`)
+      return () => import(`@/components/Apps/${pascalizedStr}/${pascalizedStr}Index.vue`)
     },
   },
   created() {

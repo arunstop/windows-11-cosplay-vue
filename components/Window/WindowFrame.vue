@@ -86,7 +86,7 @@
           </div>
         </v-row>
       </v-card-title>
-      <v-card-text class="flex pa-0" :class="app.default ? 'blur-bg' : 'windows-grey'">
+      <v-card-text class="flex pa-0 overflow-auto" :class="app.default ? 'blur-bg' : 'windows-grey'">
         <div class="loading-icon">
           <v-fab-transition>
             <v-icon
@@ -197,7 +197,7 @@ export default {
   z-index: 6 !important;
   outline: none !important;
 
-  pointer-events: none !important;
+  /* pointer-events: none !important; */
   /* transition: 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 1ms; */
 }
 

@@ -27,12 +27,12 @@ export default ({ app }, inject) => {
     }
 
     const pascalStr = (str) => {
-        let result = ''   
+        let result = ''
         const split = str.split('-')
         split.forEach(s => {
             result = result.concat(s.charAt(0).toUpperCase() + s.slice(1))
         });
         return result
     }
-    inject('globals', { generateKey, cutStr, cloneState, kebabStr,pascalStr })
+    inject('globals', { generateKey, cutStr, cloneState, kebabStr, pascalStr })
 }

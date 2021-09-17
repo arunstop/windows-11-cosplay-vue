@@ -75,7 +75,7 @@ export const getters = {
   },
   getAppById: (state) => (titleKebab) => {
     return state.appList.find(app => app.titleKebab === titleKebab)
-  }
+  },
 }
 
 export const mutations = {
