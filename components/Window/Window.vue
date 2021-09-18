@@ -8,7 +8,6 @@
 
 <script>
 export default {
-  components: {},
   props: {
     app: {
       type: Object,

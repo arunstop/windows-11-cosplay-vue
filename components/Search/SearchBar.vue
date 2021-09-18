@@ -31,7 +31,7 @@ export default {
       },
       set(value) {
         if (value === null) value = ''
-        return this.$store.dispatch('windows/searchApp', { value })
+        return this.$store.dispatch('windows/searchApp',  value )
       },
     },
   },

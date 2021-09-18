@@ -38,7 +38,7 @@ export default {
       set(value) {
         // return this.$store.commit('windows/toggleState', { id: this.app.id, value })
         this.$store.dispatch('windows/window/toggleWindow', { id: this.app.id, value })
-        this.$store.dispatch('windows/searchApp', { value :''})
+        this.$store.dispatch('windows/searchApp', '')
         this.$store.dispatch('windows/snap/setSnapInitIndex', null)
       },
     },

@@ -32,6 +32,7 @@ export default {
     '~/plugins/local-storage',
     '~/plugins/globals',
     '~/plugins/date',
+    // '~/plugins/app-initializers',
     // '~/plugins/vue-spinners-css'
   ],
 

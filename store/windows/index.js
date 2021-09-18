@@ -41,7 +41,7 @@ export const getters = {
   },
   searchAppResult: (state) => () => {
     let searchResult = state.appList.filter((appItem) => {
-      return appItem.title.trim().toLowerCase().includes(state.searchAppKeyword)
+      return appItem.title.trim().toLowerCase().includes(state.searchAppKeyword.trim().toLowerCase())
     });
     // if no items found
     if (searchResult.length === 0) { return [{ notFound: true, title: 'No Items Found' }] }
@@ -136,7 +136,7 @@ export const actions = {
     commit('INIT_TASKBAR_APP_OPTION_LIST', list)
   },
   searchApp({ commit }, keyword) {
-    commit('SEARCH_APP', keyword.value.trim().toLowerCase())
+    commit('SEARCH_APP', keyword)
   },
   pinStart({ commit }, app) {
     commit('PIN_START', app)
