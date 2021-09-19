@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 43px !important" />
+  <div style="min-height: 40px !important" />
 </template>
 
 <script>

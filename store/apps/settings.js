@@ -1,5 +1,5 @@
 export const state = () => ({
-    settingsMenuList: require('@/assets/json/apps/appSettingsMenuList.json'),
+    settingsMenuList: [],
     searchSettingsKeyword: '',
 })
 
@@ -16,7 +16,7 @@ export const getters = {
         return searchResult
     },
     getActiveSettingsMenu: (state) => {
-        return state.settingsMenuList.map(el => el.active).indexOf(true)
+        return state.settingsMenuList.find(el => el.active)
     }
 }
 
@@ -29,9 +29,10 @@ export const mutations = {
         // console.log("OK")
         state.searchSettingsKeyword = keyword
     },
-    SET_ACTIVE_MENU(state, index) {
+    SET_ACTIVE_SETTINGS_MENU(state, label) {
+        console.log(label)
         state.settingsMenuList.find(el => el.active).active = false
-        state.settingsMenuList[index].active = true
+        state.settingsMenuList.find(el => el.label === label).active = true
     }
 }
 
@@ -42,7 +43,7 @@ export const actions = {
     searchSettings({ commit }, keyword) {
         commit('SEARCH_SETTINGS', keyword)
     },
-    setActiveMenu({ commit }, index) {
-        commit('SET_ACTIVE_MENU', index)
+    setActiveSettingsMenu({ commit }, label) {
+        commit('SET_ACTIVE_SETTINGS_MENU', label)
     }
 }

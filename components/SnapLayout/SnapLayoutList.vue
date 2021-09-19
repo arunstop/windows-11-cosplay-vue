@@ -2,7 +2,7 @@
   <div v-if="snapLayout.type" v-show="!showDesktop" class="snap-layout-container">
     <div
     :key="'snap-layout-container'"
-    class="fill-height pointer-events transparent animate__animated animate__backInUp animate__fastest"
+    class="fill-height overflow-hidden pointer-events transparent animate__animated animate__backInUp animate__fastest"
     :class="'grid-container-snap-layout-' + snapLayout.type"
   >
     <SnapLayoutItem

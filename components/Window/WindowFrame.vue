@@ -17,7 +17,7 @@
     :width="getWindowSize().width"
     :elevation="snapped ? 0 : 6"
   >
-    <v-card class="d-flex flex-column fill-height transparent" elevation="0">
+    <v-card class="d-flex flex-column fill-height transparent overflow-hidden" elevation="0">
       <v-card-title class="ma-0 pa-0 z-index blur-bg pointer-events">
         <v-row no-gutters align="center" class="ps-2">
           <div class="d-flex">
@@ -87,10 +87,9 @@
         </v-row>
       </v-card-title>
       <v-card-text class="flex pa-0 overflow-auto" :class="app.default ? 'blur-bg' : 'windows-grey'">
-        <div class="loading-icon">
+        <div  v-if="isLoading" class="loading-icon">
           <v-fab-transition>
             <v-icon
-              v-if="isLoading"
               class="ma-auto"
               :size="120"
               :color="app.iconColor"
