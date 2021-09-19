@@ -18,9 +18,10 @@
     :elevation="snapped ? 0 : 6"
   >
     <v-card class="d-flex flex-column fill-height transparent overflow-hidden" elevation="0">
-      <v-card-title class="ma-0 pa-0 z-index blur-bg pointer-events">
+      <!-- Window bar -->
+      <v-card-title class="ma-0 pa-0 z-index blur-bg pointer-events" @dblclick.prevent="toggleFullscreen()">
         <v-row no-gutters align="center" class="ps-2">
-          <div class="d-flex">
+          <div class="d-flex window-bar">
             <v-icon class="me-1" size="18px" :color="app.iconColor">
               {{ app.icon }}
             </v-icon>
@@ -86,6 +87,7 @@
           </div>
         </v-row>
       </v-card-title>
+      <!-- Content -->
       <v-card-text class="flex pa-0 overflow-auto" :class="app.default ? 'blur-bg' : 'windows-grey'">
         <div  v-if="isLoading" class="loading-icon">
           <v-fab-transition>
@@ -149,7 +151,7 @@ export default {
           type: 'size',
           label: this.app.window.fullscreen ? 'Restore' : 'Maximize',
           action: () => {
-            this.$store.dispatch('windows/window/toggleFullscreen', this.app)
+            this.toggleFullscreen()
           },
         },
         {
@@ -180,6 +182,9 @@ export default {
       //   return { height: '100vh', width: '100vw' }
       else return { height: this.height, width: this.width }
     },
+    toggleFullscreen(){
+      this.$store.dispatch('windows/window/toggleFullscreen', this.app)
+    }
   },
 }
 </script>

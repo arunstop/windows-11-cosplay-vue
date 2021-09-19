@@ -179,3 +179,13 @@
   height: 100%;
   overflow: hidden;
 }
+
+.window-bar {
+  /* disable text selection on doubleclick */
+  -moz-user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+
+  overflow:hidden !important;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div style="min-height: 40px !important" />
+  <div class="no-pointer-events" style="min-height: 40px !important" />
 </template>
 
 <script>
