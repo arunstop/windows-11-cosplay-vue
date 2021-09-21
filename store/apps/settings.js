@@ -1,6 +1,7 @@
 export const state = () => ({
     settingsMenuList: [],
     searchSettingsKeyword: '',
+    settingsMenuDrawer: true,
 })
 
 export const getters = {
@@ -33,7 +34,16 @@ export const mutations = {
         console.log(label)
         state.settingsMenuList.find(el => el.active).active = false
         state.settingsMenuList.find(el => el.label === label).active = true
-    }
+    }, 
+    TOGGLE_SETTINGS_MENU(state,val) {
+        // console.log("OK")
+        // if(state.settingsMenuDrawer===false){
+        //     state.settingsMenuDrawer =true
+        // }else{
+        //     state.settingsMenuDrawer=false
+        // }
+        state.settingsMenuDrawer=val
+    },
 }
 
 export const actions = {
@@ -45,5 +55,8 @@ export const actions = {
     },
     setActiveSettingsMenu({ commit }, label) {
         commit('SET_ACTIVE_SETTINGS_MENU', label)
+    },
+    toggleSettingsMenu({commit},val){
+        commit('TOGGLE_SETTINGS_MENU',val)
     }
 }

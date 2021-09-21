@@ -19,7 +19,7 @@
   >
     <v-card class="d-flex flex-column fill-height transparent overflow-hidden" elevation="0">
       <!-- Window bar -->
-      <v-card-title class="ma-0 pa-0 z-index blur-bg pointer-events" @dblclick.prevent="toggleFullscreen()">
+      <v-card-title class="ma-0 pa-0 z-index windows-grey pointer-events" @dblclick.prevent="toggleFullscreen()">
         <v-row no-gutters align="center" class="ps-2">
           <div class="d-flex window-bar">
             <v-icon class="me-1" size="18px" :color="app.iconColor">
@@ -88,7 +88,7 @@
         </v-row>
       </v-card-title>
       <!-- Content -->
-      <v-card-text class="flex pa-0 overflow-auto" :class="app.default ? 'blur-bg' : 'windows-grey'">
+      <v-card-text class="flex pa-0 overflow-auto" :class="app.default ? 'windows-grey' : 'windows-grey'">
         <div  v-if="isLoading" class="loading-icon">
           <v-fab-transition>
             <v-icon

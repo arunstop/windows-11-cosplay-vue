@@ -1,78 +1,15 @@
 <template>
-  <div class="app-window-container">
-    <v-navigation-drawer
-      v-model="drawer"
-      permanent
-      class="settings-menu-drawer"
-      color="transparent"
-      floating
-      width="320"
-    >
-      <div class="pa-2">
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img :src="activatedUser.image" />
-          </v-list-item-avatar>
-          <v-list-item-content>
-            <v-list-item-title class="caption font-weight-bold">
-              {{ activatedUser.name }}
-            </v-list-item-title>
-            <v-list-item-subtitle class="caption font-weight-bold">
-              {{ activatedUser.email }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-        <v-text-field
-          v-model="searchSettingsMenu"
-          class="ms-2 me-1 mt-4 elevation-2"
-          solo
-          label="Find a setting"
-          placeholder="Find a setting"
-          append-icon="mdi-magnify mdi-rotate-90"
-          flat
-          dense
-          clearable
-          hide-details=""
-        />
-        <v-list class="mt-4" nav dense>
-          <template v-for="menu in getSettingsMenuList()">
-            <v-list-item
-              v-if="menu.notFound"
-              :key="`si-notfound-${menu.label}`"
-              class="justify-center font-weight-bold"
-            >
-              {{ menu.label }}
-            </v-list-item>
-            <v-list-item
-              v-else
-              :key="`s-item-${menu.label}`"
-              class="px-0"
-              :class="!menu.active || 'v-list-item--active primary--text text--darken-2 elevation-2'"
-              link
-              @click="setActiveSettingsMenu(menu.label)"
-            >
-              <v-card
-                class="me-2"
-                min-width="4"
-                min-height="18"
-                height="100%"
-                elevation="0"
-                :color="menu.active ? 'primary' : 'transparent'"
-              />
-              <v-list-item-icon class="me-4">
-                <v-icon>{{ menu.icon }}</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>{{ menu.label }}</v-list-item-title>
-            </v-list-item>
-          </template>
-        </v-list>
-      </div>
-    </v-navigation-drawer>
-
-    <div>
-      {{ getActiveSettingsMenu.label }}
+  <v-row ref="windowSettings" class="app-window-container" no-gutters>
+    <SettingsMenu :parent-width="MyWidth " />
+    <div class="flex-grow-1">
+      <v-row no-gutters align="center">
+        <v-btn icon @click="toggleSettingsMenu()">
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+        {{ MyWidth }}
+      </v-row>
     </div>
-  </div>
+  </v-row>
 </template>
 
 <script>
@@ -83,8 +20,9 @@ export default {
     app: { type: Object, default: () => {} },
   },
   data: () => ({
-    drawer: false,
+    
     activeSettingsMenu: 0,
+    MyWidth:0,
   }),
   computed: {
     ...mapGetters('user', ['activatedUser']),
@@ -114,19 +52,36 @@ export default {
     //   },
     // },
   },
+  watch: {},
   created() {
     if (this.getSettingsMenuList.length === 0) {
       const sml = require('@/assets/json/apps/appSettingsMenuList.json')
       this.$store.dispatch('apps/settings/initSettingsMenuList', sml)
     }
   },
-  methods: {
-    setActiveSettingsMenu(label) {
-      // alert(label)
-      if (this.getActiveSettingsMenu.label === label) return
-      this.$store.dispatch('apps/settings/setActiveSettingsMenu', label)
-    },
+  // mounted(){
+  //   if(this.$refs.windowSettings.clientWidth){
+  //     this.w=this.$refs.windowSettings.clientWidth
+  //   }
+  // },
+  async mounted(){
+    await this.$nextTick();
+    window.addEventListener('resize', this.setMyWidth);
+    this.setMyWidth();
   },
+  async beforeDestroy(){
+    await this.$nextTick();
+    window.removeEventListener('resize', this.setMyWidth)
+  },
+  methods: {
+    setMyWidth(){
+      console.log(this.$el.clientWidth)
+      this.MyWidth = this.$el.clientWidth;
+    },
+    toggleSettingsMenu(){
+      this.$store.dispatch('apps/settings/toggleSettingsMenu', !this.$store.state.apps.settings.settingsMenuDrawer)
+    }
+  }
 }
 </script>
 
