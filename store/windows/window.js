@@ -15,6 +15,12 @@ export const getters = {
     return state.windowList
       .filter((app) => app.window.snap === false)
       .sort((a, b) => a.position - b.position)
+      .reverse()
+  },
+  getOpenedAppList: (state) => () => {
+    return state.windowList
+      .filter((app) => app.type === "window")
+      .sort((a, b) => a.position - b.position)
   },
   getNonSnappedWindowList: (state) => () => {
     return state.windowList.filter((app) => {
@@ -89,6 +95,7 @@ export const mutations = {
     target.window.fullscreen = false
     target.window.snap = true
     target.window.show = true
+    state.showDesktop = false
   },
   UNSNAP_WINDOW(state, id) {
     const target = state.windowList.find((app) => {
@@ -103,7 +110,7 @@ export const mutations = {
   },
   TOGGLE_SHOW_DESKTOP(state) {
     state.showDesktop = !state.showDesktop
-  }
+  },
 }
 
 export const actions = {
@@ -171,5 +178,17 @@ export const actions = {
     // dispatch('windows/snap/removeSnapLayout', '', { root: true })
     commit('HIDE_ALL_NON_SNAPPED_WINDOWS')
     commit('TOGGLE_SHOW_DESKTOP')
+  },
+  clearWindowList({ commit, getters, dispatch }) {
+    // console.log(getters.sortedWindowList());
+    // Close all apps by getting windows list that has the type "window"
+    // then close it one by one
+    const apps = getters.getOpenedAppList()
+    // console.log(apps.map(e => e.titleKebab))
+    apps.forEach(app => {
+      // setTimeout(() => {
+        dispatch('closeApp', app)
+      // }, 600)
+    })
   }
 }

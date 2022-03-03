@@ -23,10 +23,15 @@ export const actions = {
     initPowerList({ commit }, list) {
         commit('INIT_POWER_LIST', list)
     },
-    powerAction({ commit,dispatch }, status) {
+    powerAction({ commit, dispatch }, status) {
         commit('POWER_WINDOW', status)
 
         if (status === 'RESTARTING' || status === 'TURNING_OFF' || status === 'LOGGING_OFF') {
+            // Close all windows before restart/shutdown
+            if (status !== 'LOGGING_OFF') {
+                dispatch('windows/window/clearWindowList', '', { root: true });
+            }
+
             setTimeout(() => {
                 // dispatch('power/logOff', status)
                 commit('POWER_WINDOW', 'LOGGED_OFF')
