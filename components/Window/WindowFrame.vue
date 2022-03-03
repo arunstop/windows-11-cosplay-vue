@@ -6,6 +6,7 @@
       flex-column
       bg-transparent
       animate__animated animate__zoomIn animate__flash
+      no-pointer-events
     "
     :class="
       (snapped || 'window-frame ') +
