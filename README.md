@@ -4,10 +4,12 @@
 ## Result if you fancy : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
 
 ## Screenshots : 
-| Command | Description |
 | --- | --- |
-| <p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> | <p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> |
-| `<p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> | <p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> |
+| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/1.png" alt="Lock screen"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/2.png" alt="Login screen"></p> |
+| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/3.png" alt="Start panel"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/5.png" alt="App window"></p> |
+| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/6.png" alt="Snap layout options"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/7.png" alt="Snapped apps"></p> |
+| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/8.png" alt="Notifications and calendar"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/9.png" alt="Control center"></p> |
+| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/10.png" alt="Widgets and news"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/11.png" alt="Shutting down"></p> |
 
 
 
