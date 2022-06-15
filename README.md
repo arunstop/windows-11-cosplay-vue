@@ -1,19 +1,35 @@
-# windows-11-cosplay-vue
+# Windows 11 Cosplay
 > My mere first attempt to create a copy of Windows 11 via web. After a month of learning Vue.js. I think it went pretty well? Or did it? You judge :)
 
 ## Result : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
 
 ## Screen shots:
 
-## What i learnt : 
+## What i learnt/improved : 
 > - Modern Javascript framework workflow with **Vue.js**
-- More advanced **Vue.js** (Middleware etc)
-- **Vuex** state management
-- **Nuxt.js**
-- **Nuxt.js** workflow
-- CSS animation -> **Animate.css**
-- Date & Time manimulation with **Moment.js**
-- And more... >
+> - More advanced **Vue.js**
+>   - Middleware
+>   - Custom Plugins
+>   - etc
+> - UI Framework - **Vuetify**
+>   - Basic Components
+>   - Customizing Components
+>   - Transitions
+>   - Animations
+>   - Directives
+>   - etc
+> - **Vuex** state management
+> - **Nuxt.js**
+>   - Workflow of **Nuxt.js**
+>   - State management (Store)
+>   - Static content/assets management (image, custom css, etc)
+>   - Creating a web application
+> - CSS animation -> **Animate.css**
+> - Date & Time manimulation with **Moment.js**
+> - Data manipulation with **Lodash**   
+> - Formatter configuration with **Babel**
+> - Grabbing data from REST API using **Bing News API**
+> - Deploying web app to online server using **Netlify**
 
 ## Generated Message 4 Nerds:
 
