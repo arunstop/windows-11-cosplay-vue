@@ -28,9 +28,9 @@ export const actions = {
 
         if (status === 'RESTARTING' || status === 'TURNING_OFF' || status === 'LOGGING_OFF') {
             // Close all windows before restart/shutdown
-            if (status !== 'LOGGING_OFF') {
-                dispatch('windows/window/clearWindowList', '', { root: true });
-            }
+            // if (status !== 'LOGGING_OFF') {
+            //     dispatch('windows/window/clearWindowList', '', { root: true });
+            // }
 
             setTimeout(() => {
                 // dispatch('power/logOff', status)

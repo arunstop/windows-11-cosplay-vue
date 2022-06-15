@@ -103,6 +103,7 @@ export default {
     // },
   },
   created() {
+    // open default apps everytime layout changes
     this.$store.dispatch('windows/window/openDefaultApps')
   },
   methods: {
