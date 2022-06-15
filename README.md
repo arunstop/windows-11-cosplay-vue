@@ -3,7 +3,10 @@
 
 ## Result if you fancy : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
 
-## Screenshots :
+## Screenshots : <p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/dart-diagram-small.png?raw=true" alt="Dart diagram"></p><p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/dart-diagram-small.png?raw=true" alt="Dart diagram"></p><p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/dart-diagram-small.png?raw=true" alt="Dart diagram"></p>
+
+
+
 
 ## What i learnt/improved : 
 > - Modern Javascript framework workflow with **Vue.js**
@@ -31,7 +34,7 @@
 > - Formatter configuration with **Babel**
 > - Deploying web app to online server using **Netlify**
 
-## Generated Message 4 Nerds:
+# Generated Message 4 Nerds:
 
 ## Build Setup 4 Nerds
 
