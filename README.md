@@ -1,9 +1,9 @@
 # Windows 11 Cosplay
 > My mere first attempt to create a copy of Windows 11 via web. After a month of learning Vue.js. I think it went pretty well? Or did it? You judge :)
 
-## Result : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
+## Result if you fancy : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
 
-## Screen shots:
+## Screenshots :
 
 ## What i learnt/improved : 
 > - Modern Javascript framework workflow with **Vue.js**
