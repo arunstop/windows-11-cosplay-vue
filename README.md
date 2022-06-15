@@ -18,6 +18,7 @@
 >   - Animations
 >   - Directives
 >   - etc
+> - Grabbing data from REST API using **Bing News API**
 > - **Vuex** state management
 > - **Nuxt.js**
 >   - Workflow of **Nuxt.js**
@@ -28,7 +29,6 @@
 > - Date & Time manimulation with **Moment.js**
 > - Data manipulation with **Lodash**   
 > - Formatter configuration with **Babel**
-> - Grabbing data from REST API using **Bing News API**
 > - Deploying web app to online server using **Netlify**
 
 ## Generated Message 4 Nerds:
