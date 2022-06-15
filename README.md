@@ -1,7 +1,25 @@
-# YOU THOUGHT COSPLAY IS ONLY FOR HUMAN??? HAHAHAHAHAHA
 # windows-11-cosplay-vue
+> My mere first attempt to create a copy of Windows 11 via web. After a month of learning Vue.js. I think it went pretty well? Or did it? You judge :)
 
-## Build Setup
+## Result : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
+
+## Screen shots:
+
+## What i learnt : 
+``` bash
+- Modern Javascript framework workflow with **Vue.js**
+- More advanced **Vue.js** (Middleware etc)
+- **Vuex** state management
+- **Nuxt.js**
+- **Nuxt.js** workflow
+- CSS animation -> **Animate.css**
+- Date & Time manimulation with **Moment.js**
+- And more...
+```
+
+## Generated Message 4 Nerds:
+
+## Build Setup 4 Nerds
 
 ```bash
 # install dependencies
