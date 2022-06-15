@@ -1,7 +1,46 @@
-# YOU THOUGHT COSPLAY IS ONLY FOR HUMAN??? HAHAHAHAHAHA
-# windows-11-cosplay-vue
+# Windows 11 Cosplay
+> My mere first attempt to create a copy of Windows 11 via web. After a month of learning Vue.js. I think it went pretty well? Or did it? You judge :)
 
-## Build Setup
+## Result if you fancy : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
+
+## Screenshots : 
+| Command | Description |
+| --- | --- |
+| <p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> | <p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> |
+| `<p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> | <p align="center"><img src="https://github.com/flutter/website/blob/main/src/assets/images/docs/homepage/reflectly-hero-600px.png?raw=true" alt="Reflectly hero image"></p> |
+
+
+
+
+## What i learnt/improved : 
+> - Modern Javascript framework workflow with **Vue.js**
+> - More advanced **Vue.js**
+>   - Middleware
+>   - Custom Plugins
+>   - etc
+> - UI Framework - **Vuetify**
+>   - Basic Components
+>   - Customizing Components
+>   - Transitions
+>   - Animations
+>   - Directives
+>   - etc
+> - Grabbing data from REST API using **Bing News API**
+> - **Vuex** state management
+> - **Nuxt.js**
+>   - Workflow of **Nuxt.js**
+>   - State management (Store)
+>   - Static content/assets management (image, custom css, etc)
+>   - Creating a web application
+> - CSS animation -> **Animate.css**
+> - Date & Time manimulation with **Moment.js**
+> - Data manipulation with **Lodash**   
+> - Formatter configuration with **Babel**
+> - Deploying web app to online server using **Netlify**
+
+# Generated Message 4 Nerds:
+
+## Build Setup 4 Nerds
 
 ```bash
 # install dependencies
