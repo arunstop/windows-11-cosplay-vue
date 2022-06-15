@@ -6,7 +6,6 @@
 ## Screen shots:
 
 ## What i learnt : 
-``` bash
 - Modern Javascript framework workflow with **Vue.js**
 - More advanced **Vue.js** (Middleware etc)
 - **Vuex** state management
@@ -15,7 +14,6 @@
 - CSS animation -> **Animate.css**
 - Date & Time manimulation with **Moment.js**
 - And more...
-```
 
 ## Generated Message 4 Nerds:
 
