@@ -4,6 +4,7 @@
 ## Result if you fancy : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
 
 ## Screenshots : 
+| Screenshots | Screenshots |
 | --- | --- |
 | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/1.png" alt="Lock screen"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/2.png" alt="Login screen"></p> |
 | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/3.png" alt="Start panel"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/5.png" alt="App window"></p> |
