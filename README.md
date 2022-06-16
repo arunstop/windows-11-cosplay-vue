@@ -4,13 +4,15 @@
 ## Result if you fancy : [Windows 11 Cosplay Vue](https://windows11-cosplay.netlify.app/)
 
 ## Screenshots : 
-| Screenshots |
+| Screenshots | KO|
 | --- | --- |
-| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/1.png" alt="Lock screen"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/2.png" alt="Login screen"></p> |
-| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/3.png" alt="Start panel"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/5.png" alt="App window"></p> |
-| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/6.png" alt="Snap layout options"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/7.png" alt="Snapped apps"></p> |
-| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/8.png" alt="Notifications and calendar"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/9.png" alt="Control center"></p> |
-| <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/10.png" alt="Widgets and news"></p> | <p align="center"><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/11.png" alt="Shutting down"></p> |
+| <p align="center"><b>Lock screen</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/1.png" alt="Lock screen"></p> | <p align="center"><b>Login screen</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/2.png" alt="Login screen"></p> |
+| <p align="center"><b>Start panel</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/3.png" alt="Start panel"></p> | <p align="center"><b>App window</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/5.png" alt="App window"></p> |
+| <p align="center"><b>Snap layout options</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/6.png" alt="Snap layout options"></p> | <p align="center"><b>Snapped apps</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/7.png" alt="Snapped apps"></p> |
+| <p align="center"><b>Notifications and calendar</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/8.png" alt="Notifications and calendar"></p> | <p align="center"><b>Control center</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/9.png" alt="Control center"></p> |
+| <p align="center"><b>Widgets and news</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/10.png" alt="Widgets and news"></p> | <p align="center"><b>Shutting down</b><br/><img src="https://raw.githubusercontent.com/arunstop/windows-11-cosplay-vue/master/static/screenshots/11.png" alt="Shutting down"></p> |
+
+
 
 
 
@@ -41,7 +43,7 @@
 > - Formatter configuration with **Babel**
 > - Deploying web app to online server using **Netlify**
 
-# Generated Message 4 Nerds:
+### Generated Message 4 Nerds:
 
 ## Build Setup 4 Nerds
 
